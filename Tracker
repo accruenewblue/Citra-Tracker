@@ -1,0 +1,31 @@
+#mon types
+"dragon"
+"flying"
+"grass"
+#attacker moves
+"Ground"
+"electrify"
+"sun"
+print("e")
+#tracker spots for 6 mons
+#mon1={
+#   name=electrode
+#   ability1=static
+#   ability2=-
+#   ability3=-
+#   weight
+#   type1="f"
+#   type2=g
+#   type3=h
+#   bst=480
+#   status=none
+#   pic=(img)
+#   hp=7
+#   atk=7
+#   def=7
+#   spa=7
+#   spd=7
+#   spe=7
+#   acc=7
+#   eva=7
+#}
