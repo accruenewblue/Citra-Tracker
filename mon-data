@@ -1,5 +1,26 @@
-file=open(r"C:\Program Files\7-Zip\readme.txt")
-content=file.readlines()
-print(content[9])
-s="interesting"
-print(s[0:-1])
+{
+    "name":"",
+    "evo":"",
+    "weight":"",
+    "bst6":"",
+    "bst7":"",
+    "types":{
+        "type1":"",
+        "type2":""
+    },
+    "pic":"",
+    "ability":{
+        "ability1":"",
+        "ability2":"",
+        "ability3":""
+    },
+    "notes":[1,0,0,0,0,0],
+    "stringnotes":"",
+    "lastseenat":"-",
+    "moves":{
+        "move1":"",
+        "move2":"",
+        "move3":"",
+        "move4":""
+    }
+}

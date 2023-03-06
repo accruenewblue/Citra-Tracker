@@ -1,15 +1,25 @@
-#mon types
-"dragon"
-"flying"
+#defender types
+"steel"
+"bug"
 "grass"
 #attacker moves
 "Ground"
-"electrify"
+"FlyingPress"
+"Fire"
+"Electric"
+#weather
 "sun"
-print("e")
+#terrain
+"electric"
+#base power
+"60"
+#ability
+"dry skin"
+
 #tracker spots for 6 mons
 #mon1={
 #   name=electrode
+#   evo=null
 #   ability1=static
 #   ability2=-
 #   ability3=-
@@ -21,11 +31,14 @@ print("e")
 #   status=none
 #   pic=(img)
 #   hp=7
+#   hpnote=
 #   atk=7
+#   atknote=
 #   def=7
 #   spa=7
 #   spd=7
 #   spe=7
 #   acc=7
 #   eva=7
+#   move1=
 #}

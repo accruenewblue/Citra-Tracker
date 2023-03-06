@@ -55,8 +55,13 @@ ext=(filemon.readlines())
 type1=ext[1][0:-1]
 type2=ext[2][0:-1]
 type3=ext[3][0:-1]
-movelist=[FlyingPress,Grass,Ice,ThousandArrows]
-ability=ext[6][1:-2]
+movelist=[Rock,Fire,Water,Electric]
+power=[225,270,95,120]
+accuracy=[1,.85,1,.7]
+ability=ext[16][1:-2]
+weather=ext[10][1:-2]
+terrain=ext[12][1:-2]
+print(weather)
 print(ability)
 if ability=="normalize":
     if FlyingPress in movelist:
@@ -66,11 +71,59 @@ if ability=="normalize":
 elif ability=="electrify":
     if FlyingPress in movelist:
         print(movelist[0])
-weather=ext[7][1:-2]
-print(weather)
-if weather=="sun":
-    print(Fire*2)
 def coverage(movedef):
-    return movedef[typedic[type1]]*movedef[typedic[type2]]*movedef[typedic[type3]]
-for item in movelist:
-    print(coverage(item))
+    typemult=movedef[typedic[type1]]*movedef[typedic[type2]]*movedef[typedic[type3]]
+    weatmult=1
+    abilmult=1
+    if weather=="sun":
+        if movelist[item]==Fire:
+            weatmult=1.5
+        if movelist[item]==Water:
+            weatmult=.5
+    if weather=="rain":
+        if movelist[item]==Fire:
+            weatmult=.5
+        if movelist[item]==Water:
+            weatmult=1.5
+    if ability=="thick fat": 
+        if movelist[item]==Fire:
+            abilmult=.5
+        if movelist[item]==Ice:
+            abilmult=.5
+        if movelist[item]==FreezeDry:
+            abilmult=.5
+        if movelist[item]==FreezeDryNormalize:
+            abilmult=.5
+    if ability=="levitate": 
+        if movelist[item]==Ground:
+            abilmult=0
+    if ability=="flash fire":
+        if movelist[item]==Fire:
+            abilmult=0
+    if ability=="motor drive":
+        if movelist[item]==Electric:
+            abilmult=0
+    if ability=="volt absorb":
+        if movelist[item]==Electric:
+            abilmult=0
+    if ability=="lightning rod":
+        if movelist[item]==Electric:
+            abilmult=0
+    if ability=="water absorb":
+        if movelist[item]==Water:
+            abilmult=0
+    if ability=="dry skin":
+        if movelist[item]==Water:
+            abilmult=0
+    if ability=="storm drain":
+        if movelist[item]==Water:
+            abilmult=0
+    if ability=="sap sipper":    
+        if movelist[item]==Grass:
+            abilmult=0
+    if ability=="dry skin": 
+        if movelist[item]==Fire:
+            abilmult=1.25
+    return typemult*weatmult*abilmult
+for item in range(0,4):
+    print(round(coverage(movelist[item])*power[item]))

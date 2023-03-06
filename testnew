@@ -1,0 +1,6 @@
+file=open(r"C:\Users\scien\Documents\GitHub\Orange-Peeler\test2","a+")
+file2=open(r"C:\Users\scien\Documents\GitHub\Orange-Peeler\mon-data","a+")
+content=file.readlines()
+print(content[0])
+file2.write("ee")
+   

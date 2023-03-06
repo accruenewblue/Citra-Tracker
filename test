@@ -1,0 +1,5 @@
+file=open(r"C:\Program Files\7-Zip\readme.txt")
+content=file.readlines()
+print(content[9])
+s="interesting"
+print((240+390+410+290+414)/5)
