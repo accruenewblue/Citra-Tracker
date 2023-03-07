@@ -1,0 +1,1160 @@
+092|Gastly|Ghost|Poison|0.2|0.1|-
+093|Haunter|Ghost|Poison|0.2|0.1|-
+669|Flabébé|Fairy|Fairy|0.2|0.1|-
+789|Cosmog|Psychic|Psychic|0.2|0.1|-
+798|Kartana|Grass|Steel|0.2|0.1|-
+999|Gimmighoul|Ghost|-|0.2|0.1|form=Roaming Form|formimg=-Roaming|-
+742|Cutiefly|Bug|Fairy|0.4|0.2|-
+854|Sinistea|Ghost|-|0.4|0.2|-
+479|Rotom|Electric|Ghost|0.7|0.3|-
+480|Uxie|Psychic|Psychic|0.7|0.3|-
+481|Mesprit|Psychic|Psychic|0.7|0.3|-
+482|Azelf|Psychic|Psychic|0.7|0.3|-
+602|Tynamo|Electric|-|0.7|0.3|-
+746|Wishiwashi|Water|Water|0.7|0.3|form=Solo Form|-
+764|Comfey|Fairy|Fairy|0.7|0.3|-
+774|Minior|Rock|Flying|0.7|0.3|form=Core Form|formimg=-Core|-
+868|Milcery|Fairy|Fairy|0.7|0.3|-
+855|Polteageist|Ghost|-|0.9|0.4|-
+864|Cursola|Ghost|-|0.9|0.4|-
+938|Tadbulb|Electric|-|0.9|0.4|-
+187|Hoppip|Grass|Flying|1.1|0.5|-
+682|Spritzee|Fairy|Fairy|1.1|0.5|-
+743|Ribombee|Bug|Fairy|1.1|0.5|-
+840|Applin|Grass|Dragon|1.1|0.5|-
+869|Alcremie|Fairy|Fairy|1.1|0.5|-
+222|Corsola|name=Galarian Corsola|Ghost|-|1.1|0.5|formimg=-Galar|-
+433|Chingling|Psychic|Psychic|1.3|0.6|-
+546|Cottonee|Grass|Fairy|1.3|0.6|-
+595|Joltik|Bug|Electric|1.3|0.6|-
+946|Bramblin|Grass|Ghost|1.3|0.6|-
+778|Mimikyu|Ghost|Fairy|1.5|0.7|-
+944|Shroodle|Poison|Normal|1.5|0.7|-
+050|Diglett|Ground|Ground|1.8|0.8|-
+351|Castform|Normal|Normal|1.8|0.8|-
+670|Floette|Fairy|Fairy|2.0|0.9|-
+050|Diglett|name=Alolan Diglett|Ground|Steel|2.2|1.0|formimg=-Alola|-
+109|Koffing|Poison|Poison|2.2|1.0|-
+174|Igglybuff|Normal|Fairy|2.2|1.0|-
+188|Skiploom|Grass|Flying|2.2|1.0|-
+200|Misdreavus|Ghost|-|2.2|1.0|-
+358|Chimecho|Psychic|Psychic|2.2|1.0|-
+577|Solosis|Psychic|Psychic|2.2|1.0|-
+590|Foongus|Grass|Poison|2.2|1.0|-
+841|Flapple|Grass|Dragon|2.2|1.0|-
+846|Arrokuda|Water|Water|2.2|1.0|-
+850|Sizzlipede|Fire|Bug|2.2|1.0|-
+871|Pincurchin|Electric|-|2.2|1.0|-
+919|Nymble|Bug|Bug|2.2|1.0|-
+953|Rellor|Bug|Bug|2.2|1.0|-
+385|Jirachi|Steel|Psychic|2.4|1.1|-
+292|Shedinja|Bug|Ghost|2.6|1.2|-
+333|Swablu|Normal|Flying|2.6|1.2|-
+406|Budew|Grass|Poison|2.6|1.2|-
+425|Drifloon|Ghost|Flying|2.6|1.2|-
+731|Pikipek|Normal|Flying|2.6|1.2|-
+771|Pyukumuku|Water|Water|2.6|1.2|-
+490|Manaphy|Water|Water|3.1|1.4|-
+175|Togepi|Fairy|Fairy|3.3|1.5|-
+562|Yamask|Ghost|-|3.3|1.5|-
+562|Yamask|name=Galarian Yamask|Ground|Ghost|3.3|1.5|formimg=-Galar|-
+722|Rowlet|Grass|Flying|3.3|1.5|-
+753|Fomantis|Grass|Grass|3.3|1.5|-
+755|Morelull|Grass|Fairy|3.3|1.5|-
+955|Flittle|Psychic|Psychic|3.3|1.5|-
+283|Surskit|Bug|Water|3.7|1.7|-
+661|Fletchling|Normal|Flying|3.7|1.7|-
+016|Pidgey|Normal|Flying|4.0|1.8|-
+191|Sunkern|Grass|Grass|4.0|1.8|-
+803|Poipole|Poison|Poison|4.0|1.8|-
+821|Rookidee|Flying|Flying|4.0|1.8|-
+924|Tandemaus|Normal|Normal|4.0|1.8|-
+960|Wiglett|Water|Water|4.0|1.8|-
+339|Barboach|Water|Ground|4.2|1.9|-
+441|Chatot|Normal|Flying|4.2|1.9|-
+021|Spearow|Normal|Flying|4.4|2.0|-
+172|Pichu|Electric|-|4.4|2.0|-
+177|Natu|Psychic|Flying|4.4|2.0|-
+298|Azurill|Normal|Fairy|4.4|2.0|-
+315|Roselia|Grass|Poison|4.4|2.0|-
+396|Starly|Normal|Flying|4.4|2.0|-
+679|Honedge|Steel|Ghost|4.4|2.0|-
+743|Ribombee|Bug|Fairy|4.4|2.0|form=Totem-sized|-
+885|Dreepy|Dragon|Ghost|4.4|2.0|-
+198|Murkrow|Dark|Flying|4.6|2.1|-
+492|Shaymin|Grass|Grass|4.6|2.1|form=Land Forme|-
+519|Pidove|Normal|Flying|4.6|2.1|-
+527|Woobat|Psychic|Flying|4.6|2.1|-
+401|Kricketot|Bug|Bug|4.9|2.2|-
+702|Dedenne|Electric|Fairy|4.9|2.2|-
+829|Gossifleur|Grass|Grass|4.9|2.2|-
+276|Taillow|Normal|Flying|5.1|2.3|-
+353|Shuppet|Ghost|-|5.1|2.3|-
+925|Maushold|Normal|Normal|5.1|2.3|form=Family of Three|formimg=-Three|-
+931|Squawkabilly|Normal|Flying|5.3|2.4|-
+102|Exeggcute|Grass|Psychic|5.5|2.5|-
+255|Torchic|Fire|Fire|5.5|2.5|-
+540|Sewaddle|Bug|Grass|5.5|2.5|-
+664|Scatterbug|Bug|Bug|5.5|2.5|-
+819|Skwovet|Normal|Normal|5.5|2.5|-
+830|Eldegoss|Grass|Grass|5.5|2.5|-
+921|Pawmi|Electric|-|5.5|2.5|-
+270|Lotad|Water|Grass|5.7|2.6|-
+704|Goomy|Dragon|Dragon|6.2|2.8|-
+778|Mimikyu|Ghost|Fairy|6.2|2.8|form=Totem-sized|-
+925|Maushold|Normal|Normal|6.2|2.8|form=Family of Four|-
+010|Caterpie|Bug|Bug|6.4|2.9|-
+173|Cleffa|Fairy|Fairy|6.6|3.0|-
+189|Jumpluff|Grass|Flying|6.6|3.0|-
+707|Klefki|Steel|Fairy|6.6|3.0|-
+877|Morpeko|Electric|Dark|6.6|3.0|-
+951|Capsakid|Grass|Grass|6.6|3.0|-
+489|Phione|Water|Water|6.8|3.1|-
+607|Litwick|Ghost|Fire|6.8|3.1|-
+013|Weedle|Bug|Poison|7.1|3.2|-
+176|Togetic|Fairy|Flying|7.1|3.2|-
+761|Bounsweet|Grass|Grass|7.1|3.2|-
+147|Dratini|Dragon|Dragon|7.3|3.3|-
+420|Cherubi|Grass|Grass|7.3|3.3|-
+777|Togedemaru|Electric|Steel|7.3|3.3|-
+412|Burmy|Bug|Bug|7.5|3.4|-
+741|Oricorio|Fire|Flying|7.5|3.4|form=Baile Style|-
+741|Oricorio|Electric|Flying|7.5|3.4|form=Pom-Pom Style|formimg=-Pom-Pom|-
+741|Oricorio|Psychic|Flying|7.5|3.4|form=Pa'u Style|formimg=-Pa'u|-
+741|Oricorio|Ghost|Flying|7.5|3.4|form=Sensu Style|formimg=-Sensu|-
+856|Hatenna|Psychic|Psychic|7.5|3.4|-
+019|Rattata|Normal|Normal|7.7|3.5|-
+677|Espurr|Psychic|Psychic|7.7|3.5|-
+684|Swirlix|Fairy|Fairy|7.7|3.5|-
+686|Inkay|Dark|Psychic|7.7|3.5|-
+710|Pumpkaboo|Ghost|Grass|7.7|3.5|form=Small Size|-
+954|Rabsca|Bug|Psychic|7.7|3.5|-
+265|Wurmple|Bug|Bug|7.9|3.6|-
+284|Masquerain|Bug|Flying|7.9|3.6|-
+940|Wattrel|Electric|Flying|7.9|3.6|-
+019|Rattata|name=Alolan Rattata|Dark|Normal|8.4|3.8|formimg=-Alola|-
+872|Snom|Ice|Bug|8.4|3.8|-
+211|Qwilfish|Water|Poison|8.6|3.9|-
+211|Qwilfish|name=Hisuian Qwilfish|Dark|Poison|8.6|3.9|formimg=-Hisui|-
+417|Pachirisu|Electric|-|8.6|3.9|-
+431|Glameow|Normal|Normal|8.6|3.9|-
+069|Bellsprout|Grass|Poison|8.8|4.0|-
+090|Shellder|Water|Water|8.8|4.0|-
+132|Ditto|Normal|Normal|8.8|4.0|-
+151|Mew|Psychic|Psychic|8.8|4.0|-
+273|Seedot|Grass|Grass|8.8|4.0|-
+494|Victini|Psychic|Fire|8.8|4.0|-
+751|Dewpider|Water|Bug|8.8|4.0|-
+816|Sobble|Water|Water|8.8|4.0|-
+852|Clobbopus|Fighting|Fighting|8.8|4.0|-
+917|Tarountula|Bug|Bug|8.8|4.0|-
+987|Flutter Mane|Ghost|Fairy|8.8|4.0|-
+506|Lillipup|Normal|Normal|9.0|4.1|-
+906|Sprigatito|Grass|Grass|9.0|4.1|-
+052|Meowth|Normal|Normal|9.3|4.2|-
+052|Meowth|name=Alolan Meowth|Dark|Dark|9.3|4.2|formimg=-Alola|-
+311|Plusle|Electric|-|9.3|4.2|-
+312|Minun|Electric|-|9.3|4.2|-
+725|Litten|Fire|Fire|9.5|4.3|-
+429|Mismagius|Ghost|-|9.7|4.4|-
+736|Grubbin|Bug|Bug|9.7|4.4|-
+285|Shroomish|Grass|Grass|9.9|4.5|-
+535|Tympole|Water|Water|9.9|4.5|-
+680|Doublade|Steel|Ghost|9.9|4.5|-
+813|Scorbunny|Fire|Fire|9.9|4.5|-
+757|Salandit|Poison|Fire|10.6|4.8|-
+857|Hattrem|Psychic|Psychic|10.6|4.8|-
+1004|Chi-Yu|Dark|Fire|10.8|4.9|-
+201|Unown|Psychic|Psychic|11.0|5.0|-
+222|Corsola|Water|Rock|11.0|5.0|-
+251|Celebi|Psychic|Grass|11.0|5.0|-
+252|Treecko|Grass|Grass|11.0|5.0|-
+327|Spinda|Normal|Normal|11.0|5.0|-
+587|Emolga|Electric|Flying|11.0|5.0|-
+659|Bunnelby|Normal|Normal|11.0|5.0|-
+685|Slurpuff|Fairy|Fairy|11.0|5.0|-
+710|Pumpkaboo|Ghost|Grass|11.0|5.0|form=Average Size|-
+810|Grookey|Grass|Grass|11.0|5.0|-
+999|Gimmighoul|Ghost|-|11.0|5.0|form=Chest Form|-
+858|Hatterene|Psychic|Fairy|11.2|5.1|-
+393|Piplup|Water|Water|11.5|5.2|-
+492|Shaymin|Grass|Flying|11.5|5.2|form=Sky Forme|formimg=-Sky|-
+543|Venipede|Bug|Poison|11.7|5.3|-
+043|Oddish|Grass|Poison|11.9|5.4|-
+046|Paras|Bug|Grass|11.9|5.4|-
+961|Wugtrio|Water|Water|11.9|5.4|-
+039|Jigglypuff|Normal|Fairy|12.1|5.5|-
+290|Nincada|Bug|Ground|12.1|5.5|-
+415|Combee|Bug|Flying|12.1|5.5|-
+427|Buneary|Normal|Normal|12.1|5.5|-
+580|Ducklett|Water|Flying|12.1|5.5|-
+859|Impidimp|Dark|Fairy|12.1|5.5|-
+582|Vanillite|Ice|Ice|12.6|5.7|-
+703|Carbink|Rock|Fairy|12.6|5.7|-
+182|Bellossom|Grass|Grass|12.8|5.8|-
+572|Minccino|Normal|Normal|12.8|5.8|-
+574|Gothita|Psychic|Psychic|12.8|5.8|-
+501|Oshawott|Water|Water|13.0|5.9|-
+588|Karrablast|Bug|Bug|13.0|5.9|-
+025|Pikachu|Electric|-|13.2|6.0|-
+081|Magnemite|Electric|Steel|13.2|6.0|-
+161|Sentret|Normal|Normal|13.2|6.0|-
+238|Smoochum|Ice|Psychic|13.2|6.0|-
+694|Helioptile|Electric|Normal|13.2|6.0|-
+734|Yungoos|Normal|Normal|13.2|6.0|-
+820|Greedent|Normal|Normal|13.2|6.0|-
+831|Wooloo|Normal|Normal|13.2|6.0|-
+947|Brambleghast|Grass|Ghost|13.2|6.0|-
+912|Quaxly|Water|Water|13.4|6.1|-
+390|Chimchar|Fire|Fire|13.7|6.2|-
+422|Shellos|Water|Water|13.9|6.3|-
+070|Weepinbell|Grass|Poison|14.1|6.4|-
+152|Chikorita|Grass|Grass|14.1|6.4|-
+098|Krabby|Water|Water|14.3|6.5|-
+104|Cubone|Ground|Ground|14.3|6.5|-
+133|Eevee|Normal|Normal|14.3|6.5|-
+220|Swinub|Ice|Ground|14.3|6.5|-
+413|Wormadam|Bug|Grass|14.3|6.5|form=Plant Cloak|formimg=-Plant|-
+413|Wormadam|Bug|Ground|14.3|6.5|form=Sandy Cloak|formimg=-Sandy|-
+413|Wormadam|Bug|Steel|14.3|6.5|form=Trash Cloak|formimg=-Trash|-
+648|Meloetta|Normal|Psychic|14.3|6.5|form=Aria Forme|-
+648|Meloetta|Normal|Fighting|14.3|6.5|form=Pirouette Forme|formimg=-Pirouette|-
+922|Pawmo|Electric|Fighting|14.3|6.5|-
+928|Smoliv|Grass|Normal|14.3|6.5|-
+280|Ralts|Psychic|Fairy|14.6|6.6|-
+547|Whimsicott|Grass|Fairy|14.6|6.6|-
+548|Petilil|Grass|Grass|14.6|6.6|-
+759|Stufful|Normal|Fighting|15.0|6.8|-
+001|Bulbasaur|Grass|Poison|15.2|6.9|-
+023|Ekans|Poison|Poison|15.2|6.9|-
+029|Nidoran♀|Poison|Poison|15.4|7.0|-
+456|Finneon|Water|Water|15.4|7.0|-
+656|Froakie|Water|Water|15.4|7.0|-
+708|Phantump|Ghost|Grass|15.4|7.0|-
+739|Crabrawler|Fighting|Fighting|15.4|7.0|-
+204|Pineco|Bug|Bug|15.9|7.2|-
+541|Swadloon|Bug|Grass|16.1|7.3|-
+690|Skrelp|Poison|Water|16.1|7.3|-
+349|Feebas|Water|Water|16.3|7.4|-
+035|Clefairy|Fairy|Fairy|16.5|7.5|-
+041|Zubat|Poison|Flying|16.5|7.5|-
+052|Meowth|name=Galarian Meowth|Steel|-|16.5|7.5|formimg=-Galar|-
+138|Omanyte|Rock|Water|16.5|7.5|-
+573|Cinccino|Normal|Normal|16.5|7.5|-
+710|Pumpkaboo|Ghost|Grass|16.5|7.5|form=Large Size|-
+728|Popplio|Water|Water|16.5|7.5|-
+258|Mudkip|Water|Water|16.8|7.6|-
+843|Silicobra|Ground|Ground|16.8|7.6|-
+616|Shelmet|Bug|Bug|17.0|7.7|-
+898|Calyrex|Psychic|Grass|17.0|7.7|-
+179|Mareep|Electric|-|17.2|7.8|-
+209|Snubbull|Fairy|Fairy|17.2|7.8|-
+155|Cyndaquil|Fire|Fire|17.4|7.9|-
+116|Horsea|Water|Water|17.6|8.0|-
+578|Duosion|Psychic|Psychic|17.6|8.0|-
+674|Pancham|Fighting|Fighting|17.6|8.0|-
+714|Noibat|Flying|Dragon|17.6|8.0|-
+747|Mareanie|Poison|Water|17.6|8.0|-
+808|Meltan|Steel|-|17.6|8.0|-
+824|Blipbug|Bug|Bug|17.6|8.0|-
+969|Glimmet|Rock|Poison|17.6|8.0|-
+978|Tatsugiri|Dragon|Water|17.6|8.0|-
+985|Scream Tail|Fairy|Psychic|17.6|8.0|-
+495|Snivy|Grass|Grass|17.9|8.1|-
+762|Steenee|Grass|Grass|18.1|8.2|-
+692|Clauncher|Water|Water|18.3|8.3|-
+665|Spewpa|Bug|Bug|18.5|8.4|-
+004|Charmander|Fire|Fire|18.7|8.5|-
+167|Spinarak|Bug|Poison|18.7|8.5|-
+183|Marill|Water|Fairy|18.7|8.5|-
+192|Sunflora|Grass|Grass|18.7|8.5|-
+194|Wooper|Water|Ground|18.7|8.5|-
+529|Drilbur|Ground|Ground|18.7|8.5|-
+613|Cubchoo|Ice|Ice|18.7|8.5|-
+678|Meowstic|Psychic|Psychic|18.7|8.5|-
+833|Chewtle|Water|Water|18.7|8.5|-
+044|Gloom|Grass|Poison|19.0|8.6|-
+370|Luvdisc|Water|Water|19.2|8.7|-
+216|Teddiursa|Normal|Normal|19.4|8.8|-
+719|Diancie|Rock|Fairy|19.4|8.8|-
+827|Nickit|Dark|Dark|19.6|8.9|-
+957|Tinkatink|Fairy|Steel|19.6|8.9|-
+007|Squirtle|Water|Water|19.8|9.0|-
+032|Nidoran♂|Poison|Poison|19.8|9.0|-
+605|Elgyem|Psychic|Psychic|19.8|9.0|-
+629|Vullaby|Dark|Flying|19.8|9.0|-
+650|Chespin|Grass|Grass|19.8|9.0|-
+720|Hoopa|name=Hoopa Confined|Psychic|Ghost|19.8|9.0|-
+814|Raboot|Fire|Fire|19.8|9.0|-
+744|Rockruff|Rock|Rock|20.3|9.2|-
+421|Cherrim|Grass|Grass|20.5|9.3|-
+653|Fennekin|Fire|Fire|20.7|9.4|-
+110|Weezing|Poison|Poison|20.9|9.5|-
+158|Totodile|Water|Water|20.9|9.5|-
+278|Wingull|Water|Flying|20.9|9.5|-
+403|Shinx|Electric|-|20.9|9.5|-
+566|Archen|Rock|Flying|20.9|9.5|-
+711|Gourgeist|Ghost|Grass|20.9|9.5|form=Small Size|-
+909|Fuecoco|Fire|Fire|21.6|9.8|-
+011|Metapod|Bug|Bug|21.8|9.9|-
+037|Vulpix|Fire|Fire|21.8|9.9|-
+037|Vulpix|name=Alolan Vulpix|Ice|Ice|21.8|9.9|formimg=-Alola|-
+498|Tepig|Fire|Fire|21.8|9.9|-
+014|Kakuna|Bug|Poison|22.0|10.0|-
+129|Magikarp|Water|Water|22.0|10.0|-
+266|Silcoon|Bug|Bug|22.0|10.0|-
+671|Florges|Fairy|Fairy|22.0|10.0|-
+509|Purrloin|Dark|Dark|22.3|10.1|-
+387|Turtwig|Grass|Grass|22.5|10.2|-
+624|Pawniard|Dark|Steel|22.5|10.2|-
+915|Lechonk|Normal|Normal|22.5|10.2|-
+316|Gulpin|Poison|Poison|22.7|10.3|-
+100|Voltorb|Electric|-|22.9|10.4|-
+511|Pansage|Grass|Grass|23.1|10.5|-
+528|Swoobat|Psychic|Flying|23.1|10.5|-
+591|Amoonguss|Grass|Poison|23.1|10.5|-
+627|Rufflet|Normal|Flying|23.1|10.5|-
+737|Charjabug|Bug|Electric|23.1|10.5|-
+935|Charcadet|Fire|Fire|23.1|10.5|-
+165|Ledyba|Bug|Flying|23.8|10.8|-
+228|Houndour|Dark|Fire|23.8|10.8|-
+657|Frogadier|Water|Water|24.0|10.9|-
+926|Fidough|Fairy|Fairy|24.0|10.9|-
+194|Wooper|name=Paldean Wooper|Poison|Ground|24.3|11.0|formimg=-Paldea|-
+300|Skitty|Normal|Normal|24.3|11.0|-
+302|Sableye|Dark|Ghost|24.3|11.0|-
+513|Pansear|Fire|Fire|24.3|11.0|-
+618|Stunfisk|Ground|Electric|24.3|11.0|-
+848|Toxel|Electric|Poison|24.3|11.0|-
+886|Drakloak|Dragon|Ghost|24.3|11.0|-
+991|Iron Bundle|Ice|Water|24.3|11.0|-
+307|Meditite|Fighting|Psychic|24.7|11.2|-
+140|Kabuto|Rock|Water|25.4|11.5|-
+190|Aipom|Normal|Normal|25.4|11.5|-
+268|Cascoon|Bug|Bug|25.4|11.5|-
+303|Mawile|Steel|Fairy|25.4|11.5|-
+341|Corphish|Water|Water|25.4|11.5|-
+756|Shiinotic|Grass|Fairy|25.4|11.5|-
+817|Drizzile|Water|Water|25.4|11.5|-
+504|Patrat|Normal|Normal|25.6|11.6|-
+559|Scraggy|Dark|Fighting|26.0|11.8|-
+929|Dolliv|Grass|Normal|26.2|11.9|-
+027|Sandshrew|Ground|Ground|26.5|12.0|-
+040|Wigglytuff|Normal|Fairy|26.5|12.0|-
+170|Chinchou|Water|Electric|26.5|12.0|-
+223|Remoraid|Water|Water|26.5|12.0|-
+291|Ninjask|Bug|Flying|26.5|12.0|-
+451|Skorupi|Poison|Bug|26.5|12.0|-
+767|Wimpod|Bug|Water|26.5|12.0|-
+837|Rolycoly|Rock|Rock|26.5|12.0|-
+891|Kubfu|Fighting|Fighting|26.5|12.0|-
+907|Floragato|Grass|Grass|26.9|12.2|-
+060|Poliwag|Water|Water|27.3|12.4|-
+049|Venomoth|Bug|Poison|27.6|12.5|-
+347|Anorith|Rock|Bug|27.6|12.5|-
+354|Banette|Ghost|-|27.6|12.5|-
+532|Timburr|Fighting|Fighting|27.6|12.5|-
+570|Zorua|Dark|Dark|27.6|12.5|-
+570|Zorua|name=Hisuian Zorua|Normal|Ghost|27.6|12.5|formimg=-Hisui|-
+711|Gourgeist|Ghost|Grass|27.6|12.5|form=Average Size|-
+860|Morgrem|Dark|Fairy|27.6|12.5|-
+002|Ivysaur|Grass|Poison|28.7|13.0|-
+100|Voltorb|name=Hisuian Voltorb|Electric|Grass|28.7|13.0|formimg=-Hisui|-
+354|Banette|name=Mega Banette|Ghost|-|28.7|13.0|formimg=-Mega|-
+439|Mime Jr.|Psychic|Fairy|28.7|13.0|-
+608|Lampent|Ghost|Fire|28.7|13.0|-
+777|Togedemaru|Electric|Steel|28.7|13.0|form=Totem-sized|-
+806|Blacephalon|Fire|Ghost|28.7|13.0|-
+842|Appletun|Grass|Dragon|28.7|13.0|-
+180|Flaaffy|Electric|-|29.3|13.3|-
+515|Panpour|Water|Water|29.8|13.5|-
+667|Litleo|Fire|Normal|29.8|13.5|-
+835|Yamper|Electric|-|29.8|13.5|-
+261|Poochyena|Dark|Dark|30.0|13.6|-
+206|Dunsparce|Normal|Normal|30.9|14.0|-
+360|Wynaut|Psychic|Psychic|30.9|14.0|-
+561|Sigilyph|Psychic|Flying|30.9|14.0|-
+711|Gourgeist|Ghost|Grass|30.9|14.0|form=Large Size|-
+811|Thwackey|Grass|Grass|30.9|14.0|-
+735|Gumshoos|Normal|Normal|31.3|14.2|-
+596|Galvantula|Bug|Electric|31.5|14.3|-
+407|Roserade|Grass|Poison|32.0|14.5|-
+557|Dwebble|Bug|Rock|32.0|14.5|-
+654|Braixen|Fire|Fire|32.0|14.5|-
+748|Toxapex|Poison|Water|32.0|14.5|-
+507|Herdier|Normal|Normal|32.4|14.7|-
+732|Trumbeak|Normal|Flying|32.6|14.8|-
+927|Dachsbun|Fairy|Fairy|32.8|14.9|-
+083|Farfetch'd|Normal|Flying|33.1|15.0|-
+118|Goldeen|Water|Water|33.1|15.0|-
+178|Xatu|Psychic|Flying|33.1|15.0|-
+328|Trapinch|Ground|Ground|33.1|15.0|-
+355|Duskull|Ghost|-|33.1|15.0|-
+426|Drifblim|Ghost|Flying|33.1|15.0|-
+438|Bonsly|Rock|Rock|33.1|15.0|-
+520|Tranquill|Normal|Flying|33.1|15.0|-
+710|Pumpkaboo|Ghost|Grass|33.1|15.0|form=Super Size|-
+952|Scovillain|Grass|Fire|33.1|15.0|-
+972|Houndstone|Ghost|-|33.1|15.0|-
+309|Electrike|Electric|-|33.5|15.2|-
+551|Sandile|Ground|Dark|33.5|15.2|-
+329|Vibrava|Ground|Dragon|33.7|15.3|-
+071|Victreebel|Grass|Poison|34.2|15.5|-
+397|Staravia|Normal|Flying|34.2|15.5|-
+683|Aromatisse|Fairy|Fairy|34.2|15.5|-
+153|Bayleef|Grass|Grass|34.8|15.8|-
+110|Weezing|name=Galarian Weezing|Poison|Fairy|35.3|16.0|formimg=-Galar|-
+225|Delibird|Ice|Flying|35.3|16.0|-
+496|Servine|Grass|Grass|35.3|16.0|-
+662|Fletchinder|Fire|Flying|35.3|16.0|-
+723|Dartrix|Grass|Flying|35.3|16.0|-
+822|Corvisquire|Flying|Flying|35.3|16.0|-
+932|Nacli|Rock|Rock|35.3|16.0|-
+942|Maschiff|Dark|Dark|35.3|16.0|-
+293|Whismur|Normal|Normal|35.9|16.3|-
+549|Lilligant|Grass|Grass|35.9|16.3|-
+148|Dragonair|Dragon|Dragon|36.4|16.5|-
+564|Tirtouga|Water|Rock|36.4|16.5|-
+918|Spidops|Bug|Bug|36.4|16.5|-
+361|Snorunt|Ice|Ice|37.0|16.8|-
+536|Palpitoad|Water|Ground|37.5|17.0|-
+666|Vivillon|Bug|Flying|37.5|17.0|-
+996|Frigibax|Dragon|Ice|37.5|17.0|-
+633|Deino|Dark|Dragon|38.1|17.3|-
+263|Zigzagoon|Normal|Normal|38.6|17.5|-
+263|Zigzagoon|name=Galarian Zigzagoon|Dark|Normal|38.6|17.5|formimg=-Galar|-
+705|Sliggoo|Dragon|Dragon|38.6|17.5|-
+729|Brionne|Water|Water|38.6|17.5|-
+920|Lokix|Bug|Dark|38.6|17.5|-
+313|Volbeat|Bug|Bug|39.0|17.7|-
+314|Illumise|Bug|Bug|39.0|17.7|-
+524|Roggenrola|Rock|Rock|39.7|18.0|-
+550|Basculin|Water|Water|39.7|18.0|-
+575|Gothorita|Psychic|Psychic|39.7|18.0|-
+610|Axew|Dragon|Dragon|39.7|18.0|-
+845|Cramorant|Flying|Water|39.7|18.0|-
+020|Raticate|Normal|Normal|40.8|18.5|-
+754|Lurantis|Grass|Grass|40.8|18.5|-
+045|Vileplume|Grass|Poison|41.0|18.6|-
+786|Tapu Lele|Psychic|Fairy|41.0|18.6|-
+597|Ferroseed|Grass|Steel|41.4|18.8|-
+005|Charmeleon|Fire|Fire|41.9|19.0|-
+058|Growlithe|Fire|Fire|41.9|19.0|-
+156|Quilava|Fire|Fire|41.9|19.0|-
+779|Bruxish|Water|Psychic|41.9|19.0|-
+434|Stunky|Poison|Dark|42.3|19.2|-
+549|Lilligant|name=Hisuian Lilligant|Grass|Fighting|42.3|19.2|formimg=-Hisui|-
+033|Nidorino|Poison|Poison|43.0|19.5|-
+063|Abra|Psychic|Psychic|43.0|19.5|-
+066|Machop|Fighting|Fighting|43.0|19.5|-
+256|Combusken|Fire|Fighting|43.0|19.5|-
+585|Deerling|Normal|Grass|43.0|19.5|-
+825|Dottler|Bug|Psychic|43.0|19.5|-
+054|Psyduck|Water|Water|43.2|19.6|-
+277|Swellow|Normal|Flying|43.7|19.8|-
+038|Ninetales|Fire|Fire|43.9|19.9|-
+038|Ninetales|name=Alolan Ninetales|Ice|Fairy|43.9|19.9|formimg=-Alola|-
+775|Komala|Normal|Normal|43.9|19.9|-
+828|Thievul|Dark|Dark|43.9|19.9|-
+030|Nidorina|Poison|Poison|44.1|20.0|-
+061|Poliwhirl|Water|Water|44.1|20.0|-
+074|Geodude|Rock|Ground|44.1|20.0|-
+399|Bidoof|Normal|Normal|44.1|20.0|-
+619|Mienfoo|Fighting|Fighting|44.1|20.0|-
+579|Reuniclus|Psychic|Psychic|44.3|20.1|-
+281|Kirlia|Psychic|Fairy|44.5|20.2|-
+447|Riolu|Fighting|Fighting|44.5|20.2|-
+074|Geodude|name=Alolan Geodude|Rock|Electric|44.8|20.3|formimg=-Alola|-
+424|Ambipom|Normal|Normal|44.8|20.3|-
+213|Shuckle|Bug|Rock|45.2|20.5|-
+443|Gible|Dragon|Ground|45.2|20.5|-
+542|Leavanny|Bug|Grass|45.2|20.5|-
+785|Tapu Koko|Electric|Fairy|45.2|20.5|-
+618|Stunfisk|name=Galarian Stunfisk|Ground|Steel|45.2|20.5|formimg=-Galar|-
+334|Altaria|Dragon|Flying|45.4|20.6|-
+334|Altaria|Dragon|Fairy|name=Mega Altaria|45.4|20.6|formimg=-Mega|-
+318|Carvanha|Water|Dark|45.9|20.8|-
+026|Raichu|name=Alolan Raichu|Electric|Psychic|46.3|21.0|formimg=-Alola|-
+236|Tyrogue|Fighting|Fighting|46.3|21.0|-
+599|Klink|Steel|-|46.3|21.0|-
+695|Heliolisk|Electric|Normal|46.3|21.0|-
+986|Brute Bonnet|Grass|Dark|46.3|21.0|-
+163|Hoothoot|Normal|Flying|46.7|21.2|-
+788|Tapu Fini|Water|Fairy|46.7|21.2|-
+240|Magby|Fire|Fire|47.2|21.4|-
+763|Tsareena|Grass|Grass|47.2|21.4|-
+343|Baltoy|Ground|Psychic|47.4|21.5|-
+701|Hawlucha|Fighting|Flying|47.4|21.5|-
+913|Quaxwell|Water|Water|47.4|21.5|-
+253|Grovyle|Grass|Grass|47.6|21.6|-
+352|Kecleon|Normal|Normal|48.5|22.0|-
+391|Monferno|Fire|Fighting|48.5|22.0|-
+603|Eelektrik|Electric|-|48.5|22.0|-
+758|Salazzle|Poison|Fire|48.9|22.2|-
+802|Marshadow|Fighting|Ghost|48.9|22.2|-
+008|Wartortle|Water|Water|49.6|22.5|-
+171|Lanturn|Water|Electric|49.6|22.5|-
+368|Gorebyss|Water|Water|49.8|22.6|-
+058|Growlithe|name=Hisuian Growlithe|Fire|Rock|50.0|22.7|formimg=-Hisui|-
+394|Prinplup|Water|Water|50.7|23.0|-
+453|Croagunk|Poison|Fighting|50.7|23.0|-
+414|Mothim|Bug|Flying|51.4|23.3|-
+517|Munna|Psychic|Psychic|51.4|23.3|-
+369|Relicanth|Water|Rock|51.6|23.4|-
+239|Elekid|Electric|-|51.8|23.5|-
+303|Mawile|name=Mega Mawile|Steel|Fairy|51.8|23.5|formimg=-Mega|-
+700|Sylveon|Fairy|Fairy|51.8|23.5|-
+340|Whiscash|Water|Ground|52.0|23.6|-
+345|Lileep|Rock|Grass|52.5|23.8|-
+077|Ponyta|name=Galarian Ponyta|Psychic|Psychic|52.9|24.0|formimg=-Galar|-
+287|Slakoth|Normal|Normal|52.9|24.0|-
+322|Numel|Fire|Ground|52.9|24.0|-
+457|Lumineon|Water|Water|52.9|24.0|-
+581|Swanna|Water|Flying|53.4|24.2|-
+440|Happiny|Normal|Normal|53.8|24.4|-
+135|Jolteon|Electric|-|54.0|24.5|-
+502|Dewott|Water|Water|54.0|24.5|-
+663|Talonflame|Fire|Flying|54.0|24.5|-
+398|Staraptor|Normal|Flying|54.9|24.9|-
+117|Seadra|Water|Water|55.1|25.0|-
+136|Flareon|Fire|Fire|55.1|25.0|-
+159|Croconaw|Water|Water|55.1|25.0|-
+726|Torracat|Fire|Fire|55.1|25.0|-
+745|Lycanroc|Rock|Rock|55.1|25.0|form=Midday Form|-
+745|Lycanroc|Rock|Rock|55.1|25.0|form=Midnight Form|formimg=-Midnight|-
+745|Lycanroc|Rock|Rock|55.1|25.0|form=Dusk Form|formimg=-Dusk|-
+795|Pheromosa|Bug|Fighting|55.1|25.0|-
+698|Amaura|Rock|Ice|55.6|25.2|-
+617|Accelgor|Bug|Bug|55.8|25.3|-
+402|Kricketune|Bug|Bug|56.2|25.5|-
+470|Leafeon|Grass|Grass|56.2|25.5|-
+020|Raticate|name=Alolan Raticate|Dark|Normal|56.2|25.5|formimg=-Alola|-
+471|Glaceon|Ice|Ice|57.1|25.9|-
+696|Tyrunt|Rock|Dragon|57.3|26.0|-
+733|Toucannon|Normal|Flying|57.3|26.0|-
+196|Espeon|Psychic|Psychic|58.4|26.5|-
+478|Froslass|Ice|Ghost|58.6|26.6|-
+197|Umbreon|Dark|Dark|59.5|27.0|-
+215|Sneasel|name=Hisuian Sneasel|Fighting|Poison|59.5|27.0|formimg=-Hisui|-
+367|Huntail|Water|Water|59.5|27.0|-
+455|Carnivine|Grass|Grass|59.5|27.0|-
+505|Watchog|Normal|Normal|59.5|27.0|-
+945|Grafaiai|Poison|Normal|60.0|27.2|-
+430|Honchkrow|Dark|Flying|60.2|27.3|-
+719|Diancie|name=Mega Diancie|Rock|Fairy|61.3|27.8|formimg=-Mega|-
+056|Mankey|Fighting|Fighting|61.7|28.0|-
+215|Sneasel|Dark|Ice|61.7|28.0|-
+259|Marshtomp|Water|Ground|61.7|28.0|-
+274|Nuzleaf|Grass|Dark|61.7|28.0|-
+279|Pelipper|Water|Flying|61.7|28.0|-
+514|Simisear|Fire|Fire|61.7|28.0|-
+556|Maractus|Grass|Grass|61.7|28.0|-
+676|Furfrou|Normal|Normal|61.7|28.0|-
+863|Perrserker|Steel|-|61.7|28.0|-
+876|Indeedee|Psychic|Normal|61.7|28.0|-
+428|Lopunny|name=Mega Lopunny|Normal|Fighting|62.4|28.3|formimg=-Mega|-
+267|Beautifly|Bug|Flying|62.6|28.4|-
+184|Azumarill|Water|Fairy|62.8|28.5|-
+202|Wobbuffet|Psychic|Psychic|62.8|28.5|-
+224|Octillery|Water|Water|62.8|28.5|-
+636|Larvesta|Bug|Fire|63.5|28.8|-
+134|Vaporeon|Water|Water|63.9|29.0|-
+516|Simipour|Water|Water|63.9|29.0|-
+521|Unfezant|Normal|Flying|63.9|29.0|-
+651|Quilladin|Grass|Grass|63.9|29.0|-
+015|Beedrill|Bug|Poison|65.0|29.5|-
+028|Sandslash|Ground|Ground|65.0|29.5|-
+047|Parasect|Bug|Grass|65.0|29.5|-
+418|Buizel|Water|Water|65.0|29.5|-
+782|Jangmo-o|Dragon|Dragon|65.5|29.7|-
+522|Blitzle|Electric|-|65.7|29.8|-
+423|Gastrodon|Water|Ground|65.9|29.9|-
+017|Pidgeotto|Normal|Flying|66.1|30.0|-
+026|Raichu|Electric|-|66.1|30.0|-
+048|Venonat|Bug|Poison|66.1|30.0|-
+077|Ponyta|Fire|Fire|66.1|30.0|-
+088|Grimer|Poison|Poison|66.1|30.0|-
+089|Muk|Poison|Poison|66.1|30.0|-
+125|Electabuzz|Electric|-|66.1|30.0|-
+560|Scrafty|Dark|Fighting|66.1|30.0|-
+847|Barraskewda|Water|Water|66.1|30.0|-
+997|Arctibax|Dragon|Ice|66.1|30.0|-
+1000|Gholdengo|Steel|Ghost|66.1|30.0|-
+404|Luxio|Electric|-|67.2|30.5|-
+512|Simisage|Grass|Grass|67.2|30.5|-
+325|Spoink|Psychic|Psychic|67.5|30.6|-
+356|Dusclops|Ghost|-|67.5|30.6|-
+910|Crocalor|Fire|Fire|67.7|30.7|-
+531|Audino|Normal|Normal|68.3|31.0|-
+568|Trubbish|Poison|Poison|68.3|31.0|-
+672|Skiddo|Grass|Grass|68.3|31.0|-
+688|Binacle|Rock|Water|68.3|31.0|-
+908|Meowscarada|Grass|Dark|68.8|31.2|-
+308|Medicham|Fighting|Psychic|69.4|31.5|-
+400|Bibarel|Normal|Water|69.4|31.5|-
+408|Cranidos|Rock|Rock|69.4|31.5|-
+269|Dustox|Bug|Poison|69.7|31.6|-
+594|Alomomola|Water|Water|69.7|31.6|-
+012|Butterfree|Bug|Flying|70.5|32.0|-
+053|Persian|Normal|Normal|70.5|32.0|-
+057|Primeape|Fighting|Fighting|70.5|32.0|-
+531|Audino|name=Mega Audino|Normal|Fairy|70.5|32.0|formimg=-Mega|-
+567|Archeops|Rock|Flying|70.5|32.0|-
+096|Drowzee|Psychic|Psychic|71.4|32.4|-
+162|Furret|Normal|Normal|71.7|32.5|-
+233|Porygon2|Normal|Normal|71.7|32.5|-
+264|Linoone|Normal|Normal|71.7|32.5|-
+264|Linoone|name=Galarian Linoone|Dark|Normal|71.7|32.5|formimg=-Galar|-
+271|Lombre|Water|Grass|71.7|32.5|-
+301|Delcatty|Normal|Normal|71.9|32.6|-
+342|Crawdaunt|Water|Dark|72.3|32.8|-
+053|Persian|name=Alolan Persian|Dark|Dark|72.8|33.0|formimg=-Alola|-
+150|Mewtwo|name=Mega Mewtwo Y|Psychic|Psychic|72.8|33.0|formimg=-Mega Y|-
+589|Escavalier|Bug|Steel|72.8|33.0|-
+592|Frillish|Water|Ghost|72.8|33.0|-
+632|Durant|Bug|Steel|72.8|33.0|-
+815|Cinderace|Fire|Fire|72.8|33.0|-
+948|Toedscool|Ground|Grass|72.8|33.0|-
+051|Dugtrio|Ground|Ground|73.4|33.3|-
+428|Lopunny|Normal|Normal|73.4|33.3|-
+552|Krokorok|Ground|Dark|73.6|33.4|-
+168|Ariados|Bug|Poison|73.9|33.5|-
+231|Phanpy|Ground|Ground|73.9|33.5|-
+419|Floatzel|Water|Water|73.9|33.5|-
+718|Zygarde|Dragon|Ground|73.9|33.5|form=10% Forme|formimg=-10Percent|-
+186|Politoed|Water|Water|74.7|33.9|-
+105|Marowak|name=Alolan Marowak|Fire|Ghost|75.0|34.0|formimg=-Alola|-
+461|Weavile|Dark|Ice|75.0|34.0|-
+474|Porygon-Z|Normal|Normal|75.0|34.0|-
+836|Boltund|Electric|-|75.0|34.0|-
+609|Chandelure|Ghost|Fire|75.6|34.3|-
+120|Staryu|Water|Water|76.1|34.5|-
+606|Beheeyem|Psychic|Psychic|76.1|34.5|-
+113|Chansey|Normal|Normal|76.3|34.6|-
+114|Tangela|Grass|Grass|77.2|35.0|-
+139|Omastar|Rock|Water|77.2|35.0|-
+218|Slugma|Fire|Fire|77.2|35.0|-
+229|Houndoom|Dark|Fire|77.2|35.0|-
+965|Varoom|Steel|Poison|77.2|35.0|-
+971|Greavard|Ghost|-|77.2|35.0|-
+1006|Iron Valiant|Fairy|Fighting|77.2|35.0|-
+693|Clawitzer|Water|Water|77.8|35.3|-
+620|Mienshao|Fighting|Fighting|78.3|35.5|-
+166|Ledian|Bug|Flying|78.5|35.6|-
+079|Slowpoke|Water|Psychic|79.4|36.0|-
+079|Slowpoke|name=Galarian Slowpoke|Psychic|Psychic|79.4|36.0|formimg=-Galar|-
+611|Fraxure|Dragon|Dragon|79.4|36.0|-
+994|Iron Moth|Fire|Poison|79.4|36.0|-
+137|Porygon|Normal|Normal|80.5|36.5|-
+724|Decidueye|Grass|Ghost|80.7|36.6|-
+262|Mightyena|Dark|Dark|81.6|37.0|-
+724|Decidueye|name=Hisuian Decidueye|Grass|Fighting|81.6|37.0|formimg=-Hisui|-
+973|Flamigo|Flying|Fighting|81.6|37.0|-
+510|Liepard|Dark|Dark|82.7|37.5|-
+554|Darumaka|Fire|Fire|82.7|37.5|-
+022|Fearow|Normal|Flying|83.8|38.0|-
+185|Sudowoodo|Rock|Rock|83.8|38.0|-
+193|Yanma|Bug|Flying|83.8|38.0|-
+435|Skuntank|Poison|Dark|83.8|38.0|-
+468|Togekiss|Fairy|Flying|83.8|38.0|-
+416|Vespiquen|Bug|Flying|84.9|38.5|-
+941|Kilowattrel|Electric|Flying|85.1|38.6|-
+119|Seaking|Water|Water|86.0|39.0|-
+655|Delphox|Fire|Psychic|86.0|39.0|-
+711|Gourgeist|Ghost|Grass|86.0|39.0|form=Super Size|-
+853|Grapploct|Fighting|Fighting|86.0|39.0|-
+084|Doduo|Normal|Flying|86.4|39.2|-
+286|Breloom|Grass|Fighting|86.4|39.2|-
+982|Dudunsparce|Normal|Normal|86.4|39.2|form=Two-Segment Form|-
+018|Pidgeot|Normal|Flying|87.1|39.5|-
+363|Spheal|Ice|Water|87.1|39.5|-
+630|Mandibuzz|Dark|Flying|87.1|39.5|-
+027|Sandshrew|name=Alolan Sandshrew|Ice|Steel|88.2|40.0|formimg=-Alola|-
+036|Clefable|Fairy|Fairy|88.2|40.0|-
+380|Latias|Dragon|Psychic|88.2|40.0|-
+533|Gurdurr|Fighting|Fighting|88.2|40.0|-
+554|Darumaka|name=Galarian Darumaka|Ice|Ice|88.2|40.0|formimg=-Galar|-
+658|Greninja|Water|Dark|88.2|40.0|-
+658|Greninja|name=Ash-Greninja|Water|Dark|88.2|40.0|formimg=-Ash|-
+774|Minior|Rock|Flying|88.2|40.0|form=Meteor Form|-
+849|Toxtricity|Electric|Poison|88.2|40.0|-
+884|Duraludon|Steel|Dragon|88.2|40.0|-
+310|Manectric|Electric|-|88.6|40.2|-
+335|Zangoose|Normal|Normal|88.8|40.3|-
+530|Excadrill|Ground|Steel|89.1|40.4|-
+015|Beedrill|name=Mega Beedrill|Bug|Poison|89.3|40.5|formimg=-Mega|-
+094|Gengar|Ghost|Poison|89.3|40.5|-
+141|Kabutops|Rock|Water|89.3|40.5|-
+294|Loudred|Normal|Normal|89.3|40.5|-
+124|Jynx|Ice|Psychic|89.5|40.6|-
+164|Noctowl|Normal|Flying|89.9|40.8|-
+826|Orbeetle|Bug|Psychic|89.9|40.8|-
+583|Vanillish|Ice|Ice|90.4|41.0|-
+628|Braviary|Normal|Flying|90.4|41.0|-
+923|Pawmot|Electric|Fighting|90.4|41.0|-
+203|Girafarig|Normal|Psychic|91.5|41.5|-
+083|Farfetch'd|name=Galarian Farfetch'd|Fighting|Fighting|92.6|42.0|formimg=-Galar|-
+088|Grimer|name=Alolan Grimer|Poison|Dark|92.6|42.0|formimg=-Alola|-
+405|Luxray|Electric|-|92.6|42.0|-
+873|Frosmoth|Ice|Bug|92.6|42.0|-
+371|Bagon|Dragon|Dragon|92.8|42.1|-
+660|Diggersby|Normal|Ground|93.5|42.4|-
+472|Gliscor|Ground|Flying|93.7|42.5|-
+962|Bombirdier|Flying|Dark|94.6|42.9|-
+832|Dubwool|Normal|Normal|94.8|43.0|-
+903|Sneasler|Fighting|Poison|94.8|43.0|-
+628|Braviary|name=Hisuian Braviary|Psychic|Flying|95.7|43.4|formimg=-Hisui|-
+432|Purugly|Normal|Normal|96.6|43.8|-
+310|Manectric|name=Mega Manectric|Electric|-|97.0|44.0|formimg=-Mega|-
+576|Gothitelle|Psychic|Psychic|97.0|44.0|-
+730|Primarina|Water|Fairy|97.0|44.0|-
+454|Toxicroak|Poison|Fighting|97.9|44.4|-
+126|Magmar|Fire|Fire|98.1|44.5|-
+807|Zeraora|Electric|-|98.1|44.5|-
+897|Spectrier|Ghost|-|98.1|44.5|-
+105|Marowak|Ground|Ground|99.2|45.0|-
+738|Vikavolt|Bug|Electric|99.2|45.0|-
+970|Glimmora|Rock|Poison|99.2|45.0|-
+974|Cetoddle|Ice|Ice|99.2|45.0|-
+818|Inteleon|Water|Water|99.6|45.2|-
+072|Tentacool|Water|Poison|100.3|45.5|-
+787|Tapu Bulu|Grass|Fairy|100.3|45.5|-
+637|Volcarona|Bug|Fire|101.4|46.0|-
+862|Obstagoon|Dark|Normal|101.4|46.0|-
+288|Vigoroth|Normal|Normal|102.5|46.5|-
+242|Blissey|Normal|Normal|103.2|46.8|-
+359|Absol|Dark|Dark|103.6|47.0|-
+687|Malamar|Dark|Psychic|103.6|47.0|-
+783|Hakamo-o|Dragon|Fighting|103.6|47.0|-
+982|Dudunsparce|Normal|Normal|104.5|47.4|form=Three-Segment Form|-
+065|Alakazam|Psychic|Psychic|105.8|48.0|-
+237|Hitmontop|Fighting|Fighting|105.8|48.0|-
+905|Enamorus|Fairy|Flying|105.8|48.0|-
+930|Arboliva|Grass|Normal|106.3|48.2|-
+282|Gardevoir|Psychic|Fairy|106.7|48.4|-
+647|Keldeo|Water|Fighting|106.9|48.5|-
+210|Granbull|Fairy|Fairy|107.4|48.7|-
+359|Absol|name=Mega Absol|Dark|Dark|108.0|49.0|formimg=-Mega|-
+229|Houndoom|name=Mega Houndoom|Dark|Fire|109.1|49.5|formimg=-Mega|-
+449|Hippopotas|Ground|Ground|109.1|49.5|-
+106|Hitmonlee|Fighting|Fighting|109.8|49.8|-
+634|Zweilous|Dark|Dragon|110.2|50.0|-
+887|Dragapult|Dragon|Ghost|110.2|50.0|-
+107|Hitmonchan|Fighting|Fighting|110.7|50.2|-
+018|Pidgeot|name=Mega Pidgeot|Normal|Flying|111.3|50.5|formimg=-Mega|-
+227|Skarmory|Steel|Flying|111.3|50.5|-
+459|Snover|Grass|Ice|111.3|50.5|-
+491|Darkrai|Dark|Dark|111.3|50.5|-
+144|Articuno|name=Galarian Articuno|Psychic|Flying|112.2|50.9|formimg=-Galar|-
+539|Sawk|Fighting|Fighting|112.4|51.0|-
+600|Klang|Steel|-|112.4|51.0|-
+331|Cacnea|Grass|Grass|113.1|51.3|-
+469|Yanmega|Bug|Flying|113.5|51.5|-
+089|Muk|name=Alolan Muk|Poison|Dark|114.6|52.0|formimg=-Alola|-
+257|Blaziken|Fire|Fighting|114.6|52.0|-
+380|Latias|name=Mega Latias|Dragon|Psychic|114.6|52.0|formimg=-Mega|-
+475|Gallade|Psychic|Fighting|114.6|52.0|-
+254|Sceptile|Grass|Grass|115.1|52.2|-
+336|Seviper|Poison|Poison|115.7|52.5|-
+366|Clamperl|Water|Water|115.7|52.5|-
+145|Zapdos|Electric|Flying|116.0|52.6|-
+681|Aegislash|Steel|Ghost|116.8|53.0|-
+898|Calyrex|name=Shadow Rider Calyrex|Psychic|Ghost|118.2|53.6|formimg=-Shadow Rider|-
+062|Poliwrath|Water|Fighting|119.0|54.0|-
+214|Heracross|Bug|Fighting|119.0|54.0|-
+448|Lucario|Fighting|Steel|119.0|54.0|-
+122|Mr. Mime|Psychic|Fairy|120.2|54.5|-
+028|Sandslash|name=Alolan Sandslash|Ice|Steel|121.3|55.0|formimg=-Alola|-
+042|Golbat|Poison|Flying|121.3|55.0|-
+073|Tentacruel|Water|Poison|121.3|55.0|-
+127|Pinsir|Bug|Bug|121.3|55.0|-
+219|Magcargo|Fire|Rock|121.3|55.0|-
+272|Ludicolo|Water|Grass|121.3|55.0|-
+392|Infernape|Fire|Fighting|121.3|55.0|-
+254|Sceptile|name=Mega Sceptile|Grass|Dragon|121.7|55.2|formimg=-Mega|-
+144|Articuno|Ice|Flying|122.1|55.4|-
+499|Pignite|Fire|Fighting|122.4|55.5|-
+538|Throh|Fighting|Fighting|122.4|55.5|-
+793|Nihilego|Rock|Poison|122.4|55.5|-
+221|Piloswine|Ice|Ground|123.0|55.8|-
+123|Scyther|Bug|Flying|123.5|56.0|-
+444|Gabite|Dragon|Ground|123.5|56.0|-
+979|Annihilape|Fighting|Ghost|123.5|56.0|-
+475|Gallade|name=Mega Gallade|Psychic|Fighting|124.3|56.4|formimg=-Mega|-
+064|Kadabra|Psychic|Psychic|124.6|56.5|-
+122|Mr. Mime|name=Galarian Mr. Mime|Ice|Psychic|125.2|56.8|formimg=-Galar|-
+410|Shieldon|Rock|Steel|125.7|57.0|-
+448|Lucario|name=Mega Lucario|Fighting|Steel|126.8|57.5|formimg=-Mega|-
+584|Vanilluxe|Ice|Ice|126.8|57.5|-
+235|Smeargle|Normal|Normal|127.9|58.0|-
+631|Heatmor|Fire|Fire|127.9|58.0|-
+754|Lurantis|Grass|Grass|127.9|58.0|form=Totem-sized|-
+949|Toedscruel|Ground|Grass|127.9|58.0|-
+145|Zapdos|name=Galarian Zapdos|Fighting|Flying|128.3|58.2|formimg=-Galar|-
+503|Samurott|name=Hisuian Samurott|Water|Dark|128.3|58.2|formimg=-Hisui|-
+866|Mr. Rime|Ice|Psychic|128.3|58.2|-
+544|Whirlipede|Bug|Poison|129.0|58.5|-
+127|Pinsir|name=Mega Pinsir|Bug|Flying|130.1|59.0|formimg=-Mega|-
+142|Aerodactyl|Rock|Flying|130.1|59.0|-
+958|Tinkatuff|Fairy|Steel|130.3|59.1|-
+275|Shiftry|Grass|Dark|131.4|59.6|-
+031|Nidoqueen|Poison|Ground|132.3|60.0|-
+082|Magneton|Electric|Steel|132.3|60.0|-
+099|Kingler|Water|Water|132.3|60.0|-
+146|Moltres|Fire|Flying|132.3|60.0|-
+304|Aron|Steel|Rock|132.3|60.0|-
+381|Latios|Dragon|Psychic|132.3|60.0|-
+735|Gumshoos|Normal|Normal|132.3|60.0|form=Totem-sized|-
+989|Sandy Shocks|Electric|Ground|132.3|60.0|-
+963|Finizen|Water|Water|132.7|60.2|-
+964|Palafin|Water|Water|132.7|60.2|form=Zero Form|-
+346|Cradily|Rock|Grass|133.2|60.4|-
+436|Bronzor|Steel|Psychic|133.4|60.5|-
+518|Musharna|Psychic|Psychic|133.4|60.5|-
+904|Overqwil|Dark|Poison|133.4|60.5|-
+386|Deoxys|Psychic|Psychic|134.0|60.8|form=Normal Forme|-
+386|Deoxys|Psychic|Psychic|134.0|60.8|form=Attack Forme|formimg=-Attack|-
+386|Deoxys|Psychic|Psychic|134.0|60.8|form=Defense Forme|formimg=-Defense|-
+386|Deoxys|Psychic|Psychic|134.0|60.8|form=Speed Forme|formimg=-Speed|-
+508|Stoutland|Normal|Normal|134.5|61.0|-
+642|Thundurus|Electric|Flying|134.5|61.0|-
+861|Grimmsnarl|Dark|Fairy|134.5|61.0|-
+943|Mabosstiff|Dark|Dark|134.5|61.0|-
+181|Ampharos|Electric|-|135.6|61.5|-
+452|Drapion|Poison|Dark|135.6|61.5|-
+914|Quaquaval|Water|Fighting|136.5|61.9|-
+034|Nidoking|Poison|Ground|136.7|62.0|-
+537|Seismitoad|Water|Ground|136.7|62.0|-
+870|Falinks|Fighting|Fighting|136.7|62.0|-
+937|Ceruledge|Fire|Ghost|136.7|62.0|-
+214|Heracross|name=Mega Heracross|Bug|Fighting|137.8|62.5|formimg=-Mega|-
+497|Serperior|Grass|Grass|138.9|63.0|-
+641|Tornadus|Flying|Flying|138.9|63.0|-
+967|Cyclizar|Dragon|Normal|138.9|63.0|-
+207|Gligar|Ground|Flying|142.9|64.8|-
+024|Arbok|Poison|Poison|143.3|65.0|-
+458|Mantyke|Water|Flying|143.3|65.0|-
+108|Lickitung|Normal|Normal|144.4|65.5|-
+844|Sandaconda|Ground|Ground|144.4|65.5|-
+146|Moltres|name=Galarian Moltres|Dark|Flying|145.5|66.0|formimg=-Galar|-
+101|Electrode|Electric|-|146.8|66.6|-
+867|Runerigus|Ground|Ghost|146.8|66.6|-
+051|Dugtrio|name=Alolan Dugtrio|Ground|Steel|146.8|66.6|formimg=-Alola|-
+467|Magmortar|Fire|Fire|149.9|68.0|-
+645|Landorus|Ground|Flying|149.9|68.0|-
+348|Armaldo|Rock|Bug|150.4|68.2|-
+705|Sliggoo|name=Hisuian Sliggoo|Steel|Dragon|151.0|68.5|formimg=-Hisui|-
+157|Typhlosion|name=Hisuian Typhlosion|Fire|Ghost|153.9|69.8|formimg=-Hisui|-
+381|Latios|name=Mega Latios|Dragon|Psychic|154.3|70.0|formimg=-Mega|-
+625|Bisharp|Dark|Steel|154.3|70.0|-
+769|Sandygast|Ghost|Ground|154.3|70.0|-
+893|Zarude|Dark|Grass|154.3|70.0|-
+067|Machoke|Fighting|Fighting|155.4|70.5|-
+080|Slowbro|name=Galarian Slowbro|Poison|Psychic|155.4|70.5|formimg=-Galar|-
+101|Electrode|name=Hisuian Electrode|Electric|Grass|156.5|71.0|formimg=-Hisui|-
+709|Trevenant|Ghost|Grass|156.5|71.0|-
+234|Stantler|Normal|Normal|157.0|71.2|-
+326|Grumpig|Psychic|Psychic|157.6|71.5|-
+246|Larvitar|Rock|Ground|158.7|72.0|-
+571|Zoroark|name=Hisuian Zoroark|Normal|Ghost|160.9|73.0|formimg=-Hisui|-
+1001|Wo-Chien|Dark|Grass|163.6|74.2|-
+169|Crobat|Poison|Flying|165.3|75.0|-
+195|Quagsire|Water|Ground|165.3|75.0|-
+823|Corviknight|Flying|Steel|165.3|75.0|-
+241|Miltank|Normal|Normal|166.4|75.5|-
+097|Hypno|Psychic|Psychic|166.7|75.6|-
+765|Oranguru|Normal|Psychic|167.6|76.0|-
+563|Cofagrigus|Ghost|-|168.7|76.5|-
+055|Golduck|Water|Water|168.9|76.6|-
+332|Cacturne|Grass|Dark|170.6|77.4|-
+838|Carkol|Rock|Fire|172.0|78.0|-
+784|Kommo-o|Dragon|Fighting|172.4|78.2|-
+080|Slowbro|Water|Psychic|173.1|78.5|-
+746|Wishiwashi|Water|Water|173.3|78.6|form=School Form|formimg=-School|-
+142|Aerodactyl|name=Mega Aerodactyl|Rock|Flying|174.2|79.0|formimg=-Mega|-
+950|Klawf|Rock|Rock|174.2|79.0|-
+157|Typhlosion|Fire|Fire|175.3|79.5|-
+199|Slowking|Water|Psychic|175.3|79.5|-
+199|Slowking|name=Galarian Slowking|Poison|Psychic|175.3|79.5|formimg=-Galar|-
+523|Zebstrika|Electric|-|175.3|79.5|-
+115|Kangaskhan|Normal|Normal|176.4|80.0|-
+121|Starmie|Water|Psychic|176.4|80.0|-
+317|Swalot|Poison|Poison|176.4|80.0|-
+078|Rapidash|name=Galarian Rapidash|Psychic|Fairy|176.4|80.0|formimg=-Galar|-
+324|Torkoal|Fire|Fire|177.3|80.4|-
+604|Eelektross|Electric|-|177.5|80.5|-
+801|Magearna|Steel|Fairy|177.5|80.5|-
+565|Carracosta|Water|Rock|178.6|81.0|-
+601|Klinklang|Steel|-|178.6|81.0|-
+571|Zoroark|Dark|Dark|178.8|81.1|-
+758|Salazzle|Poison|Fire|178.6|81.0|form=Totem-sized|-
+668|Pyroar|Fire|Normal|179.7|81.5|-
+691|Dragalge|Poison|Dragon|179.7|81.5|-
+260|Swampert|Water|Ground|180.6|81.9|-
+330|Flygon|Ground|Dragon|180.8|82.0|-
+752|Araquanid|Water|Bug|180.8|82.0|-
+649|Genesect|Bug|Steel|181.9|82.5|-
+766|Passimian|Fighting|Fighting|182.5|82.8|-
+727|Incineroar|Fire|Dark|183.0|83.0|-
+295|Exploud|Normal|Normal|185.2|84.0|-
+395|Empoleon|Water|Steel|186.3|84.5|-
+128|Tauros|name=Paldean Tauros|Fighting|Fire|187.4|85.0|form=Blaze Breed|formimg=-Paldea Blaze|-
+715|Noivern|Flying|Dragon|187.4|85.0|-
+936|Armarouge|Fire|Psychic|187.4|85.0|-
+085|Dodrio|Normal|Flying|187.8|85.2|-
+009|Blastoise|Water|Water|188.5|85.5|-
+488|Cresselia|Psychic|Psychic|188.7|85.6|-
+296|Makuhita|Fighting|Fighting|190.5|86.4|-
+534|Conkeldurr|Fighting|Fighting|191.8|87.0|-
+364|Sealeo|Ice|Water|193.1|87.6|-
+128|Tauros|Normal|Normal|194.9|88.4|-
+160|Feraligatr|Water|Water|195.8|88.8|-
+319|Sharpedo|Water|Dark|195.8|88.8|-
+875|Eiscue|Ice|Ice|196.2|89.0|-
+900|Kleavor|Bug|Rock|196.2|89.0|-
+086|Seel|Water|Water|198.4|90.0|-
+652|Chesnaught|Grass|Fighting|198.4|90.0|-
+812|Rillaboom|Grass|Grass|198.4|90.0|-
+956|Espathra|Psychic|Psychic|198.4|90.0|-
+976|Veluza|Water|Psychic|198.4|90.0|-
+006|Charizard|Fire|Flying|199.5|90.5|-
+673|Gogoat|Grass|Grass|200.6|91.0|-
+622|Golett|Ground|Ghost|202.8|92.0|-
+988|Slither Wing|Bug|Fighting|202.8|92.0|-
+586|Sawsbuck|Normal|Grass|203.9|92.5|-
+555|Darmanitan|Fire|Fire|204.8|92.9|-
+626|Bouffalant|Normal|Normal|208.6|94.6|-
+503|Samurott|Water|Water|208.6|94.6|-
+078|Rapidash|Fire|Fire|209.4|95.0|-
+445|Garchomp|Dragon|Ground|209.4|95.0|-
+899|Wyrdeer|Normal|Psychic|209.7|95.1|-
+374|Beldum|Steel|Psychic|209.9|95.2|-
+689|Barbaracle|Rock|Water|211.6|96.0|-
+553|Krookodile|Ground|Dark|212.3|96.3|-
+299|Nosepass|Rock|Rock|213.8|97.0|-
+388|Grotle|Grass|Grass|213.8|97.0|-
+964|Palafin|Water|Water|214.7|97.4|form=Hero Form|formimg=-Hero|-
+105|Marowak|name=Alolan Marowak|Fire|Ghost|216.1|98.0|form=Totem-sized|formimg=-Alola|-
+712|Bergmite|Ice|Ice|219.4|99.5|-
+003|Venusaur|Grass|Poison|220.5|100.0|-
+115|Kangaskhan|name=Mega Kangaskhan|Normal|Normal|220.5|100.0|formimg=-Mega|-
+357|Tropius|Grass|Flying|220.5|100.0|-
+796|Xurkitree|Electric|-|220.5|100.0|-
+878|Cufant|Steel|-|220.5|100.0|-
+006|Charizard|name=Mega Charizard Y|Fire|Flying|221.6|100.5|formimg=-Mega Y|-
+154|Meganium|Grass|Grass|221.6|100.5|-
+773|Silvally|Normal|Normal|221.6|100.5|-
+009|Blastoise|name=Mega Blastoise|Water|Water|222.9|101.1|formimg=-Mega|-
+260|Swampert|name=Mega Swampert|Water|Ground|224.9|102.0|formimg=-Mega|-
+525|Boldore|Rock|Rock|224.9|102.0|-
+409|Rampardos|Rock|Rock|226.0|102.5|-
+373|Salamence|Dragon|Flying|226.2|102.6|-
+075|Graveler|Rock|Ground|231.5|105.0|-
+446|Munchlax|Normal|Normal|231.5|105.0|-
+020|Raticate|name=Alolan Raticate|Dark|Normal|231.5|105.0|form=Totem-sized|formimg=-Alola|-
+892|Urshifu|Fighting|Dark|231.5|105.0|form=Single Strike Style|formimg=-Single Strike|-
+892|Urshifu|Fighting|Water|231.5|105.0|form=Rapid Strike Style|formimg=-Rapid Strike|-
+933|Naclstack|Rock|Rock|231.5|105.0|-
+612|Haxorus|Dragon|Dragon|232.6|105.5|-
+477|Dusknoir|Ghost|-|235.0|106.6|-
+569|Garbodor|Poison|Poison|236.6|107.3|-
+344|Claydol|Ground|Psychic|238.1|108.0|-
+442|Spiritomb|Ghost|Dark|238.1|108.0|-
+768|Golisopod|Bug|Water|238.1|108.0|-
+075|Graveler|name=Alolan Graveler|Rock|Electric|242.5|110.0|formimg=-Alola|-
+128|Tauros|name=Paldean Tauros|Fighting|Water|242.5|110.0|form=Aqua Breed|formimg=-Paldea Aqua|-
+598|Ferrothorn|Grass|Steel|242.5|110.0|-
+749|Mudbray|Ground|Ground|242.5|110.0|-
+888|Zacian|Fairy|Fairy|242.5|110.0|form=Hero of Many Battles|formimg=-Hero|-
+902|Basculegion|Water|Ghost|242.5|110.0|-
+006|Charizard|name=Mega Charizard X|Fire|Dragon|243.6|110.5|formimg=-Mega X|-
+372|Shelgon|Dragon|Dragon|243.6|110.5|-
+993|Iron Jugulis|Dark|Flying|244.7|111.0|-
+373|Salamence|name=Mega Salamence|Dragon|Flying|248.2|112.6|formimg=-Mega|-
+959|Tinkaton|Fairy|Steel|248.7|112.8|-
+939|Bellibolt|Electric|-|249.1|113.0|-
+111|Rhyhorn|Ground|Rock|253.5|115.0|-
+128|Tauros|name=Paldean Tauros|Fighting|Fighting|253.5|115.0|form=Combat Breed|formimg=-Paldea Combat|-
+834|Drednaw|Water|Rock|254.6|115.5|-
+865|Sirfetch'd|Fighting|Fighting|257.9|117.0|-
+212|Scizor|Bug|Steel|260.1|118.0|-
+087|Dewgong|Water|Ice|264.6|120.0|-
+080|Slowbro|name=Mega Slowbro|Water|Psychic|264.6|120.0|formimg=-Mega|-
+103|Exeggutor|Grass|Psychic|264.6|120.0|-
+112|Rhydon|Ground|Rock|264.6|120.0|-
+232|Donphan|Ground|Ground|264.6|120.0|-
+305|Lairon|Steel|Rock|264.6|120.0|-
+792|Lunala|Psychic|Ghost|264.6|120.0|-
+851|Centiskorch|Fire|Bug|264.6|120.0|-
+555|Darmanitan|name=Galarian Darmanitan|Ice|Ice|264.6|120.0|formimg=-Galar|-
+916|Oinkologne|Normal|Normal|264.6|120.0|-
+966|Revavroom|Steel|Poison|264.6|120.0|-
+983|Kingambit|Dark|Steel|264.6|120.0|-
+772|Type: Null|Normal|Normal|265.7|120.5|-
+150|Mewtwo|Psychic|Psychic|269.0|122.0|-
+212|Scizor|name=Mega Scizor|Bug|Steel|275.6|125.0|formimg=-Mega|-
+|Iron Leaves|Grass|Psychic|275.6|125.0|-
+205|Forretress|Bug|Steel|277.3|125.8|-
+217|Ursaring|Normal|Normal|277.3|125.8|-
+150|Mewtwo|name=Mega Mewtwo X|Psychic|Fighting|280.0|127.0|formimg=-Mega X|-
+465|Tangrowth|Grass|Grass|283.5|128.6|-
+068|Machamp|Fighting|Fighting|286.6|130.0|-
+320|Wailmer|Water|Water|286.6|130.0|-
+319|Sharpedo|name=Mega Sharpedo|Water|Dark|287.3|130.3|formimg=-Mega|-
+289|Slaking|Normal|Normal|287.7|130.5|-
+091|Cloyster|Water|Ice|292.1|132.5|-
+593|Jellicent|Water|Ghost|297.6|135.0|-
+760|Bewear|Normal|Fighting|297.6|135.0|-
+460|Abomasnow|Grass|Ice|298.7|135.5|-
+675|Pangoro|Fighting|Dark|299.8|136.0|-
+466|Electivire|Electric|-|305.6|138.6|-
+621|Druddigon|Dragon|Dragon|306.4|139.0|-
+463|Lickilicky|Normal|Normal|308.6|140.0|-
+894|Regieleki|Electric|-|319.7|145.0|-
+738|Vikavolt|Bug|Electric|325.2|147.5|form=Totem-sized|-
+615|Cryogonal|Ice|Ice|326.3|148.0|-
+411|Bastiodon|Rock|Steel|329.6|149.5|-
+500|Emboar|Fire|Fighting|330.7|150.0|-
+804|Naganadel|Poison|Dragon|330.7|150.0|-
+881|Arctozolt|Electric|Ice|330.7|150.0|-
+706|Goodra|Dragon|Dragon|331.8|150.5|-
+365|Walrein|Ice|Water|332.0|150.6|-
+230|Kingdra|Water|Dragon|335.1|152.0|-
+247|Pupitar|Rock|Ground|335.1|152.0|-
+1002|Chien-Pao|Dark|Ice|335.5|152.2|-
+338|Solrock|Rock|Psychic|339.5|154.0|-
+059|Arcanine|Fire|Fire|341.7|155.0|-
+003|Venusaur|name=Mega Venusaur|Grass|Poison|342.8|155.5|formimg=-Mega|-
+635|Hydreigon|Dark|Dragon|352.7|160.0|-
+981|Farigiraf|Normal|Psychic|352.7|160.0|-
+302|Sableye|name=Mega Sableye|Dark|Ghost|354.9|161.0|formimg=-Mega|-
+350|Milotic|Water|Water|357.1|162.0|-
+059|Arcanine|name=Hisuian Arcanine|Fire|Rock|370.4|168.0|formimg=-Hisui|-
+337|Lunatone|Rock|Psychic|370.4|168.0|-
+378|Regice|Ice|Ice|385.8|175.0|-
+883|Arctovish|Water|Ice|385.8|175.0|-
+243|Raikou|Electric|-|392.4|178.0|-
+462|Magnezone|Electric|Steel|396.8|180.0|-
+740|Crabominable|Fighting|Ice|396.8|180.0|-
+460|Abomasnow|name=Mega Abomasnow|Grass|Ice|407.9|185.0|formimg=-Mega|-
+780|Drampa|Normal|Dragon|407.9|185.0|-
+245|Suicune|Water|Water|412.3|187.0|-
+437|Bronzong|Steel|Psychic|412.3|187.0|-
+880|Dracozolt|Electric|Dragon|418.9|190.0|-
+721|Volcanion|Fire|Water|429.9|195.0|-
+244|Entei|Fire|Fire|436.5|198.0|-
+250|Ho-Oh|Fire|Flying|438.7|199.0|-
+558|Crustle|Bug|Rock|440.9|200.0|-
+640|Virizion|Grass|Fighting|440.9|200.0|-
+895|Regidrago|Dragon|Dragon|440.9|200.0|-
+545|Scolipede|Bug|Poison|442.0|200.5|-
+248|Tyranitar|Rock|Dark|445.3|202.0|-
+375|Metang|Steel|Psychic|446.4|202.5|-
+717|Yveltal|Dark|Flying|447.5|203.0|-
+379|RegiSteel|-|Steel|451.9|205.0|-
+384|Rayquaza|Dragon|Flying|455.3|206.5|-
+784|Kommo-o|Dragon|Fighting|457.5|207.5|form=Totem-sized|-
+095|Onix|Rock|Ground|463.0|210.0|-
+149|Dragonite|Dragon|Flying|463.0|210.0|-
+781|Dhelmise|Ghost|Grass|463.0|210.0|-
+889|Zamazenta|Fighting|Fighting|463.0|210.0|form=Hero of Many Battles|formimg=-Hero|-
+998|Baxcalibur|Dragon|Ice|463.0|210.0|-
+776|Turtonator|Fire|Dragon|467.4|212.0|-
+716|Xerneas|Fairy|Fairy|474.0|215.0|-
+882|Dracovish|Water|Dragon|474.0|215.0|-
+249|Lugia|Psychic|Flying|476.2|216.0|-
+752|Araquanid|Water|Bug|479.5|217.5|form=Totem-sized|-
+131|Lapras|Water|Ice|485.0|220.0|-
+226|Mantine|Water|Flying|485.0|220.0|-
+323|Camerupt|Fire|Ground|485.0|220.0|-
+977|Dondozo|Water|Water|485.0|220.0|-
+980|Clodsire|Poison|Ground|491.6|223.0|-
+699|Aurorus|Rock|Ice|496.0|225.0|-
+377|Regirock|Rock|Rock|507.1|230.0|-
+791|Solgaleo|Psychic|Steel|507.1|230.0|-
+800|Necrozma|Psychic|Psychic|507.1|230.0|-
+800|Necrozma|name=Ultra Necrozma|Psychic|Dragon|507.1|230.0|formimg=-Ultra|-
+130|Gyarados|Water|Flying|518.1|235.0|-
+934|Garganacl|Rock|Rock|529.1|240.0|-
+990|Iron Treads|Ground|Steel|529.1|240.0|-
+1008|Miraidon|Electric|Dragon|529.1|240.0|-
+638|Cobalion|Steel|Fighting|551.2|250.0|-
+770|Palossand|Ghost|Ground|551.2|250.0|-
+297|Hariyama|Fighting|Fighting|559.5|253.8|-
+248|Tyranitar|name=Mega Tyranitar|Rock|Dark|562.2|255.0|formimg=-Mega|-
+362|Glalie|Ice|Ice|565.5|256.5|-
+526|Gigalith|Rock|Rock|573.2|260.0|-
+614|Beartic|Ice|Ice|573.2|260.0|-
+639|Terrakion|Rock|Fighting|573.2|260.0|-
+713|Avalugg|name=Hisuian Avalugg|Ice|Rock|578.5|262.4|formimg=-Hisui|-
+697|Tyrantrum|Rock|Dragon|595.2|270.0|-
+|Walking Wake|Water|Dragon|617.3|280.0|-
+464|Rhyperior|Ground|Rock|623.5|282.8|-
+901|Ursaluna|Ground|Normal|639.3|290.0|-
+473|Mamoswine|Ice|Ground|641.5|291.0|-
+076|Golem|Rock|Ground|661.4|300.0|-
+450|Hippowdon|Ground|Ground|661.4|300.0|-
+995|Iron Thorns|Rock|Electric|668.0|303.0|-
+1007|Koraidon|Fighting|Dragon|668.0|303.0|-
+130|Gyarados|name=Mega Gyarados|Water|Dark|672.4|305.0|formimg=-Mega|-
+718|Zygarde|Dragon|Ground|672.4|305.0|form=50% Forme|-
+389|Torterra|Grass|Ground|683.4|310.0|-
+968|Orthworm|Steel|-|683.4|310.0|-
+839|Coalossal|Rock|Fire|684.5|310.5|-
+076|Golem|name=Alolan Golem|Rock|Electric|696.7|316.0|formimg=-Alola|-
+493|Arceus|Normal|Normal|705.5|320.0|-
+984|Great Tusk|Ground|Fighting|705.5|320.0|-
+323|Camerupt|name=Mega Camerupt|Fire|Ground|706.6|320.5|formimg=-Mega|-
+646|Kyurem|Dragon|Ice|716.5|325.0|-
+911|Skeledirge|Fire|Ghost|719.8|326.5|-
+623|Golurk|Ground|Ghost|727.5|330.0|-
+643|Reshiram|Dragon|Fire|727.5|330.0|-
+794|Buzzwole|Bug|Fighting|735.5|333.6|-
+706|Goodra|name=Hisuian Goodra|Steel|Dragon|736.6|334.1|formimg=-Hisui|-
+484|Palkia|Water|Dragon|740.8|336.0|-
+476|Probopass|Rock|Steel|749.6|340.0|-
+644|Zekrom|Dragon|Electric|760.6|345.0|-
+800|Necrozma|Psychic|Ghost|771.6|350.0|form=Dawn Wings|formimg=-Dawn Wings|-
+362|Glalie|name=Mega Glalie|Ice|Ice|772.1|350.2|formimg=-Mega|-
+382|Kyogre|Water|Water|776.0|352.0|-
+888|Zacian|Fairy|Steel|782.6|355.0|form=Crowned Sword|-
+306|Aggron|Steel|Rock|793.7|360.0|-
+1005|Roaring Moon|Dragon|Dark|837.8|380.0|-
+992|Iron Hands|Fighting|Electric|839.3|380.7|-
+384|Rayquaza|name=Mega Rayquaza|Dragon|Flying|864.2|392.0|formimg=-Mega|-
+306|Aggron|name=Mega Aggron|Steel|-|870.8|395.0|formimg=-Mega|-
+321|Wailord|Water|Water|877.4|398.0|-
+208|Steelix|Steel|Ground|881.8|400.0|-
+103|Exeggutor|name=Alolan Exeggutor|Grass|Dragon|916.2|415.6|formimg=-Alola|-
+486|Regigigas|Normal|Normal|925.9|420.0|-
+382|Kyogre|name=Primal Kyogre|Water|Water|948.0|430.0|formimg=-Primal|-
+485|Heatran|Fire|Steel|948.0|430.0|-
+143|Snorlax|Normal|Normal|1014.1|460.0|-
+800|Necrozma|Psychic|Steel|1014.1|460.0|form=Dusk Mane|formimg=-Dusk Mane|-
+720|Hoopa|name=Hoopa Unbound|Psychic|Dark|1080.3|490.0|formimg=-Unbound|-
+713|Avalugg|Ice|Ice|1113.3|505.0|-
+874|Stonjourner|Rock|Rock|1146.4|520.0|-
+376|Metagross|Steel|Psychic|1212.5|550.0|-
+718|Zygarde|Dragon|Ground|1344.8|610.0|form=Complete Forme|formimg=-Complete|-
+487|Giratina|Ghost|Dragon|1433.0|650.0|form=Origin Forme|formimg=-Origin|-
+879|Copperajah|Steel|-|1433.0|650.0|-
+484|Palkia|Water|Dragon|1452.8|659.0|form=Origin Forme|formimg=-Origin|-
+483|Dialga|Steel|Dragon|1505.8|683.0|-
+1003|Ting-Lu|Dark|Ground|1542.6|699.7|-
+975|Cetitan|Ice|Ice|1543.2|700.0|-
+208|Steelix|name=Mega Steelix|Steel|Ground|1631.4|740.0|formimg=-Mega|-
+487|Giratina|Ghost|Dragon|1653.5|750.0|form=Altered Forme|-
+889|Zamazenta|Fighting|Steel|1730.6|785.0|form=Crowned Shield|-
+809|Melmetal|Steel|-|1763.7|800.0|-
+896|Glastrier|Ice|Ice|1763.7|800.0|-
+898|Calyrex|name=Ice Rider Calyrex|Psychic|Ice|1783.8|809.1|formimg=-Ice Rider|-
+805|Stakataka|Rock|Steel|1807.8|820.0|-
+483|Dialga|Steel|Dragon|1871.0|848.7|form=Origin Forme|formimg=-Origin|-
+799|Guzzlord|Dark|Dragon|1957.7|888.0|-
+750|Mudsdale|Ground|Ground|2028.3|920.0|-
+376|Metagross|name=Mega Metagross|Steel|Psychic|2078.7|942.9|formimg=-Mega|-
+383|Groudon|Ground|Ground|2094.4|950.0|-
+890|Eternatus|Poison|Dragon|2094.4|950.0|-
+383|Groudon|name=Primal Groudon|Ground|Fire|2204.0|999.7|formimg=-Primal|-
+790|Cosmoem|Psychic|Psychic|2204.4|999.9|-
+797|Celesteela|Steel|Flying|2204.4|999.9|-
