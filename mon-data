@@ -3,7 +3,7 @@
 	"name":"Bulbasaur",
 	"form":"-",
 	"evo":"",
-	"weight":"092",
+	"weight":"-",
 	"bst7":"318",
 	"types":{
 		"type1":"",
@@ -30,7 +30,7 @@
 	"name":"Ivysaur",
 	"form":"-",
 	"evo":"",
-	"weight":"093",
+	"weight":"-",
 	"bst7":"405",
 	"types":{
 		"type1":"",
@@ -57,7 +57,7 @@
 	"name":"Venusaur",
 	"form":"-",
 	"evo":"",
-	"weight":"669",
+	"weight":"-",
 	"bst7":"525",
 	"types":{
 		"type1":"",
@@ -84,7 +84,7 @@
 	"name":"Venusaur",
 	"form":"Mega Venusaur",
 	"evo":"",
-	"weight":"789",
+	"weight":"-",
 	"bst7":"625",
 	"types":{
 		"type1":"",
@@ -111,7 +111,7 @@
 	"name":"Charmander",
 	"form":"-",
 	"evo":"",
-	"weight":"798",
+	"weight":"-",
 	"bst7":"309",
 	"types":{
 		"type1":"",
@@ -138,7 +138,7 @@
 	"name":"Charmeleon",
 	"form":"-",
 	"evo":"",
-	"weight":"999",
+	"weight":"-",
 	"bst7":"405",
 	"types":{
 		"type1":"",
@@ -165,7 +165,7 @@
 	"name":"Charizard",
 	"form":"-",
 	"evo":"",
-	"weight":"742",
+	"weight":"-",
 	"bst7":"534",
 	"types":{
 		"type1":"",
@@ -192,7 +192,7 @@
 	"name":"Charizard",
 	"form":"Mega Charizard X",
 	"evo":"",
-	"weight":"854",
+	"weight":"-",
 	"bst7":"634",
 	"types":{
 		"type1":"",
@@ -219,7 +219,7 @@
 	"name":"Charizard",
 	"form":"Mega Charizard Y",
 	"evo":"",
-	"weight":"479",
+	"weight":"-",
 	"bst7":"634",
 	"types":{
 		"type1":"",
@@ -246,7 +246,7 @@
 	"name":"Squirtle",
 	"form":"-",
 	"evo":"",
-	"weight":"480",
+	"weight":"-",
 	"bst7":"314",
 	"types":{
 		"type1":"",
@@ -273,7 +273,7 @@
 	"name":"Wartortle",
 	"form":"-",
 	"evo":"",
-	"weight":"481",
+	"weight":"-",
 	"bst7":"405",
 	"types":{
 		"type1":"",
@@ -300,7 +300,7 @@
 	"name":"Blastoise",
 	"form":"-",
 	"evo":"",
-	"weight":"482",
+	"weight":"-",
 	"bst7":"530",
 	"types":{
 		"type1":"",
@@ -327,7 +327,7 @@
 	"name":"Blastoise",
 	"form":"Mega Blastoise",
 	"evo":"",
-	"weight":"602",
+	"weight":"-",
 	"bst7":"630",
 	"types":{
 		"type1":"",
@@ -354,7 +354,7 @@
 	"name":"Caterpie",
 	"form":"-",
 	"evo":"",
-	"weight":"746",
+	"weight":"-",
 	"bst7":"195",
 	"types":{
 		"type1":"",
@@ -381,7 +381,7 @@
 	"name":"Metapod",
 	"form":"-",
 	"evo":"",
-	"weight":"764",
+	"weight":"-",
 	"bst7":"205",
 	"types":{
 		"type1":"",
@@ -408,7 +408,7 @@
 	"name":"Butterfree",
 	"form":"-",
 	"evo":"",
-	"weight":"774",
+	"weight":"-",
 	"bst7":"395",
 	"types":{
 		"type1":"",
@@ -435,7 +435,7 @@
 	"name":"Weedle",
 	"form":"-",
 	"evo":"",
-	"weight":"868",
+	"weight":"-",
 	"bst7":"195",
 	"types":{
 		"type1":"",
@@ -462,7 +462,7 @@
 	"name":"Kakuna",
 	"form":"-",
 	"evo":"",
-	"weight":"855",
+	"weight":"-",
 	"bst7":"205",
 	"types":{
 		"type1":"",
@@ -489,7 +489,7 @@
 	"name":"Beedrill",
 	"form":"-",
 	"evo":"",
-	"weight":"864",
+	"weight":"-",
 	"bst7":"395",
 	"types":{
 		"type1":"",
@@ -516,7 +516,7 @@
 	"name":"Beedrill",
 	"form":"Mega Beedrill",
 	"evo":"",
-	"weight":"938",
+	"weight":"-",
 	"bst7":"495",
 	"types":{
 		"type1":"",
@@ -543,7 +543,7 @@
 	"name":"Pidgey",
 	"form":"-",
 	"evo":"",
-	"weight":"187",
+	"weight":"-",
 	"bst7":"251",
 	"types":{
 		"type1":"",
@@ -570,7 +570,7 @@
 	"name":"Pidgeotto",
 	"form":"-",
 	"evo":"",
-	"weight":"682",
+	"weight":"-",
 	"bst7":"349",
 	"types":{
 		"type1":"",
@@ -597,7 +597,7 @@
 	"name":"Pidgeot",
 	"form":"-",
 	"evo":"",
-	"weight":"743",
+	"weight":"-",
 	"bst7":"479",
 	"types":{
 		"type1":"",
@@ -624,7 +624,7 @@
 	"name":"Pidgeot",
 	"form":"Mega Pidgeot",
 	"evo":"",
-	"weight":"840",
+	"weight":"-",
 	"bst7":"579",
 	"types":{
 		"type1":"",
@@ -651,7 +651,7 @@
 	"name":"Rattata",
 	"form":"-",
 	"evo":"",
-	"weight":"869",
+	"weight":"-",
 	"bst7":"253",
 	"types":{
 		"type1":"",
@@ -678,7 +678,7 @@
 	"name":"Rattata",
 	"form":"Alolan Rattata",
 	"evo":"",
-	"weight":"222",
+	"weight":"-",
 	"bst7":"253",
 	"types":{
 		"type1":"",
@@ -705,7 +705,7 @@
 	"name":"Raticate",
 	"form":"-",
 	"evo":"",
-	"weight":"433",
+	"weight":"-",
 	"bst7":"413",
 	"types":{
 		"type1":"",
@@ -732,7 +732,7 @@
 	"name":"Raticate",
 	"form":"Alolan Raticate",
 	"evo":"",
-	"weight":"546",
+	"weight":"-",
 	"bst7":"413",
 	"types":{
 		"type1":"",
@@ -759,7 +759,7 @@
 	"name":"Spearow",
 	"form":"-",
 	"evo":"",
-	"weight":"595",
+	"weight":"-",
 	"bst7":"262",
 	"types":{
 		"type1":"",
@@ -786,7 +786,7 @@
 	"name":"Fearow",
 	"form":"-",
 	"evo":"",
-	"weight":"946",
+	"weight":"-",
 	"bst7":"442",
 	"types":{
 		"type1":"",
@@ -813,7 +813,7 @@
 	"name":"Ekans",
 	"form":"-",
 	"evo":"",
-	"weight":"778",
+	"weight":"-",
 	"bst7":"288",
 	"types":{
 		"type1":"",
@@ -840,7 +840,7 @@
 	"name":"Arbok",
 	"form":"-",
 	"evo":"",
-	"weight":"944",
+	"weight":"-",
 	"bst7":"448",
 	"types":{
 		"type1":"",
@@ -867,7 +867,7 @@
 	"name":"Pikachu",
 	"form":"-",
 	"evo":"",
-	"weight":"050",
+	"weight":"-",
 	"bst7":"320",
 	"types":{
 		"type1":"",
@@ -894,7 +894,7 @@
 	"name":"Raichu",
 	"form":"-",
 	"evo":"",
-	"weight":"351",
+	"weight":"-",
 	"bst7":"485",
 	"types":{
 		"type1":"",
@@ -921,7 +921,7 @@
 	"name":"Raichu",
 	"form":"Alolan Raichu",
 	"evo":"",
-	"weight":"670",
+	"weight":"-",
 	"bst7":"485",
 	"types":{
 		"type1":"",
@@ -948,7 +948,7 @@
 	"name":"Sandshrew",
 	"form":"-",
 	"evo":"",
-	"weight":"050",
+	"weight":"-",
 	"bst7":"300",
 	"types":{
 		"type1":"",
@@ -975,7 +975,7 @@
 	"name":"Sandshrew",
 	"form":"Alolan Sandshrew",
 	"evo":"",
-	"weight":"109",
+	"weight":"-",
 	"bst7":"300",
 	"types":{
 		"type1":"",
@@ -1002,7 +1002,7 @@
 	"name":"Sandslash",
 	"form":"-",
 	"evo":"",
-	"weight":"174",
+	"weight":"-",
 	"bst7":"450",
 	"types":{
 		"type1":"",
@@ -1029,7 +1029,7 @@
 	"name":"Sandslash",
 	"form":"Alolan Sandslash",
 	"evo":"",
-	"weight":"188",
+	"weight":"-",
 	"bst7":"450",
 	"types":{
 		"type1":"",
@@ -1056,7 +1056,7 @@
 	"name":"Nidoran♀",
 	"form":"-",
 	"evo":"",
-	"weight":"200",
+	"weight":"-",
 	"bst7":"275",
 	"types":{
 		"type1":"",
@@ -1083,7 +1083,7 @@
 	"name":"Nidorina",
 	"form":"-",
 	"evo":"",
-	"weight":"358",
+	"weight":"-",
 	"bst7":"365",
 	"types":{
 		"type1":"",
@@ -1110,7 +1110,7 @@
 	"name":"Nidoqueen",
 	"form":"-",
 	"evo":"",
-	"weight":"577",
+	"weight":"-",
 	"bst7":"505",
 	"types":{
 		"type1":"",
@@ -1137,7 +1137,7 @@
 	"name":"Nidoran♂",
 	"form":"-",
 	"evo":"",
-	"weight":"590",
+	"weight":"-",
 	"bst7":"273",
 	"types":{
 		"type1":"",
@@ -1164,7 +1164,7 @@
 	"name":"Nidorino",
 	"form":"-",
 	"evo":"",
-	"weight":"841",
+	"weight":"-",
 	"bst7":"365",
 	"types":{
 		"type1":"",
@@ -1191,7 +1191,7 @@
 	"name":"Nidoking",
 	"form":"-",
 	"evo":"",
-	"weight":"846",
+	"weight":"-",
 	"bst7":"505",
 	"types":{
 		"type1":"",
@@ -1218,7 +1218,7 @@
 	"name":"Clefairy",
 	"form":"-",
 	"evo":"",
-	"weight":"850",
+	"weight":"-",
 	"bst7":"323",
 	"types":{
 		"type1":"",
@@ -1245,7 +1245,7 @@
 	"name":"Clefable",
 	"form":"-",
 	"evo":"",
-	"weight":"871",
+	"weight":"-",
 	"bst7":"483",
 	"types":{
 		"type1":"",
@@ -1272,7 +1272,7 @@
 	"name":"Vulpix",
 	"form":"-",
 	"evo":"",
-	"weight":"919",
+	"weight":"-",
 	"bst7":"299",
 	"types":{
 		"type1":"",
@@ -1299,7 +1299,7 @@
 	"name":"Vulpix",
 	"form":"Alolan Vulpix",
 	"evo":"",
-	"weight":"953",
+	"weight":"-",
 	"bst7":"299",
 	"types":{
 		"type1":"",
@@ -1326,7 +1326,7 @@
 	"name":"Ninetales",
 	"form":"-",
 	"evo":"",
-	"weight":"385",
+	"weight":"-",
 	"bst7":"505",
 	"types":{
 		"type1":"",
@@ -1353,7 +1353,7 @@
 	"name":"Ninetales",
 	"form":"Alolan Ninetales",
 	"evo":"",
-	"weight":"292",
+	"weight":"-",
 	"bst7":"505",
 	"types":{
 		"type1":"",
@@ -1380,7 +1380,7 @@
 	"name":"Jigglypuff",
 	"form":"-",
 	"evo":"",
-	"weight":"333",
+	"weight":"-",
 	"bst7":"270",
 	"types":{
 		"type1":"",
@@ -1407,7 +1407,7 @@
 	"name":"Wigglytuff",
 	"form":"-",
 	"evo":"",
-	"weight":"406",
+	"weight":"-",
 	"bst7":"435",
 	"types":{
 		"type1":"",
@@ -1434,7 +1434,7 @@
 	"name":"Zubat",
 	"form":"-",
 	"evo":"",
-	"weight":"425",
+	"weight":"-",
 	"bst7":"245",
 	"types":{
 		"type1":"",
@@ -1461,7 +1461,7 @@
 	"name":"Golbat",
 	"form":"-",
 	"evo":"",
-	"weight":"731",
+	"weight":"-",
 	"bst7":"455",
 	"types":{
 		"type1":"",
@@ -1488,7 +1488,7 @@
 	"name":"Oddish",
 	"form":"-",
 	"evo":"",
-	"weight":"771",
+	"weight":"-",
 	"bst7":"320",
 	"types":{
 		"type1":"",
@@ -1515,7 +1515,7 @@
 	"name":"Gloom",
 	"form":"-",
 	"evo":"",
-	"weight":"490",
+	"weight":"-",
 	"bst7":"395",
 	"types":{
 		"type1":"",
@@ -1542,7 +1542,7 @@
 	"name":"Vileplume",
 	"form":"-",
 	"evo":"",
-	"weight":"175",
+	"weight":"-",
 	"bst7":"490",
 	"types":{
 		"type1":"",
@@ -1569,7 +1569,7 @@
 	"name":"Paras",
 	"form":"-",
 	"evo":"",
-	"weight":"562",
+	"weight":"-",
 	"bst7":"285",
 	"types":{
 		"type1":"",
@@ -1596,7 +1596,7 @@
 	"name":"Parasect",
 	"form":"-",
 	"evo":"",
-	"weight":"562",
+	"weight":"-",
 	"bst7":"405",
 	"types":{
 		"type1":"",
@@ -1623,7 +1623,7 @@
 	"name":"Venonat",
 	"form":"-",
 	"evo":"",
-	"weight":"722",
+	"weight":"-",
 	"bst7":"305",
 	"types":{
 		"type1":"",
@@ -1650,7 +1650,7 @@
 	"name":"Venomoth",
 	"form":"-",
 	"evo":"",
-	"weight":"753",
+	"weight":"-",
 	"bst7":"450",
 	"types":{
 		"type1":"",
@@ -1677,7 +1677,7 @@
 	"name":"Diglett",
 	"form":"-",
 	"evo":"",
-	"weight":"755",
+	"weight":"-",
 	"bst7":"265",
 	"types":{
 		"type1":"",
@@ -1704,7 +1704,7 @@
 	"name":"Diglett",
 	"form":"Alolan Diglett",
 	"evo":"",
-	"weight":"955",
+	"weight":"-",
 	"bst7":"265",
 	"types":{
 		"type1":"",
@@ -1731,7 +1731,7 @@
 	"name":"Dugtrio",
 	"form":"-",
 	"evo":"",
-	"weight":"283",
+	"weight":"-",
 	"bst7":"425",
 	"types":{
 		"type1":"",
@@ -1758,7 +1758,7 @@
 	"name":"Dugtrio",
 	"form":"Alolan Dugtrio",
 	"evo":"",
-	"weight":"661",
+	"weight":"-",
 	"bst7":"425",
 	"types":{
 		"type1":"",
@@ -1785,7 +1785,7 @@
 	"name":"Meowth",
 	"form":"-",
 	"evo":"",
-	"weight":"016",
+	"weight":"-",
 	"bst7":"290",
 	"types":{
 		"type1":"",
@@ -1812,7 +1812,7 @@
 	"name":"Meowth",
 	"form":"Alolan Meowth",
 	"evo":"",
-	"weight":"191",
+	"weight":"-",
 	"bst7":"290",
 	"types":{
 		"type1":"",
@@ -1839,7 +1839,7 @@
 	"name":"Persian",
 	"form":"-",
 	"evo":"",
-	"weight":"803",
+	"weight":"-",
 	"bst7":"440",
 	"types":{
 		"type1":"",
@@ -1866,7 +1866,7 @@
 	"name":"Persian",
 	"form":"Alolan Persian",
 	"evo":"",
-	"weight":"821",
+	"weight":"-",
 	"bst7":"440",
 	"types":{
 		"type1":"",
@@ -1893,7 +1893,7 @@
 	"name":"Psyduck",
 	"form":"-",
 	"evo":"",
-	"weight":"924",
+	"weight":"-",
 	"bst7":"320",
 	"types":{
 		"type1":"",
@@ -1920,7 +1920,7 @@
 	"name":"Golduck",
 	"form":"-",
 	"evo":"",
-	"weight":"960",
+	"weight":"-",
 	"bst7":"500",
 	"types":{
 		"type1":"",
@@ -1947,7 +1947,7 @@
 	"name":"Mankey",
 	"form":"-",
 	"evo":"",
-	"weight":"339",
+	"weight":"-",
 	"bst7":"305",
 	"types":{
 		"type1":"",
@@ -1974,7 +1974,7 @@
 	"name":"Primeape",
 	"form":"-",
 	"evo":"",
-	"weight":"441",
+	"weight":"-",
 	"bst7":"455",
 	"types":{
 		"type1":"",
@@ -2001,7 +2001,7 @@
 	"name":"Growlithe",
 	"form":"-",
 	"evo":"",
-	"weight":"021",
+	"weight":"-",
 	"bst7":"350",
 	"types":{
 		"type1":"",
@@ -2028,7 +2028,7 @@
 	"name":"Arcanine",
 	"form":"-",
 	"evo":"",
-	"weight":"172",
+	"weight":"-",
 	"bst7":"555",
 	"types":{
 		"type1":"",
@@ -2055,7 +2055,7 @@
 	"name":"Poliwag",
 	"form":"-",
 	"evo":"",
-	"weight":"177",
+	"weight":"-",
 	"bst7":"300",
 	"types":{
 		"type1":"",
@@ -2082,7 +2082,7 @@
 	"name":"Poliwhirl",
 	"form":"-",
 	"evo":"",
-	"weight":"298",
+	"weight":"-",
 	"bst7":"385",
 	"types":{
 		"type1":"",
@@ -2109,7 +2109,7 @@
 	"name":"Poliwrath",
 	"form":"-",
 	"evo":"",
-	"weight":"315",
+	"weight":"-",
 	"bst7":"510",
 	"types":{
 		"type1":"",
@@ -2136,7 +2136,7 @@
 	"name":"Abra",
 	"form":"-",
 	"evo":"",
-	"weight":"396",
+	"weight":"-",
 	"bst7":"310",
 	"types":{
 		"type1":"",
@@ -2163,7 +2163,7 @@
 	"name":"Kadabra",
 	"form":"-",
 	"evo":"",
-	"weight":"679",
+	"weight":"-",
 	"bst7":"400",
 	"types":{
 		"type1":"",
@@ -2190,7 +2190,7 @@
 	"name":"Alakazam",
 	"form":"-",
 	"evo":"",
-	"weight":"743",
+	"weight":"-",
 	"bst7":"500",
 	"types":{
 		"type1":"",
@@ -2217,7 +2217,7 @@
 	"name":"Alakazam",
 	"form":"Mega Alakazam",
 	"evo":"",
-	"weight":"885",
+	"weight":"-",
 	"bst7":"600",
 	"types":{
 		"type1":"",
@@ -2244,7 +2244,7 @@
 	"name":"Machop",
 	"form":"-",
 	"evo":"",
-	"weight":"198",
+	"weight":"-",
 	"bst7":"305",
 	"types":{
 		"type1":"",
@@ -2271,7 +2271,7 @@
 	"name":"Machoke",
 	"form":"-",
 	"evo":"",
-	"weight":"492",
+	"weight":"-",
 	"bst7":"405",
 	"types":{
 		"type1":"",
@@ -2298,7 +2298,7 @@
 	"name":"Machamp",
 	"form":"-",
 	"evo":"",
-	"weight":"519",
+	"weight":"-",
 	"bst7":"505",
 	"types":{
 		"type1":"",
@@ -2325,7 +2325,7 @@
 	"name":"Bellsprout",
 	"form":"-",
 	"evo":"",
-	"weight":"527",
+	"weight":"-",
 	"bst7":"300",
 	"types":{
 		"type1":"",
@@ -2352,7 +2352,7 @@
 	"name":"Weepinbell",
 	"form":"-",
 	"evo":"",
-	"weight":"401",
+	"weight":"-",
 	"bst7":"390",
 	"types":{
 		"type1":"",
@@ -2379,7 +2379,7 @@
 	"name":"Victreebel",
 	"form":"-",
 	"evo":"",
-	"weight":"702",
+	"weight":"-",
 	"bst7":"490",
 	"types":{
 		"type1":"",
@@ -2406,7 +2406,7 @@
 	"name":"Tentacool",
 	"form":"-",
 	"evo":"",
-	"weight":"829",
+	"weight":"-",
 	"bst7":"335",
 	"types":{
 		"type1":"",
@@ -2433,7 +2433,7 @@
 	"name":"Tentacruel",
 	"form":"-",
 	"evo":"",
-	"weight":"276",
+	"weight":"-",
 	"bst7":"515",
 	"types":{
 		"type1":"",
@@ -2460,7 +2460,7 @@
 	"name":"Geodude",
 	"form":"-",
 	"evo":"",
-	"weight":"353",
+	"weight":"-",
 	"bst7":"300",
 	"types":{
 		"type1":"",
@@ -2487,7 +2487,7 @@
 	"name":"Geodude",
 	"form":"Alolan Geodude",
 	"evo":"",
-	"weight":"925",
+	"weight":"-",
 	"bst7":"300",
 	"types":{
 		"type1":"",
@@ -2514,7 +2514,7 @@
 	"name":"Graveler",
 	"form":"-",
 	"evo":"",
-	"weight":"931",
+	"weight":"-",
 	"bst7":"390",
 	"types":{
 		"type1":"",
@@ -2541,7 +2541,7 @@
 	"name":"Graveler",
 	"form":"Alolan Graveler",
 	"evo":"",
-	"weight":"102",
+	"weight":"-",
 	"bst7":"390",
 	"types":{
 		"type1":"",
@@ -2568,7 +2568,7 @@
 	"name":"Golem",
 	"form":"-",
 	"evo":"",
-	"weight":"255",
+	"weight":"-",
 	"bst7":"495",
 	"types":{
 		"type1":"",
@@ -2595,7 +2595,7 @@
 	"name":"Golem",
 	"form":"Alolan Golem",
 	"evo":"",
-	"weight":"540",
+	"weight":"-",
 	"bst7":"495",
 	"types":{
 		"type1":"",
@@ -2622,7 +2622,7 @@
 	"name":"Ponyta",
 	"form":"-",
 	"evo":"",
-	"weight":"664",
+	"weight":"-",
 	"bst7":"410",
 	"types":{
 		"type1":"",
@@ -2649,7 +2649,7 @@
 	"name":"Rapidash",
 	"form":"-",
 	"evo":"",
-	"weight":"819",
+	"weight":"-",
 	"bst7":"500",
 	"types":{
 		"type1":"",
@@ -2676,7 +2676,7 @@
 	"name":"Slowpoke",
 	"form":"-",
 	"evo":"",
-	"weight":"830",
+	"weight":"-",
 	"bst7":"315",
 	"types":{
 		"type1":"",
@@ -2703,7 +2703,7 @@
 	"name":"Slowbro",
 	"form":"-",
 	"evo":"",
-	"weight":"921",
+	"weight":"-",
 	"bst7":"490",
 	"types":{
 		"type1":"",
@@ -2730,7 +2730,7 @@
 	"name":"Slowbro",
 	"form":"Mega Slowbro",
 	"evo":"",
-	"weight":"270",
+	"weight":"-",
 	"bst7":"590",
 	"types":{
 		"type1":"",
@@ -2757,7 +2757,7 @@
 	"name":"Magnemite",
 	"form":"-",
 	"evo":"",
-	"weight":"704",
+	"weight":"-",
 	"bst7":"325",
 	"types":{
 		"type1":"",
@@ -2784,7 +2784,7 @@
 	"name":"Magneton",
 	"form":"-",
 	"evo":"",
-	"weight":"778",
+	"weight":"-",
 	"bst7":"465",
 	"types":{
 		"type1":"",
@@ -2811,7 +2811,7 @@
 	"name":"Farfetchd",
 	"form":"-",
 	"evo":"",
-	"weight":"925",
+	"weight":"-",
 	"bst7":"377",
 	"types":{
 		"type1":"",
@@ -2838,7 +2838,7 @@
 	"name":"Doduo",
 	"form":"-",
 	"evo":"",
-	"weight":"010",
+	"weight":"-",
 	"bst7":"310",
 	"types":{
 		"type1":"",
@@ -2865,7 +2865,7 @@
 	"name":"Dodrio",
 	"form":"-",
 	"evo":"",
-	"weight":"173",
+	"weight":"-",
 	"bst7":"470",
 	"types":{
 		"type1":"",
@@ -2892,7 +2892,7 @@
 	"name":"Seel",
 	"form":"-",
 	"evo":"",
-	"weight":"189",
+	"weight":"-",
 	"bst7":"325",
 	"types":{
 		"type1":"",
@@ -2919,7 +2919,7 @@
 	"name":"Dewgong",
 	"form":"-",
 	"evo":"",
-	"weight":"707",
+	"weight":"-",
 	"bst7":"475",
 	"types":{
 		"type1":"",
@@ -2946,7 +2946,7 @@
 	"name":"Grimer",
 	"form":"-",
 	"evo":"",
-	"weight":"877",
+	"weight":"-",
 	"bst7":"325",
 	"types":{
 		"type1":"",
@@ -2973,7 +2973,7 @@
 	"name":"Grimer",
 	"form":"Alolan Grimer",
 	"evo":"",
-	"weight":"951",
+	"weight":"-",
 	"bst7":"325",
 	"types":{
 		"type1":"",
@@ -3000,7 +3000,7 @@
 	"name":"Muk",
 	"form":"-",
 	"evo":"",
-	"weight":"489",
+	"weight":"-",
 	"bst7":"500",
 	"types":{
 		"type1":"",
@@ -3027,7 +3027,7 @@
 	"name":"Muk",
 	"form":"Alolan Muk",
 	"evo":"",
-	"weight":"607",
+	"weight":"-",
 	"bst7":"500",
 	"types":{
 		"type1":"",
@@ -3054,7 +3054,7 @@
 	"name":"Shellder",
 	"form":"-",
 	"evo":"",
-	"weight":"013",
+	"weight":"-",
 	"bst7":"305",
 	"types":{
 		"type1":"",
@@ -3081,7 +3081,7 @@
 	"name":"Cloyster",
 	"form":"-",
 	"evo":"",
-	"weight":"176",
+	"weight":"-",
 	"bst7":"525",
 	"types":{
 		"type1":"",
@@ -3108,7 +3108,7 @@
 	"name":"Gastly",
 	"form":"-",
 	"evo":"",
-	"weight":"761",
+	"weight":"-",
 	"bst7":"310",
 	"types":{
 		"type1":"",
@@ -3135,7 +3135,7 @@
 	"name":"Haunter",
 	"form":"-",
 	"evo":"",
-	"weight":"147",
+	"weight":"-",
 	"bst7":"405",
 	"types":{
 		"type1":"",
@@ -3162,7 +3162,7 @@
 	"name":"Gengar",
 	"form":"-",
 	"evo":"",
-	"weight":"420",
+	"weight":"-",
 	"bst7":"500",
 	"types":{
 		"type1":"",
@@ -3189,7 +3189,7 @@
 	"name":"Gengar",
 	"form":"Mega Gengar",
 	"evo":"",
-	"weight":"777",
+	"weight":"-",
 	"bst7":"600",
 	"types":{
 		"type1":"",
@@ -3216,7 +3216,7 @@
 	"name":"Onix",
 	"form":"-",
 	"evo":"",
-	"weight":"412",
+	"weight":"-",
 	"bst7":"385",
 	"types":{
 		"type1":"",
@@ -3243,7 +3243,7 @@
 	"name":"Drowzee",
 	"form":"-",
 	"evo":"",
-	"weight":"741",
+	"weight":"-",
 	"bst7":"328",
 	"types":{
 		"type1":"",
@@ -3270,7 +3270,7 @@
 	"name":"Hypno",
 	"form":"-",
 	"evo":"",
-	"weight":"741",
+	"weight":"-",
 	"bst7":"483",
 	"types":{
 		"type1":"",
@@ -3297,7 +3297,7 @@
 	"name":"Krabby",
 	"form":"-",
 	"evo":"",
-	"weight":"741",
+	"weight":"-",
 	"bst7":"325",
 	"types":{
 		"type1":"",
@@ -3324,7 +3324,7 @@
 	"name":"Kingler",
 	"form":"-",
 	"evo":"",
-	"weight":"741",
+	"weight":"-",
 	"bst7":"475",
 	"types":{
 		"type1":"",
@@ -3351,7 +3351,7 @@
 	"name":"Voltorb",
 	"form":"-",
 	"evo":"",
-	"weight":"856",
+	"weight":"-",
 	"bst7":"330",
 	"types":{
 		"type1":"",
@@ -3378,7 +3378,7 @@
 	"name":"Electrode",
 	"form":"-",
 	"evo":"",
-	"weight":"019",
+	"weight":"-",
 	"bst7":"490",
 	"types":{
 		"type1":"",
@@ -3405,7 +3405,7 @@
 	"name":"Exeggcute",
 	"form":"-",
 	"evo":"",
-	"weight":"677",
+	"weight":"-",
 	"bst7":"325",
 	"types":{
 		"type1":"",
@@ -3432,7 +3432,7 @@
 	"name":"Exeggutor",
 	"form":"-",
 	"evo":"",
-	"weight":"684",
+	"weight":"-",
 	"bst7":"530",
 	"types":{
 		"type1":"",
@@ -3459,7 +3459,7 @@
 	"name":"Exeggutor",
 	"form":"Alolan Exeggutor",
 	"evo":"",
-	"weight":"686",
+	"weight":"-",
 	"bst7":"530",
 	"types":{
 		"type1":"",
@@ -3486,7 +3486,7 @@
 	"name":"Cubone",
 	"form":"-",
 	"evo":"",
-	"weight":"710",
+	"weight":"-",
 	"bst7":"320",
 	"types":{
 		"type1":"",
@@ -3513,7 +3513,7 @@
 	"name":"Marowak",
 	"form":"-",
 	"evo":"",
-	"weight":"954",
+	"weight":"-",
 	"bst7":"425",
 	"types":{
 		"type1":"",
@@ -3540,7 +3540,7 @@
 	"name":"Marowak",
 	"form":"Alolan Marowak",
 	"evo":"",
-	"weight":"265",
+	"weight":"-",
 	"bst7":"425",
 	"types":{
 		"type1":"",
@@ -3567,7 +3567,7 @@
 	"name":"Hitmonlee",
 	"form":"-",
 	"evo":"",
-	"weight":"284",
+	"weight":"-",
 	"bst7":"455",
 	"types":{
 		"type1":"",
@@ -3594,7 +3594,7 @@
 	"name":"Hitmonchan",
 	"form":"-",
 	"evo":"",
-	"weight":"940",
+	"weight":"-",
 	"bst7":"455",
 	"types":{
 		"type1":"",
@@ -3621,7 +3621,7 @@
 	"name":"Lickitung",
 	"form":"-",
 	"evo":"",
-	"weight":"019",
+	"weight":"-",
 	"bst7":"385",
 	"types":{
 		"type1":"",
@@ -3648,7 +3648,7 @@
 	"name":"Koffing",
 	"form":"-",
 	"evo":"",
-	"weight":"872",
+	"weight":"-",
 	"bst7":"340",
 	"types":{
 		"type1":"",
@@ -3675,7 +3675,7 @@
 	"name":"Weezing",
 	"form":"-",
 	"evo":"",
-	"weight":"211",
+	"weight":"-",
 	"bst7":"490",
 	"types":{
 		"type1":"",
@@ -3702,7 +3702,7 @@
 	"name":"Rhyhorn",
 	"form":"-",
 	"evo":"",
-	"weight":"211",
+	"weight":"-",
 	"bst7":"345",
 	"types":{
 		"type1":"",
@@ -3729,7 +3729,7 @@
 	"name":"Rhydon",
 	"form":"-",
 	"evo":"",
-	"weight":"417",
+	"weight":"-",
 	"bst7":"485",
 	"types":{
 		"type1":"",
@@ -3756,7 +3756,7 @@
 	"name":"Chansey",
 	"form":"-",
 	"evo":"",
-	"weight":"431",
+	"weight":"-",
 	"bst7":"450",
 	"types":{
 		"type1":"",
@@ -3783,7 +3783,7 @@
 	"name":"Tangela",
 	"form":"-",
 	"evo":"",
-	"weight":"069",
+	"weight":"-",
 	"bst7":"435",
 	"types":{
 		"type1":"",
@@ -3810,7 +3810,7 @@
 	"name":"Kangaskhan",
 	"form":"-",
 	"evo":"",
-	"weight":"090",
+	"weight":"-",
 	"bst7":"490",
 	"types":{
 		"type1":"",
@@ -3837,7 +3837,7 @@
 	"name":"Kangaskhan",
 	"form":"Mega Kangaskhan",
 	"evo":"",
-	"weight":"132",
+	"weight":"-",
 	"bst7":"590",
 	"types":{
 		"type1":"",
@@ -3864,7 +3864,7 @@
 	"name":"Horsea",
 	"form":"-",
 	"evo":"",
-	"weight":"151",
+	"weight":"-",
 	"bst7":"295",
 	"types":{
 		"type1":"",
@@ -3891,7 +3891,7 @@
 	"name":"Seadra",
 	"form":"-",
 	"evo":"",
-	"weight":"273",
+	"weight":"-",
 	"bst7":"440",
 	"types":{
 		"type1":"",
@@ -3918,7 +3918,7 @@
 	"name":"Goldeen",
 	"form":"-",
 	"evo":"",
-	"weight":"494",
+	"weight":"-",
 	"bst7":"320",
 	"types":{
 		"type1":"",
@@ -3945,7 +3945,7 @@
 	"name":"Seaking",
 	"form":"-",
 	"evo":"",
-	"weight":"751",
+	"weight":"-",
 	"bst7":"450",
 	"types":{
 		"type1":"",
@@ -3972,7 +3972,7 @@
 	"name":"Staryu",
 	"form":"-",
 	"evo":"",
-	"weight":"816",
+	"weight":"-",
 	"bst7":"340",
 	"types":{
 		"type1":"",
@@ -3999,7 +3999,7 @@
 	"name":"Starmie",
 	"form":"-",
 	"evo":"",
-	"weight":"852",
+	"weight":"-",
 	"bst7":"520",
 	"types":{
 		"type1":"",
@@ -4026,7 +4026,7 @@
 	"name":"Mr. Mime",
 	"form":"-",
 	"evo":"",
-	"weight":"917",
+	"weight":"-",
 	"bst7":"460",
 	"types":{
 		"type1":"",
@@ -4053,7 +4053,7 @@
 	"name":"Scyther",
 	"form":"-",
 	"evo":"",
-	"weight":"987",
+	"weight":"-",
 	"bst7":"500",
 	"types":{
 		"type1":"",
@@ -4080,7 +4080,7 @@
 	"name":"Jynx",
 	"form":"-",
 	"evo":"",
-	"weight":"506",
+	"weight":"-",
 	"bst7":"455",
 	"types":{
 		"type1":"",
@@ -4107,7 +4107,7 @@
 	"name":"Electabuzz",
 	"form":"-",
 	"evo":"",
-	"weight":"906",
+	"weight":"-",
 	"bst7":"490",
 	"types":{
 		"type1":"",
@@ -4134,7 +4134,7 @@
 	"name":"Magmar",
 	"form":"-",
 	"evo":"",
-	"weight":"052",
+	"weight":"-",
 	"bst7":"495",
 	"types":{
 		"type1":"",
@@ -4161,7 +4161,7 @@
 	"name":"Pinsir",
 	"form":"-",
 	"evo":"",
-	"weight":"052",
+	"weight":"-",
 	"bst7":"500",
 	"types":{
 		"type1":"",
@@ -4188,7 +4188,7 @@
 	"name":"Pinsir",
 	"form":"Mega Pinsir",
 	"evo":"",
-	"weight":"311",
+	"weight":"-",
 	"bst7":"600",
 	"types":{
 		"type1":"",
@@ -4215,7 +4215,7 @@
 	"name":"Tauros",
 	"form":"-",
 	"evo":"",
-	"weight":"312",
+	"weight":"-",
 	"bst7":"490",
 	"types":{
 		"type1":"",
@@ -4242,7 +4242,7 @@
 	"name":"Magikarp",
 	"form":"-",
 	"evo":"",
-	"weight":"725",
+	"weight":"-",
 	"bst7":"200",
 	"types":{
 		"type1":"",
@@ -4269,7 +4269,7 @@
 	"name":"Gyarados",
 	"form":"-",
 	"evo":"",
-	"weight":"429",
+	"weight":"-",
 	"bst7":"540",
 	"types":{
 		"type1":"",
@@ -4296,7 +4296,7 @@
 	"name":"Gyarados",
 	"form":"Mega Gyarados",
 	"evo":"",
-	"weight":"736",
+	"weight":"-",
 	"bst7":"640",
 	"types":{
 		"type1":"",
@@ -4323,7 +4323,7 @@
 	"name":"Lapras",
 	"form":"-",
 	"evo":"",
-	"weight":"285",
+	"weight":"-",
 	"bst7":"535",
 	"types":{
 		"type1":"",
@@ -4350,7 +4350,7 @@
 	"name":"Ditto",
 	"form":"-",
 	"evo":"",
-	"weight":"535",
+	"weight":"-",
 	"bst7":"288",
 	"types":{
 		"type1":"",
@@ -4377,7 +4377,7 @@
 	"name":"Eevee",
 	"form":"-",
 	"evo":"",
-	"weight":"680",
+	"weight":"-",
 	"bst7":"325",
 	"types":{
 		"type1":"",
@@ -4404,7 +4404,7 @@
 	"name":"Vaporeon",
 	"form":"-",
 	"evo":"",
-	"weight":"813",
+	"weight":"-",
 	"bst7":"525",
 	"types":{
 		"type1":"",
@@ -4431,7 +4431,7 @@
 	"name":"Jolteon",
 	"form":"-",
 	"evo":"",
-	"weight":"757",
+	"weight":"-",
 	"bst7":"525",
 	"types":{
 		"type1":"",
@@ -4458,7 +4458,7 @@
 	"name":"Flareon",
 	"form":"-",
 	"evo":"",
-	"weight":"857",
+	"weight":"-",
 	"bst7":"525",
 	"types":{
 		"type1":"",
@@ -4485,7 +4485,7 @@
 	"name":"Porygon",
 	"form":"-",
 	"evo":"",
-	"weight":"100",
+	"weight":"-",
 	"bst7":"395",
 	"types":{
 		"type1":"",
@@ -4512,7 +4512,7 @@
 	"name":"Omanyte",
 	"form":"-",
 	"evo":"",
-	"weight":"201",
+	"weight":"-",
 	"bst7":"355",
 	"types":{
 		"type1":"",
@@ -4539,7 +4539,7 @@
 	"name":"Omastar",
 	"form":"-",
 	"evo":"",
-	"weight":"222",
+	"weight":"-",
 	"bst7":"495",
 	"types":{
 		"type1":"",
@@ -4566,7 +4566,7 @@
 	"name":"Kabuto",
 	"form":"-",
 	"evo":"",
-	"weight":"251",
+	"weight":"-",
 	"bst7":"355",
 	"types":{
 		"type1":"",
@@ -4593,7 +4593,7 @@
 	"name":"Kabutops",
 	"form":"-",
 	"evo":"",
-	"weight":"252",
+	"weight":"-",
 	"bst7":"495",
 	"types":{
 		"type1":"",
@@ -4620,7 +4620,7 @@
 	"name":"Aerodactyl",
 	"form":"-",
 	"evo":"",
-	"weight":"327",
+	"weight":"-",
 	"bst7":"515",
 	"types":{
 		"type1":"",
@@ -4647,7 +4647,7 @@
 	"name":"Aerodactyl",
 	"form":"Mega Aerodactyl",
 	"evo":"",
-	"weight":"587",
+	"weight":"-",
 	"bst7":"615",
 	"types":{
 		"type1":"",
@@ -4674,7 +4674,7 @@
 	"name":"Snorlax",
 	"form":"-",
 	"evo":"",
-	"weight":"659",
+	"weight":"-",
 	"bst7":"540",
 	"types":{
 		"type1":"",
@@ -4701,7 +4701,7 @@
 	"name":"Articuno",
 	"form":"-",
 	"evo":"",
-	"weight":"685",
+	"weight":"-",
 	"bst7":"580",
 	"types":{
 		"type1":"",
@@ -4728,7 +4728,7 @@
 	"name":"Zapdos",
 	"form":"-",
 	"evo":"",
-	"weight":"710",
+	"weight":"-",
 	"bst7":"580",
 	"types":{
 		"type1":"",
@@ -4755,7 +4755,7 @@
 	"name":"Moltres",
 	"form":"-",
 	"evo":"",
-	"weight":"810",
+	"weight":"-",
 	"bst7":"580",
 	"types":{
 		"type1":"",
@@ -4782,7 +4782,7 @@
 	"name":"Dratini",
 	"form":"-",
 	"evo":"",
-	"weight":"999",
+	"weight":"-",
 	"bst7":"300",
 	"types":{
 		"type1":"",
@@ -4809,7 +4809,7 @@
 	"name":"Dragonair",
 	"form":"-",
 	"evo":"",
-	"weight":"858",
+	"weight":"-",
 	"bst7":"420",
 	"types":{
 		"type1":"",
@@ -4836,7 +4836,7 @@
 	"name":"Dragonite",
 	"form":"-",
 	"evo":"",
-	"weight":"393",
+	"weight":"-",
 	"bst7":"600",
 	"types":{
 		"type1":"",
@@ -4863,7 +4863,7 @@
 	"name":"Mewtwo",
 	"form":"-",
 	"evo":"",
-	"weight":"492",
+	"weight":"-",
 	"bst7":"680",
 	"types":{
 		"type1":"",
@@ -4890,7 +4890,7 @@
 	"name":"Mewtwo",
 	"form":"Mega Mewtwo X",
 	"evo":"",
-	"weight":"543",
+	"weight":"-",
 	"bst7":"780",
 	"types":{
 		"type1":"",
@@ -4917,7 +4917,7 @@
 	"name":"Mewtwo",
 	"form":"Mega Mewtwo Y",
 	"evo":"",
-	"weight":"043",
+	"weight":"-",
 	"bst7":"780",
 	"types":{
 		"type1":"",
@@ -4944,7 +4944,7 @@
 	"name":"Mew",
 	"form":"-",
 	"evo":"",
-	"weight":"046",
+	"weight":"-",
 	"bst7":"600",
 	"types":{
 		"type1":"",
@@ -4971,7 +4971,7 @@
 	"name":"Chikorita",
 	"form":"-",
 	"evo":"",
-	"weight":"961",
+	"weight":"-",
 	"bst7":"318",
 	"types":{
 		"type1":"",
@@ -4998,7 +4998,7 @@
 	"name":"Bayleef",
 	"form":"-",
 	"evo":"",
-	"weight":"039",
+	"weight":"-",
 	"bst7":"405",
 	"types":{
 		"type1":"",
@@ -5025,7 +5025,7 @@
 	"name":"Meganium",
 	"form":"-",
 	"evo":"",
-	"weight":"290",
+	"weight":"-",
 	"bst7":"525",
 	"types":{
 		"type1":"",
@@ -5052,7 +5052,7 @@
 	"name":"Cyndaquil",
 	"form":"-",
 	"evo":"",
-	"weight":"415",
+	"weight":"-",
 	"bst7":"309",
 	"types":{
 		"type1":"",
@@ -5079,7 +5079,7 @@
 	"name":"Quilava",
 	"form":"-",
 	"evo":"",
-	"weight":"427",
+	"weight":"-",
 	"bst7":"405",
 	"types":{
 		"type1":"",
@@ -5106,7 +5106,7 @@
 	"name":"Typhlosion",
 	"form":"-",
 	"evo":"",
-	"weight":"580",
+	"weight":"-",
 	"bst7":"534",
 	"types":{
 		"type1":"",
@@ -5133,7 +5133,7 @@
 	"name":"Totodile",
 	"form":"-",
 	"evo":"",
-	"weight":"859",
+	"weight":"-",
 	"bst7":"314",
 	"types":{
 		"type1":"",
@@ -5160,7 +5160,7 @@
 	"name":"Croconaw",
 	"form":"-",
 	"evo":"",
-	"weight":"582",
+	"weight":"-",
 	"bst7":"405",
 	"types":{
 		"type1":"",
@@ -5187,7 +5187,7 @@
 	"name":"Feraligatr",
 	"form":"-",
 	"evo":"",
-	"weight":"703",
+	"weight":"-",
 	"bst7":"530",
 	"types":{
 		"type1":"",
@@ -5214,7 +5214,7 @@
 	"name":"Sentret",
 	"form":"-",
 	"evo":"",
-	"weight":"182",
+	"weight":"-",
 	"bst7":"215",
 	"types":{
 		"type1":"",
@@ -5241,7 +5241,7 @@
 	"name":"Furret",
 	"form":"-",
 	"evo":"",
-	"weight":"572",
+	"weight":"-",
 	"bst7":"415",
 	"types":{
 		"type1":"",
@@ -5268,7 +5268,7 @@
 	"name":"Hoothoot",
 	"form":"-",
 	"evo":"",
-	"weight":"574",
+	"weight":"-",
 	"bst7":"262",
 	"types":{
 		"type1":"",
@@ -5295,7 +5295,7 @@
 	"name":"Noctowl",
 	"form":"-",
 	"evo":"",
-	"weight":"501",
+	"weight":"-",
 	"bst7":"452",
 	"types":{
 		"type1":"",
@@ -5322,7 +5322,7 @@
 	"name":"Ledyba",
 	"form":"-",
 	"evo":"",
-	"weight":"588",
+	"weight":"-",
 	"bst7":"265",
 	"types":{
 		"type1":"",
@@ -5349,7 +5349,7 @@
 	"name":"Ledian",
 	"form":"-",
 	"evo":"",
-	"weight":"025",
+	"weight":"-",
 	"bst7":"390",
 	"types":{
 		"type1":"",
@@ -5376,7 +5376,7 @@
 	"name":"Spinarak",
 	"form":"-",
 	"evo":"",
-	"weight":"081",
+	"weight":"-",
 	"bst7":"250",
 	"types":{
 		"type1":"",
@@ -5403,7 +5403,7 @@
 	"name":"Ariados",
 	"form":"-",
 	"evo":"",
-	"weight":"161",
+	"weight":"-",
 	"bst7":"400",
 	"types":{
 		"type1":"",
@@ -5430,7 +5430,7 @@
 	"name":"Crobat",
 	"form":"-",
 	"evo":"",
-	"weight":"238",
+	"weight":"-",
 	"bst7":"535",
 	"types":{
 		"type1":"",
@@ -5457,7 +5457,7 @@
 	"name":"Chinchou",
 	"form":"-",
 	"evo":"",
-	"weight":"694",
+	"weight":"-",
 	"bst7":"330",
 	"types":{
 		"type1":"",
@@ -5484,7 +5484,7 @@
 	"name":"Lanturn",
 	"form":"-",
 	"evo":"",
-	"weight":"734",
+	"weight":"-",
 	"bst7":"460",
 	"types":{
 		"type1":"",
@@ -5511,7 +5511,7 @@
 	"name":"Pichu",
 	"form":"-",
 	"evo":"",
-	"weight":"820",
+	"weight":"-",
 	"bst7":"205",
 	"types":{
 		"type1":"",
@@ -5538,7 +5538,7 @@
 	"name":"Cleffa",
 	"form":"-",
 	"evo":"",
-	"weight":"831",
+	"weight":"-",
 	"bst7":"218",
 	"types":{
 		"type1":"",
@@ -5565,7 +5565,7 @@
 	"name":"Igglybuff",
 	"form":"-",
 	"evo":"",
-	"weight":"947",
+	"weight":"-",
 	"bst7":"210",
 	"types":{
 		"type1":"",
@@ -5592,7 +5592,7 @@
 	"name":"Togepi",
 	"form":"-",
 	"evo":"",
-	"weight":"912",
+	"weight":"-",
 	"bst7":"245",
 	"types":{
 		"type1":"",
@@ -5619,7 +5619,7 @@
 	"name":"Togetic",
 	"form":"-",
 	"evo":"",
-	"weight":"390",
+	"weight":"-",
 	"bst7":"405",
 	"types":{
 		"type1":"",
@@ -5646,7 +5646,7 @@
 	"name":"Natu",
 	"form":"-",
 	"evo":"",
-	"weight":"422",
+	"weight":"-",
 	"bst7":"320",
 	"types":{
 		"type1":"",
@@ -5673,7 +5673,7 @@
 	"name":"Xatu",
 	"form":"-",
 	"evo":"",
-	"weight":"070",
+	"weight":"-",
 	"bst7":"470",
 	"types":{
 		"type1":"",
@@ -5700,7 +5700,7 @@
 	"name":"Mareep",
 	"form":"-",
 	"evo":"",
-	"weight":"152",
+	"weight":"-",
 	"bst7":"280",
 	"types":{
 		"type1":"",
@@ -5727,7 +5727,7 @@
 	"name":"Flaaffy",
 	"form":"-",
 	"evo":"",
-	"weight":"098",
+	"weight":"-",
 	"bst7":"365",
 	"types":{
 		"type1":"",
@@ -5754,7 +5754,7 @@
 	"name":"Ampharos",
 	"form":"-",
 	"evo":"",
-	"weight":"104",
+	"weight":"-",
 	"bst7":"510",
 	"types":{
 		"type1":"",
@@ -5781,7 +5781,7 @@
 	"name":"Ampharos",
 	"form":"Mega Ampharos",
 	"evo":"",
-	"weight":"133",
+	"weight":"-",
 	"bst7":"610",
 	"types":{
 		"type1":"",
@@ -5808,7 +5808,7 @@
 	"name":"Bellossom",
 	"form":"-",
 	"evo":"",
-	"weight":"220",
+	"weight":"-",
 	"bst7":"490",
 	"types":{
 		"type1":"",
@@ -5835,7 +5835,7 @@
 	"name":"Marill",
 	"form":"-",
 	"evo":"",
-	"weight":"413",
+	"weight":"-",
 	"bst7":"250",
 	"types":{
 		"type1":"",
@@ -5862,7 +5862,7 @@
 	"name":"Azumarill",
 	"form":"-",
 	"evo":"",
-	"weight":"413",
+	"weight":"-",
 	"bst7":"420",
 	"types":{
 		"type1":"",
@@ -5889,7 +5889,7 @@
 	"name":"Sudowoodo",
 	"form":"-",
 	"evo":"",
-	"weight":"413",
+	"weight":"-",
 	"bst7":"410",
 	"types":{
 		"type1":"",
@@ -5916,7 +5916,7 @@
 	"name":"Politoed",
 	"form":"-",
 	"evo":"",
-	"weight":"648",
+	"weight":"-",
 	"bst7":"500",
 	"types":{
 		"type1":"",
@@ -5943,7 +5943,7 @@
 	"name":"Hoppip",
 	"form":"-",
 	"evo":"",
-	"weight":"648",
+	"weight":"-",
 	"bst7":"250",
 	"types":{
 		"type1":"",
@@ -5970,7 +5970,7 @@
 	"name":"Skiploom",
 	"form":"-",
 	"evo":"",
-	"weight":"922",
+	"weight":"-",
 	"bst7":"340",
 	"types":{
 		"type1":"",
@@ -5997,7 +5997,7 @@
 	"name":"Jumpluff",
 	"form":"-",
 	"evo":"",
-	"weight":"928",
+	"weight":"-",
 	"bst7":"460",
 	"types":{
 		"type1":"",
@@ -6024,7 +6024,7 @@
 	"name":"Aipom",
 	"form":"-",
 	"evo":"",
-	"weight":"280",
+	"weight":"-",
 	"bst7":"360",
 	"types":{
 		"type1":"",
@@ -6051,7 +6051,7 @@
 	"name":"Sunkern",
 	"form":"-",
 	"evo":"",
-	"weight":"547",
+	"weight":"-",
 	"bst7":"180",
 	"types":{
 		"type1":"",
@@ -6078,7 +6078,7 @@
 	"name":"Sunflora",
 	"form":"-",
 	"evo":"",
-	"weight":"548",
+	"weight":"-",
 	"bst7":"425",
 	"types":{
 		"type1":"",
@@ -6105,7 +6105,7 @@
 	"name":"Yanma",
 	"form":"-",
 	"evo":"",
-	"weight":"759",
+	"weight":"-",
 	"bst7":"390",
 	"types":{
 		"type1":"",
@@ -6132,7 +6132,7 @@
 	"name":"Wooper",
 	"form":"-",
 	"evo":"",
-	"weight":"001",
+	"weight":"-",
 	"bst7":"210",
 	"types":{
 		"type1":"",
@@ -6159,7 +6159,7 @@
 	"name":"Quagsire",
 	"form":"-",
 	"evo":"",
-	"weight":"023",
+	"weight":"-",
 	"bst7":"430",
 	"types":{
 		"type1":"",
@@ -6186,7 +6186,7 @@
 	"name":"Espeon",
 	"form":"-",
 	"evo":"",
-	"weight":"029",
+	"weight":"-",
 	"bst7":"525",
 	"types":{
 		"type1":"",
@@ -6213,7 +6213,7 @@
 	"name":"Umbreon",
 	"form":"-",
 	"evo":"",
-	"weight":"456",
+	"weight":"-",
 	"bst7":"525",
 	"types":{
 		"type1":"",
@@ -6240,7 +6240,7 @@
 	"name":"Murkrow",
 	"form":"-",
 	"evo":"",
-	"weight":"656",
+	"weight":"-",
 	"bst7":"405",
 	"types":{
 		"type1":"",
@@ -6267,7 +6267,7 @@
 	"name":"Slowking",
 	"form":"-",
 	"evo":"",
-	"weight":"708",
+	"weight":"-",
 	"bst7":"490",
 	"types":{
 		"type1":"",
@@ -6294,7 +6294,7 @@
 	"name":"Misdreavus",
 	"form":"-",
 	"evo":"",
-	"weight":"739",
+	"weight":"-",
 	"bst7":"435",
 	"types":{
 		"type1":"",
@@ -6321,7 +6321,7 @@
 	"name":"Unown",
 	"form":"-",
 	"evo":"",
-	"weight":"204",
+	"weight":"-",
 	"bst7":"336",
 	"types":{
 		"type1":"",
@@ -6348,7 +6348,7 @@
 	"name":"Wobbuffet",
 	"form":"-",
 	"evo":"",
-	"weight":"541",
+	"weight":"-",
 	"bst7":"405",
 	"types":{
 		"type1":"",
@@ -6375,7 +6375,7 @@
 	"name":"Girafarig",
 	"form":"-",
 	"evo":"",
-	"weight":"690",
+	"weight":"-",
 	"bst7":"455",
 	"types":{
 		"type1":"",
@@ -6402,7 +6402,7 @@
 	"name":"Pineco",
 	"form":"-",
 	"evo":"",
-	"weight":"349",
+	"weight":"-",
 	"bst7":"290",
 	"types":{
 		"type1":"",
@@ -6429,7 +6429,7 @@
 	"name":"Forretress",
 	"form":"-",
 	"evo":"",
-	"weight":"035",
+	"weight":"-",
 	"bst7":"465",
 	"types":{
 		"type1":"",
@@ -6456,7 +6456,7 @@
 	"name":"Dunsparce",
 	"form":"-",
 	"evo":"",
-	"weight":"041",
+	"weight":"-",
 	"bst7":"415",
 	"types":{
 		"type1":"",
@@ -6483,7 +6483,7 @@
 	"name":"Gligar",
 	"form":"-",
 	"evo":"",
-	"weight":"052",
+	"weight":"-",
 	"bst7":"430",
 	"types":{
 		"type1":"",
@@ -6510,7 +6510,7 @@
 	"name":"Steelix",
 	"form":"-",
 	"evo":"",
-	"weight":"138",
+	"weight":"-",
 	"bst7":"510",
 	"types":{
 		"type1":"",
@@ -6537,7 +6537,7 @@
 	"name":"Steelix",
 	"form":"Mega Steelix",
 	"evo":"",
-	"weight":"573",
+	"weight":"-",
 	"bst7":"610",
 	"types":{
 		"type1":"",
@@ -6564,7 +6564,7 @@
 	"name":"Snubbull",
 	"form":"-",
 	"evo":"",
-	"weight":"710",
+	"weight":"-",
 	"bst7":"300",
 	"types":{
 		"type1":"",
@@ -6591,7 +6591,7 @@
 	"name":"Granbull",
 	"form":"-",
 	"evo":"",
-	"weight":"728",
+	"weight":"-",
 	"bst7":"450",
 	"types":{
 		"type1":"",
@@ -6618,7 +6618,7 @@
 	"name":"Qwilfish",
 	"form":"-",
 	"evo":"",
-	"weight":"258",
+	"weight":"-",
 	"bst7":"440",
 	"types":{
 		"type1":"",
@@ -6645,7 +6645,7 @@
 	"name":"Scizor",
 	"form":"-",
 	"evo":"",
-	"weight":"843",
+	"weight":"-",
 	"bst7":"500",
 	"types":{
 		"type1":"",
@@ -6672,7 +6672,7 @@
 	"name":"Scizor",
 	"form":"Mega Scizor",
 	"evo":"",
-	"weight":"616",
+	"weight":"-",
 	"bst7":"600",
 	"types":{
 		"type1":"",
@@ -6699,7 +6699,7 @@
 	"name":"Shuckle",
 	"form":"-",
 	"evo":"",
-	"weight":"898",
+	"weight":"-",
 	"bst7":"505",
 	"types":{
 		"type1":"",
@@ -6726,7 +6726,7 @@
 	"name":"Heracross",
 	"form":"-",
 	"evo":"",
-	"weight":"179",
+	"weight":"-",
 	"bst7":"500",
 	"types":{
 		"type1":"",
@@ -6753,7 +6753,7 @@
 	"name":"Heracross",
 	"form":"Mega Heracross",
 	"evo":"",
-	"weight":"209",
+	"weight":"-",
 	"bst7":"600",
 	"types":{
 		"type1":"",
@@ -6780,7 +6780,7 @@
 	"name":"Sneasel",
 	"form":"-",
 	"evo":"",
-	"weight":"155",
+	"weight":"-",
 	"bst7":"430",
 	"types":{
 		"type1":"",
@@ -6807,7 +6807,7 @@
 	"name":"Teddiursa",
 	"form":"-",
 	"evo":"",
-	"weight":"116",
+	"weight":"-",
 	"bst7":"330",
 	"types":{
 		"type1":"",
@@ -6834,7 +6834,7 @@
 	"name":"Ursaring",
 	"form":"-",
 	"evo":"",
-	"weight":"578",
+	"weight":"-",
 	"bst7":"500",
 	"types":{
 		"type1":"",
@@ -6861,7 +6861,7 @@
 	"name":"Slugma",
 	"form":"-",
 	"evo":"",
-	"weight":"674",
+	"weight":"-",
 	"bst7":"250",
 	"types":{
 		"type1":"",
@@ -6888,7 +6888,7 @@
 	"name":"Magcargo",
 	"form":"-",
 	"evo":"",
-	"weight":"714",
+	"weight":"-",
 	"bst7":"430",
 	"types":{
 		"type1":"",
@@ -6915,7 +6915,7 @@
 	"name":"Swinub",
 	"form":"-",
 	"evo":"",
-	"weight":"747",
+	"weight":"-",
 	"bst7":"250",
 	"types":{
 		"type1":"",
@@ -6942,7 +6942,7 @@
 	"name":"Piloswine",
 	"form":"-",
 	"evo":"",
-	"weight":"808",
+	"weight":"-",
 	"bst7":"450",
 	"types":{
 		"type1":"",
@@ -6969,7 +6969,7 @@
 	"name":"Corsola",
 	"form":"-",
 	"evo":"",
-	"weight":"824",
+	"weight":"-",
 	"bst7":"410",
 	"types":{
 		"type1":"",
@@ -6996,7 +6996,7 @@
 	"name":"Remoraid",
 	"form":"-",
 	"evo":"",
-	"weight":"969",
+	"weight":"-",
 	"bst7":"300",
 	"types":{
 		"type1":"",
@@ -7023,7 +7023,7 @@
 	"name":"Octillery",
 	"form":"-",
 	"evo":"",
-	"weight":"978",
+	"weight":"-",
 	"bst7":"480",
 	"types":{
 		"type1":"",
@@ -7050,7 +7050,7 @@
 	"name":"Delibird",
 	"form":"-",
 	"evo":"",
-	"weight":"985",
+	"weight":"-",
 	"bst7":"330",
 	"types":{
 		"type1":"",
@@ -7077,7 +7077,7 @@
 	"name":"Mantine",
 	"form":"-",
 	"evo":"",
-	"weight":"495",
+	"weight":"-",
 	"bst7":"485",
 	"types":{
 		"type1":"",
@@ -7104,7 +7104,7 @@
 	"name":"Skarmory",
 	"form":"-",
 	"evo":"",
-	"weight":"762",
+	"weight":"-",
 	"bst7":"465",
 	"types":{
 		"type1":"",
@@ -7131,7 +7131,7 @@
 	"name":"Houndour",
 	"form":"-",
 	"evo":"",
-	"weight":"692",
+	"weight":"-",
 	"bst7":"330",
 	"types":{
 		"type1":"",
@@ -7158,7 +7158,7 @@
 	"name":"Houndoom",
 	"form":"-",
 	"evo":"",
-	"weight":"665",
+	"weight":"-",
 	"bst7":"500",
 	"types":{
 		"type1":"",
@@ -7185,7 +7185,7 @@
 	"name":"Houndoom",
 	"form":"Mega Houndoom",
 	"evo":"",
-	"weight":"004",
+	"weight":"-",
 	"bst7":"600",
 	"types":{
 		"type1":"",
@@ -7212,7 +7212,7 @@
 	"name":"Kingdra",
 	"form":"-",
 	"evo":"",
-	"weight":"167",
+	"weight":"-",
 	"bst7":"540",
 	"types":{
 		"type1":"",
@@ -7239,7 +7239,7 @@
 	"name":"Phanpy",
 	"form":"-",
 	"evo":"",
-	"weight":"183",
+	"weight":"-",
 	"bst7":"330",
 	"types":{
 		"type1":"",
@@ -7266,7 +7266,7 @@
 	"name":"Donphan",
 	"form":"-",
 	"evo":"",
-	"weight":"192",
+	"weight":"-",
 	"bst7":"500",
 	"types":{
 		"type1":"",
@@ -7293,7 +7293,7 @@
 	"name":"Porygon2",
 	"form":"-",
 	"evo":"",
-	"weight":"194",
+	"weight":"-",
 	"bst7":"515",
 	"types":{
 		"type1":"",
@@ -7320,7 +7320,7 @@
 	"name":"Stantler",
 	"form":"-",
 	"evo":"",
-	"weight":"529",
+	"weight":"-",
 	"bst7":"465",
 	"types":{
 		"type1":"",
@@ -7347,7 +7347,7 @@
 	"name":"Smeargle",
 	"form":"-",
 	"evo":"",
-	"weight":"613",
+	"weight":"-",
 	"bst7":"250",
 	"types":{
 		"type1":"",
@@ -7374,7 +7374,7 @@
 	"name":"Tyrogue",
 	"form":"-",
 	"evo":"",
-	"weight":"678",
+	"weight":"-",
 	"bst7":"210",
 	"types":{
 		"type1":"",
@@ -7401,7 +7401,7 @@
 	"name":"Hitmontop",
 	"form":"-",
 	"evo":"",
-	"weight":"833",
+	"weight":"-",
 	"bst7":"455",
 	"types":{
 		"type1":"",
@@ -7428,7 +7428,7 @@
 	"name":"Smoochum",
 	"form":"-",
 	"evo":"",
-	"weight":"044",
+	"weight":"-",
 	"bst7":"305",
 	"types":{
 		"type1":"",
@@ -7455,7 +7455,7 @@
 	"name":"Elekid",
 	"form":"-",
 	"evo":"",
-	"weight":"370",
+	"weight":"-",
 	"bst7":"360",
 	"types":{
 		"type1":"",
@@ -7482,7 +7482,7 @@
 	"name":"Magby",
 	"form":"-",
 	"evo":"",
-	"weight":"216",
+	"weight":"-",
 	"bst7":"365",
 	"types":{
 		"type1":"",
@@ -7509,7 +7509,7 @@
 	"name":"Miltank",
 	"form":"-",
 	"evo":"",
-	"weight":"719",
+	"weight":"-",
 	"bst7":"490",
 	"types":{
 		"type1":"",
@@ -7536,7 +7536,7 @@
 	"name":"Blissey",
 	"form":"-",
 	"evo":"",
-	"weight":"827",
+	"weight":"-",
 	"bst7":"540",
 	"types":{
 		"type1":"",
@@ -7563,7 +7563,7 @@
 	"name":"Raikou",
 	"form":"-",
 	"evo":"",
-	"weight":"957",
+	"weight":"-",
 	"bst7":"580",
 	"types":{
 		"type1":"",
@@ -7590,7 +7590,7 @@
 	"name":"Entei",
 	"form":"-",
 	"evo":"",
-	"weight":"007",
+	"weight":"-",
 	"bst7":"580",
 	"types":{
 		"type1":"",
@@ -7617,7 +7617,7 @@
 	"name":"Suicune",
 	"form":"-",
 	"evo":"",
-	"weight":"032",
+	"weight":"-",
 	"bst7":"580",
 	"types":{
 		"type1":"",
@@ -7644,7 +7644,7 @@
 	"name":"Larvitar",
 	"form":"-",
 	"evo":"",
-	"weight":"605",
+	"weight":"-",
 	"bst7":"300",
 	"types":{
 		"type1":"",
@@ -7671,7 +7671,7 @@
 	"name":"Pupitar",
 	"form":"-",
 	"evo":"",
-	"weight":"629",
+	"weight":"-",
 	"bst7":"410",
 	"types":{
 		"type1":"",
@@ -7698,7 +7698,7 @@
 	"name":"Tyranitar",
 	"form":"-",
 	"evo":"",
-	"weight":"650",
+	"weight":"-",
 	"bst7":"600",
 	"types":{
 		"type1":"",
@@ -7725,7 +7725,7 @@
 	"name":"Tyranitar",
 	"form":"Mega Tyranitar",
 	"evo":"",
-	"weight":"720",
+	"weight":"-",
 	"bst7":"700",
 	"types":{
 		"type1":"",
@@ -7752,7 +7752,7 @@
 	"name":"Lugia",
 	"form":"-",
 	"evo":"",
-	"weight":"814",
+	"weight":"-",
 	"bst7":"680",
 	"types":{
 		"type1":"",
@@ -7779,7 +7779,7 @@
 	"name":"Ho-Oh",
 	"form":"-",
 	"evo":"",
-	"weight":"744",
+	"weight":"-",
 	"bst7":"680",
 	"types":{
 		"type1":"",
@@ -7806,7 +7806,7 @@
 	"name":"Celebi",
 	"form":"-",
 	"evo":"",
-	"weight":"421",
+	"weight":"-",
 	"bst7":"600",
 	"types":{
 		"type1":"",
@@ -7833,7 +7833,7 @@
 	"name":"Treecko",
 	"form":"-",
 	"evo":"",
-	"weight":"653",
+	"weight":"-",
 	"bst7":"310",
 	"types":{
 		"type1":"",
@@ -7860,7 +7860,7 @@
 	"name":"Grovyle",
 	"form":"-",
 	"evo":"",
-	"weight":"110",
+	"weight":"-",
 	"bst7":"405",
 	"types":{
 		"type1":"",
@@ -7887,7 +7887,7 @@
 	"name":"Sceptile",
 	"form":"-",
 	"evo":"",
-	"weight":"158",
+	"weight":"-",
 	"bst7":"530",
 	"types":{
 		"type1":"",
@@ -7914,7 +7914,7 @@
 	"name":"Sceptile",
 	"form":"Mega Sceptile",
 	"evo":"",
-	"weight":"278",
+	"weight":"-",
 	"bst7":"630",
 	"types":{
 		"type1":"",
@@ -7941,7 +7941,7 @@
 	"name":"Torchic",
 	"form":"-",
 	"evo":"",
-	"weight":"403",
+	"weight":"-",
 	"bst7":"310",
 	"types":{
 		"type1":"",
@@ -7968,7 +7968,7 @@
 	"name":"Combusken",
 	"form":"-",
 	"evo":"",
-	"weight":"566",
+	"weight":"-",
 	"bst7":"405",
 	"types":{
 		"type1":"",
@@ -7995,7 +7995,7 @@
 	"name":"Blaziken",
 	"form":"-",
 	"evo":"",
-	"weight":"711",
+	"weight":"-",
 	"bst7":"530",
 	"types":{
 		"type1":"",
@@ -8022,7 +8022,7 @@
 	"name":"Blaziken",
 	"form":"Mega Blaziken",
 	"evo":"",
-	"weight":"909",
+	"weight":"-",
 	"bst7":"630",
 	"types":{
 		"type1":"",
@@ -8049,7 +8049,7 @@
 	"name":"Mudkip",
 	"form":"-",
 	"evo":"",
-	"weight":"011",
+	"weight":"-",
 	"bst7":"310",
 	"types":{
 		"type1":"",
@@ -8076,7 +8076,7 @@
 	"name":"Marshtomp",
 	"form":"-",
 	"evo":"",
-	"weight":"037",
+	"weight":"-",
 	"bst7":"405",
 	"types":{
 		"type1":"",
@@ -8103,7 +8103,7 @@
 	"name":"Swampert",
 	"form":"-",
 	"evo":"",
-	"weight":"037",
+	"weight":"-",
 	"bst7":"535",
 	"types":{
 		"type1":"",
@@ -8130,7 +8130,7 @@
 	"name":"Swampert",
 	"form":"Mega Swampert",
 	"evo":"",
-	"weight":"498",
+	"weight":"-",
 	"bst7":"635",
 	"types":{
 		"type1":"",
@@ -8157,7 +8157,7 @@
 	"name":"Poochyena",
 	"form":"-",
 	"evo":"",
-	"weight":"014",
+	"weight":"-",
 	"bst7":"220",
 	"types":{
 		"type1":"",
@@ -8184,7 +8184,7 @@
 	"name":"Mightyena",
 	"form":"-",
 	"evo":"",
-	"weight":"129",
+	"weight":"-",
 	"bst7":"420",
 	"types":{
 		"type1":"",
@@ -8211,7 +8211,7 @@
 	"name":"Zigzagoon",
 	"form":"-",
 	"evo":"",
-	"weight":"266",
+	"weight":"-",
 	"bst7":"240",
 	"types":{
 		"type1":"",
@@ -8238,7 +8238,7 @@
 	"name":"Linoone",
 	"form":"-",
 	"evo":"",
-	"weight":"671",
+	"weight":"-",
 	"bst7":"420",
 	"types":{
 		"type1":"",
@@ -8265,7 +8265,7 @@
 	"name":"Wurmple",
 	"form":"-",
 	"evo":"",
-	"weight":"509",
+	"weight":"-",
 	"bst7":"195",
 	"types":{
 		"type1":"",
@@ -8292,7 +8292,7 @@
 	"name":"Silcoon",
 	"form":"-",
 	"evo":"",
-	"weight":"387",
+	"weight":"-",
 	"bst7":"205",
 	"types":{
 		"type1":"",
@@ -8319,7 +8319,7 @@
 	"name":"Beautifly",
 	"form":"-",
 	"evo":"",
-	"weight":"624",
+	"weight":"-",
 	"bst7":"395",
 	"types":{
 		"type1":"",
@@ -8346,7 +8346,7 @@
 	"name":"Cascoon",
 	"form":"-",
 	"evo":"",
-	"weight":"915",
+	"weight":"-",
 	"bst7":"205",
 	"types":{
 		"type1":"",
@@ -8373,7 +8373,7 @@
 	"name":"Dustox",
 	"form":"-",
 	"evo":"",
-	"weight":"316",
+	"weight":"-",
 	"bst7":"385",
 	"types":{
 		"type1":"",
@@ -8400,7 +8400,7 @@
 	"name":"Lotad",
 	"form":"-",
 	"evo":"",
-	"weight":"100",
+	"weight":"-",
 	"bst7":"220",
 	"types":{
 		"type1":"",
@@ -8427,7 +8427,7 @@
 	"name":"Lombre",
 	"form":"-",
 	"evo":"",
-	"weight":"511",
+	"weight":"-",
 	"bst7":"340",
 	"types":{
 		"type1":"",
@@ -8454,7 +8454,7 @@
 	"name":"Ludicolo",
 	"form":"-",
 	"evo":"",
-	"weight":"528",
+	"weight":"-",
 	"bst7":"480",
 	"types":{
 		"type1":"",
@@ -8481,7 +8481,7 @@
 	"name":"Seedot",
 	"form":"-",
 	"evo":"",
-	"weight":"591",
+	"weight":"-",
 	"bst7":"220",
 	"types":{
 		"type1":"",
@@ -8508,7 +8508,7 @@
 	"name":"Nuzleaf",
 	"form":"-",
 	"evo":"",
-	"weight":"627",
+	"weight":"-",
 	"bst7":"340",
 	"types":{
 		"type1":"",
@@ -8535,7 +8535,7 @@
 	"name":"Shiftry",
 	"form":"-",
 	"evo":"",
-	"weight":"737",
+	"weight":"-",
 	"bst7":"480",
 	"types":{
 		"type1":"",
@@ -8562,7 +8562,7 @@
 	"name":"Taillow",
 	"form":"-",
 	"evo":"",
-	"weight":"935",
+	"weight":"-",
 	"bst7":"270",
 	"types":{
 		"type1":"",
@@ -8589,7 +8589,7 @@
 	"name":"Swellow",
 	"form":"-",
 	"evo":"",
-	"weight":"165",
+	"weight":"-",
 	"bst7":"455",
 	"types":{
 		"type1":"",
@@ -8616,7 +8616,7 @@
 	"name":"Wingull",
 	"form":"-",
 	"evo":"",
-	"weight":"228",
+	"weight":"-",
 	"bst7":"270",
 	"types":{
 		"type1":"",
@@ -8643,7 +8643,7 @@
 	"name":"Pelipper",
 	"form":"-",
 	"evo":"",
-	"weight":"657",
+	"weight":"-",
 	"bst7":"440",
 	"types":{
 		"type1":"",
@@ -8670,7 +8670,7 @@
 	"name":"Ralts",
 	"form":"-",
 	"evo":"",
-	"weight":"926",
+	"weight":"-",
 	"bst7":"198",
 	"types":{
 		"type1":"",
@@ -8697,7 +8697,7 @@
 	"name":"Kirlia",
 	"form":"-",
 	"evo":"",
-	"weight":"194",
+	"weight":"-",
 	"bst7":"278",
 	"types":{
 		"type1":"",
@@ -8724,7 +8724,7 @@
 	"name":"Gardevoir",
 	"form":"-",
 	"evo":"",
-	"weight":"300",
+	"weight":"-",
 	"bst7":"518",
 	"types":{
 		"type1":"",
@@ -8751,7 +8751,7 @@
 	"name":"Gardevoir",
 	"form":"Mega Gardevoir",
 	"evo":"",
-	"weight":"302",
+	"weight":"-",
 	"bst7":"618",
 	"types":{
 		"type1":"",
@@ -8778,7 +8778,7 @@
 	"name":"Surskit",
 	"form":"-",
 	"evo":"",
-	"weight":"513",
+	"weight":"-",
 	"bst7":"269",
 	"types":{
 		"type1":"",
@@ -8805,7 +8805,7 @@
 	"name":"Masquerain",
 	"form":"-",
 	"evo":"",
-	"weight":"618",
+	"weight":"-",
 	"bst7":"454",
 	"types":{
 		"type1":"",
@@ -8832,7 +8832,7 @@
 	"name":"Shroomish",
 	"form":"-",
 	"evo":"",
-	"weight":"848",
+	"weight":"-",
 	"bst7":"295",
 	"types":{
 		"type1":"",
@@ -8859,7 +8859,7 @@
 	"name":"Breloom",
 	"form":"-",
 	"evo":"",
-	"weight":"886",
+	"weight":"-",
 	"bst7":"460",
 	"types":{
 		"type1":"",
@@ -8886,7 +8886,7 @@
 	"name":"Slakoth",
 	"form":"-",
 	"evo":"",
-	"weight":"991",
+	"weight":"-",
 	"bst7":"280",
 	"types":{
 		"type1":"",
@@ -8913,7 +8913,7 @@
 	"name":"Vigoroth",
 	"form":"-",
 	"evo":"",
-	"weight":"307",
+	"weight":"-",
 	"bst7":"440",
 	"types":{
 		"type1":"",
@@ -8940,7 +8940,7 @@
 	"name":"Slaking",
 	"form":"-",
 	"evo":"",
-	"weight":"140",
+	"weight":"-",
 	"bst7":"670",
 	"types":{
 		"type1":"",
@@ -8967,7 +8967,7 @@
 	"name":"Nincada",
 	"form":"-",
 	"evo":"",
-	"weight":"190",
+	"weight":"-",
 	"bst7":"266",
 	"types":{
 		"type1":"",
@@ -8994,7 +8994,7 @@
 	"name":"Ninjask",
 	"form":"-",
 	"evo":"",
-	"weight":"268",
+	"weight":"-",
 	"bst7":"456",
 	"types":{
 		"type1":"",
@@ -9021,7 +9021,7 @@
 	"name":"Shedinja",
 	"form":"-",
 	"evo":"",
-	"weight":"303",
+	"weight":"-",
 	"bst7":"236",
 	"types":{
 		"type1":"",
@@ -9048,7 +9048,7 @@
 	"name":"Whismur",
 	"form":"-",
 	"evo":"",
-	"weight":"341",
+	"weight":"-",
 	"bst7":"240",
 	"types":{
 		"type1":"",
@@ -9075,7 +9075,7 @@
 	"name":"Loudred",
 	"form":"-",
 	"evo":"",
-	"weight":"756",
+	"weight":"-",
 	"bst7":"360",
 	"types":{
 		"type1":"",
@@ -9102,7 +9102,7 @@
 	"name":"Exploud",
 	"form":"-",
 	"evo":"",
-	"weight":"817",
+	"weight":"-",
 	"bst7":"490",
 	"types":{
 		"type1":"",
@@ -9129,7 +9129,7 @@
 	"name":"Makuhita",
 	"form":"-",
 	"evo":"",
-	"weight":"504",
+	"weight":"-",
 	"bst7":"237",
 	"types":{
 		"type1":"",
@@ -9156,7 +9156,7 @@
 	"name":"Hariyama",
 	"form":"-",
 	"evo":"",
-	"weight":"559",
+	"weight":"-",
 	"bst7":"474",
 	"types":{
 		"type1":"",
@@ -9183,7 +9183,7 @@
 	"name":"Azurill",
 	"form":"-",
 	"evo":"",
-	"weight":"929",
+	"weight":"-",
 	"bst7":"190",
 	"types":{
 		"type1":"",
@@ -9210,7 +9210,7 @@
 	"name":"Nosepass",
 	"form":"-",
 	"evo":"",
-	"weight":"027",
+	"weight":"-",
 	"bst7":"375",
 	"types":{
 		"type1":"",
@@ -9237,7 +9237,7 @@
 	"name":"Skitty",
 	"form":"-",
 	"evo":"",
-	"weight":"040",
+	"weight":"-",
 	"bst7":"260",
 	"types":{
 		"type1":"",
@@ -9264,7 +9264,7 @@
 	"name":"Delcatty",
 	"form":"-",
 	"evo":"",
-	"weight":"170",
+	"weight":"-",
 	"bst7":"400",
 	"types":{
 		"type1":"",
@@ -9291,7 +9291,7 @@
 	"name":"Sableye",
 	"form":"-",
 	"evo":"",
-	"weight":"223",
+	"weight":"-",
 	"bst7":"380",
 	"types":{
 		"type1":"",
@@ -9318,7 +9318,7 @@
 	"name":"Sableye",
 	"form":"Mega Sableye",
 	"evo":"",
-	"weight":"291",
+	"weight":"-",
 	"bst7":"480",
 	"types":{
 		"type1":"",
@@ -9345,7 +9345,7 @@
 	"name":"Mawile",
 	"form":"-",
 	"evo":"",
-	"weight":"451",
+	"weight":"-",
 	"bst7":"380",
 	"types":{
 		"type1":"",
@@ -9372,7 +9372,7 @@
 	"name":"Mawile",
 	"form":"Mega Mawile",
 	"evo":"",
-	"weight":"767",
+	"weight":"-",
 	"bst7":"480",
 	"types":{
 		"type1":"",
@@ -9399,7 +9399,7 @@
 	"name":"Aron",
 	"form":"-",
 	"evo":"",
-	"weight":"837",
+	"weight":"-",
 	"bst7":"330",
 	"types":{
 		"type1":"",
@@ -9426,7 +9426,7 @@
 	"name":"Lairon",
 	"form":"-",
 	"evo":"",
-	"weight":"891",
+	"weight":"-",
 	"bst7":"430",
 	"types":{
 		"type1":"",
@@ -9453,7 +9453,7 @@
 	"name":"Aggron",
 	"form":"-",
 	"evo":"",
-	"weight":"907",
+	"weight":"-",
 	"bst7":"530",
 	"types":{
 		"type1":"",
@@ -9480,7 +9480,7 @@
 	"name":"Aggron",
 	"form":"Mega Aggron",
 	"evo":"",
-	"weight":"060",
+	"weight":"-",
 	"bst7":"630",
 	"types":{
 		"type1":"",
@@ -9507,7 +9507,7 @@
 	"name":"Meditite",
 	"form":"-",
 	"evo":"",
-	"weight":"049",
+	"weight":"-",
 	"bst7":"280",
 	"types":{
 		"type1":"",
@@ -9534,7 +9534,7 @@
 	"name":"Medicham",
 	"form":"-",
 	"evo":"",
-	"weight":"347",
+	"weight":"-",
 	"bst7":"410",
 	"types":{
 		"type1":"",
@@ -9561,7 +9561,7 @@
 	"name":"Medicham",
 	"form":"Mega Medicham",
 	"evo":"",
-	"weight":"354",
+	"weight":"-",
 	"bst7":"510",
 	"types":{
 		"type1":"",
@@ -9588,7 +9588,7 @@
 	"name":"Electrike",
 	"form":"-",
 	"evo":"",
-	"weight":"532",
+	"weight":"-",
 	"bst7":"295",
 	"types":{
 		"type1":"",
@@ -9615,7 +9615,7 @@
 	"name":"Manectric",
 	"form":"-",
 	"evo":"",
-	"weight":"570",
+	"weight":"-",
 	"bst7":"475",
 	"types":{
 		"type1":"",
@@ -9642,7 +9642,7 @@
 	"name":"Manectric",
 	"form":"Mega Manectric",
 	"evo":"",
-	"weight":"570",
+	"weight":"-",
 	"bst7":"575",
 	"types":{
 		"type1":"",
@@ -9669,7 +9669,7 @@
 	"name":"Plusle",
 	"form":"-",
 	"evo":"",
-	"weight":"711",
+	"weight":"-",
 	"bst7":"405",
 	"types":{
 		"type1":"",
@@ -9696,7 +9696,7 @@
 	"name":"Minun",
 	"form":"-",
 	"evo":"",
-	"weight":"860",
+	"weight":"-",
 	"bst7":"405",
 	"types":{
 		"type1":"",
@@ -9723,7 +9723,7 @@
 	"name":"Volbeat",
 	"form":"-",
 	"evo":"",
-	"weight":"002",
+	"weight":"-",
 	"bst7":"430",
 	"types":{
 		"type1":"",
@@ -9750,7 +9750,7 @@
 	"name":"Illumise",
 	"form":"-",
 	"evo":"",
-	"weight":"100",
+	"weight":"-",
 	"bst7":"430",
 	"types":{
 		"type1":"",
@@ -9777,7 +9777,7 @@
 	"name":"Roselia",
 	"form":"-",
 	"evo":"",
-	"weight":"354",
+	"weight":"-",
 	"bst7":"400",
 	"types":{
 		"type1":"",
@@ -9804,7 +9804,7 @@
 	"name":"Gulpin",
 	"form":"-",
 	"evo":"",
-	"weight":"439",
+	"weight":"-",
 	"bst7":"302",
 	"types":{
 		"type1":"",
@@ -9831,7 +9831,7 @@
 	"name":"Swalot",
 	"form":"-",
 	"evo":"",
-	"weight":"608",
+	"weight":"-",
 	"bst7":"467",
 	"types":{
 		"type1":"",
@@ -9858,7 +9858,7 @@
 	"name":"Carvanha",
 	"form":"-",
 	"evo":"",
-	"weight":"777",
+	"weight":"-",
 	"bst7":"305",
 	"types":{
 		"type1":"",
@@ -9885,7 +9885,7 @@
 	"name":"Sharpedo",
 	"form":"-",
 	"evo":"",
-	"weight":"806",
+	"weight":"-",
 	"bst7":"460",
 	"types":{
 		"type1":"",
@@ -9912,7 +9912,7 @@
 	"name":"Sharpedo",
 	"form":"Mega Sharpedo",
 	"evo":"",
-	"weight":"842",
+	"weight":"-",
 	"bst7":"560",
 	"types":{
 		"type1":"",
@@ -9939,7 +9939,7 @@
 	"name":"Wailmer",
 	"form":"-",
 	"evo":"",
-	"weight":"180",
+	"weight":"-",
 	"bst7":"400",
 	"types":{
 		"type1":"",
@@ -9966,7 +9966,7 @@
 	"name":"Wailord",
 	"form":"-",
 	"evo":"",
-	"weight":"515",
+	"weight":"-",
 	"bst7":"500",
 	"types":{
 		"type1":"",
@@ -9993,7 +9993,7 @@
 	"name":"Numel",
 	"form":"-",
 	"evo":"",
-	"weight":"667",
+	"weight":"-",
 	"bst7":"305",
 	"types":{
 		"type1":"",
@@ -10020,7 +10020,7 @@
 	"name":"Camerupt",
 	"form":"-",
 	"evo":"",
-	"weight":"835",
+	"weight":"-",
 	"bst7":"460",
 	"types":{
 		"type1":"",
@@ -10047,7 +10047,7 @@
 	"name":"Camerupt",
 	"form":"Mega Camerupt",
 	"evo":"",
-	"weight":"261",
+	"weight":"-",
 	"bst7":"560",
 	"types":{
 		"type1":"",
@@ -10074,7 +10074,7 @@
 	"name":"Torkoal",
 	"form":"-",
 	"evo":"",
-	"weight":"206",
+	"weight":"-",
 	"bst7":"470",
 	"types":{
 		"type1":"",
@@ -10101,7 +10101,7 @@
 	"name":"Spoink",
 	"form":"-",
 	"evo":"",
-	"weight":"360",
+	"weight":"-",
 	"bst7":"330",
 	"types":{
 		"type1":"",
@@ -10128,7 +10128,7 @@
 	"name":"Grumpig",
 	"form":"-",
 	"evo":"",
-	"weight":"561",
+	"weight":"-",
 	"bst7":"470",
 	"types":{
 		"type1":"",
@@ -10155,7 +10155,7 @@
 	"name":"Spinda",
 	"form":"-",
 	"evo":"",
-	"weight":"711",
+	"weight":"-",
 	"bst7":"360",
 	"types":{
 		"type1":"",
@@ -10182,7 +10182,7 @@
 	"name":"Trapinch",
 	"form":"-",
 	"evo":"",
-	"weight":"811",
+	"weight":"-",
 	"bst7":"290",
 	"types":{
 		"type1":"",
@@ -10209,7 +10209,7 @@
 	"name":"Vibrava",
 	"form":"-",
 	"evo":"",
-	"weight":"735",
+	"weight":"-",
 	"bst7":"340",
 	"types":{
 		"type1":"",
@@ -10236,7 +10236,7 @@
 	"name":"Flygon",
 	"form":"-",
 	"evo":"",
-	"weight":"596",
+	"weight":"-",
 	"bst7":"520",
 	"types":{
 		"type1":"",
@@ -10263,7 +10263,7 @@
 	"name":"Cacnea",
 	"form":"-",
 	"evo":"",
-	"weight":"407",
+	"weight":"-",
 	"bst7":"335",
 	"types":{
 		"type1":"",
@@ -10290,7 +10290,7 @@
 	"name":"Cacturne",
 	"form":"-",
 	"evo":"",
-	"weight":"557",
+	"weight":"-",
 	"bst7":"475",
 	"types":{
 		"type1":"",
@@ -10317,7 +10317,7 @@
 	"name":"Swablu",
 	"form":"-",
 	"evo":"",
-	"weight":"654",
+	"weight":"-",
 	"bst7":"310",
 	"types":{
 		"type1":"",
@@ -10344,7 +10344,7 @@
 	"name":"Altaria",
 	"form":"-",
 	"evo":"",
-	"weight":"748",
+	"weight":"-",
 	"bst7":"490",
 	"types":{
 		"type1":"",
@@ -10371,7 +10371,7 @@
 	"name":"Altaria",
 	"form":"Mega Altaria",
 	"evo":"",
-	"weight":"507",
+	"weight":"-",
 	"bst7":"590",
 	"types":{
 		"type1":"",
@@ -10398,7 +10398,7 @@
 	"name":"Zangoose",
 	"form":"-",
 	"evo":"",
-	"weight":"732",
+	"weight":"-",
 	"bst7":"458",
 	"types":{
 		"type1":"",
@@ -10425,7 +10425,7 @@
 	"name":"Seviper",
 	"form":"-",
 	"evo":"",
-	"weight":"927",
+	"weight":"-",
 	"bst7":"458",
 	"types":{
 		"type1":"",
@@ -10452,7 +10452,7 @@
 	"name":"Lunatone",
 	"form":"-",
 	"evo":"",
-	"weight":"083",
+	"weight":"-",
 	"bst7":"460",
 	"types":{
 		"type1":"",
@@ -10479,7 +10479,7 @@
 	"name":"Solrock",
 	"form":"-",
 	"evo":"",
-	"weight":"118",
+	"weight":"-",
 	"bst7":"460",
 	"types":{
 		"type1":"",
@@ -10506,7 +10506,7 @@
 	"name":"Barboach",
 	"form":"-",
 	"evo":"",
-	"weight":"178",
+	"weight":"-",
 	"bst7":"288",
 	"types":{
 		"type1":"",
@@ -10533,7 +10533,7 @@
 	"name":"Whiscash",
 	"form":"-",
 	"evo":"",
-	"weight":"328",
+	"weight":"-",
 	"bst7":"468",
 	"types":{
 		"type1":"",
@@ -10560,7 +10560,7 @@
 	"name":"Corphish",
 	"form":"-",
 	"evo":"",
-	"weight":"355",
+	"weight":"-",
 	"bst7":"308",
 	"types":{
 		"type1":"",
@@ -10587,7 +10587,7 @@
 	"name":"Crawdaunt",
 	"form":"-",
 	"evo":"",
-	"weight":"426",
+	"weight":"-",
 	"bst7":"468",
 	"types":{
 		"type1":"",
@@ -10614,7 +10614,7 @@
 	"name":"Baltoy",
 	"form":"-",
 	"evo":"",
-	"weight":"438",
+	"weight":"-",
 	"bst7":"300",
 	"types":{
 		"type1":"",
@@ -10641,7 +10641,7 @@
 	"name":"Claydol",
 	"form":"-",
 	"evo":"",
-	"weight":"520",
+	"weight":"-",
 	"bst7":"500",
 	"types":{
 		"type1":"",
@@ -10668,7 +10668,7 @@
 	"name":"Lileep",
 	"form":"-",
 	"evo":"",
-	"weight":"710",
+	"weight":"-",
 	"bst7":"355",
 	"types":{
 		"type1":"",
@@ -10695,7 +10695,7 @@
 	"name":"Cradily",
 	"form":"-",
 	"evo":"",
-	"weight":"952",
+	"weight":"-",
 	"bst7":"495",
 	"types":{
 		"type1":"",
@@ -10722,7 +10722,7 @@
 	"name":"Anorith",
 	"form":"-",
 	"evo":"",
-	"weight":"972",
+	"weight":"-",
 	"bst7":"355",
 	"types":{
 		"type1":"",
@@ -10749,7 +10749,7 @@
 	"name":"Armaldo",
 	"form":"-",
 	"evo":"",
-	"weight":"309",
+	"weight":"-",
 	"bst7":"495",
 	"types":{
 		"type1":"",
@@ -10776,7 +10776,7 @@
 	"name":"Feebas",
 	"form":"-",
 	"evo":"",
-	"weight":"551",
+	"weight":"-",
 	"bst7":"200",
 	"types":{
 		"type1":"",
@@ -10803,7 +10803,7 @@
 	"name":"Milotic",
 	"form":"-",
 	"evo":"",
-	"weight":"329",
+	"weight":"-",
 	"bst7":"540",
 	"types":{
 		"type1":"",
@@ -10830,7 +10830,7 @@
 	"name":"Castform",
 	"form":"-",
 	"evo":"",
-	"weight":"071",
+	"weight":"-",
 	"bst7":"420",
 	"types":{
 		"type1":"",
@@ -10857,7 +10857,7 @@
 	"name":"Kecleon",
 	"form":"-",
 	"evo":"",
-	"weight":"397",
+	"weight":"-",
 	"bst7":"440",
 	"types":{
 		"type1":"",
@@ -10884,7 +10884,7 @@
 	"name":"Shuppet",
 	"form":"-",
 	"evo":"",
-	"weight":"683",
+	"weight":"-",
 	"bst7":"295",
 	"types":{
 		"type1":"",
@@ -10911,7 +10911,7 @@
 	"name":"Banette",
 	"form":"-",
 	"evo":"",
-	"weight":"153",
+	"weight":"-",
 	"bst7":"455",
 	"types":{
 		"type1":"",
@@ -10938,7 +10938,7 @@
 	"name":"Banette",
 	"form":"Mega Banette",
 	"evo":"",
-	"weight":"110",
+	"weight":"-",
 	"bst7":"555",
 	"types":{
 		"type1":"",
@@ -10965,7 +10965,7 @@
 	"name":"Duskull",
 	"form":"-",
 	"evo":"",
-	"weight":"225",
+	"weight":"-",
 	"bst7":"295",
 	"types":{
 		"type1":"",
@@ -10992,7 +10992,7 @@
 	"name":"Dusclops",
 	"form":"-",
 	"evo":"",
-	"weight":"496",
+	"weight":"-",
 	"bst7":"455",
 	"types":{
 		"type1":"",
@@ -11019,7 +11019,7 @@
 	"name":"Tropius",
 	"form":"-",
 	"evo":"",
-	"weight":"662",
+	"weight":"-",
 	"bst7":"460",
 	"types":{
 		"type1":"",
@@ -11046,7 +11046,7 @@
 	"name":"Chimecho",
 	"form":"-",
 	"evo":"",
-	"weight":"723",
+	"weight":"-",
 	"bst7":"455",
 	"types":{
 		"type1":"",
@@ -11073,7 +11073,7 @@
 	"name":"Absol",
 	"form":"-",
 	"evo":"",
-	"weight":"822",
+	"weight":"-",
 	"bst7":"465",
 	"types":{
 		"type1":"",
@@ -11100,7 +11100,7 @@
 	"name":"Absol",
 	"form":"Mega Absol",
 	"evo":"",
-	"weight":"932",
+	"weight":"-",
 	"bst7":"565",
 	"types":{
 		"type1":"",
@@ -11127,7 +11127,7 @@
 	"name":"Wynaut",
 	"form":"-",
 	"evo":"",
-	"weight":"942",
+	"weight":"-",
 	"bst7":"260",
 	"types":{
 		"type1":"",
@@ -11154,7 +11154,7 @@
 	"name":"Snorunt",
 	"form":"-",
 	"evo":"",
-	"weight":"293",
+	"weight":"-",
 	"bst7":"300",
 	"types":{
 		"type1":"",
@@ -11181,7 +11181,7 @@
 	"name":"Glalie",
 	"form":"-",
 	"evo":"",
-	"weight":"549",
+	"weight":"-",
 	"bst7":"480",
 	"types":{
 		"type1":"",
@@ -11208,7 +11208,7 @@
 	"name":"Glalie",
 	"form":"Mega Glalie",
 	"evo":"",
-	"weight":"148",
+	"weight":"-",
 	"bst7":"580",
 	"types":{
 		"type1":"",
@@ -11235,7 +11235,7 @@
 	"name":"Spheal",
 	"form":"-",
 	"evo":"",
-	"weight":"564",
+	"weight":"-",
 	"bst7":"290",
 	"types":{
 		"type1":"",
@@ -11262,7 +11262,7 @@
 	"name":"Sealeo",
 	"form":"-",
 	"evo":"",
-	"weight":"918",
+	"weight":"-",
 	"bst7":"410",
 	"types":{
 		"type1":"",
@@ -11289,7 +11289,7 @@
 	"name":"Walrein",
 	"form":"-",
 	"evo":"",
-	"weight":"361",
+	"weight":"-",
 	"bst7":"530",
 	"types":{
 		"type1":"",
@@ -11316,7 +11316,7 @@
 	"name":"Clamperl",
 	"form":"-",
 	"evo":"",
-	"weight":"536",
+	"weight":"-",
 	"bst7":"345",
 	"types":{
 		"type1":"",
@@ -11343,7 +11343,7 @@
 	"name":"Huntail",
 	"form":"-",
 	"evo":"",
-	"weight":"666",
+	"weight":"-",
 	"bst7":"485",
 	"types":{
 		"type1":"",
@@ -11370,7 +11370,7 @@
 	"name":"Gorebyss",
 	"form":"-",
 	"evo":"",
-	"weight":"996",
+	"weight":"-",
 	"bst7":"485",
 	"types":{
 		"type1":"",
@@ -11397,7 +11397,7 @@
 	"name":"Relicanth",
 	"form":"-",
 	"evo":"",
-	"weight":"633",
+	"weight":"-",
 	"bst7":"485",
 	"types":{
 		"type1":"",
@@ -11424,7 +11424,7 @@
 	"name":"Luvdisc",
 	"form":"-",
 	"evo":"",
-	"weight":"263",
+	"weight":"-",
 	"bst7":"330",
 	"types":{
 		"type1":"",
@@ -11451,7 +11451,7 @@
 	"name":"Bagon",
 	"form":"-",
 	"evo":"",
-	"weight":"263",
+	"weight":"-",
 	"bst7":"300",
 	"types":{
 		"type1":"",
@@ -11478,7 +11478,7 @@
 	"name":"Shelgon",
 	"form":"-",
 	"evo":"",
-	"weight":"705",
+	"weight":"-",
 	"bst7":"420",
 	"types":{
 		"type1":"",
@@ -11505,7 +11505,7 @@
 	"name":"Salamence",
 	"form":"-",
 	"evo":"",
-	"weight":"729",
+	"weight":"-",
 	"bst7":"600",
 	"types":{
 		"type1":"",
@@ -11532,7 +11532,7 @@
 	"name":"Salamence",
 	"form":"Mega Salamence",
 	"evo":"",
-	"weight":"920",
+	"weight":"-",
 	"bst7":"700",
 	"types":{
 		"type1":"",
@@ -11559,7 +11559,7 @@
 	"name":"Beldum",
 	"form":"-",
 	"evo":"",
-	"weight":"313",
+	"weight":"-",
 	"bst7":"300",
 	"types":{
 		"type1":"",
@@ -11586,7 +11586,7 @@
 	"name":"Metang",
 	"form":"-",
 	"evo":"",
-	"weight":"314",
+	"weight":"-",
 	"bst7":"420",
 	"types":{
 		"type1":"",
@@ -11613,7 +11613,7 @@
 	"name":"Metagross",
 	"form":"-",
 	"evo":"",
-	"weight":"524",
+	"weight":"-",
 	"bst7":"600",
 	"types":{
 		"type1":"",
@@ -11640,7 +11640,7 @@
 	"name":"Metagross",
 	"form":"Mega Metagross",
 	"evo":"",
-	"weight":"550",
+	"weight":"-",
 	"bst7":"700",
 	"types":{
 		"type1":"",
@@ -11667,7 +11667,7 @@
 	"name":"Regirock",
 	"form":"-",
 	"evo":"",
-	"weight":"575",
+	"weight":"-",
 	"bst7":"580",
 	"types":{
 		"type1":"",
@@ -11694,7 +11694,7 @@
 	"name":"Regice",
 	"form":"-",
 	"evo":"",
-	"weight":"610",
+	"weight":"-",
 	"bst7":"580",
 	"types":{
 		"type1":"",
@@ -11721,7 +11721,7 @@
 	"name":"Registeel",
 	"form":"-",
 	"evo":"",
-	"weight":"845",
+	"weight":"-",
 	"bst7":"580",
 	"types":{
 		"type1":"",
@@ -11748,7 +11748,7 @@
 	"name":"Latias",
 	"form":"-",
 	"evo":"",
-	"weight":"020",
+	"weight":"-",
 	"bst7":"600",
 	"types":{
 		"type1":"",
@@ -11775,7 +11775,7 @@
 	"name":"Latias",
 	"form":"Mega Latias",
 	"evo":"",
-	"weight":"754",
+	"weight":"-",
 	"bst7":"700",
 	"types":{
 		"type1":"",
@@ -11802,7 +11802,7 @@
 	"name":"Latios",
 	"form":"-",
 	"evo":"",
-	"weight":"045",
+	"weight":"-",
 	"bst7":"600",
 	"types":{
 		"type1":"",
@@ -11829,7 +11829,7 @@
 	"name":"Latios",
 	"form":"Mega Latios",
 	"evo":"",
-	"weight":"786",
+	"weight":"-",
 	"bst7":"700",
 	"types":{
 		"type1":"",
@@ -11856,7 +11856,7 @@
 	"name":"Kyogre",
 	"form":"-",
 	"evo":"",
-	"weight":"597",
+	"weight":"-",
 	"bst7":"670",
 	"types":{
 		"type1":"",
@@ -11883,7 +11883,7 @@
 	"name":"Kyogre",
 	"form":"Primal Kyogre",
 	"evo":"",
-	"weight":"005",
+	"weight":"-",
 	"bst7":"770",
 	"types":{
 		"type1":"",
@@ -11910,7 +11910,7 @@
 	"name":"Groudon",
 	"form":"-",
 	"evo":"",
-	"weight":"058",
+	"weight":"-",
 	"bst7":"670",
 	"types":{
 		"type1":"",
@@ -11937,7 +11937,7 @@
 	"name":"Groudon",
 	"form":"Primal Groudon",
 	"evo":"",
-	"weight":"156",
+	"weight":"-",
 	"bst7":"770",
 	"types":{
 		"type1":"",
@@ -11964,7 +11964,7 @@
 	"name":"Rayquaza",
 	"form":"-",
 	"evo":"",
-	"weight":"779",
+	"weight":"-",
 	"bst7":"680",
 	"types":{
 		"type1":"",
@@ -11991,7 +11991,7 @@
 	"name":"Rayquaza",
 	"form":"Mega Rayquaza",
 	"evo":"",
-	"weight":"434",
+	"weight":"-",
 	"bst7":"780",
 	"types":{
 		"type1":"",
@@ -12018,7 +12018,7 @@
 	"name":"Jirachi",
 	"form":"-",
 	"evo":"",
-	"weight":"549",
+	"weight":"-",
 	"bst7":"600",
 	"types":{
 		"type1":"",
@@ -12045,7 +12045,7 @@
 	"name":"Deoxys",
 	"form":"Normal Forme",
 	"evo":"",
-	"weight":"033",
+	"weight":"-",
 	"bst7":"600",
 	"types":{
 		"type1":"",
@@ -12072,7 +12072,7 @@
 	"name":"Deoxys",
 	"form":"Attack Forme",
 	"evo":"",
-	"weight":"063",
+	"weight":"-",
 	"bst7":"600",
 	"types":{
 		"type1":"",
@@ -12099,7 +12099,7 @@
 	"name":"Deoxys",
 	"form":"Defense Forme",
 	"evo":"",
-	"weight":"066",
+	"weight":"-",
 	"bst7":"600",
 	"types":{
 		"type1":"",
@@ -12126,7 +12126,7 @@
 	"name":"Deoxys",
 	"form":"Speed Forme",
 	"evo":"",
-	"weight":"256",
+	"weight":"-",
 	"bst7":"600",
 	"types":{
 		"type1":"",
@@ -12153,7 +12153,7 @@
 	"name":"Turtwig",
 	"form":"-",
 	"evo":"",
-	"weight":"585",
+	"weight":"-",
 	"bst7":"318",
 	"types":{
 		"type1":"",
@@ -12180,7 +12180,7 @@
 	"name":"Grotle",
 	"form":"-",
 	"evo":"",
-	"weight":"825",
+	"weight":"-",
 	"bst7":"405",
 	"types":{
 		"type1":"",
@@ -12207,7 +12207,7 @@
 	"name":"Torterra",
 	"form":"-",
 	"evo":"",
-	"weight":"054",
+	"weight":"-",
 	"bst7":"525",
 	"types":{
 		"type1":"",
@@ -12234,7 +12234,7 @@
 	"name":"Chimchar",
 	"form":"-",
 	"evo":"",
-	"weight":"277",
+	"weight":"-",
 	"bst7":"309",
 	"types":{
 		"type1":"",
@@ -12261,7 +12261,7 @@
 	"name":"Monferno",
 	"form":"-",
 	"evo":"",
-	"weight":"038",
+	"weight":"-",
 	"bst7":"405",
 	"types":{
 		"type1":"",
@@ -12288,7 +12288,7 @@
 	"name":"Infernape",
 	"form":"-",
 	"evo":"",
-	"weight":"038",
+	"weight":"-",
 	"bst7":"534",
 	"types":{
 		"type1":"",
@@ -12315,7 +12315,7 @@
 	"name":"Piplup",
 	"form":"-",
 	"evo":"",
-	"weight":"775",
+	"weight":"-",
 	"bst7":"314",
 	"types":{
 		"type1":"",
@@ -12342,7 +12342,7 @@
 	"name":"Prinplup",
 	"form":"-",
 	"evo":"",
-	"weight":"828",
+	"weight":"-",
 	"bst7":"405",
 	"types":{
 		"type1":"",
@@ -12369,7 +12369,7 @@
 	"name":"Empoleon",
 	"form":"-",
 	"evo":"",
-	"weight":"030",
+	"weight":"-",
 	"bst7":"530",
 	"types":{
 		"type1":"",
@@ -12396,7 +12396,7 @@
 	"name":"Starly",
 	"form":"-",
 	"evo":"",
-	"weight":"061",
+	"weight":"-",
 	"bst7":"245",
 	"types":{
 		"type1":"",
@@ -12423,7 +12423,7 @@
 	"name":"Staravia",
 	"form":"-",
 	"evo":"",
-	"weight":"074",
+	"weight":"-",
 	"bst7":"340",
 	"types":{
 		"type1":"",
@@ -12450,7 +12450,7 @@
 	"name":"Staraptor",
 	"form":"-",
 	"evo":"",
-	"weight":"399",
+	"weight":"-",
 	"bst7":"485",
 	"types":{
 		"type1":"",
@@ -12477,7 +12477,7 @@
 	"name":"Bidoof",
 	"form":"-",
 	"evo":"",
-	"weight":"619",
+	"weight":"-",
 	"bst7":"250",
 	"types":{
 		"type1":"",
@@ -12504,7 +12504,7 @@
 	"name":"Bibarel",
 	"form":"-",
 	"evo":"",
-	"weight":"579",
+	"weight":"-",
 	"bst7":"410",
 	"types":{
 		"type1":"",
@@ -12531,7 +12531,7 @@
 	"name":"Kricketot",
 	"form":"-",
 	"evo":"",
-	"weight":"281",
+	"weight":"-",
 	"bst7":"194",
 	"types":{
 		"type1":"",
@@ -12558,7 +12558,7 @@
 	"name":"Kricketune",
 	"form":"-",
 	"evo":"",
-	"weight":"447",
+	"weight":"-",
 	"bst7":"384",
 	"types":{
 		"type1":"",
@@ -12585,7 +12585,7 @@
 	"name":"Shinx",
 	"form":"-",
 	"evo":"",
-	"weight":"074",
+	"weight":"-",
 	"bst7":"263",
 	"types":{
 		"type1":"",
@@ -12612,7 +12612,7 @@
 	"name":"Luxio",
 	"form":"-",
 	"evo":"",
-	"weight":"424",
+	"weight":"-",
 	"bst7":"363",
 	"types":{
 		"type1":"",
@@ -12639,7 +12639,7 @@
 	"name":"Luxray",
 	"form":"-",
 	"evo":"",
-	"weight":"213",
+	"weight":"-",
 	"bst7":"523",
 	"types":{
 		"type1":"",
@@ -12666,7 +12666,7 @@
 	"name":"Budew",
 	"form":"-",
 	"evo":"",
-	"weight":"443",
+	"weight":"-",
 	"bst7":"280",
 	"types":{
 		"type1":"",
@@ -12693,7 +12693,7 @@
 	"name":"Roserade",
 	"form":"-",
 	"evo":"",
-	"weight":"542",
+	"weight":"-",
 	"bst7":"515",
 	"types":{
 		"type1":"",
@@ -12720,7 +12720,7 @@
 	"name":"Cranidos",
 	"form":"-",
 	"evo":"",
-	"weight":"785",
+	"weight":"-",
 	"bst7":"350",
 	"types":{
 		"type1":"",
@@ -12747,7 +12747,7 @@
 	"name":"Rampardos",
 	"form":"-",
 	"evo":"",
-	"weight":"618",
+	"weight":"-",
 	"bst7":"495",
 	"types":{
 		"type1":"",
@@ -12774,7 +12774,7 @@
 	"name":"Shieldon",
 	"form":"-",
 	"evo":"",
-	"weight":"334",
+	"weight":"-",
 	"bst7":"350",
 	"types":{
 		"type1":"",
@@ -12801,7 +12801,7 @@
 	"name":"Bastiodon",
 	"form":"-",
 	"evo":"",
-	"weight":"334",
+	"weight":"-",
 	"bst7":"495",
 	"types":{
 		"type1":"",
@@ -12828,7 +12828,7 @@
 	"name":"Burmy",
 	"form":"-",
 	"evo":"",
-	"weight":"318",
+	"weight":"-",
 	"bst7":"224",
 	"types":{
 		"type1":"",
@@ -12855,7 +12855,7 @@
 	"name":"Wormadam",
 	"form":"Plant Cloak",
 	"evo":"",
-	"weight":"026",
+	"weight":"-",
 	"bst7":"424",
 	"types":{
 		"type1":"",
@@ -12882,7 +12882,7 @@
 	"name":"Wormadam",
 	"form":"Sandy Cloak",
 	"evo":"",
-	"weight":"236",
+	"weight":"-",
 	"bst7":"424",
 	"types":{
 		"type1":"",
@@ -12909,7 +12909,7 @@
 	"name":"Wormadam",
 	"form":"Trash Cloak",
 	"evo":"",
-	"weight":"599",
+	"weight":"-",
 	"bst7":"424",
 	"types":{
 		"type1":"",
@@ -12936,7 +12936,7 @@
 	"name":"Mothim",
 	"form":"-",
 	"evo":"",
-	"weight":"695",
+	"weight":"-",
 	"bst7":"424",
 	"types":{
 		"type1":"",
@@ -12963,7 +12963,7 @@
 	"name":"Combee",
 	"form":"-",
 	"evo":"",
-	"weight":"986",
+	"weight":"-",
 	"bst7":"244",
 	"types":{
 		"type1":"",
@@ -12990,7 +12990,7 @@
 	"name":"Vespiquen",
 	"form":"-",
 	"evo":"",
-	"weight":"163",
+	"weight":"-",
 	"bst7":"474",
 	"types":{
 		"type1":"",
@@ -13017,7 +13017,7 @@
 	"name":"Pachirisu",
 	"form":"-",
 	"evo":"",
-	"weight":"788",
+	"weight":"-",
 	"bst7":"405",
 	"types":{
 		"type1":"",
@@ -13044,7 +13044,7 @@
 	"name":"Buizel",
 	"form":"-",
 	"evo":"",
-	"weight":"240",
+	"weight":"-",
 	"bst7":"330",
 	"types":{
 		"type1":"",
@@ -13071,7 +13071,7 @@
 	"name":"Floatzel",
 	"form":"-",
 	"evo":"",
-	"weight":"763",
+	"weight":"-",
 	"bst7":"495",
 	"types":{
 		"type1":"",
@@ -13098,7 +13098,7 @@
 	"name":"Cherubi",
 	"form":"-",
 	"evo":"",
-	"weight":"343",
+	"weight":"-",
 	"bst7":"275",
 	"types":{
 		"type1":"",
@@ -13125,7 +13125,7 @@
 	"name":"Cherrim",
 	"form":"-",
 	"evo":"",
-	"weight":"701",
+	"weight":"-",
 	"bst7":"450",
 	"types":{
 		"type1":"",
@@ -13152,7 +13152,7 @@
 	"name":"Shellos",
 	"form":"-",
 	"evo":"",
-	"weight":"913",
+	"weight":"-",
 	"bst7":"325",
 	"types":{
 		"type1":"",
@@ -13179,7 +13179,7 @@
 	"name":"Gastrodon",
 	"form":"-",
 	"evo":"",
-	"weight":"253",
+	"weight":"-",
 	"bst7":"475",
 	"types":{
 		"type1":"",
@@ -13206,7 +13206,7 @@
 	"name":"Ambipom",
 	"form":"-",
 	"evo":"",
-	"weight":"352",
+	"weight":"-",
 	"bst7":"482",
 	"types":{
 		"type1":"",
@@ -13233,7 +13233,7 @@
 	"name":"Drifloon",
 	"form":"-",
 	"evo":"",
-	"weight":"391",
+	"weight":"-",
 	"bst7":"348",
 	"types":{
 		"type1":"",
@@ -13260,7 +13260,7 @@
 	"name":"Drifblim",
 	"form":"-",
 	"evo":"",
-	"weight":"603",
+	"weight":"-",
 	"bst7":"498",
 	"types":{
 		"type1":"",
@@ -13287,7 +13287,7 @@
 	"name":"Buneary",
 	"form":"-",
 	"evo":"",
-	"weight":"758",
+	"weight":"-",
 	"bst7":"350",
 	"types":{
 		"type1":"",
@@ -13314,7 +13314,7 @@
 	"name":"Lopunny",
 	"form":"-",
 	"evo":"",
-	"weight":"802",
+	"weight":"-",
 	"bst7":"480",
 	"types":{
 		"type1":"",
@@ -13341,7 +13341,7 @@
 	"name":"Lopunny",
 	"form":"Mega Lopunny",
 	"evo":"",
-	"weight":"008",
+	"weight":"-",
 	"bst7":"580",
 	"types":{
 		"type1":"",
@@ -13368,7 +13368,7 @@
 	"name":"Mismagius",
 	"form":"-",
 	"evo":"",
-	"weight":"171",
+	"weight":"-",
 	"bst7":"495",
 	"types":{
 		"type1":"",
@@ -13395,7 +13395,7 @@
 	"name":"Honchkrow",
 	"form":"-",
 	"evo":"",
-	"weight":"368",
+	"weight":"-",
 	"bst7":"505",
 	"types":{
 		"type1":"",
@@ -13422,7 +13422,7 @@
 	"name":"Glameow",
 	"form":"-",
 	"evo":"",
-	"weight":"058",
+	"weight":"-",
 	"bst7":"310",
 	"types":{
 		"type1":"",
@@ -13449,7 +13449,7 @@
 	"name":"Purugly",
 	"form":"-",
 	"evo":"",
-	"weight":"394",
+	"weight":"-",
 	"bst7":"452",
 	"types":{
 		"type1":"",
@@ -13476,7 +13476,7 @@
 	"name":"Chingling",
 	"form":"-",
 	"evo":"",
-	"weight":"453",
+	"weight":"-",
 	"bst7":"285",
 	"types":{
 		"type1":"",
@@ -13503,7 +13503,7 @@
 	"name":"Stunky",
 	"form":"-",
 	"evo":"",
-	"weight":"414",
+	"weight":"-",
 	"bst7":"329",
 	"types":{
 		"type1":"",
@@ -13530,7 +13530,7 @@
 	"name":"Skuntank",
 	"form":"-",
 	"evo":"",
-	"weight":"517",
+	"weight":"-",
 	"bst7":"479",
 	"types":{
 		"type1":"",
@@ -13557,7 +13557,7 @@
 	"name":"Bronzor",
 	"form":"-",
 	"evo":"",
-	"weight":"369",
+	"weight":"-",
 	"bst7":"300",
 	"types":{
 		"type1":"",
@@ -13584,7 +13584,7 @@
 	"name":"Bronzong",
 	"form":"-",
 	"evo":"",
-	"weight":"239",
+	"weight":"-",
 	"bst7":"500",
 	"types":{
 		"type1":"",
@@ -13611,7 +13611,7 @@
 	"name":"Bonsly",
 	"form":"-",
 	"evo":"",
-	"weight":"303",
+	"weight":"-",
 	"bst7":"290",
 	"types":{
 		"type1":"",
@@ -13638,7 +13638,7 @@
 	"name":"Mime Jr.",
 	"form":"-",
 	"evo":"",
-	"weight":"700",
+	"weight":"-",
 	"bst7":"310",
 	"types":{
 		"type1":"",
@@ -13665,7 +13665,7 @@
 	"name":"Happiny",
 	"form":"-",
 	"evo":"",
-	"weight":"340",
+	"weight":"-",
 	"bst7":"220",
 	"types":{
 		"type1":"",
@@ -13692,7 +13692,7 @@
 	"name":"Chatot",
 	"form":"-",
 	"evo":"",
-	"weight":"345",
+	"weight":"-",
 	"bst7":"411",
 	"types":{
 		"type1":"",
@@ -13719,7 +13719,7 @@
 	"name":"Spiritomb",
 	"form":"-",
 	"evo":"",
-	"weight":"077",
+	"weight":"-",
 	"bst7":"485",
 	"types":{
 		"type1":"",
@@ -13746,7 +13746,7 @@
 	"name":"Gible",
 	"form":"-",
 	"evo":"",
-	"weight":"287",
+	"weight":"-",
 	"bst7":"300",
 	"types":{
 		"type1":"",
@@ -13773,7 +13773,7 @@
 	"name":"Gabite",
 	"form":"-",
 	"evo":"",
-	"weight":"322",
+	"weight":"-",
 	"bst7":"410",
 	"types":{
 		"type1":"",
@@ -13800,7 +13800,7 @@
 	"name":"Garchomp",
 	"form":"-",
 	"evo":"",
-	"weight":"457",
+	"weight":"-",
 	"bst7":"600",
 	"types":{
 		"type1":"",
@@ -13827,7 +13827,7 @@
 	"name":"Garchomp",
 	"form":"Mega Garchomp",
 	"evo":"",
-	"weight":"581",
+	"weight":"-",
 	"bst7":"700",
 	"types":{
 		"type1":"",
@@ -13854,7 +13854,7 @@
 	"name":"Munchlax",
 	"form":"-",
 	"evo":"",
-	"weight":"440",
+	"weight":"-",
 	"bst7":"390",
 	"types":{
 		"type1":"",
@@ -13881,7 +13881,7 @@
 	"name":"Riolu",
 	"form":"-",
 	"evo":"",
-	"weight":"135",
+	"weight":"-",
 	"bst7":"285",
 	"types":{
 		"type1":"",
@@ -13908,7 +13908,7 @@
 	"name":"Lucario",
 	"form":"-",
 	"evo":"",
-	"weight":"502",
+	"weight":"-",
 	"bst7":"525",
 	"types":{
 		"type1":"",
@@ -13935,7 +13935,7 @@
 	"name":"Lucario",
 	"form":"Mega Lucario",
 	"evo":"",
-	"weight":"663",
+	"weight":"-",
 	"bst7":"625",
 	"types":{
 		"type1":"",
@@ -13962,7 +13962,7 @@
 	"name":"Hippopotas",
 	"form":"-",
 	"evo":"",
-	"weight":"398",
+	"weight":"-",
 	"bst7":"330",
 	"types":{
 		"type1":"",
@@ -13989,7 +13989,7 @@
 	"name":"Hippowdon",
 	"form":"-",
 	"evo":"",
-	"weight":"117",
+	"weight":"-",
 	"bst7":"525",
 	"types":{
 		"type1":"",
@@ -14016,7 +14016,7 @@
 	"name":"Skorupi",
 	"form":"-",
 	"evo":"",
-	"weight":"136",
+	"weight":"-",
 	"bst7":"330",
 	"types":{
 		"type1":"",
@@ -14043,7 +14043,7 @@
 	"name":"Drapion",
 	"form":"-",
 	"evo":"",
-	"weight":"159",
+	"weight":"-",
 	"bst7":"500",
 	"types":{
 		"type1":"",
@@ -14070,7 +14070,7 @@
 	"name":"Croagunk",
 	"form":"-",
 	"evo":"",
-	"weight":"726",
+	"weight":"-",
 	"bst7":"300",
 	"types":{
 		"type1":"",
@@ -14097,7 +14097,7 @@
 	"name":"Toxicroak",
 	"form":"-",
 	"evo":"",
-	"weight":"745",
+	"weight":"-",
 	"bst7":"490",
 	"types":{
 		"type1":"",
@@ -14124,7 +14124,7 @@
 	"name":"Carnivine",
 	"form":"-",
 	"evo":"",
-	"weight":"745",
+	"weight":"-",
 	"bst7":"454",
 	"types":{
 		"type1":"",
@@ -14151,7 +14151,7 @@
 	"name":"Finneon",
 	"form":"-",
 	"evo":"",
-	"weight":"745",
+	"weight":"-",
 	"bst7":"330",
 	"types":{
 		"type1":"",
@@ -14178,7 +14178,7 @@
 	"name":"Lumineon",
 	"form":"-",
 	"evo":"",
-	"weight":"795",
+	"weight":"-",
 	"bst7":"460",
 	"types":{
 		"type1":"",
@@ -14205,7 +14205,7 @@
 	"name":"Mantyke",
 	"form":"-",
 	"evo":"",
-	"weight":"698",
+	"weight":"-",
 	"bst7":"345",
 	"types":{
 		"type1":"",
@@ -14232,7 +14232,7 @@
 	"name":"Snover",
 	"form":"-",
 	"evo":"",
-	"weight":"617",
+	"weight":"-",
 	"bst7":"334",
 	"types":{
 		"type1":"",
@@ -14259,7 +14259,7 @@
 	"name":"Abomasnow",
 	"form":"-",
 	"evo":"",
-	"weight":"402",
+	"weight":"-",
 	"bst7":"494",
 	"types":{
 		"type1":"",
@@ -14286,7 +14286,7 @@
 	"name":"Abomasnow",
 	"form":"Mega Abomasnow",
 	"evo":"",
-	"weight":"470",
+	"weight":"-",
 	"bst7":"594",
 	"types":{
 		"type1":"",
@@ -14313,7 +14313,7 @@
 	"name":"Weavile",
 	"form":"-",
 	"evo":"",
-	"weight":"020",
+	"weight":"-",
 	"bst7":"510",
 	"types":{
 		"type1":"",
@@ -14340,7 +14340,7 @@
 	"name":"Magnezone",
 	"form":"-",
 	"evo":"",
-	"weight":"471",
+	"weight":"-",
 	"bst7":"535",
 	"types":{
 		"type1":"",
@@ -14367,7 +14367,7 @@
 	"name":"Lickilicky",
 	"form":"-",
 	"evo":"",
-	"weight":"696",
+	"weight":"-",
 	"bst7":"515",
 	"types":{
 		"type1":"",
@@ -14394,7 +14394,7 @@
 	"name":"Rhyperior",
 	"form":"-",
 	"evo":"",
-	"weight":"733",
+	"weight":"-",
 	"bst7":"535",
 	"types":{
 		"type1":"",
@@ -14421,7 +14421,7 @@
 	"name":"Tangrowth",
 	"form":"-",
 	"evo":"",
-	"weight":"196",
+	"weight":"-",
 	"bst7":"535",
 	"types":{
 		"type1":"",
@@ -14448,7 +14448,7 @@
 	"name":"Electivire",
 	"form":"-",
 	"evo":"",
-	"weight":"478",
+	"weight":"-",
 	"bst7":"540",
 	"types":{
 		"type1":"",
@@ -14475,7 +14475,7 @@
 	"name":"Magmortar",
 	"form":"-",
 	"evo":"",
-	"weight":"197",
+	"weight":"-",
 	"bst7":"540",
 	"types":{
 		"type1":"",
@@ -14502,7 +14502,7 @@
 	"name":"Togekiss",
 	"form":"-",
 	"evo":"",
-	"weight":"215",
+	"weight":"-",
 	"bst7":"545",
 	"types":{
 		"type1":"",
@@ -14529,7 +14529,7 @@
 	"name":"Yanmega",
 	"form":"-",
 	"evo":"",
-	"weight":"367",
+	"weight":"-",
 	"bst7":"515",
 	"types":{
 		"type1":"",
@@ -14556,7 +14556,7 @@
 	"name":"Leafeon",
 	"form":"-",
 	"evo":"",
-	"weight":"455",
+	"weight":"-",
 	"bst7":"525",
 	"types":{
 		"type1":"",
@@ -14583,7 +14583,7 @@
 	"name":"Glaceon",
 	"form":"-",
 	"evo":"",
-	"weight":"505",
+	"weight":"-",
 	"bst7":"525",
 	"types":{
 		"type1":"",
@@ -14610,7 +14610,7 @@
 	"name":"Gliscor",
 	"form":"-",
 	"evo":"",
-	"weight":"945",
+	"weight":"-",
 	"bst7":"510",
 	"types":{
 		"type1":"",
@@ -14637,7 +14637,7 @@
 	"name":"Mamoswine",
 	"form":"-",
 	"evo":"",
-	"weight":"430",
+	"weight":"-",
 	"bst7":"530",
 	"types":{
 		"type1":"",
@@ -14664,7 +14664,7 @@
 	"name":"Porygon-Z",
 	"form":"-",
 	"evo":"",
-	"weight":"719",
+	"weight":"-",
 	"bst7":"535",
 	"types":{
 		"type1":"",
@@ -14691,7 +14691,7 @@
 	"name":"Gallade",
 	"form":"-",
 	"evo":"",
-	"weight":"056",
+	"weight":"-",
 	"bst7":"518",
 	"types":{
 		"type1":"",
@@ -14718,7 +14718,7 @@
 	"name":"Gallade",
 	"form":"Mega Gallade",
 	"evo":"",
-	"weight":"215",
+	"weight":"-",
 	"bst7":"618",
 	"types":{
 		"type1":"",
@@ -14745,7 +14745,7 @@
 	"name":"Probopass",
 	"form":"-",
 	"evo":"",
-	"weight":"259",
+	"weight":"-",
 	"bst7":"525",
 	"types":{
 		"type1":"",
@@ -14772,7 +14772,7 @@
 	"name":"Dusknoir",
 	"form":"-",
 	"evo":"",
-	"weight":"274",
+	"weight":"-",
 	"bst7":"525",
 	"types":{
 		"type1":"",
@@ -14799,7 +14799,7 @@
 	"name":"Froslass",
 	"form":"-",
 	"evo":"",
-	"weight":"279",
+	"weight":"-",
 	"bst7":"480",
 	"types":{
 		"type1":"",
@@ -14826,7 +14826,7 @@
 	"name":"Rotom",
 	"form":"-",
 	"evo":"",
-	"weight":"514",
+	"weight":"-",
 	"bst7":"440",
 	"types":{
 		"type1":"",
@@ -14853,7 +14853,7 @@
 	"name":"Rotom",
 	"form":"Heat Rotom",
 	"evo":"",
-	"weight":"556",
+	"weight":"-",
 	"bst7":"520",
 	"types":{
 		"type1":"",
@@ -14880,7 +14880,7 @@
 	"name":"Rotom",
 	"form":"Wash Rotom",
 	"evo":"",
-	"weight":"676",
+	"weight":"-",
 	"bst7":"520",
 	"types":{
 		"type1":"",
@@ -14907,7 +14907,7 @@
 	"name":"Rotom",
 	"form":"Frost Rotom",
 	"evo":"",
-	"weight":"863",
+	"weight":"-",
 	"bst7":"520",
 	"types":{
 		"type1":"",
@@ -14934,7 +14934,7 @@
 	"name":"Rotom",
 	"form":"Fan Rotom",
 	"evo":"",
-	"weight":"876",
+	"weight":"-",
 	"bst7":"520",
 	"types":{
 		"type1":"",
@@ -14961,7 +14961,7 @@
 	"name":"Rotom",
 	"form":"Mow Rotom",
 	"evo":"",
-	"weight":"428",
+	"weight":"-",
 	"bst7":"520",
 	"types":{
 		"type1":"",
@@ -14988,7 +14988,7 @@
 	"name":"Uxie",
 	"form":"-",
 	"evo":"",
-	"weight":"267",
+	"weight":"-",
 	"bst7":"580",
 	"types":{
 		"type1":"",
@@ -15015,7 +15015,7 @@
 	"name":"Mesprit",
 	"form":"-",
 	"evo":"",
-	"weight":"184",
+	"weight":"-",
 	"bst7":"580",
 	"types":{
 		"type1":"",
@@ -15042,7 +15042,7 @@
 	"name":"Azelf",
 	"form":"-",
 	"evo":"",
-	"weight":"202",
+	"weight":"-",
 	"bst7":"580",
 	"types":{
 		"type1":"",
@@ -15069,7 +15069,7 @@
 	"name":"Dialga",
 	"form":"-",
 	"evo":"",
-	"weight":"224",
+	"weight":"-",
 	"bst7":"680",
 	"types":{
 		"type1":"",
@@ -15096,7 +15096,7 @@
 	"name":"Palkia",
 	"form":"-",
 	"evo":"",
-	"weight":"636",
+	"weight":"-",
 	"bst7":"680",
 	"types":{
 		"type1":"",
@@ -15123,7 +15123,7 @@
 	"name":"Heatran",
 	"form":"-",
 	"evo":"",
-	"weight":"134",
+	"weight":"-",
 	"bst7":"600",
 	"types":{
 		"type1":"",
@@ -15150,7 +15150,7 @@
 	"name":"Regigigas",
 	"form":"-",
 	"evo":"",
-	"weight":"516",
+	"weight":"-",
 	"bst7":"670",
 	"types":{
 		"type1":"",
@@ -15177,7 +15177,7 @@
 	"name":"Giratina",
 	"form":"Altered Forme",
 	"evo":"",
-	"weight":"521",
+	"weight":"-",
 	"bst7":"680",
 	"types":{
 		"type1":"",
@@ -15204,7 +15204,7 @@
 	"name":"Giratina",
 	"form":"Origin Forme",
 	"evo":"",
-	"weight":"651",
+	"weight":"-",
 	"bst7":"680",
 	"types":{
 		"type1":"",
@@ -15231,7 +15231,7 @@
 	"name":"Cresselia",
 	"form":"-",
 	"evo":"",
-	"weight":"015",
+	"weight":"-",
 	"bst7":"600",
 	"types":{
 		"type1":"",
@@ -15258,7 +15258,7 @@
 	"name":"Phione",
 	"form":"-",
 	"evo":"",
-	"weight":"028",
+	"weight":"-",
 	"bst7":"480",
 	"types":{
 		"type1":"",
@@ -15285,7 +15285,7 @@
 	"name":"Manaphy",
 	"form":"-",
 	"evo":"",
-	"weight":"047",
+	"weight":"-",
 	"bst7":"600",
 	"types":{
 		"type1":"",
@@ -15312,7 +15312,7 @@
 	"name":"Darkrai",
 	"form":"-",
 	"evo":"",
-	"weight":"418",
+	"weight":"-",
 	"bst7":"600",
 	"types":{
 		"type1":"",
@@ -15339,7 +15339,7 @@
 	"name":"Shaymin",
 	"form":"Land Forme",
 	"evo":"",
-	"weight":"782",
+	"weight":"-",
 	"bst7":"600",
 	"types":{
 		"type1":"",
@@ -15366,7 +15366,7 @@
 	"name":"Shaymin",
 	"form":"Sky Forme",
 	"evo":"",
-	"weight":"522",
+	"weight":"-",
 	"bst7":"600",
 	"types":{
 		"type1":"",
@@ -15393,7 +15393,7 @@
 	"name":"Arceus",
 	"form":"-",
 	"evo":"",
-	"weight":"423",
+	"weight":"-",
 	"bst7":"720",
 	"types":{
 		"type1":"",
@@ -15420,7 +15420,7 @@
 	"name":"Victini",
 	"form":"-",
 	"evo":"",
-	"weight":"017",
+	"weight":"-",
 	"bst7":"600",
 	"types":{
 		"type1":"",
@@ -15447,7 +15447,7 @@
 	"name":"Snivy",
 	"form":"-",
 	"evo":"",
-	"weight":"026",
+	"weight":"-",
 	"bst7":"308",
 	"types":{
 		"type1":"",
@@ -15474,7 +15474,7 @@
 	"name":"Servine",
 	"form":"-",
 	"evo":"",
-	"weight":"048",
+	"weight":"-",
 	"bst7":"413",
 	"types":{
 		"type1":"",
@@ -15501,7 +15501,7 @@
 	"name":"Serperior",
 	"form":"-",
 	"evo":"",
-	"weight":"077",
+	"weight":"-",
 	"bst7":"528",
 	"types":{
 		"type1":"",
@@ -15528,7 +15528,7 @@
 	"name":"Tepig",
 	"form":"-",
 	"evo":"",
-	"weight":"088",
+	"weight":"-",
 	"bst7":"308",
 	"types":{
 		"type1":"",
@@ -15555,7 +15555,7 @@
 	"name":"Pignite",
 	"form":"-",
 	"evo":"",
-	"weight":"089",
+	"weight":"-",
 	"bst7":"418",
 	"types":{
 		"type1":"",
@@ -15582,7 +15582,7 @@
 	"name":"Emboar",
 	"form":"-",
 	"evo":"",
-	"weight":"125",
+	"weight":"-",
 	"bst7":"528",
 	"types":{
 		"type1":"",
@@ -15609,7 +15609,7 @@
 	"name":"Oshawott",
 	"form":"-",
 	"evo":"",
-	"weight":"560",
+	"weight":"-",
 	"bst7":"308",
 	"types":{
 		"type1":"",
@@ -15636,7 +15636,7 @@
 	"name":"Dewott",
 	"form":"-",
 	"evo":"",
-	"weight":"847",
+	"weight":"-",
 	"bst7":"413",
 	"types":{
 		"type1":"",
@@ -15663,7 +15663,7 @@
 	"name":"Samurott",
 	"form":"-",
 	"evo":"",
-	"weight":"997",
+	"weight":"-",
 	"bst7":"528",
 	"types":{
 		"type1":"",
@@ -15690,7 +15690,7 @@
 	"name":"Patrat",
 	"form":"-",
 	"evo":"",
-	"weight":"100",
+	"weight":"-",
 	"bst7":"255",
 	"types":{
 		"type1":"",
@@ -15717,7 +15717,7 @@
 	"name":"Watchog",
 	"form":"-",
 	"evo":"",
-	"weight":"404",
+	"weight":"-",
 	"bst7":"420",
 	"types":{
 		"type1":"",
@@ -15744,7 +15744,7 @@
 	"name":"Lillipup",
 	"form":"-",
 	"evo":"",
-	"weight":"512",
+	"weight":"-",
 	"bst7":"275",
 	"types":{
 		"type1":"",
@@ -15771,7 +15771,7 @@
 	"name":"Herdier",
 	"form":"-",
 	"evo":"",
-	"weight":"325",
+	"weight":"-",
 	"bst7":"370",
 	"types":{
 		"type1":"",
@@ -15798,7 +15798,7 @@
 	"name":"Stoutland",
 	"form":"-",
 	"evo":"",
-	"weight":"356",
+	"weight":"-",
 	"bst7":"500",
 	"types":{
 		"type1":"",
@@ -15825,7 +15825,7 @@
 	"name":"Purrloin",
 	"form":"-",
 	"evo":"",
-	"weight":"910",
+	"weight":"-",
 	"bst7":"281",
 	"types":{
 		"type1":"",
@@ -15852,7 +15852,7 @@
 	"name":"Liepard",
 	"form":"-",
 	"evo":"",
-	"weight":"531",
+	"weight":"-",
 	"bst7":"446",
 	"types":{
 		"type1":"",
@@ -15879,7 +15879,7 @@
 	"name":"Pansage",
 	"form":"-",
 	"evo":"",
-	"weight":"568",
+	"weight":"-",
 	"bst7":"316",
 	"types":{
 		"type1":"",
@@ -15906,7 +15906,7 @@
 	"name":"Simisage",
 	"form":"-",
 	"evo":"",
-	"weight":"672",
+	"weight":"-",
 	"bst7":"498",
 	"types":{
 		"type1":"",
@@ -15933,7 +15933,7 @@
 	"name":"Pansear",
 	"form":"-",
 	"evo":"",
-	"weight":"688",
+	"weight":"-",
 	"bst7":"316",
 	"types":{
 		"type1":"",
@@ -15960,7 +15960,7 @@
 	"name":"Simisear",
 	"form":"-",
 	"evo":"",
-	"weight":"908",
+	"weight":"-",
 	"bst7":"498",
 	"types":{
 		"type1":"",
@@ -15987,7 +15987,7 @@
 	"name":"Panpour",
 	"form":"-",
 	"evo":"",
-	"weight":"308",
+	"weight":"-",
 	"bst7":"316",
 	"types":{
 		"type1":"",
@@ -16014,7 +16014,7 @@
 	"name":"Simipour",
 	"form":"-",
 	"evo":"",
-	"weight":"400",
+	"weight":"-",
 	"bst7":"498",
 	"types":{
 		"type1":"",
@@ -16041,7 +16041,7 @@
 	"name":"Munna",
 	"form":"-",
 	"evo":"",
-	"weight":"408",
+	"weight":"-",
 	"bst7":"292",
 	"types":{
 		"type1":"",
@@ -16068,7 +16068,7 @@
 	"name":"Musharna",
 	"form":"-",
 	"evo":"",
-	"weight":"269",
+	"weight":"-",
 	"bst7":"487",
 	"types":{
 		"type1":"",
@@ -16095,7 +16095,7 @@
 	"name":"Pidove",
 	"form":"-",
 	"evo":"",
-	"weight":"594",
+	"weight":"-",
 	"bst7":"264",
 	"types":{
 		"type1":"",
@@ -16122,7 +16122,7 @@
 	"name":"Tranquill",
 	"form":"-",
 	"evo":"",
-	"weight":"012",
+	"weight":"-",
 	"bst7":"358",
 	"types":{
 		"type1":"",
@@ -16149,7 +16149,7 @@
 	"name":"Unfezant",
 	"form":"-",
 	"evo":"",
-	"weight":"053",
+	"weight":"-",
 	"bst7":"488",
 	"types":{
 		"type1":"",
@@ -16176,7 +16176,7 @@
 	"name":"Blitzle",
 	"form":"-",
 	"evo":"",
-	"weight":"057",
+	"weight":"-",
 	"bst7":"295",
 	"types":{
 		"type1":"",
@@ -16203,7 +16203,7 @@
 	"name":"Zebstrika",
 	"form":"-",
 	"evo":"",
-	"weight":"531",
+	"weight":"-",
 	"bst7":"497",
 	"types":{
 		"type1":"",
@@ -16230,7 +16230,7 @@
 	"name":"Roggenrola",
 	"form":"-",
 	"evo":"",
-	"weight":"567",
+	"weight":"-",
 	"bst7":"280",
 	"types":{
 		"type1":"",
@@ -16257,7 +16257,7 @@
 	"name":"Boldore",
 	"form":"-",
 	"evo":"",
-	"weight":"096",
+	"weight":"-",
 	"bst7":"390",
 	"types":{
 		"type1":"",
@@ -16284,7 +16284,7 @@
 	"name":"Gigalith",
 	"form":"-",
 	"evo":"",
-	"weight":"162",
+	"weight":"-",
 	"bst7":"515",
 	"types":{
 		"type1":"",
@@ -16311,7 +16311,7 @@
 	"name":"Woobat",
 	"form":"-",
 	"evo":"",
-	"weight":"233",
+	"weight":"-",
 	"bst7":"323",
 	"types":{
 		"type1":"",
@@ -16338,7 +16338,7 @@
 	"name":"Swoobat",
 	"form":"-",
 	"evo":"",
-	"weight":"264",
+	"weight":"-",
 	"bst7":"425",
 	"types":{
 		"type1":"",
@@ -16365,7 +16365,7 @@
 	"name":"Drilbur",
 	"form":"-",
 	"evo":"",
-	"weight":"264",
+	"weight":"-",
 	"bst7":"328",
 	"types":{
 		"type1":"",
@@ -16392,7 +16392,7 @@
 	"name":"Excadrill",
 	"form":"-",
 	"evo":"",
-	"weight":"271",
+	"weight":"-",
 	"bst7":"508",
 	"types":{
 		"type1":"",
@@ -16419,7 +16419,7 @@
 	"name":"Audino",
 	"form":"-",
 	"evo":"",
-	"weight":"301",
+	"weight":"-",
 	"bst7":"445",
 	"types":{
 		"type1":"",
@@ -16446,7 +16446,7 @@
 	"name":"Audino",
 	"form":"Mega Audino",
 	"evo":"",
-	"weight":"342",
+	"weight":"-",
 	"bst7":"545",
 	"types":{
 		"type1":"",
@@ -16473,7 +16473,7 @@
 	"name":"Timburr",
 	"form":"-",
 	"evo":"",
-	"weight":"053",
+	"weight":"-",
 	"bst7":"305",
 	"types":{
 		"type1":"",
@@ -16500,7 +16500,7 @@
 	"name":"Gurdurr",
 	"form":"-",
 	"evo":"",
-	"weight":"150",
+	"weight":"-",
 	"bst7":"405",
 	"types":{
 		"type1":"",
@@ -16527,7 +16527,7 @@
 	"name":"Conkeldurr",
 	"form":"-",
 	"evo":"",
-	"weight":"589",
+	"weight":"-",
 	"bst7":"505",
 	"types":{
 		"type1":"",
@@ -16554,7 +16554,7 @@
 	"name":"Tympole",
 	"form":"-",
 	"evo":"",
-	"weight":"592",
+	"weight":"-",
 	"bst7":"294",
 	"types":{
 		"type1":"",
@@ -16581,7 +16581,7 @@
 	"name":"Palpitoad",
 	"form":"-",
 	"evo":"",
-	"weight":"632",
+	"weight":"-",
 	"bst7":"384",
 	"types":{
 		"type1":"",
@@ -16608,7 +16608,7 @@
 	"name":"Seismitoad",
 	"form":"-",
 	"evo":"",
-	"weight":"815",
+	"weight":"-",
 	"bst7":"509",
 	"types":{
 		"type1":"",
@@ -16635,7 +16635,7 @@
 	"name":"Throh",
 	"form":"-",
 	"evo":"",
-	"weight":"948",
+	"weight":"-",
 	"bst7":"465",
 	"types":{
 		"type1":"",
@@ -16662,7 +16662,7 @@
 	"name":"Sawk",
 	"form":"-",
 	"evo":"",
-	"weight":"051",
+	"weight":"-",
 	"bst7":"465",
 	"types":{
 		"type1":"",
@@ -16689,7 +16689,7 @@
 	"name":"Sewaddle",
 	"form":"-",
 	"evo":"",
-	"weight":"428",
+	"weight":"-",
 	"bst7":"310",
 	"types":{
 		"type1":"",
@@ -16716,7 +16716,7 @@
 	"name":"Swadloon",
 	"form":"-",
 	"evo":"",
-	"weight":"552",
+	"weight":"-",
 	"bst7":"380",
 	"types":{
 		"type1":"",
@@ -16743,7 +16743,7 @@
 	"name":"Leavanny",
 	"form":"-",
 	"evo":"",
-	"weight":"168",
+	"weight":"-",
 	"bst7":"500",
 	"types":{
 		"type1":"",
@@ -16770,7 +16770,7 @@
 	"name":"Venipede",
 	"form":"-",
 	"evo":"",
-	"weight":"231",
+	"weight":"-",
 	"bst7":"260",
 	"types":{
 		"type1":"",
@@ -16797,7 +16797,7 @@
 	"name":"Whirlipede",
 	"form":"-",
 	"evo":"",
-	"weight":"419",
+	"weight":"-",
 	"bst7":"360",
 	"types":{
 		"type1":"",
@@ -16824,7 +16824,7 @@
 	"name":"Scolipede",
 	"form":"-",
 	"evo":"",
-	"weight":"718",
+	"weight":"-",
 	"bst7":"485",
 	"types":{
 		"type1":"",
@@ -16851,7 +16851,7 @@
 	"name":"Cottonee",
 	"form":"-",
 	"evo":"",
-	"weight":"186",
+	"weight":"-",
 	"bst7":"280",
 	"types":{
 		"type1":"",
@@ -16878,7 +16878,7 @@
 	"name":"Whimsicott",
 	"form":"-",
 	"evo":"",
-	"weight":"105",
+	"weight":"-",
 	"bst7":"480",
 	"types":{
 		"type1":"",
@@ -16905,7 +16905,7 @@
 	"name":"Petilil",
 	"form":"-",
 	"evo":"",
-	"weight":"461",
+	"weight":"-",
 	"bst7":"280",
 	"types":{
 		"type1":"",
@@ -16932,7 +16932,7 @@
 	"name":"Lilligant",
 	"form":"-",
 	"evo":"",
-	"weight":"474",
+	"weight":"-",
 	"bst7":"480",
 	"types":{
 		"type1":"",
@@ -16959,7 +16959,7 @@
 	"name":"Basculin",
 	"form":"-",
 	"evo":"",
-	"weight":"836",
+	"weight":"-",
 	"bst7":"460",
 	"types":{
 		"type1":"",
@@ -16986,7 +16986,7 @@
 	"name":"Sandile",
 	"form":"-",
 	"evo":"",
-	"weight":"609",
+	"weight":"-",
 	"bst7":"292",
 	"types":{
 		"type1":"",
@@ -17013,7 +17013,7 @@
 	"name":"Krokorok",
 	"form":"-",
 	"evo":"",
-	"weight":"120",
+	"weight":"-",
 	"bst7":"351",
 	"types":{
 		"type1":"",
@@ -17040,7 +17040,7 @@
 	"name":"Krookodile",
 	"form":"-",
 	"evo":"",
-	"weight":"606",
+	"weight":"-",
 	"bst7":"519",
 	"types":{
 		"type1":"",
@@ -17067,7 +17067,7 @@
 	"name":"Darumaka",
 	"form":"-",
 	"evo":"",
-	"weight":"113",
+	"weight":"-",
 	"bst7":"315",
 	"types":{
 		"type1":"",
@@ -17094,7 +17094,7 @@
 	"name":"Darmanitan",
 	"form":"Standard Mode",
 	"evo":"",
-	"weight":"114",
+	"weight":"-",
 	"bst7":"480",
 	"types":{
 		"type1":"",
@@ -17121,7 +17121,7 @@
 	"name":"Darmanitan",
 	"form":"Zen Mode",
 	"evo":"",
-	"weight":"139",
+	"weight":"-",
 	"bst7":"540",
 	"types":{
 		"type1":"",
@@ -17148,7 +17148,7 @@
 	"name":"Maractus",
 	"form":"-",
 	"evo":"",
-	"weight":"218",
+	"weight":"-",
 	"bst7":"461",
 	"types":{
 		"type1":"",
@@ -17175,7 +17175,7 @@
 	"name":"Dwebble",
 	"form":"-",
 	"evo":"",
-	"weight":"229",
+	"weight":"-",
 	"bst7":"325",
 	"types":{
 		"type1":"",
@@ -17202,7 +17202,7 @@
 	"name":"Crustle",
 	"form":"-",
 	"evo":"",
-	"weight":"965",
+	"weight":"-",
 	"bst7":"485",
 	"types":{
 		"type1":"",
@@ -17229,7 +17229,7 @@
 	"name":"Scraggy",
 	"form":"-",
 	"evo":"",
-	"weight":"971",
+	"weight":"-",
 	"bst7":"348",
 	"types":{
 		"type1":"",
@@ -17256,7 +17256,7 @@
 	"name":"Scrafty",
 	"form":"-",
 	"evo":"",
-	"weight":"100",
+	"weight":"-",
 	"bst7":"488",
 	"types":{
 		"type1":"",
@@ -17283,7 +17283,7 @@
 	"name":"Sigilyph",
 	"form":"-",
 	"evo":"",
-	"weight":"693",
+	"weight":"-",
 	"bst7":"490",
 	"types":{
 		"type1":"",
@@ -17310,7 +17310,7 @@
 	"name":"Yamask",
 	"form":"-",
 	"evo":"",
-	"weight":"620",
+	"weight":"-",
 	"bst7":"303",
 	"types":{
 		"type1":"",
@@ -17337,7 +17337,7 @@
 	"name":"Cofagrigus",
 	"form":"-",
 	"evo":"",
-	"weight":"166",
+	"weight":"-",
 	"bst7":"483",
 	"types":{
 		"type1":"",
@@ -17364,7 +17364,7 @@
 	"name":"Tirtouga",
 	"form":"-",
 	"evo":"",
-	"weight":"079",
+	"weight":"-",
 	"bst7":"355",
 	"types":{
 		"type1":"",
@@ -17391,7 +17391,7 @@
 	"name":"Carracosta",
 	"form":"-",
 	"evo":"",
-	"weight":"079",
+	"weight":"-",
 	"bst7":"495",
 	"types":{
 		"type1":"",
@@ -17418,7 +17418,7 @@
 	"name":"Archen",
 	"form":"-",
 	"evo":"",
-	"weight":"611",
+	"weight":"-",
 	"bst7":"401",
 	"types":{
 		"type1":"",
@@ -17445,7 +17445,7 @@
 	"name":"Archeops",
 	"form":"-",
 	"evo":"",
-	"weight":"994",
+	"weight":"-",
 	"bst7":"567",
 	"types":{
 		"type1":"",
@@ -17472,7 +17472,7 @@
 	"name":"Trubbish",
 	"form":"-",
 	"evo":"",
-	"weight":"137",
+	"weight":"-",
 	"bst7":"329",
 	"types":{
 		"type1":"",
@@ -17499,7 +17499,7 @@
 	"name":"Garbodor",
 	"form":"-",
 	"evo":"",
-	"weight":"724",
+	"weight":"-",
 	"bst7":"474",
 	"types":{
 		"type1":"",
@@ -17526,7 +17526,7 @@
 	"name":"Zorua",
 	"form":"-",
 	"evo":"",
-	"weight":"262",
+	"weight":"-",
 	"bst7":"330",
 	"types":{
 		"type1":"",
@@ -17553,7 +17553,7 @@
 	"name":"Zoroark",
 	"form":"-",
 	"evo":"",
-	"weight":"724",
+	"weight":"-",
 	"bst7":"510",
 	"types":{
 		"type1":"",
@@ -17580,7 +17580,7 @@
 	"name":"Minccino",
 	"form":"-",
 	"evo":"",
-	"weight":"973",
+	"weight":"-",
 	"bst7":"300",
 	"types":{
 		"type1":"",
@@ -17607,7 +17607,7 @@
 	"name":"Cinccino",
 	"form":"-",
 	"evo":"",
-	"weight":"510",
+	"weight":"-",
 	"bst7":"470",
 	"types":{
 		"type1":"",
@@ -17634,7 +17634,7 @@
 	"name":"Gothita",
 	"form":"-",
 	"evo":"",
-	"weight":"554",
+	"weight":"-",
 	"bst7":"290",
 	"types":{
 		"type1":"",
@@ -17661,7 +17661,7 @@
 	"name":"Gothorita",
 	"form":"-",
 	"evo":"",
-	"weight":"022",
+	"weight":"-",
 	"bst7":"390",
 	"types":{
 		"type1":"",
@@ -17688,7 +17688,7 @@
 	"name":"Gothitelle",
 	"form":"-",
 	"evo":"",
-	"weight":"185",
+	"weight":"-",
 	"bst7":"490",
 	"types":{
 		"type1":"",
@@ -17715,7 +17715,7 @@
 	"name":"Solosis",
 	"form":"-",
 	"evo":"",
-	"weight":"193",
+	"weight":"-",
 	"bst7":"290",
 	"types":{
 		"type1":"",
@@ -17742,7 +17742,7 @@
 	"name":"Duosion",
 	"form":"-",
 	"evo":"",
-	"weight":"435",
+	"weight":"-",
 	"bst7":"370",
 	"types":{
 		"type1":"",
@@ -17769,7 +17769,7 @@
 	"name":"Reuniclus",
 	"form":"-",
 	"evo":"",
-	"weight":"468",
+	"weight":"-",
 	"bst7":"490",
 	"types":{
 		"type1":"",
@@ -17796,7 +17796,7 @@
 	"name":"Ducklett",
 	"form":"-",
 	"evo":"",
-	"weight":"416",
+	"weight":"-",
 	"bst7":"305",
 	"types":{
 		"type1":"",
@@ -17823,7 +17823,7 @@
 	"name":"Swanna",
 	"form":"-",
 	"evo":"",
-	"weight":"941",
+	"weight":"-",
 	"bst7":"473",
 	"types":{
 		"type1":"",
@@ -17850,7 +17850,7 @@
 	"name":"Vanillite",
 	"form":"-",
 	"evo":"",
-	"weight":"119",
+	"weight":"-",
 	"bst7":"305",
 	"types":{
 		"type1":"",
@@ -17877,7 +17877,7 @@
 	"name":"Vanillish",
 	"form":"-",
 	"evo":"",
-	"weight":"655",
+	"weight":"-",
 	"bst7":"395",
 	"types":{
 		"type1":"",
@@ -17904,7 +17904,7 @@
 	"name":"Vanilluxe",
 	"form":"-",
 	"evo":"",
-	"weight":"711",
+	"weight":"-",
 	"bst7":"535",
 	"types":{
 		"type1":"",
@@ -17931,7 +17931,7 @@
 	"name":"Deerling",
 	"form":"-",
 	"evo":"",
-	"weight":"853",
+	"weight":"-",
 	"bst7":"335",
 	"types":{
 		"type1":"",
@@ -17958,7 +17958,7 @@
 	"name":"Sawsbuck",
 	"form":"-",
 	"evo":"",
-	"weight":"084",
+	"weight":"-",
 	"bst7":"475",
 	"types":{
 		"type1":"",
@@ -17985,7 +17985,7 @@
 	"name":"Emolga",
 	"form":"-",
 	"evo":"",
-	"weight":"286",
+	"weight":"-",
 	"bst7":"428",
 	"types":{
 		"type1":"",
@@ -18012,7 +18012,7 @@
 	"name":"Karrablast",
 	"form":"-",
 	"evo":"",
-	"weight":"982",
+	"weight":"-",
 	"bst7":"315",
 	"types":{
 		"type1":"",
@@ -18039,7 +18039,7 @@
 	"name":"Escavalier",
 	"form":"-",
 	"evo":"",
-	"weight":"018",
+	"weight":"-",
 	"bst7":"495",
 	"types":{
 		"type1":"",
@@ -18066,7 +18066,7 @@
 	"name":"Foongus",
 	"form":"-",
 	"evo":"",
-	"weight":"363",
+	"weight":"-",
 	"bst7":"294",
 	"types":{
 		"type1":"",
@@ -18093,7 +18093,7 @@
 	"name":"Amoonguss",
 	"form":"-",
 	"evo":"",
-	"weight":"630",
+	"weight":"-",
 	"bst7":"464",
 	"types":{
 		"type1":"",
@@ -18120,7 +18120,7 @@
 	"name":"Frillish",
 	"form":"-",
 	"evo":"",
-	"weight":"027",
+	"weight":"-",
 	"bst7":"335",
 	"types":{
 		"type1":"",
@@ -18147,7 +18147,7 @@
 	"name":"Jellicent",
 	"form":"-",
 	"evo":"",
-	"weight":"036",
+	"weight":"-",
 	"bst7":"480",
 	"types":{
 		"type1":"",
@@ -18174,7 +18174,7 @@
 	"name":"Alomomola",
 	"form":"-",
 	"evo":"",
-	"weight":"380",
+	"weight":"-",
 	"bst7":"470",
 	"types":{
 		"type1":"",
@@ -18201,7 +18201,7 @@
 	"name":"Joltik",
 	"form":"-",
 	"evo":"",
-	"weight":"533",
+	"weight":"-",
 	"bst7":"319",
 	"types":{
 		"type1":"",
@@ -18228,7 +18228,7 @@
 	"name":"Galvantula",
 	"form":"-",
 	"evo":"",
-	"weight":"554",
+	"weight":"-",
 	"bst7":"472",
 	"types":{
 		"type1":"",
@@ -18255,7 +18255,7 @@
 	"name":"Ferroseed",
 	"form":"-",
 	"evo":"",
-	"weight":"658",
+	"weight":"-",
 	"bst7":"305",
 	"types":{
 		"type1":"",
@@ -18282,7 +18282,7 @@
 	"name":"Ferrothorn",
 	"form":"-",
 	"evo":"",
-	"weight":"658",
+	"weight":"-",
 	"bst7":"489",
 	"types":{
 		"type1":"",
@@ -18309,7 +18309,7 @@
 	"name":"Klink",
 	"form":"-",
 	"evo":"",
-	"weight":"774",
+	"weight":"-",
 	"bst7":"300",
 	"types":{
 		"type1":"",
@@ -18336,7 +18336,7 @@
 	"name":"Klang",
 	"form":"-",
 	"evo":"",
-	"weight":"849",
+	"weight":"-",
 	"bst7":"440",
 	"types":{
 		"type1":"",
@@ -18363,7 +18363,7 @@
 	"name":"Klinklang",
 	"form":"-",
 	"evo":"",
-	"weight":"884",
+	"weight":"-",
 	"bst7":"520",
 	"types":{
 		"type1":"",
@@ -18390,7 +18390,7 @@
 	"name":"Tynamo",
 	"form":"-",
 	"evo":"",
-	"weight":"310",
+	"weight":"-",
 	"bst7":"275",
 	"types":{
 		"type1":"",
@@ -18417,7 +18417,7 @@
 	"name":"Eelektrik",
 	"form":"-",
 	"evo":"",
-	"weight":"335",
+	"weight":"-",
 	"bst7":"405",
 	"types":{
 		"type1":"",
@@ -18444,7 +18444,7 @@
 	"name":"Eelektross",
 	"form":"-",
 	"evo":"",
-	"weight":"530",
+	"weight":"-",
 	"bst7":"515",
 	"types":{
 		"type1":"",
@@ -18471,7 +18471,7 @@
 	"name":"Elgyem",
 	"form":"-",
 	"evo":"",
-	"weight":"015",
+	"weight":"-",
 	"bst7":"335",
 	"types":{
 		"type1":"",
@@ -18498,7 +18498,7 @@
 	"name":"Beheeyem",
 	"form":"-",
 	"evo":"",
-	"weight":"094",
+	"weight":"-",
 	"bst7":"485",
 	"types":{
 		"type1":"",
@@ -18525,7 +18525,7 @@
 	"name":"Litwick",
 	"form":"-",
 	"evo":"",
-	"weight":"141",
+	"weight":"-",
 	"bst7":"275",
 	"types":{
 		"type1":"",
@@ -18552,7 +18552,7 @@
 	"name":"Lampent",
 	"form":"-",
 	"evo":"",
-	"weight":"294",
+	"weight":"-",
 	"bst7":"370",
 	"types":{
 		"type1":"",
@@ -18579,7 +18579,7 @@
 	"name":"Chandelure",
 	"form":"-",
 	"evo":"",
-	"weight":"124",
+	"weight":"-",
 	"bst7":"520",
 	"types":{
 		"type1":"",
@@ -18606,7 +18606,7 @@
 	"name":"Axew",
 	"form":"-",
 	"evo":"",
-	"weight":"164",
+	"weight":"-",
 	"bst7":"320",
 	"types":{
 		"type1":"",
@@ -18633,7 +18633,7 @@
 	"name":"Fraxure",
 	"form":"-",
 	"evo":"",
-	"weight":"826",
+	"weight":"-",
 	"bst7":"410",
 	"types":{
 		"type1":"",
@@ -18660,7 +18660,7 @@
 	"name":"Haxorus",
 	"form":"-",
 	"evo":"",
-	"weight":"583",
+	"weight":"-",
 	"bst7":"540",
 	"types":{
 		"type1":"",
@@ -18687,7 +18687,7 @@
 	"name":"Cubchoo",
 	"form":"-",
 	"evo":"",
-	"weight":"628",
+	"weight":"-",
 	"bst7":"305",
 	"types":{
 		"type1":"",
@@ -18714,7 +18714,7 @@
 	"name":"Beartic",
 	"form":"-",
 	"evo":"",
-	"weight":"923",
+	"weight":"-",
 	"bst7":"505",
 	"types":{
 		"type1":"",
@@ -18741,7 +18741,7 @@
 	"name":"Cryogonal",
 	"form":"-",
 	"evo":"",
-	"weight":"203",
+	"weight":"-",
 	"bst7":"515",
 	"types":{
 		"type1":"",
@@ -18768,7 +18768,7 @@
 	"name":"Shelmet",
 	"form":"-",
 	"evo":"",
-	"weight":"083",
+	"weight":"-",
 	"bst7":"305",
 	"types":{
 		"type1":"",
@@ -18795,7 +18795,7 @@
 	"name":"Accelgor",
 	"form":"-",
 	"evo":"",
-	"weight":"088",
+	"weight":"-",
 	"bst7":"495",
 	"types":{
 		"type1":"",
@@ -18822,7 +18822,7 @@
 	"name":"Stunfisk",
 	"form":"-",
 	"evo":"",
-	"weight":"405",
+	"weight":"-",
 	"bst7":"471",
 	"types":{
 		"type1":"",
@@ -18849,7 +18849,7 @@
 	"name":"Mienfoo",
 	"form":"-",
 	"evo":"",
-	"weight":"873",
+	"weight":"-",
 	"bst7":"350",
 	"types":{
 		"type1":"",
@@ -18876,7 +18876,7 @@
 	"name":"Mienshao",
 	"form":"-",
 	"evo":"",
-	"weight":"371",
+	"weight":"-",
 	"bst7":"510",
 	"types":{
 		"type1":"",
@@ -18903,7 +18903,7 @@
 	"name":"Druddigon",
 	"form":"-",
 	"evo":"",
-	"weight":"660",
+	"weight":"-",
 	"bst7":"485",
 	"types":{
 		"type1":"",
@@ -18930,7 +18930,7 @@
 	"name":"Golett",
 	"form":"-",
 	"evo":"",
-	"weight":"472",
+	"weight":"-",
 	"bst7":"303",
 	"types":{
 		"type1":"",
@@ -18957,7 +18957,7 @@
 	"name":"Golurk",
 	"form":"-",
 	"evo":"",
-	"weight":"962",
+	"weight":"-",
 	"bst7":"483",
 	"types":{
 		"type1":"",
@@ -18984,7 +18984,7 @@
 	"name":"Pawniard",
 	"form":"-",
 	"evo":"",
-	"weight":"832",
+	"weight":"-",
 	"bst7":"340",
 	"types":{
 		"type1":"",
@@ -19011,7 +19011,7 @@
 	"name":"Bisharp",
 	"form":"-",
 	"evo":"",
-	"weight":"903",
+	"weight":"-",
 	"bst7":"490",
 	"types":{
 		"type1":"",
@@ -19038,7 +19038,7 @@
 	"name":"Bouffalant",
 	"form":"-",
 	"evo":"",
-	"weight":"628",
+	"weight":"-",
 	"bst7":"490",
 	"types":{
 		"type1":"",
@@ -19065,7 +19065,7 @@
 	"name":"Rufflet",
 	"form":"-",
 	"evo":"",
-	"weight":"432",
+	"weight":"-",
 	"bst7":"350",
 	"types":{
 		"type1":"",
@@ -19092,7 +19092,7 @@
 	"name":"Braviary",
 	"form":"-",
 	"evo":"",
-	"weight":"310",
+	"weight":"-",
 	"bst7":"510",
 	"types":{
 		"type1":"",
@@ -19119,7 +19119,7 @@
 	"name":"Vullaby",
 	"form":"-",
 	"evo":"",
-	"weight":"576",
+	"weight":"-",
 	"bst7":"370",
 	"types":{
 		"type1":"",
@@ -19146,7 +19146,7 @@
 	"name":"Mandibuzz",
 	"form":"-",
 	"evo":"",
-	"weight":"730",
+	"weight":"-",
 	"bst7":"510",
 	"types":{
 		"type1":"",
@@ -19173,7 +19173,7 @@
 	"name":"Heatmor",
 	"form":"-",
 	"evo":"",
-	"weight":"454",
+	"weight":"-",
 	"bst7":"484",
 	"types":{
 		"type1":"",
@@ -19200,7 +19200,7 @@
 	"name":"Durant",
 	"form":"-",
 	"evo":"",
-	"weight":"126",
+	"weight":"-",
 	"bst7":"484",
 	"types":{
 		"type1":"",
@@ -19227,7 +19227,7 @@
 	"name":"Deino",
 	"form":"-",
 	"evo":"",
-	"weight":"807",
+	"weight":"-",
 	"bst7":"300",
 	"types":{
 		"type1":"",
@@ -19254,7 +19254,7 @@
 	"name":"Zweilous",
 	"form":"-",
 	"evo":"",
-	"weight":"897",
+	"weight":"-",
 	"bst7":"420",
 	"types":{
 		"type1":"",
@@ -19281,7 +19281,7 @@
 	"name":"Hydreigon",
 	"form":"-",
 	"evo":"",
-	"weight":"105",
+	"weight":"-",
 	"bst7":"600",
 	"types":{
 		"type1":"",
@@ -19308,7 +19308,7 @@
 	"name":"Larvesta",
 	"form":"-",
 	"evo":"",
-	"weight":"738",
+	"weight":"-",
 	"bst7":"360",
 	"types":{
 		"type1":"",
@@ -19335,7 +19335,7 @@
 	"name":"Volcarona",
 	"form":"-",
 	"evo":"",
-	"weight":"970",
+	"weight":"-",
 	"bst7":"550",
 	"types":{
 		"type1":"",
@@ -19362,7 +19362,7 @@
 	"name":"Cobalion",
 	"form":"-",
 	"evo":"",
-	"weight":"974",
+	"weight":"-",
 	"bst7":"580",
 	"types":{
 		"type1":"",
@@ -19389,7 +19389,7 @@
 	"name":"Terrakion",
 	"form":"-",
 	"evo":"",
-	"weight":"818",
+	"weight":"-",
 	"bst7":"580",
 	"types":{
 		"type1":"",
@@ -19416,7 +19416,7 @@
 	"name":"Virizion",
 	"form":"-",
 	"evo":"",
-	"weight":"072",
+	"weight":"-",
 	"bst7":"580",
 	"types":{
 		"type1":"",
@@ -19443,7 +19443,7 @@
 	"name":"Tornadus",
 	"form":"Incarnate Forme",
 	"evo":"",
-	"weight":"787",
+	"weight":"-",
 	"bst7":"580",
 	"types":{
 		"type1":"",
@@ -19470,7 +19470,7 @@
 	"name":"Tornadus",
 	"form":"Therian Forme",
 	"evo":"",
-	"weight":"637",
+	"weight":"-",
 	"bst7":"580",
 	"types":{
 		"type1":"",
@@ -19497,7 +19497,7 @@
 	"name":"Thundurus",
 	"form":"Incarnate Forme",
 	"evo":"",
-	"weight":"862",
+	"weight":"-",
 	"bst7":"580",
 	"types":{
 		"type1":"",
@@ -19524,7 +19524,7 @@
 	"name":"Thundurus",
 	"form":"Therian Forme",
 	"evo":"",
-	"weight":"288",
+	"weight":"-",
 	"bst7":"580",
 	"types":{
 		"type1":"",
@@ -19551,7 +19551,7 @@
 	"name":"Reshiram",
 	"form":"-",
 	"evo":"",
-	"weight":"242",
+	"weight":"-",
 	"bst7":"680",
 	"types":{
 		"type1":"",
@@ -19578,7 +19578,7 @@
 	"name":"Zekrom",
 	"form":"-",
 	"evo":"",
-	"weight":"359",
+	"weight":"-",
 	"bst7":"680",
 	"types":{
 		"type1":"",
@@ -19605,7 +19605,7 @@
 	"name":"Landorus",
 	"form":"Incarnate Forme",
 	"evo":"",
-	"weight":"687",
+	"weight":"-",
 	"bst7":"600",
 	"types":{
 		"type1":"",
@@ -19632,7 +19632,7 @@
 	"name":"Landorus",
 	"form":"Therian Forme",
 	"evo":"",
-	"weight":"783",
+	"weight":"-",
 	"bst7":"600",
 	"types":{
 		"type1":"",
@@ -19659,7 +19659,7 @@
 	"name":"Kyurem",
 	"form":"-",
 	"evo":"",
-	"weight":"982",
+	"weight":"-",
 	"bst7":"660",
 	"types":{
 		"type1":"",
@@ -19686,7 +19686,7 @@
 	"name":"Kyurem",
 	"form":"Black Kyurem",
 	"evo":"",
-	"weight":"065",
+	"weight":"-",
 	"bst7":"700",
 	"types":{
 		"type1":"",
@@ -19713,7 +19713,7 @@
 	"name":"Kyurem",
 	"form":"White Kyurem",
 	"evo":"",
-	"weight":"237",
+	"weight":"-",
 	"bst7":"700",
 	"types":{
 		"type1":"",
@@ -19740,7 +19740,7 @@
 	"name":"Keldeo",
 	"form":"-",
 	"evo":"",
-	"weight":"905",
+	"weight":"-",
 	"bst7":"580",
 	"types":{
 		"type1":"",
@@ -19767,7 +19767,7 @@
 	"name":"Meloetta",
 	"form":"Aria Forme",
 	"evo":"",
-	"weight":"930",
+	"weight":"-",
 	"bst7":"600",
 	"types":{
 		"type1":"",
@@ -19794,7 +19794,7 @@
 	"name":"Meloetta",
 	"form":"Pirouette Forme",
 	"evo":"",
-	"weight":"282",
+	"weight":"-",
 	"bst7":"600",
 	"types":{
 		"type1":"",
@@ -19821,7 +19821,7 @@
 	"name":"Genesect",
 	"form":"-",
 	"evo":"",
-	"weight":"647",
+	"weight":"-",
 	"bst7":"600",
 	"types":{
 		"type1":"",
@@ -19848,7 +19848,7 @@
 	"name":"Chespin",
 	"form":"-",
 	"evo":"",
-	"weight":"210",
+	"weight":"-",
 	"bst7":"313",
 	"types":{
 		"type1":"",
@@ -19875,7 +19875,7 @@
 	"name":"Quilladin",
 	"form":"-",
 	"evo":"",
-	"weight":"359",
+	"weight":"-",
 	"bst7":"405",
 	"types":{
 		"type1":"",
@@ -19902,7 +19902,7 @@
 	"name":"Chesnaught",
 	"form":"-",
 	"evo":"",
-	"weight":"229",
+	"weight":"-",
 	"bst7":"530",
 	"types":{
 		"type1":"",
@@ -19929,7 +19929,7 @@
 	"name":"Fennekin",
 	"form":"-",
 	"evo":"",
-	"weight":"449",
+	"weight":"-",
 	"bst7":"307",
 	"types":{
 		"type1":"",
@@ -19956,7 +19956,7 @@
 	"name":"Braixen",
 	"form":"-",
 	"evo":"",
-	"weight":"106",
+	"weight":"-",
 	"bst7":"409",
 	"types":{
 		"type1":"",
@@ -19983,7 +19983,7 @@
 	"name":"Delphox",
 	"form":"-",
 	"evo":"",
-	"weight":"634",
+	"weight":"-",
 	"bst7":"534",
 	"types":{
 		"type1":"",
@@ -20010,7 +20010,7 @@
 	"name":"Froakie",
 	"form":"-",
 	"evo":"",
-	"weight":"887",
+	"weight":"-",
 	"bst7":"314",
 	"types":{
 		"type1":"",
@@ -20037,7 +20037,7 @@
 	"name":"Frogadier",
 	"form":"-",
 	"evo":"",
-	"weight":"107",
+	"weight":"-",
 	"bst7":"405",
 	"types":{
 		"type1":"",
@@ -20064,7 +20064,7 @@
 	"name":"Greninja",
 	"form":"-",
 	"evo":"",
-	"weight":"018",
+	"weight":"-",
 	"bst7":"530",
 	"types":{
 		"type1":"",
@@ -20091,7 +20091,7 @@
 	"name":"Greninja",
 	"form":"Ash-Greninja",
 	"evo":"",
-	"weight":"227",
+	"weight":"-",
 	"bst7":"640",
 	"types":{
 		"type1":"",
@@ -20118,7 +20118,7 @@
 	"name":"Bunnelby",
 	"form":"-",
 	"evo":"",
-	"weight":"459",
+	"weight":"-",
 	"bst7":"237",
 	"types":{
 		"type1":"",
@@ -20145,7 +20145,7 @@
 	"name":"Diggersby",
 	"form":"-",
 	"evo":"",
-	"weight":"491",
+	"weight":"-",
 	"bst7":"423",
 	"types":{
 		"type1":"",
@@ -20172,7 +20172,7 @@
 	"name":"Fletchling",
 	"form":"-",
 	"evo":"",
-	"weight":"144",
+	"weight":"-",
 	"bst7":"278",
 	"types":{
 		"type1":"",
@@ -20199,7 +20199,7 @@
 	"name":"Fletchinder",
 	"form":"-",
 	"evo":"",
-	"weight":"539",
+	"weight":"-",
 	"bst7":"382",
 	"types":{
 		"type1":"",
@@ -20226,7 +20226,7 @@
 	"name":"Talonflame",
 	"form":"-",
 	"evo":"",
-	"weight":"600",
+	"weight":"-",
 	"bst7":"499",
 	"types":{
 		"type1":"",
@@ -20253,7 +20253,7 @@
 	"name":"Scatterbug",
 	"form":"-",
 	"evo":"",
-	"weight":"331",
+	"weight":"-",
 	"bst7":"200",
 	"types":{
 		"type1":"",
@@ -20280,7 +20280,7 @@
 	"name":"Spewpa",
 	"form":"-",
 	"evo":"",
-	"weight":"469",
+	"weight":"-",
 	"bst7":"213",
 	"types":{
 		"type1":"",
@@ -20307,7 +20307,7 @@
 	"name":"Vivillon",
 	"form":"-",
 	"evo":"",
-	"weight":"089",
+	"weight":"-",
 	"bst7":"411",
 	"types":{
 		"type1":"",
@@ -20334,7 +20334,7 @@
 	"name":"Litleo",
 	"form":"-",
 	"evo":"",
-	"weight":"257",
+	"weight":"-",
 	"bst7":"369",
 	"types":{
 		"type1":"",
@@ -20361,7 +20361,7 @@
 	"name":"Pyroar",
 	"form":"-",
 	"evo":"",
-	"weight":"380",
+	"weight":"-",
 	"bst7":"507",
 	"types":{
 		"type1":"",
@@ -20388,7 +20388,7 @@
 	"name":"Flabébé",
 	"form":"-",
 	"evo":"",
-	"weight":"475",
+	"weight":"-",
 	"bst7":"303",
 	"types":{
 		"type1":"",
@@ -20415,7 +20415,7 @@
 	"name":"Floette",
 	"form":"-",
 	"evo":"",
-	"weight":"254",
+	"weight":"-",
 	"bst7":"371",
 	"types":{
 		"type1":"",
@@ -20442,7 +20442,7 @@
 	"name":"Florges",
 	"form":"-",
 	"evo":"",
-	"weight":"336",
+	"weight":"-",
 	"bst7":"552",
 	"types":{
 		"type1":"",
@@ -20469,7 +20469,7 @@
 	"name":"Skiddo",
 	"form":"-",
 	"evo":"",
-	"weight":"366",
+	"weight":"-",
 	"bst7":"350",
 	"types":{
 		"type1":"",
@@ -20496,7 +20496,7 @@
 	"name":"Gogoat",
 	"form":"-",
 	"evo":"",
-	"weight":"145",
+	"weight":"-",
 	"bst7":"531",
 	"types":{
 		"type1":"",
@@ -20523,7 +20523,7 @@
 	"name":"Pancham",
 	"form":"-",
 	"evo":"",
-	"weight":"681",
+	"weight":"-",
 	"bst7":"348",
 	"types":{
 		"type1":"",
@@ -20550,7 +20550,7 @@
 	"name":"Pangoro",
 	"form":"-",
 	"evo":"",
-	"weight":"898",
+	"weight":"-",
 	"bst7":"495",
 	"types":{
 		"type1":"",
@@ -20577,7 +20577,7 @@
 	"name":"Furfrou",
 	"form":"-",
 	"evo":"",
-	"weight":"062",
+	"weight":"-",
 	"bst7":"472",
 	"types":{
 		"type1":"",
@@ -20604,7 +20604,7 @@
 	"name":"Espurr",
 	"form":"-",
 	"evo":"",
-	"weight":"214",
+	"weight":"-",
 	"bst7":"355",
 	"types":{
 		"type1":"",
@@ -20631,7 +20631,7 @@
 	"name":"Meowstic",
 	"form":"-",
 	"evo":"",
-	"weight":"448",
+	"weight":"-",
 	"bst7":"466",
 	"types":{
 		"type1":"",
@@ -20658,7 +20658,7 @@
 	"name":"Honedge",
 	"form":"-",
 	"evo":"",
-	"weight":"122",
+	"weight":"-",
 	"bst7":"325",
 	"types":{
 		"type1":"",
@@ -20685,7 +20685,7 @@
 	"name":"Doublade",
 	"form":"-",
 	"evo":"",
-	"weight":"028",
+	"weight":"-",
 	"bst7":"448",
 	"types":{
 		"type1":"",
@@ -20712,7 +20712,7 @@
 	"name":"Aegislash",
 	"form":"Shield Forme",
 	"evo":"",
-	"weight":"042",
+	"weight":"-",
 	"bst7":"520",
 	"types":{
 		"type1":"",
@@ -20739,7 +20739,7 @@
 	"name":"Aegislash",
 	"form":"Blade Forme",
 	"evo":"",
-	"weight":"073",
+	"weight":"-",
 	"bst7":"520",
 	"types":{
 		"type1":"",
@@ -20766,7 +20766,7 @@
 	"name":"Spritzee",
 	"form":"-",
 	"evo":"",
-	"weight":"127",
+	"weight":"-",
 	"bst7":"341",
 	"types":{
 		"type1":"",
@@ -20793,7 +20793,7 @@
 	"name":"Aromatisse",
 	"form":"-",
 	"evo":"",
-	"weight":"219",
+	"weight":"-",
 	"bst7":"462",
 	"types":{
 		"type1":"",
@@ -20820,7 +20820,7 @@
 	"name":"Swirlix",
 	"form":"-",
 	"evo":"",
-	"weight":"272",
+	"weight":"-",
 	"bst7":"341",
 	"types":{
 		"type1":"",
@@ -20847,7 +20847,7 @@
 	"name":"Slurpuff",
 	"form":"-",
 	"evo":"",
-	"weight":"392",
+	"weight":"-",
 	"bst7":"480",
 	"types":{
 		"type1":"",
@@ -20874,7 +20874,7 @@
 	"name":"Inkay",
 	"form":"-",
 	"evo":"",
-	"weight":"254",
+	"weight":"-",
 	"bst7":"288",
 	"types":{
 		"type1":"",
@@ -20901,7 +20901,7 @@
 	"name":"Malamar",
 	"form":"-",
 	"evo":"",
-	"weight":"144",
+	"weight":"-",
 	"bst7":"482",
 	"types":{
 		"type1":"",
@@ -20928,7 +20928,7 @@
 	"name":"Binacle",
 	"form":"-",
 	"evo":"",
-	"weight":"499",
+	"weight":"-",
 	"bst7":"306",
 	"types":{
 		"type1":"",
@@ -20955,7 +20955,7 @@
 	"name":"Barbaracle",
 	"form":"-",
 	"evo":"",
-	"weight":"538",
+	"weight":"-",
 	"bst7":"500",
 	"types":{
 		"type1":"",
@@ -20982,7 +20982,7 @@
 	"name":"Skrelp",
 	"form":"-",
 	"evo":"",
-	"weight":"793",
+	"weight":"-",
 	"bst7":"320",
 	"types":{
 		"type1":"",
@@ -21009,7 +21009,7 @@
 	"name":"Dragalge",
 	"form":"-",
 	"evo":"",
-	"weight":"221",
+	"weight":"-",
 	"bst7":"494",
 	"types":{
 		"type1":"",
@@ -21036,7 +21036,7 @@
 	"name":"Clauncher",
 	"form":"-",
 	"evo":"",
-	"weight":"123",
+	"weight":"-",
 	"bst7":"330",
 	"types":{
 		"type1":"",
@@ -21063,7 +21063,7 @@
 	"name":"Clawitzer",
 	"form":"-",
 	"evo":"",
-	"weight":"444",
+	"weight":"-",
 	"bst7":"500",
 	"types":{
 		"type1":"",
@@ -21090,7 +21090,7 @@
 	"name":"Helioptile",
 	"form":"-",
 	"evo":"",
-	"weight":"979",
+	"weight":"-",
 	"bst7":"289",
 	"types":{
 		"type1":"",
@@ -21117,7 +21117,7 @@
 	"name":"Heliolisk",
 	"form":"-",
 	"evo":"",
-	"weight":"475",
+	"weight":"-",
 	"bst7":"481",
 	"types":{
 		"type1":"",
@@ -21144,7 +21144,7 @@
 	"name":"Tyrunt",
 	"form":"-",
 	"evo":"",
-	"weight":"064",
+	"weight":"-",
 	"bst7":"362",
 	"types":{
 		"type1":"",
@@ -21171,7 +21171,7 @@
 	"name":"Tyrantrum",
 	"form":"-",
 	"evo":"",
-	"weight":"122",
+	"weight":"-",
 	"bst7":"521",
 	"types":{
 		"type1":"",
@@ -21198,7 +21198,7 @@
 	"name":"Amaura",
 	"form":"-",
 	"evo":"",
-	"weight":"410",
+	"weight":"-",
 	"bst7":"362",
 	"types":{
 		"type1":"",
@@ -21225,7 +21225,7 @@
 	"name":"Aurorus",
 	"form":"-",
 	"evo":"",
-	"weight":"448",
+	"weight":"-",
 	"bst7":"521",
 	"types":{
 		"type1":"",
@@ -21252,7 +21252,7 @@
 	"name":"Sylveon",
 	"form":"-",
 	"evo":"",
-	"weight":"584",
+	"weight":"-",
 	"bst7":"525",
 	"types":{
 		"type1":"",
@@ -21279,7 +21279,7 @@
 	"name":"Hawlucha",
 	"form":"-",
 	"evo":"",
-	"weight":"235",
+	"weight":"-",
 	"bst7":"500",
 	"types":{
 		"type1":"",
@@ -21306,7 +21306,7 @@
 	"name":"Dedenne",
 	"form":"-",
 	"evo":"",
-	"weight":"631",
+	"weight":"-",
 	"bst7":"431",
 	"types":{
 		"type1":"",
@@ -21333,7 +21333,7 @@
 	"name":"Carbink",
 	"form":"-",
 	"evo":"",
-	"weight":"754",
+	"weight":"-",
 	"bst7":"500",
 	"types":{
 		"type1":"",
@@ -21360,7 +21360,7 @@
 	"name":"Goomy",
 	"form":"-",
 	"evo":"",
-	"weight":"949",
+	"weight":"-",
 	"bst7":"300",
 	"types":{
 		"type1":"",
@@ -21387,7 +21387,7 @@
 	"name":"Sliggoo",
 	"form":"-",
 	"evo":"",
-	"weight":"145",
+	"weight":"-",
 	"bst7":"452",
 	"types":{
 		"type1":"",
@@ -21414,7 +21414,7 @@
 	"name":"Goodra",
 	"form":"-",
 	"evo":"",
-	"weight":"503",
+	"weight":"-",
 	"bst7":"600",
 	"types":{
 		"type1":"",
@@ -21441,7 +21441,7 @@
 	"name":"Klefki",
 	"form":"-",
 	"evo":"",
-	"weight":"866",
+	"weight":"-",
 	"bst7":"470",
 	"types":{
 		"type1":"",
@@ -21468,7 +21468,7 @@
 	"name":"Phantump",
 	"form":"-",
 	"evo":"",
-	"weight":"544",
+	"weight":"-",
 	"bst7":"309",
 	"types":{
 		"type1":"",
@@ -21495,7 +21495,7 @@
 	"name":"Trevenant",
 	"form":"-",
 	"evo":"",
-	"weight":"127",
+	"weight":"-",
 	"bst7":"474",
 	"types":{
 		"type1":"",
@@ -21522,7 +21522,7 @@
 	"name":"Pumpkaboo",
 	"form":"Small Size",
 	"evo":"",
-	"weight":"142",
+	"weight":"-",
 	"bst7":"335",
 	"types":{
 		"type1":"",
@@ -21549,7 +21549,7 @@
 	"name":"Pumpkaboo",
 	"form":"Average Size",
 	"evo":"",
-	"weight":"958",
+	"weight":"-",
 	"bst7":"335",
 	"types":{
 		"type1":"",
@@ -21576,7 +21576,7 @@
 	"name":"Pumpkaboo",
 	"form":"Large Size",
 	"evo":"",
-	"weight":"275",
+	"weight":"-",
 	"bst7":"335",
 	"types":{
 		"type1":"",
@@ -21603,7 +21603,7 @@
 	"name":"Pumpkaboo",
 	"form":"Super Size",
 	"evo":"",
-	"weight":"031",
+	"weight":"-",
 	"bst7":"335",
 	"types":{
 		"type1":"",
@@ -21630,7 +21630,7 @@
 	"name":"Gourgeist",
 	"form":"Small Size",
 	"evo":"",
-	"weight":"082",
+	"weight":"-",
 	"bst7":"494",
 	"types":{
 		"type1":"",
@@ -21657,7 +21657,7 @@
 	"name":"Gourgeist",
 	"form":"Average Size",
 	"evo":"",
-	"weight":"099",
+	"weight":"-",
 	"bst7":"494",
 	"types":{
 		"type1":"",
@@ -21684,7 +21684,7 @@
 	"name":"Gourgeist",
 	"form":"Large Size",
 	"evo":"",
-	"weight":"146",
+	"weight":"-",
 	"bst7":"494",
 	"types":{
 		"type1":"",
@@ -21711,7 +21711,7 @@
 	"name":"Gourgeist",
 	"form":"Super Size",
 	"evo":"",
-	"weight":"304",
+	"weight":"-",
 	"bst7":"494",
 	"types":{
 		"type1":"",
@@ -21738,7 +21738,7 @@
 	"name":"Bergmite",
 	"form":"-",
 	"evo":"",
-	"weight":"381",
+	"weight":"-",
 	"bst7":"304",
 	"types":{
 		"type1":"",
@@ -21765,7 +21765,7 @@
 	"name":"Avalugg",
 	"form":"-",
 	"evo":"",
-	"weight":"735",
+	"weight":"-",
 	"bst7":"514",
 	"types":{
 		"type1":"",
@@ -21792,7 +21792,7 @@
 	"name":"Noibat",
 	"form":"-",
 	"evo":"",
-	"weight":"989",
+	"weight":"-",
 	"bst7":"245",
 	"types":{
 		"type1":"",
@@ -21819,7 +21819,7 @@
 	"name":"Noivern",
 	"form":"-",
 	"evo":"",
-	"weight":"963",
+	"weight":"-",
 	"bst7":"535",
 	"types":{
 		"type1":"",
@@ -21846,7 +21846,7 @@
 	"name":"Xerneas",
 	"form":"-",
 	"evo":"",
-	"weight":"964",
+	"weight":"-",
 	"bst7":"680",
 	"types":{
 		"type1":"",
@@ -21873,7 +21873,7 @@
 	"name":"Yveltal",
 	"form":"-",
 	"evo":"",
-	"weight":"346",
+	"weight":"-",
 	"bst7":"680",
 	"types":{
 		"type1":"",
@@ -21900,7 +21900,7 @@
 	"name":"Zygarde",
 	"form":"50% Forme",
 	"evo":"",
-	"weight":"436",
+	"weight":"-",
 	"bst7":"600",
 	"types":{
 		"type1":"",
@@ -21927,7 +21927,7 @@
 	"name":"Zygarde",
 	"form":"10% Forme",
 	"evo":"",
-	"weight":"518",
+	"weight":"-",
 	"bst7":"486",
 	"types":{
 		"type1":"",
@@ -21954,7 +21954,7 @@
 	"name":"Zygarde",
 	"form":"Complete Forme",
 	"evo":"",
-	"weight":"904",
+	"weight":"-",
 	"bst7":"708",
 	"types":{
 		"type1":"",
@@ -21981,7 +21981,7 @@
 	"name":"Diancie",
 	"form":"-",
 	"evo":"",
-	"weight":"386",
+	"weight":"-",
 	"bst7":"600",
 	"types":{
 		"type1":"",
@@ -22008,7 +22008,7 @@
 	"name":"Diancie",
 	"form":"Mega Diancie",
 	"evo":"",
-	"weight":"386",
+	"weight":"-",
 	"bst7":"700",
 	"types":{
 		"type1":"",
@@ -22035,7 +22035,7 @@
 	"name":"Hoopa",
 	"form":"Hoopa Confined",
 	"evo":"",
-	"weight":"386",
+	"weight":"-",
 	"bst7":"600",
 	"types":{
 		"type1":"",
@@ -22062,7 +22062,7 @@
 	"name":"Hoopa",
 	"form":"Hoopa Unbound",
 	"evo":"",
-	"weight":"386",
+	"weight":"-",
 	"bst7":"680",
 	"types":{
 		"type1":"",
@@ -22089,7 +22089,7 @@
 	"name":"Volcanion",
 	"form":"-",
 	"evo":"",
-	"weight":"508",
+	"weight":"-",
 	"bst7":"600",
 	"types":{
 		"type1":"",
@@ -22116,7 +22116,7 @@
 	"name":"Rowlet",
 	"form":"-",
 	"evo":"",
-	"weight":"642",
+	"weight":"-",
 	"bst7":"320",
 	"types":{
 		"type1":"",
@@ -22143,7 +22143,7 @@
 	"name":"Dartrix",
 	"form":"-",
 	"evo":"",
-	"weight":"861",
+	"weight":"-",
 	"bst7":"420",
 	"types":{
 		"type1":"",
@@ -22170,7 +22170,7 @@
 	"name":"Decidueye",
 	"form":"-",
 	"evo":"",
-	"weight":"943",
+	"weight":"-",
 	"bst7":"530",
 	"types":{
 		"type1":"",
@@ -22197,7 +22197,7 @@
 	"name":"Litten",
 	"form":"-",
 	"evo":"",
-	"weight":"181",
+	"weight":"-",
 	"bst7":"320",
 	"types":{
 		"type1":"",
@@ -22224,7 +22224,7 @@
 	"name":"Torracat",
 	"form":"-",
 	"evo":"",
-	"weight":"452",
+	"weight":"-",
 	"bst7":"420",
 	"types":{
 		"type1":"",
@@ -22251,7 +22251,7 @@
 	"name":"Incineroar",
 	"form":"-",
 	"evo":"",
-	"weight":"914",
+	"weight":"-",
 	"bst7":"530",
 	"types":{
 		"type1":"",
@@ -22278,7 +22278,7 @@
 	"name":"Popplio",
 	"form":"-",
 	"evo":"",
-	"weight":"034",
+	"weight":"-",
 	"bst7":"320",
 	"types":{
 		"type1":"",
@@ -22305,7 +22305,7 @@
 	"name":"Brionne",
 	"form":"-",
 	"evo":"",
-	"weight":"537",
+	"weight":"-",
 	"bst7":"420",
 	"types":{
 		"type1":"",
@@ -22332,7 +22332,7 @@
 	"name":"Primarina",
 	"form":"-",
 	"evo":"",
-	"weight":"870",
+	"weight":"-",
 	"bst7":"530",
 	"types":{
 		"type1":"",
@@ -22359,7 +22359,7 @@
 	"name":"Pikipek",
 	"form":"-",
 	"evo":"",
-	"weight":"937",
+	"weight":"-",
 	"bst7":"265",
 	"types":{
 		"type1":"",
@@ -22386,7 +22386,7 @@
 	"name":"Trumbeak",
 	"form":"-",
 	"evo":"",
-	"weight":"214",
+	"weight":"-",
 	"bst7":"355",
 	"types":{
 		"type1":"",
@@ -22413,7 +22413,7 @@
 	"name":"Toucannon",
 	"form":"-",
 	"evo":"",
-	"weight":"497",
+	"weight":"-",
 	"bst7":"485",
 	"types":{
 		"type1":"",
@@ -22440,7 +22440,7 @@
 	"name":"Yungoos",
 	"form":"-",
 	"evo":"",
-	"weight":"641",
+	"weight":"-",
 	"bst7":"253",
 	"types":{
 		"type1":"",
@@ -22467,7 +22467,7 @@
 	"name":"Gumshoos",
 	"form":"-",
 	"evo":"",
-	"weight":"967",
+	"weight":"-",
 	"bst7":"418",
 	"types":{
 		"type1":"",
@@ -22494,7 +22494,7 @@
 	"name":"Grubbin",
 	"form":"-",
 	"evo":"",
-	"weight":"207",
+	"weight":"-",
 	"bst7":"300",
 	"types":{
 		"type1":"",
@@ -22521,7 +22521,7 @@
 	"name":"Charjabug",
 	"form":"-",
 	"evo":"",
-	"weight":"024",
+	"weight":"-",
 	"bst7":"400",
 	"types":{
 		"type1":"",
@@ -22548,7 +22548,7 @@
 	"name":"Vikavolt",
 	"form":"-",
 	"evo":"",
-	"weight":"458",
+	"weight":"-",
 	"bst7":"500",
 	"types":{
 		"type1":"",
@@ -22575,7 +22575,7 @@
 	"name":"Crabrawler",
 	"form":"-",
 	"evo":"",
-	"weight":"108",
+	"weight":"-",
 	"bst7":"338",
 	"types":{
 		"type1":"",
@@ -22602,7 +22602,7 @@
 	"name":"Crabominable",
 	"form":"-",
 	"evo":"",
-	"weight":"844",
+	"weight":"-",
 	"bst7":"478",
 	"types":{
 		"type1":"",
@@ -22629,7 +22629,7 @@
 	"name":"Oricorio",
 	"form":"-",
 	"evo":"",
-	"weight":"146",
+	"weight":"-",
 	"bst7":"476",
 	"types":{
 		"type1":"",
@@ -22656,7 +22656,7 @@
 	"name":"Cutiefly",
 	"form":"-",
 	"evo":"",
-	"weight":"101",
+	"weight":"-",
 	"bst7":"304",
 	"types":{
 		"type1":"",
@@ -22683,7 +22683,7 @@
 	"name":"Ribombee",
 	"form":"-",
 	"evo":"",
-	"weight":"867",
+	"weight":"-",
 	"bst7":"464",
 	"types":{
 		"type1":"",
@@ -22710,7 +22710,7 @@
 	"name":"Rockruff",
 	"form":"-",
 	"evo":"",
-	"weight":"051",
+	"weight":"-",
 	"bst7":"280",
 	"types":{
 		"type1":"",
@@ -22737,7 +22737,7 @@
 	"name":"Lycanroc",
 	"form":"Midday Form",
 	"evo":"",
-	"weight":"467",
+	"weight":"-",
 	"bst7":"487",
 	"types":{
 		"type1":"",
@@ -22764,7 +22764,7 @@
 	"name":"Lycanroc",
 	"form":"Midnight Form",
 	"evo":"",
-	"weight":"645",
+	"weight":"-",
 	"bst7":"487",
 	"types":{
 		"type1":"",
@@ -22791,7 +22791,7 @@
 	"name":"Lycanroc",
 	"form":"Dusk Form",
 	"evo":"",
-	"weight":"348",
+	"weight":"-",
 	"bst7":"487",
 	"types":{
 		"type1":"",
@@ -22818,7 +22818,7 @@
 	"name":"Wishiwashi",
 	"form":"Solo Form",
 	"evo":"",
-	"weight":"705",
+	"weight":"-",
 	"bst7":"175",
 	"types":{
 		"type1":"",
@@ -22845,7 +22845,7 @@
 	"name":"Wishiwashi",
 	"form":"School Form",
 	"evo":"",
-	"weight":"157",
+	"weight":"-",
 	"bst7":"620",
 	"types":{
 		"type1":"",
@@ -22872,7 +22872,7 @@
 	"name":"Mareanie",
 	"form":"-",
 	"evo":"",
-	"weight":"381",
+	"weight":"-",
 	"bst7":"305",
 	"types":{
 		"type1":"",
@@ -22899,7 +22899,7 @@
 	"name":"Toxapex",
 	"form":"-",
 	"evo":"",
-	"weight":"625",
+	"weight":"-",
 	"bst7":"495",
 	"types":{
 		"type1":"",
@@ -22926,7 +22926,7 @@
 	"name":"Mudbray",
 	"form":"-",
 	"evo":"",
-	"weight":"769",
+	"weight":"-",
 	"bst7":"385",
 	"types":{
 		"type1":"",
@@ -22953,7 +22953,7 @@
 	"name":"Mudsdale",
 	"form":"-",
 	"evo":"",
-	"weight":"893",
+	"weight":"-",
 	"bst7":"500",
 	"types":{
 		"type1":"",
@@ -22980,7 +22980,7 @@
 	"name":"Dewpider",
 	"form":"-",
 	"evo":"",
-	"weight":"067",
+	"weight":"-",
 	"bst7":"269",
 	"types":{
 		"type1":"",
@@ -23007,7 +23007,7 @@
 	"name":"Araquanid",
 	"form":"-",
 	"evo":"",
-	"weight":"080",
+	"weight":"-",
 	"bst7":"454",
 	"types":{
 		"type1":"",
@@ -23034,7 +23034,7 @@
 	"name":"Fomantis",
 	"form":"-",
 	"evo":"",
-	"weight":"101",
+	"weight":"-",
 	"bst7":"250",
 	"types":{
 		"type1":"",
@@ -23061,7 +23061,7 @@
 	"name":"Lurantis",
 	"form":"-",
 	"evo":"",
-	"weight":"709",
+	"weight":"-",
 	"bst7":"480",
 	"types":{
 		"type1":"",
@@ -23088,7 +23088,7 @@
 	"name":"Morelull",
 	"form":"-",
 	"evo":"",
-	"weight":"234",
+	"weight":"-",
 	"bst7":"285",
 	"types":{
 		"type1":"",
@@ -23115,7 +23115,7 @@
 	"name":"Shiinotic",
 	"form":"-",
 	"evo":"",
-	"weight":"326",
+	"weight":"-",
 	"bst7":"405",
 	"types":{
 		"type1":"",
@@ -23142,7 +23142,7 @@
 	"name":"Salandit",
 	"form":"-",
 	"evo":"",
-	"weight":"246",
+	"weight":"-",
 	"bst7":"320",
 	"types":{
 		"type1":"",
@@ -23169,7 +23169,7 @@
 	"name":"Salazzle",
 	"form":"-",
 	"evo":"",
-	"weight":"571",
+	"weight":"-",
 	"bst7":"480",
 	"types":{
 		"type1":"",
@@ -23196,7 +23196,7 @@
 	"name":"Stufful",
 	"form":"-",
 	"evo":"",
-	"weight":"100",
+	"weight":"-",
 	"bst7":"340",
 	"types":{
 		"type1":"",
@@ -23223,7 +23223,7 @@
 	"name":"Bewear",
 	"form":"-",
 	"evo":"",
-	"weight":"169",
+	"weight":"-",
 	"bst7":"500",
 	"types":{
 		"type1":"",
@@ -23250,7 +23250,7 @@
 	"name":"Bounsweet",
 	"form":"-",
 	"evo":"",
-	"weight":"195",
+	"weight":"-",
 	"bst7":"210",
 	"types":{
 		"type1":"",
@@ -23277,7 +23277,7 @@
 	"name":"Steenee",
 	"form":"-",
 	"evo":"",
-	"weight":"823",
+	"weight":"-",
 	"bst7":"290",
 	"types":{
 		"type1":"",
@@ -23304,7 +23304,7 @@
 	"name":"Tsareena",
 	"form":"-",
 	"evo":"",
-	"weight":"241",
+	"weight":"-",
 	"bst7":"510",
 	"types":{
 		"type1":"",
@@ -23331,7 +23331,7 @@
 	"name":"Comfey",
 	"form":"-",
 	"evo":"",
-	"weight":"097",
+	"weight":"-",
 	"bst7":"485",
 	"types":{
 		"type1":"",
@@ -23358,7 +23358,7 @@
 	"name":"Oranguru",
 	"form":"-",
 	"evo":"",
-	"weight":"765",
+	"weight":"-",
 	"bst7":"490",
 	"types":{
 		"type1":"",
@@ -23385,7 +23385,7 @@
 	"name":"Passimian",
 	"form":"-",
 	"evo":"",
-	"weight":"563",
+	"weight":"-",
 	"bst7":"490",
 	"types":{
 		"type1":"",
@@ -23412,7 +23412,7 @@
 	"name":"Wimpod",
 	"form":"-",
 	"evo":"",
-	"weight":"055",
+	"weight":"-",
 	"bst7":"230",
 	"types":{
 		"type1":"",
@@ -23439,7 +23439,7 @@
 	"name":"Golisopod",
 	"form":"-",
 	"evo":"",
-	"weight":"332",
+	"weight":"-",
 	"bst7":"530",
 	"types":{
 		"type1":"",
@@ -23466,7 +23466,7 @@
 	"name":"Sandygast",
 	"form":"-",
 	"evo":"",
-	"weight":"838",
+	"weight":"-",
 	"bst7":"320",
 	"types":{
 		"type1":"",
@@ -23493,7 +23493,7 @@
 	"name":"Palossand",
 	"form":"-",
 	"evo":"",
-	"weight":"784",
+	"weight":"-",
 	"bst7":"480",
 	"types":{
 		"type1":"",
@@ -23520,7 +23520,7 @@
 	"name":"Pyukumuku",
 	"form":"-",
 	"evo":"",
-	"weight":"080",
+	"weight":"-",
 	"bst7":"410",
 	"types":{
 		"type1":"",
@@ -23547,7 +23547,7 @@
 	"name":"Type: Null",
 	"form":"-",
 	"evo":"",
-	"weight":"746",
+	"weight":"-",
 	"bst7":"534",
 	"types":{
 		"type1":"",
@@ -23574,7 +23574,7 @@
 	"name":"Silvally",
 	"form":"-",
 	"evo":"",
-	"weight":"142",
+	"weight":"-",
 	"bst7":"570",
 	"types":{
 		"type1":"",
@@ -23601,7 +23601,7 @@
 	"name":"Minior",
 	"form":"Meteor Form",
 	"evo":"",
-	"weight":"950",
+	"weight":"-",
 	"bst7":"440",
 	"types":{
 		"type1":"",
@@ -23628,7 +23628,7 @@
 	"name":"Minior",
 	"form":"Core",
 	"evo":"",
-	"weight":"157",
+	"weight":"-",
 	"bst7":"500",
 	"types":{
 		"type1":"",
@@ -23655,7 +23655,7 @@
 	"name":"Komala",
 	"form":"-",
 	"evo":"",
-	"weight":"199",
+	"weight":"-",
 	"bst7":"480",
 	"types":{
 		"type1":"",
@@ -23682,7 +23682,7 @@
 	"name":"Turtonator",
 	"form":"-",
 	"evo":"",
-	"weight":"199",
+	"weight":"-",
 	"bst7":"485",
 	"types":{
 		"type1":"",
@@ -23709,7 +23709,7 @@
 	"name":"Togedemaru",
 	"form":"-",
 	"evo":"",
-	"weight":"523",
+	"weight":"-",
 	"bst7":"435",
 	"types":{
 		"type1":"",
@@ -23736,7 +23736,7 @@
 	"name":"Mimikyu",
 	"form":"-",
 	"evo":"",
-	"weight":"115",
+	"weight":"-",
 	"bst7":"476",
 	"types":{
 		"type1":"",
@@ -23763,7 +23763,7 @@
 	"name":"Bruxish",
 	"form":"-",
 	"evo":"",
-	"weight":"121",
+	"weight":"-",
 	"bst7":"475",
 	"types":{
 		"type1":"",
@@ -23790,7 +23790,7 @@
 	"name":"Drampa",
 	"form":"-",
 	"evo":"",
-	"weight":"317",
+	"weight":"-",
 	"bst7":"485",
 	"types":{
 		"type1":"",
@@ -23817,7 +23817,7 @@
 	"name":"Dhelmise",
 	"form":"-",
 	"evo":"",
-	"weight":"078",
+	"weight":"-",
 	"bst7":"517",
 	"types":{
 		"type1":"",
@@ -23844,7 +23844,7 @@
 	"name":"Jangmo-o",
 	"form":"-",
 	"evo":"",
-	"weight":"324",
+	"weight":"-",
 	"bst7":"300",
 	"types":{
 		"type1":"",
@@ -23871,7 +23871,7 @@
 	"name":"Hakamo-o",
 	"form":"-",
 	"evo":"",
-	"weight":"604",
+	"weight":"-",
 	"bst7":"420",
 	"types":{
 		"type1":"",
@@ -23898,7 +23898,7 @@
 	"name":"Kommo-o",
 	"form":"-",
 	"evo":"",
-	"weight":"801",
+	"weight":"-",
 	"bst7":"600",
 	"types":{
 		"type1":"",
@@ -23925,7 +23925,7 @@
 	"name":"Tapu Koko",
 	"form":"-",
 	"evo":"",
-	"weight":"565",
+	"weight":"-",
 	"bst7":"570",
 	"types":{
 		"type1":"",
@@ -23952,7 +23952,7 @@
 	"name":"Tapu Lele",
 	"form":"-",
 	"evo":"",
-	"weight":"601",
+	"weight":"-",
 	"bst7":"570",
 	"types":{
 		"type1":"",
@@ -23979,7 +23979,7 @@
 	"name":"Tapu Bulu",
 	"form":"-",
 	"evo":"",
-	"weight":"571",
+	"weight":"-",
 	"bst7":"570",
 	"types":{
 		"type1":"",
@@ -24006,7 +24006,7 @@
 	"name":"Tapu Fini",
 	"form":"-",
 	"evo":"",
-	"weight":"758",
+	"weight":"-",
 	"bst7":"570",
 	"types":{
 		"type1":"",
@@ -24033,7 +24033,7 @@
 	"name":"Cosmog",
 	"form":"-",
 	"evo":"",
-	"weight":"668",
+	"weight":"-",
 	"bst7":"200",
 	"types":{
 		"type1":"",
@@ -24060,7 +24060,7 @@
 	"name":"Cosmoem",
 	"form":"-",
 	"evo":"",
-	"weight":"691",
+	"weight":"-",
 	"bst7":"400",
 	"types":{
 		"type1":"",
@@ -24087,7 +24087,7 @@
 	"name":"Solgaleo",
 	"form":"-",
 	"evo":"",
-	"weight":"260",
+	"weight":"-",
 	"bst7":"680",
 	"types":{
 		"type1":"",
@@ -24114,7 +24114,7 @@
 	"name":"Lunala",
 	"form":"-",
 	"evo":"",
-	"weight":"330",
+	"weight":"-",
 	"bst7":"680",
 	"types":{
 		"type1":"",
@@ -24141,7 +24141,7 @@
 	"name":"Nihilego",
 	"form":"-",
 	"evo":"",
-	"weight":"752",
+	"weight":"-",
 	"bst7":"570",
 	"types":{
 		"type1":"",
@@ -24168,7 +24168,7 @@
 	"name":"Buzzwole",
 	"form":"-",
 	"evo":"",
-	"weight":"649",
+	"weight":"-",
 	"bst7":"570",
 	"types":{
 		"type1":"",
@@ -24195,7 +24195,7 @@
 	"name":"Pheromosa",
 	"form":"-",
 	"evo":"",
-	"weight":"766",
+	"weight":"-",
 	"bst7":"570",
 	"types":{
 		"type1":"",
@@ -24222,7 +24222,7 @@
 	"name":"Xurkitree",
 	"form":"-",
 	"evo":"",
-	"weight":"727",
+	"weight":"-",
 	"bst7":"570",
 	"types":{
 		"type1":"",
@@ -24249,7 +24249,7 @@
 	"name":"Celesteela",
 	"form":"-",
 	"evo":"",
-	"weight":"295",
+	"weight":"-",
 	"bst7":"570",
 	"types":{
 		"type1":"",
@@ -24276,7 +24276,7 @@
 	"name":"Kartana",
 	"form":"-",
 	"evo":"",
-	"weight":"395",
+	"weight":"-",
 	"bst7":"570",
 	"types":{
 		"type1":"",
@@ -24303,7 +24303,7 @@
 	"name":"Guzzlord",
 	"form":"-",
 	"evo":"",
-	"weight":"128",
+	"weight":"-",
 	"bst7":"570",
 	"types":{
 		"type1":"",
@@ -24330,7 +24330,7 @@
 	"name":"Necrozma",
 	"form":"-",
 	"evo":"",
-	"weight":"715",
+	"weight":"-",
 	"bst7":"600",
 	"types":{
 		"type1":"",
@@ -24357,7 +24357,7 @@
 	"name":"Necrozma",
 	"form":"Dusk Mane Necrozma",
 	"evo":"",
-	"weight":"936",
+	"weight":"-",
 	"bst7":"680",
 	"types":{
 		"type1":"",
@@ -24384,7 +24384,7 @@
 	"name":"Necrozma",
 	"form":"Dawn Wings Necrozma",
 	"evo":"",
-	"weight":"085",
+	"weight":"-",
 	"bst7":"680",
 	"types":{
 		"type1":"",
@@ -24411,7 +24411,7 @@
 	"name":"Necrozma",
 	"form":"Ultra Necrozma",
 	"evo":"",
-	"weight":"009",
+	"weight":"-",
 	"bst7":"754",
 	"types":{
 		"type1":"",
@@ -24438,7 +24438,7 @@
 	"name":"Magearna",
 	"form":"-",
 	"evo":"",
-	"weight":"488",
+	"weight":"-",
 	"bst7":"600",
 	"types":{
 		"type1":"",
@@ -24465,7 +24465,7 @@
 	"name":"Marshadow",
 	"form":"-",
 	"evo":"",
-	"weight":"296",
+	"weight":"-",
 	"bst7":"600",
 	"types":{
 		"type1":"",
@@ -24492,7 +24492,7 @@
 	"name":"Poipole",
 	"form":"-",
 	"evo":"",
-	"weight":"534",
+	"weight":"-",
 	"bst7":"420",
 	"types":{
 		"type1":"",
@@ -24519,7 +24519,7 @@
 	"name":"Naganadel",
 	"form":"-",
 	"evo":"",
-	"weight":"364",
+	"weight":"-",
 	"bst7":"540",
 	"types":{
 		"type1":"",
@@ -24546,7 +24546,7 @@
 	"name":"Stakataka",
 	"form":"-",
 	"evo":"",
-	"weight":"128",
+	"weight":"-",
 	"bst7":"570",
 	"types":{
 		"type1":"",
@@ -24573,7 +24573,7 @@
 	"name":"Blacephalon",
 	"form":"-",
 	"evo":"",
-	"weight":"160",
+	"weight":"-",
 	"bst7":"570",
 	"types":{
 		"type1":"",
@@ -24600,7 +24600,7 @@
 	"name":"Zeraora",
 	"form":"-",
 	"evo":"",
-	"weight":"319",
+	"weight":"-",
 	"bst7":"600",
 	"types":{
 		"type1":"",

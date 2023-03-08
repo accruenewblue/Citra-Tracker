@@ -1,5 +1,12 @@
 file=open(r"C:\Program Files\7-Zip\readme.txt")
 content=file.readlines()
-print(content[9])
-s="interestinge23"
-print(s.split("e"))
+file3=open(r"C:\Users\scien\Documents\GitHub\Orange-Peeler\test4","r")
+ext=file3.read()
+file3=open(r"C:\Users\scien\Documents\GitHub\Orange-Peeler\test4","r")
+ext2=file3.readlines()
+file3.close()
+
+for item in range(0,912):
+    ex3=ext.index("\n"+str(item))
+    print(ex3)
+    print(ext2[ex3])

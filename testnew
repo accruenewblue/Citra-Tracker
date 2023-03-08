@@ -1,8 +1,8 @@
 file=open(r"C:\Users\scien\Documents\GitHub\Orange-Peeler\test2","r")
 file2=open(r"C:\Users\scien\Documents\GitHub\Orange-Peeler\mon-data","w+")
-file3=open(r"C:\Users\scien\Documents\GitHub\Orange-Peeler\test4","r")
+weightdata=open(r"C:\Users\scien\Documents\GitHub\Orange-Peeler\test4","r")
 content=file.readlines()
-content2=file3.readlines()
+weightdatadata=weightdata.read
 for item in range(0,915):
     seq=content[item][18:-1].split("|")
     seq2=content2[item].split("|")
@@ -11,7 +11,8 @@ for item in range(0,915):
     file2.write('\t"name":"'+seq[1]+'",\n')
     file2.write('\t"form":"'+seq[8]+'",\n')
     file2.write('\t"evo":"",\n')
-    file2.write('\t"weight":"'+content2[item][0:3]+'",\n')
+    print((weightdata.split("\n")).find(""))
+    file2.write('\t"weight":"'+"-"+'",\n')
     file2.write('\t"bst7":"'+str(int(seq[2])+int(seq[3])+int(seq[4])+int(seq[5])+int(seq[6])+int(seq[7]))+'",\n')
     file2.write('\t"types":{\n')
     file2.write('\t\t"type1":"",\n')
