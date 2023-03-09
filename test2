@@ -1,3 +1,4 @@
+
 {{lop/base|game=7|001|Bulbasaur|45|49|49|65|65|45|-
 {{lop/base|game=7|002|Ivysaur|60|62|63|80|80|60|-
 {{lop/base|game=7|003|Venusaur|80|82|83|100|100|80|-
@@ -399,7 +400,10 @@
 {{lop/base|game=7|348|Armaldo|75|125|100|70|80|45|-
 {{lop/base|game=7|349|Feebas|20|15|20|10|55|80|-
 {{lop/base|game=7|350|Milotic|95|60|79|100|125|81|-
-{{lop/base|game=7|351|Castform|70|70|70|70|70|70|-
+{{lop/base|game=7|351A|Castform|70|70|70|70|70|70|-
+{{lop/base|game=7|351B|Castform|70|70|70|70|70|70|Sunny Form
+{{lop/base|game=7|351C|Castform|70|70|70|70|70|70|Rainy Form
+{{lop/base|game=7|351D|Castform|70|70|70|70|70|70|Snowy Form
 {{lop/base|game=7|352|Kecleon|60|90|70|60|120|40|-
 {{lop/base|game=7|353|Shuppet|44|75|35|63|33|45|-
 {{lop/base|game=7|354|Banette|64|115|65|83|63|65|-
@@ -755,6 +759,7 @@
 {{lop/base|game=7|668|Pyroar|86|68|72|109|66|106|-
 {{lop/base|game=7|669|Flabébé|44|38|39|61|79|42|-
 {{lop/base|game=7|670|Floette|54|45|47|75|98|52|-
+{{lop/base|game=7|670E|Floette|74|65|67|125|128|92|Eternal Flower|-
 {{lop/base|game=7|671|Florges|78|65|68|112|154|75|-
 {{lop/base|game=7|672|Skiddo|66|65|48|62|57|52|-
 {{lop/base|game=7|673|Gogoat|123|100|62|97|81|68|-
@@ -762,7 +767,8 @@
 {{lop/base|game=7|675|Pangoro|95|124|78|69|71|58|-
 {{lop/base|game=7|676|Furfrou|75|80|60|65|90|102|-
 {{lop/base|game=7|677|Espurr|62|48|54|63|60|68|-
-{{lop/base|game=7|678|Meowstic|74|48|76|83|81|104|-
+{{lop/base|game=7|678|Meowstic|74|48|76|83|81|104|Male
+{{lop/base|game=7|678|Meowstic|74|48|76|83|81|104|Female
 {{lop/base|game=7|679|Honedge|45|80|100|35|37|28|-
 {{lop/base|game=7|680|Doublade|59|110|150|45|49|35|-
 {{lop/base|game=7|681|Aegislash|60|50|150|50|150|60|Shield Forme|-
@@ -836,7 +842,10 @@
 {{lop/base|game=7|738|Vikavolt|77|70|90|145|75|43|-
 {{lop/base|game=7|739|Crabrawler|47|82|57|42|47|63|-
 {{lop/base|game=7|740|Crabominable|97|132|77|62|67|43|-
-{{lop/base|game=7|741|Oricorio|75|70|70|98|70|93|-
+{{lop/base|game=7|741F|Oricorio|75|70|70|98|70|93|Baile Style
+{{lop/base|game=7|741E|Oricorio|75|70|70|98|70|93|Pom-Pom Style
+{{lop/base|game=7|741P|Oricorio|75|70|70|98|70|93|Pa'u Style
+{{lop/base|game=7|741G|Oricorio|75|70|70|98|70|93|Sensu Style
 {{lop/base|game=7|742|Cutiefly|40|45|40|55|40|84|-
 {{lop/base|game=7|743|Ribombee|60|55|60|95|70|124|-
 {{lop/base|game=7|744|Rockruff|45|65|40|30|40|60|-

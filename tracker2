@@ -1,0 +1,4 @@
+import json
+file=open(r"C:\Users\scien\Documents\GitHub\Orange-Peeler\mon-data")
+data=json.load(file)
+print(data)

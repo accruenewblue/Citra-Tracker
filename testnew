@@ -1,38 +1,60 @@
 file=open(r"C:\Users\scien\Documents\GitHub\Orange-Peeler\test2","r")
 file2=open(r"C:\Users\scien\Documents\GitHub\Orange-Peeler\mon-data","w+")
-weightdata=open(r"C:\Users\scien\Documents\GitHub\Orange-Peeler\test4","r")
 content=file.readlines()
-weightdatadata=weightdata.read
-for item in range(0,915):
-    seq=content[item][18:-1].split("|")
-    seq2=content2[item].split("|")
-    file2.write("{\n")
-    file2.write('\t"id":"'+seq[0]+'",\n')
-    file2.write('\t"name":"'+seq[1]+'",\n')
-    file2.write('\t"form":"'+seq[8]+'",\n')
-    file2.write('\t"evo":"",\n')
-    print((weightdata.split("\n")).find(""))
-    file2.write('\t"weight":"'+"-"+'",\n')
-    file2.write('\t"bst7":"'+str(int(seq[2])+int(seq[3])+int(seq[4])+int(seq[5])+int(seq[6])+int(seq[7]))+'",\n')
-    file2.write('\t"types":{\n')
-    file2.write('\t\t"type1":"",\n')
-    file2.write('\t\t"type2":""\n')
-    file2.write('\t},\n')
-    file2.write('\t"ability":{\n')
-    file2.write('\t\t"ability1":"",\n')
-    file2.write('\t\t"ability2":"",\n')
-    file2.write('\t\t"ability3":""\n')
-    file2.write('\t},\n')
-    file2.write('\t"pic":"",\n')
-    file2.write('\t"notes":[0,0,0,0,0,0],\n')
-    file2.write('\t"stringnotes":"",\n')
-    file2.write('\t"lastseenat":"-",\n')
-    file2.write('\t"moves":{\n')
-    file2.write('\t\t"move1":"",\n')
-    file2.write('\t\t"move2":"",\n')
-    file2.write('\t\t"move3":"",\n')
-    file2.write('\t\t"move4":""\n')
-    file2.write("\t}\n}\n")
-
-
-   
+file3=open(r"C:\Users\scien\Documents\GitHub\Orange-Peeler\test4","r")
+ext2=file3.readlines()
+def insertion_sort(list1): 
+        for i in range(1, len(list1)): 
+            a = list1[i] 
+            j = i - 1 
+            while j >= 0 and a < list1[j]: 
+                list1[j + 1] = list1[j] 
+                j -= 1     
+            list1[j + 1] = a 
+        return list1 
+file2.write('{\n')
+tagORAS=[19,23,101,242,293,301,345,367,372,384,415,427,431,440,442,444,494,545,609,816,818]
+tagSM=[744,813,814]
+tagUSUM=[847,906,907,908]
+for item in range(1,917):
+    seq=insertion_sort(content)[item][18:-1].split("|")
+    seq2=insertion_sort(ext2)[item].split("|")
+    file2.write('\t{\n')
+    if item<820:
+        if not item in tagORAS:
+            if not item in tagSM:
+                file2.write('\t\t"tag":"XY",\n')
+    if item in tagORAS:
+        file2.write('\t\t"tag":"ORAS",\n')
+    if 820<=item<913 or item in tagSM:
+        if not item in tagUSUM:
+            file2.write('\t\t"tag":"SM",\n')
+    if item>=913 or item in tagUSUM:
+        file2.write('\t\t"tag":"USUM",\n')
+    file2.write('\t\t"id":"'+str(item)+'",\n')
+    file2.write('\t\t"name":"'+seq[1]+'",\n')
+    file2.write('\t\t"form":"'+seq[8]+'",\n')
+    file2.write('\t\t"evo":"",\n')
+    file2.write('\t\t"weight":"'+seq2[5]+'",\n')
+    file2.write('\t\t"bst7":"'+str(int(seq[2])+int(seq[3])+int(seq[4])+int(seq[5])+int(seq[6])+int(seq[7]))+'",\n')
+    file2.write('\t\t"types":{\n')
+    file2.write('\t\t\t"type1":"'+seq2[2]+'",\n')
+    file2.write('\t\t\t"type2":"'+seq2[3]+'"\n')
+    file2.write('\t\t},\n')
+    file2.write('\t\t"ability":{\n')
+    file2.write('\t\t\t"ability1":"",\n')
+    file2.write('\t\t\t"ability2":"",\n')
+    file2.write('\t\t\t"ability3":""\n')
+    file2.write('\t\t},\n')
+    file2.write('\t\t"pic":"",\n')
+    file2.write('\t\t"notes":[0,0,0,0,0,0],\n')
+    file2.write('\t\t"stringnotes":"",\n')
+    file2.write('\t\t"lastseenat":"-",\n')
+    file2.write('\t\t"moves":{\n')
+    file2.write('\t\t\t"move1":"",\n')
+    file2.write('\t\t\t"move2":"",\n')
+    file2.write('\t\t\t"move3":"",\n')
+    file2.write('\t\t\t"move4":""\n')
+    file2.write('\t\t}\n')
+    file2.write('\t}\n')
+file2.write('}')
