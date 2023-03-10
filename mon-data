@@ -11592,7 +11592,7 @@
 		}
 	}
 	{
-		"tag":"ORAS",
+		"tag":"XY",
 		"id":"415",
 		"name":"Absol",
 		"form":"-",
@@ -11676,7 +11676,7 @@
 		}
 	}
 	{
-		"tag":"XY",
+		"tag":"ORAS",
 		"id":"418",
 		"name":"Glalie",
 		"form":"Mega Glalie",
@@ -11928,7 +11928,7 @@
 		}
 	}
 	{
-		"tag":"ORAS",
+		"tag":"XY",
 		"id":"427",
 		"name":"Luvdisc",
 		"form":"-",
@@ -12012,7 +12012,7 @@
 		}
 	}
 	{
-		"tag":"XY",
+		"tag":"ORAS",
 		"id":"430",
 		"name":"Salamence",
 		"form":"Mega Salamence",
@@ -12040,7 +12040,7 @@
 		}
 	}
 	{
-		"tag":"ORAS",
+		"tag":"XY",
 		"id":"431",
 		"name":"Salamence",
 		"form":"-",
@@ -12124,7 +12124,7 @@
 		}
 	}
 	{
-		"tag":"XY",
+		"tag":"ORAS",
 		"id":"434",
 		"name":"Metagross",
 		"form":"Mega Metagross",
@@ -12292,7 +12292,7 @@
 		}
 	}
 	{
-		"tag":"ORAS",
+		"tag":"XY",
 		"id":"440",
 		"name":"Latias",
 		"form":"-",
@@ -12348,7 +12348,7 @@
 		}
 	}
 	{
-		"tag":"ORAS",
+		"tag":"XY",
 		"id":"442",
 		"name":"Latios",
 		"form":"-",
@@ -12376,7 +12376,7 @@
 		}
 	}
 	{
-		"tag":"XY",
+		"tag":"ORAS",
 		"id":"443",
 		"name":"Kyogre",
 		"form":"Primal Kyogre",
@@ -12404,7 +12404,7 @@
 		}
 	}
 	{
-		"tag":"ORAS",
+		"tag":"XY",
 		"id":"444",
 		"name":"Kyogre",
 		"form":"-",
@@ -12432,7 +12432,7 @@
 		}
 	}
 	{
-		"tag":"XY",
+		"tag":"ORAS",
 		"id":"445",
 		"name":"Groudon",
 		"form":"Primal Groudon",
@@ -12488,7 +12488,7 @@
 		}
 	}
 	{
-		"tag":"XY",
+		"tag":"ORAS",
 		"id":"447",
 		"name":"Rayquaza",
 		"form":"Mega Rayquaza",
@@ -13804,7 +13804,7 @@
 		}
 	}
 	{
-		"tag":"ORAS",
+		"tag":"XY",
 		"id":"494",
 		"name":"Drifloon",
 		"form":"-",
@@ -13888,7 +13888,7 @@
 		}
 	}
 	{
-		"tag":"XY",
+		"tag":"ORAS",
 		"id":"497",
 		"name":"Lopunny",
 		"form":"Mega Lopunny",
@@ -15232,7 +15232,7 @@
 		}
 	}
 	{
-		"tag":"ORAS",
+		"tag":"XY",
 		"id":"545",
 		"name":"Gliscor",
 		"form":"-",
@@ -15316,7 +15316,7 @@
 		}
 	}
 	{
-		"tag":"XY",
+		"tag":"ORAS",
 		"id":"548",
 		"name":"Gallade",
 		"form":"Mega Gallade",
@@ -17024,7 +17024,7 @@
 		}
 	}
 	{
-		"tag":"ORAS",
+		"tag":"XY",
 		"id":"609",
 		"name":"Swoobat",
 		"form":"-",
@@ -17108,7 +17108,7 @@
 		}
 	}
 	{
-		"tag":"XY",
+		"tag":"ORAS",
 		"id":"612",
 		"name":"Audino",
 		"form":"Mega Audino",
@@ -20804,7 +20804,7 @@
 		}
 	}
 	{
-		"tag":"SM",
+		"tag":"XY",
 		"id":"744",
 		"name":"Delphox",
 		"form":"-",
@@ -20888,7 +20888,7 @@
 		}
 	}
 	{
-		"tag":"XY",
+		"tag":"SM",
 		"id":"747",
 		"name":"Greninja",
 		"form":"Ash-Greninja",
@@ -22736,7 +22736,7 @@
 		}
 	}
 	{
-		"tag":"SM",
+		"tag":"XY",
 		"id":"813",
 		"name":"Noibat",
 		"form":"-",
@@ -22764,7 +22764,7 @@
 		}
 	}
 	{
-		"tag":"SM",
+		"tag":"XY",
 		"id":"814",
 		"name":"Noivern",
 		"form":"-",
@@ -22820,7 +22820,7 @@
 		}
 	}
 	{
-		"tag":"ORAS",
+		"tag":"XY",
 		"id":"816",
 		"name":"Yveltal",
 		"form":"-",
@@ -22848,7 +22848,7 @@
 		}
 	}
 	{
-		"tag":"XY",
+		"tag":"SM",
 		"id":"817",
 		"name":"Zygarde",
 		"form":"Complete Forme",
@@ -22876,7 +22876,7 @@
 		}
 	}
 	{
-		"tag":"ORAS",
+		"tag":"SM",
 		"id":"818",
 		"name":"Zygarde",
 		"form":"10% Forme",
@@ -22932,7 +22932,7 @@
 		}
 	}
 	{
-		"tag":"SM",
+		"tag":"ORAS",
 		"id":"820",
 		"name":"Diancie",
 		"form":"Mega Diancie",
@@ -22960,7 +22960,7 @@
 		}
 	}
 	{
-		"tag":"SM",
+		"tag":"XY",
 		"id":"821",
 		"name":"Diancie",
 		"form":"-",
@@ -22988,41 +22988,13 @@
 		}
 	}
 	{
-		"tag":"SM",
+		"tag":"ORAS",
 		"id":"822",
 		"name":"Hoopa",
 		"form":"Hoopa Unbound",
 		"evo":"",
-		"weight":"9.0",
-		"bst7":"680",
-		"types":{
-			"type1":"Psychic",
-			"type2":"Ghost"
-		},
-		"ability":{
-			"ability1":"",
-			"ability2":"",
-			"ability3":""
-		},
-		"pic":"",
-		"notes":[0,0,0,0,0,0],
-		"stringnotes":"",
-		"lastseenat":"-",
-		"moves":{
-			"move1":"",
-			"move2":"",
-			"move3":"",
-			"move4":""
-		}
-	}
-	{
-		"tag":"SM",
-		"id":"823",
-		"name":"Hoopa",
-		"form":"Hoopa Confined",
-		"evo":"",
 		"weight":"490.0",
-		"bst7":"600",
+		"bst7":"680",
 		"types":{
 			"type1":"Psychic",
 			"type2":"Dark"
@@ -23044,7 +23016,35 @@
 		}
 	}
 	{
-		"tag":"SM",
+		"tag":"XY",
+		"id":"823",
+		"name":"Hoopa",
+		"form":"Hoopa Confined",
+		"evo":"",
+		"weight":"9.0",
+		"bst7":"600",
+		"types":{
+			"type1":"Psychic",
+			"type2":"Ghost"
+		},
+		"ability":{
+			"ability1":"",
+			"ability2":"",
+			"ability3":""
+		},
+		"pic":"",
+		"notes":[0,0,0,0,0,0],
+		"stringnotes":"",
+		"lastseenat":"-",
+		"moves":{
+			"move1":"",
+			"move2":"",
+			"move3":"",
+			"move4":""
+		}
+	}
+	{
+		"tag":"XY",
 		"id":"824",
 		"name":"Volcanion",
 		"form":"-",
@@ -23688,7 +23688,7 @@
 		}
 	}
 	{
-		"tag":"USUM",
+		"tag":"SM",
 		"id":"847",
 		"name":"Oricorio",
 		"form":"Pa'u Style",
@@ -23800,7 +23800,7 @@
 		}
 	}
 	{
-		"tag":"SM",
+		"tag":"USUM",
 		"id":"851",
 		"name":"Lycanroc",
 		"form":"Dusk Form",
@@ -25340,7 +25340,7 @@
 		}
 	}
 	{
-		"tag":"USUM",
+		"tag":"SM",
 		"id":"906",
 		"name":"Xurkitree",
 		"form":"-",
@@ -25368,7 +25368,7 @@
 		}
 	}
 	{
-		"tag":"USUM",
+		"tag":"SM",
 		"id":"907",
 		"name":"Celesteela",
 		"form":"-",
@@ -25396,7 +25396,7 @@
 		}
 	}
 	{
-		"tag":"USUM",
+		"tag":"SM",
 		"id":"908",
 		"name":"Kartana",
 		"form":"-",
@@ -25452,7 +25452,7 @@
 		}
 	}
 	{
-		"tag":"SM",
+		"tag":"USUM",
 		"id":"910",
 		"name":"Necrozma",
 		"form":"Dusk Mane Necrozma",
@@ -25480,7 +25480,7 @@
 		}
 	}
 	{
-		"tag":"SM",
+		"tag":"USUM",
 		"id":"911",
 		"name":"Necrozma",
 		"form":"Dawn Wings Necrozma",
@@ -25508,7 +25508,7 @@
 		}
 	}
 	{
-		"tag":"SM",
+		"tag":"USUM",
 		"id":"912",
 		"name":"Necrozma",
 		"form":"Ultra Necrozma",
@@ -25536,7 +25536,7 @@
 		}
 	}
 	{
-		"tag":"USUM",
+		"tag":"SM",
 		"id":"913",
 		"name":"Necrozma",
 		"form":"-",
@@ -25564,7 +25564,7 @@
 		}
 	}
 	{
-		"tag":"USUM",
+		"tag":"SM",
 		"id":"914",
 		"name":"Magearna",
 		"form":"-",
@@ -25592,7 +25592,7 @@
 		}
 	}
 	{
-		"tag":"USUM",
+		"tag":"SM",
 		"id":"915",
 		"name":"Marshadow",
 		"form":"-",

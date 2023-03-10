@@ -13,23 +13,23 @@ def insertion_sort(list1):
             list1[j + 1] = a 
         return list1 
 file2.write('{\n')
-tagORAS=[19,23,101,242,293,301,345,367,372,384,415,427,431,440,442,444,494,545,609,816,818]
-tagSM=[744,813,814]
-tagUSUM=[847,906,907,908]
+tagORAS=[19,23,101,242,293,301,345,367,372,384,418,430,434,443,445,447,497,548,612,820,822]
+tagSM=[747,817,818]
+tagUSUM=[851,910,911,912]
 for item in range(1,917):
     seq=insertion_sort(content)[item][18:-1].split("|")
     seq2=insertion_sort(ext2)[item].split("|")
     file2.write('\t{\n')
-    if item<820:
+    if item<825:
         if not item in tagORAS:
             if not item in tagSM:
                 file2.write('\t\t"tag":"XY",\n')
     if item in tagORAS:
         file2.write('\t\t"tag":"ORAS",\n')
-    if 820<=item<913 or item in tagSM:
+    if 825<=item<916 or item in tagSM:
         if not item in tagUSUM:
             file2.write('\t\t"tag":"SM",\n')
-    if item>=913 or item in tagUSUM:
+    if item>=916 or item in tagUSUM:
         file2.write('\t\t"tag":"USUM",\n')
     file2.write('\t\t"id":"'+str(item)+'",\n')
     file2.write('\t\t"name":"'+seq[1]+'",\n')
