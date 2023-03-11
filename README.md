@@ -14,3 +14,5 @@ This calculates the effectiveness of a move based on:
     --defending mon's ability
     --move base power
     to calculate an "effective base power" to be shown.
+
+Thanks to [msikma's pokesprite](https://github.com/msikma/pokesprite) for scraping the images of the Pokémon used here.

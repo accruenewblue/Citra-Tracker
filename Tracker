@@ -1,7 +1,7 @@
 #defender types
 "steel"
-"bug"
-"grass"
+"flying"
+"null"
 #attacker moves
 "Ground"
 "FlyingPress"
@@ -14,7 +14,7 @@
 #base power
 "60"
 #ability
-"dry skin"
+"null"
 
 #tracker spots for 6 mons
 #mon1={

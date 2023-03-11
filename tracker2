@@ -1,4 +1,10 @@
 import json
-file=open(r"C:\Users\scien\Documents\GitHub\Orange-Peeler\mon-data")
+file=open(r"C:\Users\scien\Documents\GitHub\Orange-Peeler\mon-data","r+")
 data=json.load(file)
-print(data)
+mon="Ultra Necrozma"
+datapoint="tag"
+dump={1:"gabbadegoo",2:"erertere"}
+jsondumpp=json.dumps(dump)
+print(data[mon])
+print(jsondumpp)
+print(dump)
