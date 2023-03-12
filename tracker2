@@ -1,10 +1,13 @@
 import json
 file=open(r"C:\Users\scien\Documents\GitHub\Orange-Peeler\mon-data","r+")
+file2=open(r"C:\Users\scien\Documents\GitHub\Orange-Peeler\move-data")
 data=json.load(file)
+data2=json.load(file2)
 mon="Ultra Necrozma"
 datapoint="tag"
+move="Dig"
+attr="power"
 dump={1:"gabbadegoo",2:"erertere"}
 jsondumpp=json.dumps(dump)
-print(data[mon])
-print(jsondumpp)
-print(dump)
+print(data[mon][datapoint])
+print(data2[move])

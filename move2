@@ -1,0 +1,17 @@
+abilities=open(r"C:\Users\scien\Documents\GitHub\Orange-Peeler\move1")
+sheet=open(r"C:\Users\scien\Documents\GitHub\Orange-Peeler\ability-data","r+")
+sheetmoves=open(r"C:\Users\scien\Documents\GitHub\Orange-Peeler\move1","r+")
+abil=abilities.readlines()
+sheet.write('{')
+for item in range(0,233):
+    abildata=abil[item].split("|")
+    sheet.write('\t"'+abildata[1]+'":{\n')
+    sheet.write('\t\t"id":"'+abildata[0]+'",\n')
+    sheet.write('\t\t"detail":"'+abildata[2]+'",\n')
+    gentag=abildata[3][0:-1]
+    if gentag!="VII":
+        sheet.write('\t\t"gen":"XY"\n')
+    if gentag=="VII":
+        sheet.write('\t\t"gen":"SM"\n')
+    sheet.write('\t},\n')
+sheet.write('}')
