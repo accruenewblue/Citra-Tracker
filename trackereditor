@@ -1,0 +1,11 @@
+import json
+monsfile=open(r'C:\Users\scien\Documents\GitHub\Orange-Peeler\mon-data')
+mons=json.load(monsfile)
+movesfile=open(r"C:\Users\scien\Documents\GitHub\Orange-Peeler\move-data")
+movesfile=json.load(movesfile)
+abilitiesfile=open(r"C:\Users\scien\Documents\GitHub\Orange-Peeler\ability-data")
+abilities=json.load(abilitiesfile)
+tracker=open(r"C:\Users\scien\Documents\GitHub\Orange-Peeler\Tracker")
+for item in range(1,7):
+    mon='Klefki'
+    print(mons[mon]['weight'])
