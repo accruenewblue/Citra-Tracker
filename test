@@ -12,5 +12,5 @@ def insertion_sort(list1):
                 j -= 1     
             list1[j + 1] = a 
         return list1 
-for item in insertion_sort(ext2):
-    print((item.split("|")))
+dictio={"name":"bulbasaur"}
+print(dictio)
