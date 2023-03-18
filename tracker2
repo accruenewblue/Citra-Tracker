@@ -7,7 +7,9 @@ mon="Ultra Necrozma"
 datapoint="tag"
 move="Dig"
 attr="power"
-dump={1:"gabbadegoo",2:"erertere"}
-jsondumpp=json.dumps(dump)
+dump={1:"gabbadegoo",
+      2:"erertere"}
+jsondumper=json.dumps(dump)
 print(data[mon][datapoint])
 print(data2[move])
+print(jsondumper)

@@ -7,39 +7,69 @@ abilitiesfile=open(r"C:\Users\scien\Documents\GitHub\Orange-Peeler\ability-data"
 abilities=json.load(abilitiesfile)
 #4 5 6 placement of mons in a battle
 #1 2 3 single=1,4, double=1,2,4,5
-mon1="Zeraora"
-mon2="50% Forme Zygarde"
-mon3="Pom-Pom Style Oricorio"
-mon4="Ho-Oh"
-mon5="Mega Steelix"
-mon6="Alolan Raticate"
+battleformat="single"
+party=["Zeraora","Mega Steelix","School Form Wishiwashi","Zapdos","Mega Altaria","Mega Aggron"]
+opponent=["Ho-Oh","Alolan Exeggutor","Pa'u Style Oricorio","Mimikyu","Gengar"]
+ally=["Primal Groudon","Naganadel","Sawsbuck"]
+if battleformat=="single":
+    mon1=party[0]
+    mon2="Egg"
+    mon3="Egg"
+    mon4=opponent[0]
+    mon5="Egg"
+    mon6="Egg"
+if battleformat=="double":
+    mon1=party[0]
+    mon2=party[1]
+    mon3="Egg"
+    mon4=opponent[0]
+    mon5=opponent[1]
+    mon6="Egg"
+if battleformat=="triple":
+    mon1=party[0]
+    mon2=party[1]
+    mon3=party[2]
+    mon4=opponent[0]
+    mon5=opponent[1]
+    mon6=opponent[2]
+if battleformat=="SOS":
+    mon1=party[0]
+    mon2="Egg"
+    mon3="Egg"
+    mon4=opponent[0]
+    mon5=opponent[1]
+    mon6="Egg"
+if battleformat=="horde":
+    mon1=opponent[0]
+    mon2=party[0]
+    mon3=opponent[1]
+    mon4=opponent[2]
+    mon5=opponent[3]
+    mon6=opponent[4]
+if battleformat=="multi":
+    mon1=party[0]
+    mon2=ally[1]
+    mon3="Egg"
+    mon4=opponent[0]
+    mon5=opponent[1]
+    mon6="Egg"
 dataset1={"name":mons[mon1]['name'],
     "form":mons[mon1]['form'],
     "tag":mons[mon1]['tag'],
     "evo":mons[mon1]['evo'],
-    "ability1":mons[mon1]["ability"]['ability1'],
-    "ability2":mons[mon1]["ability"]['ability2'],
-    "ability3":mons[mon1]["ability"]['ability3'],
+    "ability":mons[mon1]["ability"],
     "weight":mons[mon1]['weight'],
-    "type1":mons[mon1]["types"]['type1'],
-    "type2":mons[mon1]["types"]['type2'],
-    "type3":"",
+    "types":mons[mon1]["types"],
     "bst":mons[mon1]['bst7'],
     "status":"none",
     "pic":"(img)",
     "stringnote":"tanks a stab eq",
     "hp":"",
-    "hpnote":"",
     "atk":"",
-    "atknote":"",
     "def":"",
-    "defnote":"",
     "spa":"",
-    "spanote":"",
     "spd":"",
-    "spdnote":"",
     "spe":"",
-    "spenote":"",
     "acc":"",
     "eva":"",
     "move1":"",
@@ -50,51 +80,119 @@ dataset2={"name":mons[mon2]['name'],
     "form":mons[mon2]['form'],
     "tag":mons[mon2]['tag'],
     "evo":mons[mon2]['evo'],
-    "ability1":"",
-    "ability2":"-",
-    "ability3":"-",
+    "ability":mons[mon2]["ability"],
     "weight":mons[mon2]['weight'],
-    "type1":mons[mon2]["types"]['type1'],
-    "type2":mons[mon2]["types"]['type2'],
-    "type3":"",
+    "types":mons[mon2]["types"],
     "bst":mons[mon2]['bst7'],
     "status":"none",
     "pic":"(img)",
-    "hp":"7",
-    "hpnote":"",
-    "atk":"7",
-    "atknote":"",
-    "def":"7",
-    "spa":"7",
-    "spd":"7",
-    "spe":"7",
-    "acc":"7",
-    "eva":"7",
-    "move1":""}
+    "stringnote":"tanks a stab eq",
+    "hp":"",
+    "atk":"",
+    "def":"",
+    "spa":"",
+    "spd":"",
+    "spe":"",
+    "acc":"",
+    "eva":"",
+    "move1":"",
+    "move2":"",
+    "move3":"",
+    "move4":""}
 dataset3={"name":mons[mon3]['name'],
     "form":mons[mon3]['form'],
     "tag":mons[mon3]['tag'],
     "evo":mons[mon3]['evo'],
-    "ability1":"",
-    "ability2":"-",
-    "ability3":"-",
+    "ability":mons[mon3]["ability"],
     "weight":mons[mon3]['weight'],
-    "type1":mons[mon3]["types"]['type1'],
-    "type2":mons[mon3]["types"]['type2'],
-    "type3":"",
+    "types":mons[mon3]["types"],
     "bst":mons[mon3]['bst7'],
     "status":"none",
     "pic":"(img)",
-    "hp":"7",
-    "hpnote":"",
-    "atk":"7",
-    "atknote":"",
-    "def":"7",
-    "spa":"7",
-    "spd":"7",
-    "spe":"7",
-    "acc":"7",
-    "eva":"7",
-    "move1":""}
-
-print(dataset1)
+    "stringnote":"tanks a stab eq",
+    "hp":"",
+    "atk":"",
+    "def":"",
+    "spa":"",
+    "spd":"",
+    "spe":"",
+    "acc":"",
+    "eva":"",
+    "move1":"",
+    "move2":"",
+    "move3":"",
+    "move4":""}
+dataset4={"name":mons[mon4]['name'],
+    "form":mons[mon4]['form'],
+    "tag":mons[mon4]['tag'],
+    "evo":mons[mon4]['evo'],
+    "ability":mons[mon4]["ability"],
+    "weight":mons[mon4]['weight'],
+    "types":mons[mon4]["types"],
+    "bst":mons[mon4]['bst7'],
+    "status":"none",
+    "pic":"(img)",
+    "stringnote":"tanks a stab eq",
+    "hp":"",
+    "atk":"",
+    "def":"",
+    "spa":"",
+    "spd":"",
+    "spe":"",
+    "acc":"",
+    "eva":"",
+    "move1":"",
+    "move2":"",
+    "move3":"",
+    "move4":""}
+dataset5={"name":mons[mon5]['name'],
+    "form":mons[mon5]['form'],
+    "tag":mons[mon5]['tag'],
+    "evo":mons[mon5]['evo'],
+    "ability":mons[mon5]["ability"],
+    "weight":mons[mon5]['weight'],
+    "types":mons[mon5]["types"],
+    "bst":mons[mon5]['bst7'],
+    "status":"none",
+    "pic":"(img)",
+    "stringnote":"tanks a stab eq",
+    "hp":"",
+    "atk":"",
+    "def":"",
+    "spa":"",
+    "spd":"",
+    "spe":"",
+    "acc":"",
+    "eva":"",
+    "move1":"",
+    "move2":"",
+    "move3":"",
+    "move4":""}
+dataset6={"name":mons[mon6]['name'],
+    "form":mons[mon6]['form'],
+    "tag":mons[mon6]['tag'],
+    "evo":mons[mon6]['evo'],
+    "ability":mons[mon6]["ability"],
+    "weight":mons[mon6]['weight'],
+    "types":mons[mon6]["types"],
+    "bst":mons[mon6]['bst7'],
+    "status":"none",
+    "pic":"(img)",
+    "stringnote":"tanks a stab eq",
+    "hp":"",
+    "atk":"",
+    "def":"",
+    "spa":"",
+    "spd":"",
+    "spe":"",
+    "acc":"",
+    "eva":"",
+    "move1":"",
+    "move2":"",
+    "move3":"",
+    "move4":""}
+dataset=[dataset1,dataset2,dataset3,dataset4,dataset5,dataset6]
+dataset1["types"].append("Grass")
+for item in dataset:
+    if item["name"]!="Egg":
+        print(item["types"])

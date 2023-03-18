@@ -1,3 +1,8 @@
+import json
+movedata1=open(r"C:\Users\scien\Documents\GitHub\Orange-Peeler\move-data")
+movedata=json.load(movedata1)
+filemon=open(r"C:\Users\scien\Documents\GitHub\Orange-Peeler\Tracker")
+tracker=(filemon.readlines())
 #arrays for defining the effectiveness of typed attacks or special moves
 Normal=[1,1,1,1,1,.5,1,0,.5,1,1,1,1,1,1,1,1,1,1]
 Fighting=[2,1,.5,.5,1,2,.5,0,2,1,1,1,1,.5,2,1,2,.5,1]
@@ -50,21 +55,21 @@ typedic={
     '"null"':18,
 }
 #extracts and calculates relevant type combo for defenders
-filemon=open(r"C:\Users\scien\Documents\GitHub\Orange-Peeler\Tracker")
-ext=(filemon.readlines())
-type1=ext[1][0:-1]
-type2=ext[2][0:-1]
-type3=ext[3][0:-1]
-attability=ext[16][1:-2]
-targetability=ext[17][1:-2]
-print(attability)
-print(targetability)
-weather=ext[10][1:-2]
-terrain=ext[12][1:-2]
+
+type1=""
+type2=""
+type3=""
+attability="null"
+targetability="null"
+weather="null"
+terrain="null"
 attackertypes=[Fire,Water]
-movesetpower=[100,180,80,120]
-movesettypes=[Fire,Fire,Water,Ground]
-for item in range(0,4):
+moveset=["Dragon Pulse","Tail Glow","Flash Cannon","Flamethrower"]
+for item in moveset:
+    movesettypes=movedata[item]["type"]
+    movesetpower=movedata[item]["power"]
+    print(movesettypes,movesetpower)
+for item in moveset:
     if movesettypes[item] in attackertypes:
         if attability=="adaptability":
             movesetpower[item]=movesetpower[item]*2
