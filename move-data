@@ -104,7 +104,7 @@
 		"gen":"XY",
 		"detail":"Physical",
 		"pp":"5",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"30%"
 	},
 	"Razor Wind":{
@@ -122,7 +122,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"20",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Cut":{
@@ -158,7 +158,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"20",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Fly":{
@@ -248,7 +248,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"15",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"100%"
 	},
 	"Headbutt":{
@@ -284,7 +284,7 @@
 		"gen":"XY",
 		"detail":"Physical",
 		"pp":"5",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"30%"
 	},
 	"Tackle":{
@@ -347,7 +347,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"30",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"100%"
 	},
 	"Poison Sting":{
@@ -383,7 +383,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"30",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"100%"
 	},
 	"Bite":{
@@ -401,7 +401,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"40",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"100%"
 	},
 	"Roar":{
@@ -410,7 +410,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"20",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Sing":{
@@ -419,7 +419,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"15",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"55%"
 	},
 	"Supersonic":{
@@ -428,7 +428,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"20",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"55%"
 	},
 	"Sonic Boom":{
@@ -437,7 +437,7 @@
 		"gen":"XY",
 		"detail":"Special",
 		"pp":"20",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"90%"
 	},
 	"Disable":{
@@ -446,7 +446,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"20",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"100%"
 	},
 	"Acid":{
@@ -482,7 +482,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"30",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Water Gun":{
@@ -599,7 +599,7 @@
 		"gen":"XY",
 		"detail":"Physical",
 		"pp":"20",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"100%"
 	},
 	"Counter":{
@@ -608,7 +608,7 @@
 		"gen":"XY",
 		"detail":"Physical",
 		"pp":"20",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"100%"
 	},
 	"Seismic Toss":{
@@ -617,7 +617,7 @@
 		"gen":"XY",
 		"detail":"Physical",
 		"pp":"20",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"100%"
 	},
 	"Strength":{
@@ -653,7 +653,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"10",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"90%"
 	},
 	"Growth":{
@@ -662,7 +662,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"20",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Razor Leaf":{
@@ -689,7 +689,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"35",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"75%"
 	},
 	"Stun Spore":{
@@ -698,7 +698,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"30",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"75%"
 	},
 	"Sleep Powder":{
@@ -707,7 +707,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"15",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"75%"
 	},
 	"Petal Dance":{
@@ -725,7 +725,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"40",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"95%"
 	},
 	"Dragon Rage":{
@@ -734,7 +734,7 @@
 		"gen":"XY",
 		"detail":"Special",
 		"pp":"10",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"100%"
 	},
 	"Fire Spin":{
@@ -770,7 +770,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"20",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"90%"
 	},
 	"Thunder":{
@@ -806,7 +806,7 @@
 		"gen":"XY",
 		"detail":"Physical",
 		"pp":"5",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"30%"
 	},
 	"Dig":{
@@ -824,7 +824,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"10",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"90%"
 	},
 	"Confusion":{
@@ -851,7 +851,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"20",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"60%"
 	},
 	"Meditate":{
@@ -860,7 +860,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"40",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Agility":{
@@ -869,7 +869,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"30",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Quick Attack":{
@@ -896,7 +896,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"20",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Night Shade":{
@@ -905,7 +905,7 @@
 		"gen":"XY",
 		"detail":"Special",
 		"pp":"15",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"100%"
 	},
 	"Mimic":{
@@ -914,7 +914,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"10",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Screech":{
@@ -923,7 +923,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"40",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"85%"
 	},
 	"Double Team":{
@@ -932,7 +932,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"15",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Recover":{
@@ -941,7 +941,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"5",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Harden":{
@@ -950,7 +950,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"30",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Minimize":{
@@ -959,7 +959,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"10",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Smokescreen":{
@@ -968,7 +968,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"20",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"100%"
 	},
 	"Confuse Ray":{
@@ -977,7 +977,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"10",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"100%"
 	},
 	"Withdraw":{
@@ -986,7 +986,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"40",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Defense Curl":{
@@ -995,7 +995,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"40",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Barrier":{
@@ -1004,7 +1004,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"20",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Light Screen":{
@@ -1013,7 +1013,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"30",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Haze":{
@@ -1022,7 +1022,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"30",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Reflect":{
@@ -1031,7 +1031,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"20",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Focus Energy":{
@@ -1040,7 +1040,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"30",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Bide":{
@@ -1049,7 +1049,7 @@
 		"gen":"XY",
 		"detail":"Physical",
 		"pp":"10",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Metronome":{
@@ -1058,7 +1058,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"10",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Mirror Move":{
@@ -1067,7 +1067,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"20",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Self-Destruct":{
@@ -1193,7 +1193,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"20",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Kinesis":{
@@ -1202,7 +1202,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"15",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"80%"
 	},
 	"Soft-Boiled":{
@@ -1211,7 +1211,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"5",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"High Jump Kick":{
@@ -1229,7 +1229,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"30",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"100%"
 	},
 	"Dream Eater":{
@@ -1247,7 +1247,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"40",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"90%"
 	},
 	"Barrage":{
@@ -1274,7 +1274,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"10",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"75%"
 	},
 	"Sky Attack":{
@@ -1292,7 +1292,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"10",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Bubble":{
@@ -1319,7 +1319,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"15",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"100%"
 	},
 	"Flash":{
@@ -1328,7 +1328,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"20",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"100%"
 	},
 	"Psywave":{
@@ -1337,7 +1337,7 @@
 		"gen":"XY",
 		"detail":"Special",
 		"pp":"15",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"100%"
 	},
 	"Splash":{
@@ -1346,7 +1346,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"40",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Acid Armor":{
@@ -1355,7 +1355,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"20",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Crabhammer":{
@@ -1400,7 +1400,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"5",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Rock Slide":{
@@ -1427,7 +1427,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"30",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Conversion":{
@@ -1436,7 +1436,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"30",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Tri Attack":{
@@ -1454,7 +1454,7 @@
 		"gen":"XY",
 		"detail":"Physical",
 		"pp":"10",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"90%"
 	},
 	"Slash":{
@@ -1472,7 +1472,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"10",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Struggle":{
@@ -1490,7 +1490,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"1",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Triple Kick":{
@@ -1517,7 +1517,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"10",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Mind Reader":{
@@ -1526,7 +1526,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"5",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Nightmare":{
@@ -1535,7 +1535,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"15",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"100%"
 	},
 	"Flame Wheel":{
@@ -1562,7 +1562,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"10",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Flail":{
@@ -1571,7 +1571,7 @@
 		"gen":"XY",
 		"detail":"Physical",
 		"pp":"15",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"100%"
 	},
 	"Conversion 2":{
@@ -1580,7 +1580,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"30",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Aeroblast":{
@@ -1598,7 +1598,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"40",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"100%"
 	},
 	"Reversal":{
@@ -1607,7 +1607,7 @@
 		"gen":"XY",
 		"detail":"Physical",
 		"pp":"15",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"100%"
 	},
 	"Spite":{
@@ -1616,7 +1616,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"10",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"100%"
 	},
 	"Powder Snow":{
@@ -1634,7 +1634,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"10",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Mach Punch":{
@@ -1652,7 +1652,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"10",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"100%"
 	},
 	"Feint Attack":{
@@ -1670,7 +1670,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"10",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"75%"
 	},
 	"Belly Drum":{
@@ -1679,7 +1679,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"10",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Sludge Bomb":{
@@ -1715,7 +1715,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"20",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Zap Cannon":{
@@ -1733,7 +1733,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"40",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Destiny Bond":{
@@ -1742,7 +1742,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"5",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Perish Song":{
@@ -1751,7 +1751,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"5",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Icy Wind":{
@@ -1769,7 +1769,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"5",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Bone Rush":{
@@ -1787,7 +1787,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"5",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Outrage":{
@@ -1805,7 +1805,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"10",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Giga Drain":{
@@ -1823,7 +1823,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"10",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Charm":{
@@ -1832,7 +1832,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"20",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"100%"
 	},
 	"Rollout":{
@@ -1859,7 +1859,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"15",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"85%"
 	},
 	"Milk Drink":{
@@ -1868,7 +1868,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"5",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Spark":{
@@ -1904,7 +1904,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"5",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Attract":{
@@ -1913,7 +1913,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"15",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"100%"
 	},
 	"Sleep Talk":{
@@ -1922,7 +1922,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"10",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Heal Bell":{
@@ -1931,7 +1931,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"5",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Return":{
@@ -1940,7 +1940,7 @@
 		"gen":"XY",
 		"detail":"Physical",
 		"pp":"20",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"100%"
 	},
 	"Present":{
@@ -1949,7 +1949,7 @@
 		"gen":"XY",
 		"detail":"Physical",
 		"pp":"15",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"90%"
 	},
 	"Frustration":{
@@ -1958,7 +1958,7 @@
 		"gen":"XY",
 		"detail":"Physical",
 		"pp":"20",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"100%"
 	},
 	"Safeguard":{
@@ -1967,7 +1967,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"25",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Pain Split":{
@@ -1976,7 +1976,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"20",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Sacred Fire":{
@@ -1994,7 +1994,7 @@
 		"gen":"XY",
 		"detail":"Physical",
 		"pp":"30",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"100%"
 	},
 	"Dynamic Punch":{
@@ -2030,7 +2030,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"40",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Encore":{
@@ -2039,7 +2039,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"5",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"100%"
 	},
 	"Pursuit":{
@@ -2066,7 +2066,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"20",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"100%"
 	},
 	"Iron Tail":{
@@ -2102,7 +2102,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"5",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Synthesis":{
@@ -2111,7 +2111,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"5",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Moonlight":{
@@ -2120,7 +2120,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"5",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Hidden Power":{
@@ -2156,7 +2156,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"5",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Sunny Day":{
@@ -2165,7 +2165,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"5",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Crunch":{
@@ -2183,7 +2183,7 @@
 		"gen":"XY",
 		"detail":"Special",
 		"pp":"20",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"100%"
 	},
 	"Psych Up":{
@@ -2192,7 +2192,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"10",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Extreme Speed":{
@@ -2255,7 +2255,7 @@
 		"gen":"XY",
 		"detail":"Physical",
 		"pp":"10",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"100%"
 	},
 	"Fake Out":{
@@ -2282,7 +2282,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"20",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Spit Up":{
@@ -2291,7 +2291,7 @@
 		"gen":"XY",
 		"detail":"Special",
 		"pp":"10",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"100%"
 	},
 	"Swallow":{
@@ -2300,7 +2300,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"10",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Heat Wave":{
@@ -2318,7 +2318,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"10",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Torment":{
@@ -2327,7 +2327,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"15",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"100%"
 	},
 	"Flatter":{
@@ -2336,7 +2336,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"15",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"100%"
 	},
 	"Will-O-Wisp":{
@@ -2345,7 +2345,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"15",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"85%"
 	},
 	"Memento":{
@@ -2354,7 +2354,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"10",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"100%"
 	},
 	"Facade":{
@@ -2390,7 +2390,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"20",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Nature Power":{
@@ -2399,7 +2399,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"20",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Charge":{
@@ -2408,7 +2408,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"20",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Taunt":{
@@ -2417,7 +2417,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"20",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"100%"
 	},
 	"Helping Hand":{
@@ -2426,7 +2426,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"20",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Trick":{
@@ -2435,7 +2435,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"10",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"100%"
 	},
 	"Role Play":{
@@ -2444,7 +2444,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"10",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Wish":{
@@ -2453,7 +2453,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"10",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Assist":{
@@ -2462,7 +2462,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"20",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Ingrain":{
@@ -2471,7 +2471,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"20",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Superpower":{
@@ -2489,7 +2489,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"15",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Recycle":{
@@ -2498,7 +2498,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"10",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Revenge":{
@@ -2525,7 +2525,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"10",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Knock Off":{
@@ -2543,7 +2543,7 @@
 		"gen":"XY",
 		"detail":"Physical",
 		"pp":"5",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"100%"
 	},
 	"Eruption":{
@@ -2561,7 +2561,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"10",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Imprison":{
@@ -2570,7 +2570,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"10",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Refresh":{
@@ -2579,7 +2579,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"20",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Grudge":{
@@ -2588,7 +2588,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"5",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Snatch":{
@@ -2597,7 +2597,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"10",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Secret Power":{
@@ -2633,7 +2633,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"20",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Tail Glow":{
@@ -2642,7 +2642,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"20",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Luster Purge":{
@@ -2669,7 +2669,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"15",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"100%"
 	},
 	"Teeter Dance":{
@@ -2678,7 +2678,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"20",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"100%"
 	},
 	"Blaze Kick":{
@@ -2696,7 +2696,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"15",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Ice Ball":{
@@ -2723,7 +2723,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"5",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Hyper Voice":{
@@ -2804,7 +2804,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"5",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Fake Tears":{
@@ -2813,7 +2813,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"20",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"100%"
 	},
 	"Air Cutter":{
@@ -2840,7 +2840,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"40",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Rock Tomb":{
@@ -2867,7 +2867,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"40",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"85%"
 	},
 	"Grass Whistle":{
@@ -2876,7 +2876,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"15",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"55%"
 	},
 	"Tickle":{
@@ -2885,7 +2885,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"20",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"100%"
 	},
 	"Cosmic Power":{
@@ -2894,7 +2894,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"20",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Water Spout":{
@@ -2957,7 +2957,7 @@
 		"gen":"XY",
 		"detail":"Special",
 		"pp":"5",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"30%"
 	},
 	"Muddy Water":{
@@ -3002,7 +3002,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"15",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Block":{
@@ -3011,7 +3011,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"5",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Howl":{
@@ -3020,7 +3020,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"40",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Dragon Claw":{
@@ -3047,7 +3047,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"20",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Bounce":{
@@ -3110,7 +3110,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"15",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Calm Mind":{
@@ -3119,7 +3119,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"20",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Leaf Blade":{
@@ -3137,7 +3137,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"20",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Rock Blast":{
@@ -3191,7 +3191,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"5",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Gravity":{
@@ -3200,7 +3200,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"5",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Miracle Eye":{
@@ -3209,7 +3209,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"40",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Wake-Up Slap":{
@@ -3236,7 +3236,7 @@
 		"gen":"XY",
 		"detail":"Physical",
 		"pp":"5",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"100%"
 	},
 	"Healing Wish":{
@@ -3245,7 +3245,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"10",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Brine":{
@@ -3263,7 +3263,7 @@
 		"gen":"XY",
 		"detail":"Physical",
 		"pp":"15",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"100%"
 	},
 	"Feint":{
@@ -3290,7 +3290,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"15",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Acupressure":{
@@ -3299,7 +3299,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"30",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Metal Burst":{
@@ -3308,7 +3308,7 @@
 		"gen":"XY",
 		"detail":"Physical",
 		"pp":"10",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"100%"
 	},
 	"U-turn":{
@@ -3353,7 +3353,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"15",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"100%"
 	},
 	"Fling":{
@@ -3362,7 +3362,7 @@
 		"gen":"XY",
 		"detail":"Physical",
 		"pp":"10",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"100%"
 	},
 	"Psycho Shift":{
@@ -3371,7 +3371,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"10",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"100%"
 	},
 	"Trump Card":{
@@ -3380,7 +3380,7 @@
 		"gen":"XY",
 		"detail":"Special",
 		"pp":"5",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Heal Block":{
@@ -3389,7 +3389,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"15",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"100%"
 	},
 	"Wring Out":{
@@ -3398,7 +3398,7 @@
 		"gen":"XY",
 		"detail":"Special",
 		"pp":"5",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"100%"
 	},
 	"Power Trick":{
@@ -3407,7 +3407,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"10",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Gastro Acid":{
@@ -3416,7 +3416,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"10",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"100%"
 	},
 	"Lucky Chant":{
@@ -3425,7 +3425,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"30",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Me First":{
@@ -3434,7 +3434,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"20",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Copycat":{
@@ -3443,7 +3443,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"20",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Power Swap":{
@@ -3452,7 +3452,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"10",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Guard Swap":{
@@ -3461,7 +3461,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"10",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Punishment":{
@@ -3470,7 +3470,7 @@
 		"gen":"XY",
 		"detail":"Physical",
 		"pp":"5",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"100%"
 	},
 	"Last Resort":{
@@ -3488,7 +3488,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"10",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"100%"
 	},
 	"Sucker Punch":{
@@ -3506,7 +3506,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"20",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Heart Swap":{
@@ -3515,7 +3515,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"10",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Aqua Ring":{
@@ -3524,7 +3524,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"20",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Magnet Rise":{
@@ -3533,7 +3533,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"10",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Flare Blitz":{
@@ -3569,7 +3569,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"20",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Poison Jab":{
@@ -3731,7 +3731,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"10",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"100%"
 	},
 	"Giga Impact":{
@@ -3749,7 +3749,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"20",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Bullet Punch":{
@@ -3884,7 +3884,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"15",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Trick Room":{
@@ -3893,7 +3893,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"5",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Draco Meteor":{
@@ -4001,7 +4001,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"20",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"100%"
 	},
 	"Stealth Rock":{
@@ -4010,7 +4010,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"20",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Grass Knot":{
@@ -4019,7 +4019,7 @@
 		"gen":"XY",
 		"detail":"Special",
 		"pp":"20",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"100%"
 	},
 	"Chatter":{
@@ -4091,7 +4091,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"10",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Heal Order":{
@@ -4100,7 +4100,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"10",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Head Smash":{
@@ -4145,7 +4145,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"10",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Crush Grip":{
@@ -4154,7 +4154,7 @@
 		"gen":"XY",
 		"detail":"Physical",
 		"pp":"5",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"100%"
 	},
 	"Magma Storm":{
@@ -4172,7 +4172,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"10",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"50%"
 	},
 	"Seed Flare":{
@@ -4208,7 +4208,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"15",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Wide Guard":{
@@ -4217,7 +4217,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"10",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Guard Split":{
@@ -4226,7 +4226,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"10",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Power Split":{
@@ -4235,7 +4235,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"10",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Wonder Room":{
@@ -4244,7 +4244,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"10",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Psyshock":{
@@ -4271,7 +4271,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"15",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Rage Powder":{
@@ -4280,7 +4280,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"20",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Telekinesis":{
@@ -4289,7 +4289,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"15",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Magic Room":{
@@ -4298,7 +4298,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"10",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Smack Down":{
@@ -4343,7 +4343,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"20",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Heavy Slam":{
@@ -4352,7 +4352,7 @@
 		"gen":"XY",
 		"detail":"Physical",
 		"pp":"10",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"100%"
 	},
 	"Synchronoise":{
@@ -4370,7 +4370,7 @@
 		"gen":"XY",
 		"detail":"Special",
 		"pp":"10",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"100%"
 	},
 	"Soak":{
@@ -4379,7 +4379,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"20",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"100%"
 	},
 	"Flame Charge":{
@@ -4397,7 +4397,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"20",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Low Sweep":{
@@ -4433,7 +4433,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"15",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"100%"
 	},
 	"Entrainment":{
@@ -4442,7 +4442,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"15",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"100%"
 	},
 	"After You":{
@@ -4451,7 +4451,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"15",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Round":{
@@ -4505,7 +4505,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"15",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Ally Switch":{
@@ -4514,7 +4514,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"15",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Scald":{
@@ -4532,7 +4532,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"15",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Heal Pulse":{
@@ -4541,7 +4541,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"10",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Hex":{
@@ -4568,7 +4568,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"10",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Circle Throw":{
@@ -4595,7 +4595,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"15",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"100%"
 	},
 	"Acrobatics":{
@@ -4613,7 +4613,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"15",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Retaliate":{
@@ -4631,7 +4631,7 @@
 		"gen":"XY",
 		"detail":"Special",
 		"pp":"5",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"100%"
 	},
 	"Bestow":{
@@ -4640,7 +4640,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"15",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Inferno":{
@@ -4730,7 +4730,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"30",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Electroweb":{
@@ -4811,7 +4811,7 @@
 		"gen":"XY",
 		"detail":"Physical",
 		"pp":"10",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"100%"
 	},
 	"Leaf Tornado":{
@@ -4838,7 +4838,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"10",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Night Daze":{
@@ -5045,7 +5045,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"10",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Belch":{
@@ -5063,7 +5063,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"10",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Sticky Web":{
@@ -5072,7 +5072,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"20",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Fell Stinger":{
@@ -5099,7 +5099,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"20",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"100%"
 	},
 	"Noble Roar":{
@@ -5108,7 +5108,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"30",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"100%"
 	},
 	"Ion Deluge":{
@@ -5117,7 +5117,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"25",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Parabolic Charge":{
@@ -5135,7 +5135,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"20",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"100%"
 	},
 	"Petal Blizzard":{
@@ -5171,7 +5171,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"20",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"100%"
 	},
 	"Topsy-Turvy":{
@@ -5180,7 +5180,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"20",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Draining Kiss":{
@@ -5198,7 +5198,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"10",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Flower Shield":{
@@ -5207,7 +5207,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"10",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Grassy Terrain":{
@@ -5216,7 +5216,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"10",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Misty Terrain":{
@@ -5225,7 +5225,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"10",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Electrify":{
@@ -5234,7 +5234,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"20",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Play Rough":{
@@ -5279,7 +5279,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"10",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"King's Shield":{
@@ -5288,7 +5288,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"10",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Play Nice":{
@@ -5297,7 +5297,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"20",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Confide":{
@@ -5306,7 +5306,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"20",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Diamond Storm":{
@@ -5360,7 +5360,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"10",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Aromatic Mist":{
@@ -5369,7 +5369,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"20",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Eerie Impulse":{
@@ -5378,7 +5378,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"15",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"100%"
 	},
 	"Venom Drench":{
@@ -5387,7 +5387,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"20",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"100%"
 	},
 	"Powder":{
@@ -5396,7 +5396,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"20",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"100%"
 	},
 	"Geomancy":{
@@ -5405,7 +5405,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"10",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Magnetic Flux":{
@@ -5414,7 +5414,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"20",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Happy Hour":{
@@ -5423,7 +5423,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"30",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Electric Terrain":{
@@ -5432,7 +5432,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"10",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Dazzling Gleam":{
@@ -5450,7 +5450,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"40",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Hold Hands":{
@@ -5459,7 +5459,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"40",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Baby-Doll Eyes":{
@@ -5468,7 +5468,7 @@
 		"gen":"XY",
 		"detail":"Status",
 		"pp":"30",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"100%"
 	},
 	"Nuzzle":{
@@ -5594,7 +5594,7 @@
 		"gen":"SM",
 		"detail":"Physical",
 		"pp":"1",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Breakneck BlitzS":{
@@ -5603,7 +5603,7 @@
 		"gen":"SM",
 		"detail":"Special",
 		"pp":"1",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"All-Out PummelingP":{
@@ -5612,7 +5612,7 @@
 		"gen":"SM",
 		"detail":"Physical",
 		"pp":"1",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"All-Out PummelingS":{
@@ -5621,7 +5621,7 @@
 		"gen":"SM",
 		"detail":"Special",
 		"pp":"1",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Supersonic SkystrikeP":{
@@ -5630,7 +5630,7 @@
 		"gen":"SM",
 		"detail":"Physical",
 		"pp":"1",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Supersonic SkystrikeS":{
@@ -5639,7 +5639,7 @@
 		"gen":"SM",
 		"detail":"Special",
 		"pp":"1",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Acid DownpourP":{
@@ -5648,7 +5648,7 @@
 		"gen":"SM",
 		"detail":"Physical",
 		"pp":"1",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Acid DownpourS":{
@@ -5657,7 +5657,7 @@
 		"gen":"SM",
 		"detail":"Special",
 		"pp":"1",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Tectonic RageP":{
@@ -5666,7 +5666,7 @@
 		"gen":"SM",
 		"detail":"Physical",
 		"pp":"1",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Tectonic RageS":{
@@ -5675,7 +5675,7 @@
 		"gen":"SM",
 		"detail":"Special",
 		"pp":"1",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Continental CrushP":{
@@ -5684,7 +5684,7 @@
 		"gen":"SM",
 		"detail":"Physical",
 		"pp":"1",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Continental CrushS":{
@@ -5693,7 +5693,7 @@
 		"gen":"SM",
 		"detail":"Special",
 		"pp":"1",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Savage Spin-OutP":{
@@ -5702,7 +5702,7 @@
 		"gen":"SM",
 		"detail":"Physical",
 		"pp":"1",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Savage Spin-OutS":{
@@ -5711,7 +5711,7 @@
 		"gen":"SM",
 		"detail":"Special",
 		"pp":"1",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Never-Ending NightmareP":{
@@ -5720,7 +5720,7 @@
 		"gen":"SM",
 		"detail":"Physical",
 		"pp":"1",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Never-Ending NightmareS":{
@@ -5729,7 +5729,7 @@
 		"gen":"SM",
 		"detail":"Special",
 		"pp":"1",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Corkscrew CrashP":{
@@ -5738,7 +5738,7 @@
 		"gen":"SM",
 		"detail":"Physical",
 		"pp":"1",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Corkscrew CrashS":{
@@ -5747,7 +5747,7 @@
 		"gen":"SM",
 		"detail":"Special",
 		"pp":"1",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Inferno OverdriveP":{
@@ -5756,7 +5756,7 @@
 		"gen":"SM",
 		"detail":"Physical",
 		"pp":"1",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Inferno OverdriveS":{
@@ -5765,7 +5765,7 @@
 		"gen":"SM",
 		"detail":"Special",
 		"pp":"1",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Hydro VortexP":{
@@ -5774,7 +5774,7 @@
 		"gen":"SM",
 		"detail":"Physical",
 		"pp":"1",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Hydro VortexS":{
@@ -5783,7 +5783,7 @@
 		"gen":"SM",
 		"detail":"Special",
 		"pp":"1",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Bloom DoomP":{
@@ -5792,7 +5792,7 @@
 		"gen":"SM",
 		"detail":"Physical",
 		"pp":"1",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Bloom DoomS":{
@@ -5801,7 +5801,7 @@
 		"gen":"SM",
 		"detail":"Special",
 		"pp":"1",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Gigavolt HavocP":{
@@ -5810,7 +5810,7 @@
 		"gen":"SM",
 		"detail":"Physical",
 		"pp":"1",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Gigavolt HavocS":{
@@ -5819,7 +5819,7 @@
 		"gen":"SM",
 		"detail":"Special",
 		"pp":"1",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Shattered PsycheP":{
@@ -5828,7 +5828,7 @@
 		"gen":"SM",
 		"detail":"Physical",
 		"pp":"1",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Shattered PsycheS":{
@@ -5837,7 +5837,7 @@
 		"gen":"SM",
 		"detail":"Special",
 		"pp":"1",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Subzero SlammerP":{
@@ -5846,7 +5846,7 @@
 		"gen":"SM",
 		"detail":"Physical",
 		"pp":"1",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Subzero SlammerS":{
@@ -5855,7 +5855,7 @@
 		"gen":"SM",
 		"detail":"Special",
 		"pp":"1",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Devastating DrakeP":{
@@ -5864,7 +5864,7 @@
 		"gen":"SM",
 		"detail":"Physical",
 		"pp":"1",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Devastating DrakeS":{
@@ -5873,7 +5873,7 @@
 		"gen":"SM",
 		"detail":"Special",
 		"pp":"1",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Black Hole EclipseP":{
@@ -5882,7 +5882,7 @@
 		"gen":"SM",
 		"detail":"Physical",
 		"pp":"1",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Black Hole EclipseS":{
@@ -5891,7 +5891,7 @@
 		"gen":"SM",
 		"detail":"Special",
 		"pp":"1",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Twinkle TackleP":{
@@ -5900,7 +5900,7 @@
 		"gen":"SM",
 		"detail":"Physical",
 		"pp":"1",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Twinkle TackleS":{
@@ -5909,7 +5909,7 @@
 		"gen":"SM",
 		"detail":"Special",
 		"pp":"1",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Catastropika":{
@@ -5927,7 +5927,7 @@
 		"gen":"SM",
 		"detail":"Status",
 		"pp":"5",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"First Impression":{
@@ -5945,7 +5945,7 @@
 		"gen":"SM",
 		"detail":"Status",
 		"pp":"10",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Spirit Shackle":{
@@ -5990,7 +5990,7 @@
 		"gen":"SM",
 		"detail":"Status",
 		"pp":"10",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"High Horsepower":{
@@ -6008,7 +6008,7 @@
 		"gen":"SM",
 		"detail":"Status",
 		"pp":"10",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"100%"
 	},
 	"Solar Blade":{
@@ -6035,7 +6035,7 @@
 		"gen":"SM",
 		"detail":"Status",
 		"pp":"15",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Toxic Thread":{
@@ -6044,7 +6044,7 @@
 		"gen":"SM",
 		"detail":"Status",
 		"pp":"20",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"100%"
 	},
 	"Laser Focus":{
@@ -6053,7 +6053,7 @@
 		"gen":"SM",
 		"detail":"Status",
 		"pp":"30",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Gear Up":{
@@ -6062,7 +6062,7 @@
 		"gen":"SM",
 		"detail":"Status",
 		"pp":"20",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Throat Chop":{
@@ -6098,7 +6098,7 @@
 		"gen":"SM",
 		"detail":"Status",
 		"pp":"10",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Lunge":{
@@ -6143,7 +6143,7 @@
 		"gen":"SM",
 		"detail":"Status",
 		"pp":"10",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Smart Strike":{
@@ -6161,7 +6161,7 @@
 		"gen":"SM",
 		"detail":"Status",
 		"pp":"20",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Revelation Dance":{
@@ -6197,7 +6197,7 @@
 		"gen":"SM",
 		"detail":"Status",
 		"pp":"15",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Beak Blast":{
@@ -6242,7 +6242,7 @@
 		"gen":"SM",
 		"detail":"Status",
 		"pp":"20",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Sinister Arrow Raid":{
@@ -6278,7 +6278,7 @@
 		"gen":"SM",
 		"detail":"Special",
 		"pp":"1",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Soul-Stealing 7-Star Strike":{
@@ -6314,7 +6314,7 @@
 		"gen":"SM",
 		"detail":"Status",
 		"pp":"1",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Genesis Supernova":{
@@ -6431,7 +6431,7 @@
 		"gen":"SM",
 		"detail":"Status",
 		"pp":"20",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"--%"
 	},
 	"Zing Zap":{
@@ -6449,7 +6449,7 @@
 		"gen":"SM",
 		"detail":"Special",
 		"pp":"10",
-		"power":"--",
+		"power":"0"      ,
 		"acc":"90%"
 	},
 	"Multi-Attack":{

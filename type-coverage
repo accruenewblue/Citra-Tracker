@@ -55,7 +55,6 @@ typedic={
     '"null"':18,
 }
 #extracts and calculates relevant type combo for defenders
-
 type1=""
 type2=""
 type3=""

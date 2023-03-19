@@ -9,7 +9,7 @@ abilities=json.load(abilitiesfile)
 #1 2 3 single=1,4, double=1,2,4,5
 battleformat="single"
 party=["Zeraora","Mega Steelix","School Form Wishiwashi","Zapdos","Mega Altaria","Mega Aggron"]
-opponent=["Ho-Oh","Alolan Exeggutor","Pa'u Style Oricorio","Mimikyu","Gengar"]
+opponent=["Swampert","Alolan Exeggutor","Pa'u Style Oricorio","Mimikyu","Gengar"]
 ally=["Primal Groudon","Naganadel","Sawsbuck"]
 if battleformat=="single":
     mon1=party[0]
@@ -64,18 +64,9 @@ dataset1={"name":mons[mon1]['name'],
     "status":"none",
     "pic":"(img)",
     "stringnote":"tanks a stab eq",
-    "hp":"",
-    "atk":"",
-    "def":"",
-    "spa":"",
-    "spd":"",
-    "spe":"",
-    "acc":"",
-    "eva":"",
-    "move1":"",
-    "move2":"",
-    "move3":"",
-    "move4":""}
+    "stats":["","","","","","","",""],
+    "statnotes":["","","","","",""],
+    "moves":["","","",""]}
 dataset2={"name":mons[mon2]['name'],
     "form":mons[mon2]['form'],
     "tag":mons[mon2]['tag'],
@@ -87,18 +78,9 @@ dataset2={"name":mons[mon2]['name'],
     "status":"none",
     "pic":"(img)",
     "stringnote":"tanks a stab eq",
-    "hp":"",
-    "atk":"",
-    "def":"",
-    "spa":"",
-    "spd":"",
-    "spe":"",
-    "acc":"",
-    "eva":"",
-    "move1":"",
-    "move2":"",
-    "move3":"",
-    "move4":""}
+    "stats":["","","","","","","",""],
+    "statnotes":["","","","","",""],
+    "moves":["","","",""]}
 dataset3={"name":mons[mon3]['name'],
     "form":mons[mon3]['form'],
     "tag":mons[mon3]['tag'],
@@ -110,18 +92,9 @@ dataset3={"name":mons[mon3]['name'],
     "status":"none",
     "pic":"(img)",
     "stringnote":"tanks a stab eq",
-    "hp":"",
-    "atk":"",
-    "def":"",
-    "spa":"",
-    "spd":"",
-    "spe":"",
-    "acc":"",
-    "eva":"",
-    "move1":"",
-    "move2":"",
-    "move3":"",
-    "move4":""}
+    "stats":["","","","","","","",""],
+    "statnotes":["","","","","",""],
+    "moves":["","","",""]}
 dataset4={"name":mons[mon4]['name'],
     "form":mons[mon4]['form'],
     "tag":mons[mon4]['tag'],
@@ -133,18 +106,9 @@ dataset4={"name":mons[mon4]['name'],
     "status":"none",
     "pic":"(img)",
     "stringnote":"tanks a stab eq",
-    "hp":"",
-    "atk":"",
-    "def":"",
-    "spa":"",
-    "spd":"",
-    "spe":"",
-    "acc":"",
-    "eva":"",
-    "move1":"",
-    "move2":"",
-    "move3":"",
-    "move4":""}
+    "stats":["","","","","","","",""],
+    "statnotes":["","","","","",""],
+    "moves":["","","",""]}
 dataset5={"name":mons[mon5]['name'],
     "form":mons[mon5]['form'],
     "tag":mons[mon5]['tag'],
@@ -156,18 +120,9 @@ dataset5={"name":mons[mon5]['name'],
     "status":"none",
     "pic":"(img)",
     "stringnote":"tanks a stab eq",
-    "hp":"",
-    "atk":"",
-    "def":"",
-    "spa":"",
-    "spd":"",
-    "spe":"",
-    "acc":"",
-    "eva":"",
-    "move1":"",
-    "move2":"",
-    "move3":"",
-    "move4":""}
+    "stats":["","","","","","","",""],
+    "statnotes":["","","","","",""],
+    "moves":["","","",""]}
 dataset6={"name":mons[mon6]['name'],
     "form":mons[mon6]['form'],
     "tag":mons[mon6]['tag'],
@@ -179,20 +134,113 @@ dataset6={"name":mons[mon6]['name'],
     "status":"none",
     "pic":"(img)",
     "stringnote":"tanks a stab eq",
-    "hp":"",
-    "atk":"",
-    "def":"",
-    "spa":"",
-    "spd":"",
-    "spe":"",
-    "acc":"",
-    "eva":"",
-    "move1":"",
-    "move2":"",
-    "move3":"",
-    "move4":""}
+    "stats":["","","","","","","",""],
+    "statnotes":["","","","","",""],
+    "moves":["","","",""]}
+attackingmon=dataset1
+defendingmon=dataset4
 dataset=[dataset1,dataset2,dataset3,dataset4,dataset5,dataset6]
-dataset1["types"].append("Grass")
+print(len(defendingmon["types"]))
+for item in range(0,len(defendingmon["types"])):
+    print(defendingmon["types"][item])
+dataset4["moves"][0]="Dragon Pulse"
+print(dataset4["moves"])
 for item in dataset:
     if item["name"]!="Egg":
-        print(item["types"])
+        print(item["stats"][1])
+#arrays for defining the effectiveness of typed attacks or special moves
+typetable={
+"Normal":[1,1,1,1,1,.5,1,0,.5,1,1,1,1,1,1,1,1,1,1],
+"Fighting":[2,1,.5,.5,1,2,.5,0,2,1,1,1,1,.5,2,1,2,.5,1],
+"Flying":[1,2,1,1,1,.5,2,1,.5,1,1,2,.5,1,1,1,1,1,1],
+"Poison":[1,1,1,.5,.5,.5,1,.5,0,1,1,2,1,1,1,1,1,2,1],
+"Ground":[1,1,0,2,1,2,.5,1,2,2,1,.5,2,1,1,1,1,1,1],
+"Rock":[1,.5,2,1,.5,1,2,1,.5,2,1,1,1,1,2,1,1,1,1],
+"Bug":[1,.5,.5,.5,1,1,1,.5,.5,.5,1,2,1,2,1,1,2,.5,1],
+"Ghost":[0,1,1,1,1,1,1,2,1,1,1,1,1,2,1,1,.5,1,1],
+"Steel":[1,1,1,1,1,2,1,1,.5,.5,.5,1,.5,1,2,1,1,2,1],
+"Fire":[1,1,1,1,1,.5,2,1,2,.5,.5,2,1,1,2,.5,1,1,1],
+"Water":[1,1,1,1,2,2,1,1,1,2,.5,.5,1,1,1,.5,1,1,1],
+"Grass":[1,1,.5,.5,2,2,.5,1,.5,.5,2,.5,1,1,1,.5,1,1,1],
+"Electric":[1,1,2,1,0,1,1,1,1,1,2,.5,.5,1,1,.5,1,1,1],
+"Psychic":[1,2,1,2,1,1,1,1,.5,1,1,1,1,.5,1,1,0,1,1],
+"Ice":[1,1,2,1,2,1,1,1,.5,.5,.5,2,1,1,.5,2,1,1,1],
+"Dragon":[1,1,1,1,1,1,1,1,.5,1,1,1,1,1,1,2,1,0,1],
+"Dark":[1,.5,1,1,1,1,1,2,1,1,1,1,1,2,1,1,.5,.5,1],
+"Fairy":[1,2,1,.5,1,1,1,1,.5,.5,1,1,1,1,1,2,2,1,1],
+"Null":[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+"FreezeDry":[1,1,2,1,2,1,1,1,.5,.5,2,2,1,1,.5,2,1,1,1],
+"FreezeDryNormalize":[1,1,1,1,1,.5,1,0,.5,1,2,1,1,1,1,1,1,1,1],
+"DeltaStreamElectric":[1,1,1,1,0,1,1,1,1,1,2,.5,.5,1,1,.5,1,1,1],
+"DeltaStreamIce":[1,1,1,1,2,1,1,1,.5,.5,.5,2,1,1,.5,2,1,1,1],
+"DeltaStreamRock":[1,.5,1,1,.5,1,2,1,.5,2,1,1,1,1,2,1,1,1,1],
+"FlyingPress":[2,2,.5,.5,1,1,1,0,1,1,1,2,.5,.5,2,1,2,.5,1],
+"FlyingPressElectrify":[1,2,2,1,0,.5,2,1,.5,1,2,1,.25,1,1,.5,1,1,1],
+"FlyingPressNormalize":[1,2,1,1,1,.25,2,0,.25,1,1,2,.5,1,1,1,1,1,1],
+"ThousandArrows":[1,1,1,2,1,2,.5,1,2,2,1,.5,2,1,1,1,1,1,1]}
+#defines the columns for the arrays corresponding to the type hit
+typedic={
+    "Normal":0,
+    "Fighting":1,
+    "Flying":2,
+    "Poison":3,
+    "Ground":4,
+    "Rock":5,
+    "Bug":6,
+    "Ghost":7,
+    "Steel":8,
+    "Fire":9,
+    "Water":10,
+    "Grass":11,
+    "Electric":12,
+    "Psychic":13,
+    "Ice":14,
+    "Dragon":15,
+    "Dark":16,
+    "Fairy":17,
+    "Null":18,}
+#extracts and calculates relevant type combo for defenders
+attability="null"
+targetability="null"
+weather="null"
+terrain="null"
+attackertypes=[attackingmon]
+moveset=["Dragon Pulse","Tail Glow","Energy Ball","Flamethrower"]
+def coverage(movedef):
+    typemult=1
+    weatmult=1
+    stabmult=1
+    terrmult=1
+    for item in range(0,len(defendingmon["types"])):
+        typemult=typemult*(typetable[movedef][typedic[dataset4["types"][item]]])
+    if movedef[item] in attackertypes:
+        if attability=="adaptability":
+            stabmult=2
+        else:
+            stabmult=1.5
+    if terrain=="grassy":
+        if movesfile[movedef]["type"][item]=="Grass":
+            terrmult=1.5
+    if terrain=="misty":
+        if movesfile[movedef]["type"][item]=="Dragon":
+            terrmult=.5
+    if terrain=="electric":
+        if movesfile[movedef]["type"][item]=="Electric":
+            terrmult=1.5
+    if terrain=="psychic":
+        if movesfile[movedef]["type"][item]=="Psychic":
+            terrmult=1.5
+    if weather=="sun":
+        if movesfile[movedef]["type"][item]=="Fire":
+            weatmult=1.5
+        if movesfile[movedef]["type"][item]=="Water":
+            weatmult=.5
+    if weather=="rain":
+        if movesfile[movedef]["type"][item]=="Fire":
+            weatmult=.5
+        if movesfile[movedef]["type"][item]=="Water":
+            weatmult=1.5
+    return typemult*weatmult*stabmult*terrmult
+for item in range(0,4):
+    print(coverage(movesfile[moveset[item]]["type"]))
+    print(coverage(movesfile[moveset[item]]["type"])*int(movesfile[moveset[item]]["power"]))

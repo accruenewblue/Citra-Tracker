@@ -13,3 +13,7 @@ jsondumper=json.dumps(dump)
 print(data[mon][datapoint])
 print(data2[move])
 print(jsondumper)
+for item in range(0,4):
+    print(item)
+for item in range[0,4]:
+    print(item)
