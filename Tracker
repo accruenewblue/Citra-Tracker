@@ -64,19 +64,20 @@ if txtfile[0].find("coverage")!=-1:
 print(mon1,mon4)
 dataset1={"name":mons[mon1]['name'],
     "form":mons[mon1]['form'],
-    "level":[],
     "tag":mons[mon1]['tag'],
     "evo":mons[mon1]['evo'],
-    "ability":mons[mon1]["ability"],
     "weight":mons[mon1]['weight'],
     "types":mons[mon1]["types"],
     "bst":mons[mon1]['bst7'],
     "status":"none",
     "pic":"(img)",
+    "notes":{
+    "level":[],
+    "ability":[],
     "stringnote":"tanks a stab eq",
     "stats":["","","","","","","",""],
     "statnotes":["","","","","",""],
-    "moves":["Discharge","Tail Glow","Energy Ball","Flamethrower"]}
+    "moves":["Discharge","Tail Glow","Energy Ball","Flamethrower"]}}
 dataset2={"name":mons[mon2]['name'],
     "form":mons[mon2]['form'],
     "level":[],
@@ -88,10 +89,13 @@ dataset2={"name":mons[mon2]['name'],
     "bst":mons[mon2]['bst7'],
     "status":"none",
     "pic":"(img)",
+    "notes":{
+    "level":[],
+    "ability":[],
     "stringnote":"tanks a stab eq",
     "stats":["","","","","","","",""],
     "statnotes":["","","","","",""],
-    "moves":["","","",""]}
+    "moves":["Discharge","Tail Glow","Energy Ball","Flamethrower"]}}
 dataset3={"name":mons[mon3]['name'],
     "form":mons[mon3]['form'],
     "level":[],
@@ -103,10 +107,13 @@ dataset3={"name":mons[mon3]['name'],
     "bst":mons[mon3]['bst7'],
     "status":"none",
     "pic":"(img)",
+    "notes":{
+    "level":[],
+    "ability":[],
     "stringnote":"tanks a stab eq",
     "stats":["","","","","","","",""],
     "statnotes":["","","","","",""],
-    "moves":["","","",""]}
+    "moves":["Discharge","Tail Glow","Energy Ball","Flamethrower"]}}
 dataset4={"name":mons[mon4]['name'],
     "form":mons[mon4]['form'],
     "level":[],
@@ -118,10 +125,13 @@ dataset4={"name":mons[mon4]['name'],
     "bst":mons[mon4]['bst7'],
     "status":"none",
     "pic":"(img)",
+    "notes":{
+    "level":[],
+    "ability":[],
     "stringnote":"tanks a stab eq",
     "stats":["","","","","","","",""],
     "statnotes":["","","","","",""],
-    "moves":["","","",""]}
+    "moves":["Discharge","Tail Glow","Energy Ball","Flamethrower"]}}
 dataset5={"name":mons[mon5]['name'],
     "form":mons[mon5]['form'],
     "level":[],
@@ -133,10 +143,13 @@ dataset5={"name":mons[mon5]['name'],
     "bst":mons[mon5]['bst7'],
     "status":"none",
     "pic":"(img)",
+    "notes":{
+    "level":[],
+    "ability":[],
     "stringnote":"tanks a stab eq",
     "stats":["","","","","","","",""],
     "statnotes":["","","","","",""],
-    "moves":["","","",""]}
+    "moves":["Discharge","Tail Glow","Energy Ball","Flamethrower"]}}
 dataset6={"name":mons[mon6]['name'],
     "form":mons[mon6]['form'],
     "level":[],
@@ -148,24 +161,27 @@ dataset6={"name":mons[mon6]['name'],
     "bst":mons[mon6]['bst7'],
     "status":"none",
     "pic":"(img)",
+    "notes":{
+    "level":[],
+    "ability":[],
     "stringnote":"tanks a stab eq",
     "stats":["","","","","","","",""],
     "statnotes":["","","","","",""],
-    "moves":["","","",""]}
+    "moves":["Discharge","Tail Glow","Energy Ball","Flamethrower"]}}
 attackingmon=dataset1
 defendingmon=dataset4
 attackingmon["types"].append("Grass")
 dataset=[dataset1,dataset2,dataset3,dataset4,dataset5,dataset6]
-dataset4["moves"][0]="Dragon Pulse"
+dataset4["notes"]["moves"][0]="Dragon Pulse"
 if txtfile[0].find("notetake")!=-1:
-    dataset1["stringnote"]=txtfile[2][0:-1]
-    dataset1["ability"].append(txtfile[3][0:-1])
-    dataset1["level"].append(txtfile[4][0:-1])
-    dataset1["moves"].append(txtfile[5][0:-1]+", "+txtfile[4][0:-1])
-    notesfile.write(json.dumps(dataset1))
+    dataset1["notes"]["stringnote"]=txtfile[2][0:-1]
+    dataset1["notes"]["ability"].append(txtfile[3][0:-1])
+    dataset1["notes"]["level"].append(txtfile[4][0:-1])
+    dataset1["notes"]["moves"].append(txtfile[5][0:-1]+", "+txtfile[4][0:-1])
+    notesfile.write(',\n"'+dataset1["name"]+'":'+json.dumps(dataset1["notes"]))
 for item in dataset:
     if item["name"]!="Egg":
-        print(item["moves"])
+        print(item["notes"]["moves"])
 
 #arrays for defining the effectiveness of typed attacks or special moves
 typetable={

@@ -1,1 +1,2 @@
-"Egg"{"name": "Volcanion", "form": "-", "level": ["23"], "tag": "XY", "evo": "", "ability": ["", "", "", "Truant"], "weight": "195.0", "types": ["Fire", "Water", "Grass"], "bst": "600", "status": "none", "pic": "(img)", "stringnote": "never gonna give you up v2", "stats": ["", "", "", "", "", "", "", ""], "statnotes": ["", "", "", "", "", ""], "moves": ["Discharge", "Tail Glow", "Energy Ball", "Flamethrower", "Hyper Beam, 23"]}
+"",
+"Volcanion":{"level": ["23"], "ability": ["Truant"], "stringnote": "never gonna give you up v2", "stats": ["", "", "", "", "", "", "", ""], "statnotes": ["", "", "", "", "", ""], "moves": ["Discharge", "Tail Glow", "Energy Ball", "Flamethrower", "Hyper Beam, 23"]}
