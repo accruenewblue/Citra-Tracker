@@ -5,11 +5,15 @@ movesfile=open(r"C:\Users\scien\Documents\GitHub\Orange-Peeler\move-data")
 movesfile=json.load(movesfile)
 abilitiesfile=open(r"C:\Users\scien\Documents\GitHub\Orange-Peeler\ability-data")
 abilities=json.load(abilitiesfile)
+notesfile=open(r"C:\Users\scien\Documents\GitHub\Orange-Peeler\mon-notes","r+")
+notes=json.load(notesfile)
+txt=open(r"C:\Users\scien\Downloads\typeimages\txt.txt","r+")
+txtfile=txt.readlines()
 #4 5 6 placement of mons in a battle
 #1 2 3 single=1,4, double=1,2,4,5
 battleformat="single"
 party=["Zeraora","Mega Steelix","School Form Wishiwashi","Zapdos","Mega Altaria","Mega Aggron"]
-opponent=["Swampert","Alolan Exeggutor","Pa'u Style Oricorio","Mimikyu","Gengar"]
+opponent=["Ho-Oh","Alolan Exeggutor","Pa'u Style Oricorio","Mimikyu","Gengar"]
 ally=["Primal Groudon","Naganadel","Sawsbuck"]
 if battleformat=="single":
     mon1=party[0]
@@ -53,8 +57,14 @@ if battleformat=="multi":
     mon4=opponent[0]
     mon5=opponent[1]
     mon6="Egg"
+print(txtfile)
+mon1=(txtfile[1])[0:-1]
+if txtfile[0].find("coverage")!=-1:
+    mon4=(txtfile[2])[0:-1]
+print(mon1,mon4)
 dataset1={"name":mons[mon1]['name'],
     "form":mons[mon1]['form'],
+    "level":[],
     "tag":mons[mon1]['tag'],
     "evo":mons[mon1]['evo'],
     "ability":mons[mon1]["ability"],
@@ -66,9 +76,10 @@ dataset1={"name":mons[mon1]['name'],
     "stringnote":"tanks a stab eq",
     "stats":["","","","","","","",""],
     "statnotes":["","","","","",""],
-    "moves":["","","",""]}
+    "moves":["Discharge","Tail Glow","Energy Ball","Flamethrower"]}
 dataset2={"name":mons[mon2]['name'],
     "form":mons[mon2]['form'],
+    "level":[],
     "tag":mons[mon2]['tag'],
     "evo":mons[mon2]['evo'],
     "ability":mons[mon2]["ability"],
@@ -83,6 +94,7 @@ dataset2={"name":mons[mon2]['name'],
     "moves":["","","",""]}
 dataset3={"name":mons[mon3]['name'],
     "form":mons[mon3]['form'],
+    "level":[],
     "tag":mons[mon3]['tag'],
     "evo":mons[mon3]['evo'],
     "ability":mons[mon3]["ability"],
@@ -97,6 +109,7 @@ dataset3={"name":mons[mon3]['name'],
     "moves":["","","",""]}
 dataset4={"name":mons[mon4]['name'],
     "form":mons[mon4]['form'],
+    "level":[],
     "tag":mons[mon4]['tag'],
     "evo":mons[mon4]['evo'],
     "ability":mons[mon4]["ability"],
@@ -111,6 +124,7 @@ dataset4={"name":mons[mon4]['name'],
     "moves":["","","",""]}
 dataset5={"name":mons[mon5]['name'],
     "form":mons[mon5]['form'],
+    "level":[],
     "tag":mons[mon5]['tag'],
     "evo":mons[mon5]['evo'],
     "ability":mons[mon5]["ability"],
@@ -125,6 +139,7 @@ dataset5={"name":mons[mon5]['name'],
     "moves":["","","",""]}
 dataset6={"name":mons[mon6]['name'],
     "form":mons[mon6]['form'],
+    "level":[],
     "tag":mons[mon6]['tag'],
     "evo":mons[mon6]['evo'],
     "ability":mons[mon6]["ability"],
@@ -139,15 +154,19 @@ dataset6={"name":mons[mon6]['name'],
     "moves":["","","",""]}
 attackingmon=dataset1
 defendingmon=dataset4
+attackingmon["types"].append("Grass")
 dataset=[dataset1,dataset2,dataset3,dataset4,dataset5,dataset6]
-print(len(defendingmon["types"]))
-for item in range(0,len(defendingmon["types"])):
-    print(defendingmon["types"][item])
 dataset4["moves"][0]="Dragon Pulse"
-print(dataset4["moves"])
+if txtfile[0].find("notetake")!=-1:
+    dataset1["stringnote"]=txtfile[2][0:-1]
+    dataset1["ability"].append(txtfile[3][0:-1])
+    dataset1["level"].append(txtfile[4][0:-1])
+    dataset1["moves"].append(txtfile[5][0:-1]+", "+txtfile[4][0:-1])
+    notesfile.write(json.dumps(dataset1))
 for item in dataset:
     if item["name"]!="Egg":
-        print(item["stats"][1])
+        print(item["moves"])
+
 #arrays for defining the effectiveness of typed attacks or special moves
 typetable={
 "Normal":[1,1,1,1,1,.5,1,0,.5,1,1,1,1,1,1,1,1,1,1],
@@ -201,11 +220,8 @@ typedic={
     "Null":18,}
 #extracts and calculates relevant type combo for defenders
 attability="null"
-targetability="null"
-weather="null"
-terrain="null"
-attackertypes=[attackingmon]
-moveset=["Dragon Pulse","Tail Glow","Energy Ball","Flamethrower"]
+weather=txtfile[3][0:-1]
+terrain=txtfile[4][0:-1]
 def coverage(movedef):
     typemult=1
     weatmult=1
@@ -213,34 +229,43 @@ def coverage(movedef):
     terrmult=1
     for item in range(0,len(defendingmon["types"])):
         typemult=typemult*(typetable[movedef][typedic[dataset4["types"][item]]])
-    if movedef[item] in attackertypes:
+    if movedef in attackingmon["types"]:
         if attability=="adaptability":
             stabmult=2
         else:
             stabmult=1.5
     if terrain=="grassy":
-        if movesfile[movedef]["type"][item]=="Grass":
+        if movedef=="Grass":
             terrmult=1.5
     if terrain=="misty":
-        if movesfile[movedef]["type"][item]=="Dragon":
+        if movedef=="Dragon":
             terrmult=.5
     if terrain=="electric":
-        if movesfile[movedef]["type"][item]=="Electric":
+        if movedef=="Electric":
             terrmult=1.5
     if terrain=="psychic":
-        if movesfile[movedef]["type"][item]=="Psychic":
+        if movedef=="Psychic":
             terrmult=1.5
     if weather=="sun":
-        if movesfile[movedef]["type"][item]=="Fire":
+        if movedef=="Fire":
             weatmult=1.5
-        if movesfile[movedef]["type"][item]=="Water":
+        if movedef=="Water":
             weatmult=.5
     if weather=="rain":
-        if movesfile[movedef]["type"][item]=="Fire":
+        if movedef=="Fire":
             weatmult=.5
-        if movesfile[movedef]["type"][item]=="Water":
+        if movedef=="Water":
             weatmult=1.5
     return typemult*weatmult*stabmult*terrmult
-for item in range(0,4):
-    print(coverage(movesfile[moveset[item]]["type"]))
-    print(coverage(movesfile[moveset[item]]["type"])*int(movesfile[moveset[item]]["power"]))
+if txtfile[0].find("coverage")!=-1:
+    for item in range(0,4):
+        print(coverage(movesfile[attackingmon["moves"][item]]["type"])*int(movesfile[attackingmon["moves"][item]]["power"]))
+        txt.write(str("{"))
+        txt.write(str(coverage(movesfile[attackingmon["moves"][item]]["type"])*int(movesfile[attackingmon["moves"][item]]["power"])))
+        txt.write(str(", "+movesfile[attackingmon["moves"][item]]["type"]))
+        txt.write(str(", "+movesfile[attackingmon["moves"][item]]["acc"]))
+        txt.write(str(", "+movesfile[attackingmon["moves"][item]]["power"]))
+        txt.write(str(", "+movesfile[attackingmon["moves"][item]]["pp"]))
+        txt.write(str("}\n"))
+if txtfile[0].find("noteclear")!=-1:
+    notesfile.truncate(0)

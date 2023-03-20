@@ -16,11 +16,12 @@ Tracking options are available as the following:
 Move effectiveness is calculated based on:
     --type matchups
     --current weather
-    --defending mon's ability
+    --attacking mon's ability
     --move base power
     to calculate an "effective base power" to be shown.
 
-Citra emulator for 3DS is required.
-If you were looking for different games, there are trackers available for the NDS games(DPPt, HGSS, BW, B2W2) and the GBA games(FRLG, RSE) using Bizhawk, and a mGBA tracker is also available for GBA games.
+How to Use:
+In the future, Citra emulator for 3DS will be required. However, for now, it uses a txt file interface until a proper one can be developed. 
+If you were looking for different games, there are trackers available for the [NDS games](https://github.com/Brian0255/NDS-Ironmon-Tracker)(DPPt, HGSS, BW, B2W2) requiring Bizhawk and the [GBA games](https://github.com/besteon/Ironmon-Tracker)(FRLG, RSE) using Bizhawk or mGBA games.
 
 Thanks to [msikma's pokesprite](https://github.com/msikma/pokesprite) for scraping the images of the Pokémon used here.
