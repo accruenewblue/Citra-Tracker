@@ -69,12 +69,6 @@ for item in range(0,921):
     file2.write('\t\t"notes":[0,0,0,0,0,0],\n')
     file2.write('\t\t"stringnotes":"",\n')
     file2.write('\t\t"lastseenat":"-",\n')
-    file2.write('\t\t"moves":{\n')
-    for move in range(1,4):
-        file2.write('\t\t\t"move'+str(move)+'":"",\n')
-        file2.write('\t\t\t"last_seen_at'+str(move)+'":"",\n')
-    file2.write('\t\t\t"move4":"",\n')
-    file2.write('\t\t\t"seen_at4":""\n')
-    file2.write('\t\t}\n')
+    file2.write('\t\t"moves":[]\n')
     file2.write('\t},\n')
 file2.write('}')

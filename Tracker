@@ -1,5 +1,5 @@
 import json
-monsfile=open(r'C:\Users\scien\Documents\GitHub\Orange-Peeler\mon-data')
+monsfile=open(r'C:\Users\scien\Documents\GitHub\Orange-Peeler\mon-data',"r+")
 mons=json.load(monsfile)
 movesfile=open(r"C:\Users\scien\Documents\GitHub\Orange-Peeler\move-data")
 movesfile=json.load(movesfile)
@@ -58,9 +58,13 @@ if battleformat=="multi":
     mon5=opponent[1]
     mon6="Egg"
 print(txtfile)
-mon1=(txtfile[1])[0:-1]
-if txtfile[0].find("coverage")!=-1:
-    mon4=(txtfile[2])[0:-1]
+if txtfile[0].find("noteclear")==-1:
+    mon1=(txtfile[1])[0:-1]
+    if txtfile[0].find("coverage")!=-1:
+        mon4=(txtfile[2])[0:-1]
+    attability="null"
+    weather=txtfile[3][0:-1]
+    terrain=txtfile[4][0:-1]
 print(mon1,mon4)
 dataset1={"name":mons[mon1]['name'],
     "form":mons[mon1]['form'],
@@ -77,7 +81,7 @@ dataset1={"name":mons[mon1]['name'],
     "stringnote":"tanks a stab eq",
     "stats":["","","","","","","",""],
     "statnotes":["","","","","",""],
-    "moves":["Discharge","Tail Glow","Energy Ball","Flamethrower"]}}
+    "moves":["Freeze-Dry","Tail Glow","Energy Ball","Flamethrower"]}}
 dataset2={"name":mons[mon2]['name'],
     "form":mons[mon2]['form'],
     "level":[],
@@ -173,7 +177,7 @@ defendingmon=dataset4
 attackingmon["types"].append("Grass")
 dataset=[dataset1,dataset2,dataset3,dataset4,dataset5,dataset6]
 dataset4["notes"]["moves"][0]="Dragon Pulse"
-if txtfile[0].find("notetake")!=-1:
+if txtfile[0].find("notetakeo")!=-1:
     dataset1["notes"]["stringnote"]=txtfile[2][0:-1]
     dataset1["notes"]["ability"].append(txtfile[3][0:-1])
     dataset1["notes"]["level"].append(txtfile[4][0:-1])
@@ -204,7 +208,7 @@ typetable={
 "Dark":[1,.5,1,1,1,1,1,2,1,1,1,1,1,2,1,1,.5,.5,1],
 "Fairy":[1,2,1,.5,1,1,1,1,.5,.5,1,1,1,1,1,2,2,1,1],
 "Null":[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
-"FreezeDry":[1,1,2,1,2,1,1,1,.5,.5,2,2,1,1,.5,2,1,1,1],
+"Freeze-Dry":[1,1,2,1,2,1,1,1,.5,.5,2,2,1,1,.5,2,1,1,1],
 "FreezeDryNormalize":[1,1,1,1,1,.5,1,0,.5,1,2,1,1,1,1,1,1,1,1],
 "DeltaStreamElectric":[1,1,1,1,0,1,1,1,1,1,2,.5,.5,1,1,.5,1,1,1],
 "DeltaStreamIce":[1,1,1,1,2,1,1,1,.5,.5,.5,2,1,1,.5,2,1,1,1],
@@ -235,9 +239,6 @@ typedic={
     "Fairy":17,
     "Null":18,}
 #extracts and calculates relevant type combo for defenders
-attability="null"
-weather=txtfile[3][0:-1]
-terrain=txtfile[4][0:-1]
 def coverage(movedef):
     typemult=1
     weatmult=1
@@ -275,13 +276,23 @@ def coverage(movedef):
     return typemult*weatmult*stabmult*terrmult
 if txtfile[0].find("coverage")!=-1:
     for item in range(0,4):
-        print(coverage(movesfile[attackingmon["moves"][item]]["type"])*int(movesfile[attackingmon["moves"][item]]["power"]))
+        print(coverage(movesfile[attackingmon["notes"]["moves"][item]]["type"])*int(movesfile[attackingmon["notes"]["moves"][item]]["power"]))
         txt.write(str("{"))
-        txt.write(str(coverage(movesfile[attackingmon["moves"][item]]["type"])*int(movesfile[attackingmon["moves"][item]]["power"])))
-        txt.write(str(", "+movesfile[attackingmon["moves"][item]]["type"]))
-        txt.write(str(", "+movesfile[attackingmon["moves"][item]]["acc"]))
-        txt.write(str(", "+movesfile[attackingmon["moves"][item]]["power"]))
-        txt.write(str(", "+movesfile[attackingmon["moves"][item]]["pp"]))
+        txt.write(str(coverage(movesfile[attackingmon["notes"]["moves"][item]]["type"])*int(movesfile[attackingmon["notes"]["moves"][item]]["power"])))
+        txt.write(str(", "+movesfile[attackingmon["notes"]["moves"][item]]["type"]))
+        txt.write(str(", "+movesfile[attackingmon["notes"]["moves"][item]]["acc"]))
+        txt.write(str(", "+movesfile[attackingmon["notes"]["moves"][item]]["power"]))
+        txt.write(str(", "+movesfile[attackingmon["notes"]["moves"][item]]["pp"]))
         txt.write(str("}\n"))
 if txtfile[0].find("noteclear")!=-1:
-    notesfile.truncate(0)
+    for mon in mons:
+        monsfile=r"C:\Users\scien\Documents\GitHub\Orange-Peeler\mon-data"
+        mons[mon]["notes"]=[]
+        with open(monsfile, "w") as f:
+            json.dump(mons, f)
+print(mons["Sylveon"])
+
+    # Open and read the file, then convert json to a Python dictionary
+    # Edit the Python dictionary
+
+    # Convert Python dictionary to json and write to the file

@@ -5149,7 +5149,7 @@
 	},
 	"Freeze-Dry":{
 		"id":"573",
-		"type":"Ice",
+		"type":"Freeze-Dry",
 		"gen":"XY",
 		"detail":"Special",
 		"pp":"20",

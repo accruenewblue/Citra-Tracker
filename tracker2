@@ -15,5 +15,14 @@ print(data2[move])
 print(jsondumper)
 for item in range(0,4):
     print(item)
-for item in range[0,4]:
-    print(item)
+jsond=r"C:\Users\scien\Documents\GitHub\Orange-Peeler\mon-data"
+    # Open and read the file, then convert json to a Python dictionary
+with open(jsond, "r") as f:
+    jsonData = json.loads(f.read())
+print(jsonData)
+    # Edit the Python dictionary
+jsonData["Eevee"]["moves"].append("Tail Glow")
+
+    # Convert Python dictionary to json and write to the file
+with open(jsond, "w") as f:
+    json.dump(jsonData, f)
