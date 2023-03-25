@@ -22,12 +22,14 @@ if spriteset=="normal":
     sprites="C:\\Users\\scien\\Downloads\\typeimages\\Pokemon Sprites"
     for image in os.listdir(sprites):
         if image.endswith(".png"):
-            spritelist.append(image)
+            image2=image[0:-4]
+            spritelist.append((image2))
 if spriteset=="shiny":
     sprites="C:\\Users\\scien\\Downloads\\typeimages\\Shiny Pokemon Sprites"
     for image in os.listdir(sprites):
         if image.endswith(".png"):
             spritelistshiny.append(image)
+spritelist.sort()
 #adds the mon's data
 file2.write('{\n')
 tagORAS=[19,23,101,242,293,301,345,367,372,384,418,430,434,443,445,447,497,548,612,820,822]
@@ -62,12 +64,12 @@ for item in range(0,921):
     file2.write('\t\t"form":"'+seq[8]+'",\n')
     file2.write('\t\t"evo":"",\n')
     file2.write('\t\t"weight":"'+seq2[5]+'",\n')
-    file2.write('\t\t"bst7":"'+str(int(seq[2])+int(seq[3])+int(seq[4])+int(seq[5])+int(seq[6])+int(seq[7]))+'",\n')
+    file2.write('\t\t"bst":"'+str(int(seq[2])+int(seq[3])+int(seq[4])+int(seq[5])+int(seq[6])+int(seq[7]))+'",\n')
     file2.write('\t\t"types":["'+seq2[2]+'","'+seq2[3]+'"],\n')
-    file2.write('\t\t"pic":"'+(spritelist)[item]+'",\n')
-    file2.write('\t\t"ability":["","",""],\n')
-    file2.write('\t\t"notes":[0,0,0,0,0,0],\n')
-    file2.write('\t\t"stringnotes":"",\n')
+    file2.write('\t\t"pic":'',\n')
+    file2.write('\t\t"ability":[],\n')
+    file2.write('\t\t"notes":[],\n')
+    file2.write('\t\t"stringnote":"",\n')
     file2.write('\t\t"lastseenat":"-",\n')
     file2.write('\t\t"moves":[]\n')
     file2.write('\t},\n')

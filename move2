@@ -2,16 +2,7 @@ abilities=open(r"C:\Users\scien\Documents\GitHub\Orange-Peeler\move1")
 sheet=open(r"C:\Users\scien\Documents\GitHub\Orange-Peeler\ability-data","r+")
 sheetmoves=open(r"C:\Users\scien\Documents\GitHub\Orange-Peeler\move1","r+")
 abil=abilities.readlines()
-sheet.write('{')
-for item in range(0,233):
-    abildata=abil[item].split("|")
-    sheet.write('\t"'+abildata[1]+'":{\n')
-    sheet.write('\t\t"id":"'+abildata[0]+'",\n')
-    sheet.write('\t\t"detail":"'+abildata[2]+'",\n')
-    gentag=abildata[3][0:-1]
-    if gentag!="VII":
-        sheet.write('\t\t"gen":"XY"\n')
-    if gentag=="VII":
-        sheet.write('\t\t"gen":"SM"\n')
-    sheet.write('\t},\n')
-sheet.write('}')
+list2=["1.png","2.png","10.png","100.png","20.png","1.618.png"]
+list3=[1,2,3.14,5,30,1.618,10]
+list2.sort()
+print(list2)
