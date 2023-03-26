@@ -1,12 +1,13 @@
 import json
+import tkinter
+from tkinter import *
+from tkinter import ttk
 monsfile=open(r'C:\Users\scien\Documents\GitHub\Orange-Peeler\mon-data',"r+")
 mons=json.load(monsfile)
 movesfile=open(r"C:\Users\scien\Documents\GitHub\Orange-Peeler\move-data")
 movesfile=json.load(movesfile)
 abilitiesfile=open(r"C:\Users\scien\Documents\GitHub\Orange-Peeler\ability-data")
 abilities=json.load(abilitiesfile)
-notesfile=open(r"C:\Users\scien\Documents\GitHub\Orange-Peeler\mon-notes","r+")
-notes=json.load(notesfile)
 txt=open(r"C:\Users\scien\Downloads\typeimages\txt.txt","r+")
 txtfile=txt.readlines()
 #4 5 6 placement of mons in a battle
@@ -59,12 +60,13 @@ if battleformat=="multi":
     mon6="Egg"
 print(txtfile)
 if txtfile[0].find("noteclear")==-1:
-    mon1=(txtfile[1])[0:-1]
-    if txtfile[0].find("coverage")!=-1:
-        mon4=(txtfile[2])[0:-1]
-    attability="null"
-    weather=txtfile[3][0:-1]
-    terrain=txtfile[4][0:-1]
+    if txtfile[0].find("pcuse")==-1:
+        mon1=(txtfile[1])[0:-1]
+        if txtfile[0].find("coverage")!=-1:
+            mon4=(txtfile[2])[0:-1]
+        attability="null"
+        weather=txtfile[3][0:-1]
+        terrain=txtfile[4][0:-1]
 print(mon1,mon4)
 dataset1={"name":mons[mon1]['name'],
     "form":mons[mon1]['form'],
@@ -298,4 +300,29 @@ if txtfile[0].find("noteclear")!=-1:
         with open(monsfile, "w") as f:
             json.dump(mons, f)
     txt.write("done")
-print(mons["Sylveon"])
+class tracker( Frame ):
+    def __init__( self ):
+        tkinter.Frame.__init__(self)
+        self.pack()
+        self.master.title("Tracker")
+        self.button1 = Button( self, text = "Run", width = 25, command=self.new_window)
+        self.button1.grid( row = 0, column = 1, columnspan = 2, sticky = W+E+N+S )
+        self.button2 = Button( self, text = "Run Deez", width = 25)
+        self.button2.grid( row = 1, column = 1, columnspan = 2, sticky = W+E+N+S )
+    def new_window(self):
+        self.newWindow = karl2()
+class karl2(Frame):     
+    def __init__(self):
+        new =tkinter.Frame.__init__(self)
+        new = Toplevel(self)
+        new.title("karlos More Window")
+        a = Label(tkinter, text ="Hello World")
+        a.pack()
+        new.button = tkinter.Button(  text = "PRESS TO CLOSE", width = 25, command = self.close_window )
+        new.button.pack()
+    def close_window(self):
+        self.destroy()
+def main(): 
+    tracker().mainloop()
+if __name__ == '__main__':
+    main()

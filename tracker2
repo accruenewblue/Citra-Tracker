@@ -1,4 +1,5 @@
 import json
+import tkinter
 file=open(r"C:\Users\scien\Documents\GitHub\Orange-Peeler\mon-data","r+")
 file2=open(r"C:\Users\scien\Documents\GitHub\Orange-Peeler\move-data")
 data=json.load(file)

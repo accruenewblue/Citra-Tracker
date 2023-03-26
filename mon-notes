@@ -1,2 +1,6 @@
-{
-"Volcanion":{"level": ["23"], "ability": ["Truant"], "stringnote": "never gonna give you up v2", "stats": ["", "", "", "", "", "", "", ""], "statnotes": ["", "", "", "", "", ""], "moves": ["Discharge", "Tail Glow", "Energy Ball", "Flamethrower", "Hyper Beam, 23"]}}
+a=1
+if a==1:
+    pc=10
+    a=0
+pc=pc-1
+print(pc,a)
