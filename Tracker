@@ -76,6 +76,7 @@ dataset1={"name":mons[mon1]['name'],
     "types":mons[mon1]["types"],
     "bst":mons[mon1]['bst'],
     "status":"none",
+    "item":"none",
     "pic":"(img)",
     "notes":{
     "level":[],
@@ -94,6 +95,7 @@ dataset2={"name":mons[mon2]['name'],
     "types":mons[mon2]["types"],
     "bst":mons[mon2]['bst'],
     "status":"none",
+    "item":"none",
     "pic":"(img)",
     "notes":{
     "level":[],
@@ -112,6 +114,7 @@ dataset3={"name":mons[mon3]['name'],
     "types":mons[mon3]["types"],
     "bst":mons[mon3]['bst'],
     "status":"none",
+    "item":"none",
     "pic":"(img)",
     "notes":{
     "level":[],
@@ -130,6 +133,7 @@ dataset4={"name":mons[mon4]['name'],
     "types":mons[mon4]["types"],
     "bst":mons[mon4]['bst'],
     "status":"none",
+    "item":"none",
     "pic":"(img)",
     "notes":{
     "level":[],
@@ -148,6 +152,7 @@ dataset5={"name":mons[mon5]['name'],
     "types":mons[mon5]["types"],
     "bst":mons[mon5]['bst'],
     "status":"none",
+    "item":"none",
     "pic":"(img)",
     "notes":{
     "level":[],
@@ -166,6 +171,7 @@ dataset6={"name":mons[mon6]['name'],
     "types":mons[mon6]["types"],
     "bst":mons[mon6]['bst'],
     "status":"none",
+    "item":"none",
     "pic":"(img)",
     "notes":{
     "level":[],
@@ -300,25 +306,31 @@ if txtfile[0].find("noteclear")!=-1:
         with open(monsfile, "w") as f:
             json.dump(mons, f)
     txt.write("done")
+#gui
+tracking=Tk()
 class tracker( Frame ):
+    tracking.geometry("400x240")
     def __init__( self ):
         tkinter.Frame.__init__(self)
-        self.pack()
         self.master.title("Tracker")
-        self.button1 = Button( self, text = "Run", width = 25, command=self.new_window)
-        self.button1.grid( row = 0, column = 1, columnspan = 2, sticky = W+E+N+S )
-        self.button2 = Button( self, text = "Run Deez", width = 25)
-        self.button2.grid( row = 1, column = 1, columnspan = 2, sticky = W+E+N+S )
+        abilentry=Text(tracking, height = 1, width = 40, font = "lucida 13")
+        abilentry.grid(row=2,column=4)
+        itementry=Text(tracking, height = 1, width = 40, font = "lucida 13")
+        itementry.grid(row=9,column=3)
+        self.button1=Button( self, text="Run", width=25, command=self.new_window)
+        self.button1.grid( row=0, column=1, columnspan=2, sticky=W+E+N+S )
+        self.button2=Button( self, text="Run Deez", width=25)
+        self.button2.grid( row=1, column=1, columnspan=2, sticky=W+E+N+S )
     def new_window(self):
-        self.newWindow = karl2()
+        self.newWindow=karl2()
 class karl2(Frame):     
     def __init__(self):
         new =tkinter.Frame.__init__(self)
-        new = Toplevel(self)
+        new=Toplevel(self)
         new.title("karlos More Window")
-        a = Label(tkinter, text ="Hello World")
+        a=Label(tkinter, text ="Hello World")
         a.pack()
-        new.button = tkinter.Button(  text = "PRESS TO CLOSE", width = 25, command = self.close_window )
+        new.button=tkinter.Button(  text="PRESS TO CLOSE", width=25, command=self.close_window )
         new.button.pack()
     def close_window(self):
         self.destroy()
