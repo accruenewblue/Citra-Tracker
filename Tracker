@@ -5,7 +5,7 @@ from tkinter import ttk
 monsfile=open(r'C:\Users\scien\Documents\GitHub\Orange-Peeler\mon-data',"r+")
 mons=json.load(monsfile)
 movesfile=open(r"C:\Users\scien\Documents\GitHub\Orange-Peeler\move-data")
-movesfile=json.load(movesfile)
+moves=json.load(movesfile)
 abilitiesfile=open(r"C:\Users\scien\Documents\GitHub\Orange-Peeler\ability-data")
 abilities=json.load(abilitiesfile)
 txt=open(r"C:\Users\scien\Downloads\typeimages\txt.txt","r+")
@@ -72,22 +72,20 @@ dataset1={"name":mons[mon1]['name'],
     "form":mons[mon1]['form'],
     "tag":mons[mon1]['tag'],
     "evo":mons[mon1]['evo'],
-    "weight":mons[mon1]['weight'],
+    "weight":mons[mon1]['weight'][0],
     "types":mons[mon1]["types"],
     "bst":mons[mon1]['bst'],
     "status":"none",
     "item":"none",
     "pic":"(img)",
-    "notes":{
     "level":[],
-    "ability":[],
-    "stringnote":"tanks a stab eq",
+    "ability":mons[mon1]["ability"],
+    "stringnote":mons[mon1]["stringnotes"],
     "stats":["","","","","","","",""],
-    "statnotes":["","","","","",""],
-    "moves":["Freeze-Dry","Tail Glow","Energy Ball","Flamethrower"]}}
+    "statnotes":mons[mon1]["notes"],
+    "moves":mons[mon1]["moves"]}
 dataset2={"name":mons[mon2]['name'],
     "form":mons[mon2]['form'],
-    "level":[],
     "tag":mons[mon2]['tag'],
     "evo":mons[mon2]['evo'],
     "ability":mons[mon2]["ability"],
@@ -97,16 +95,14 @@ dataset2={"name":mons[mon2]['name'],
     "status":"none",
     "item":"none",
     "pic":"(img)",
-    "notes":{
     "level":[],
-    "ability":[],
-    "stringnote":"tanks a stab eq",
+    "ability":mons[mon2]["ability"],
+    "stringnote":mons[mon2]["stringnotes"],
     "stats":["","","","","","","",""],
-    "statnotes":["","","","","",""],
-    "moves":["Discharge","Tail Glow","Energy Ball","Flamethrower"]}}
+    "statnotes":mons[mon2]["notes"],
+    "moves":mons[mon2]["moves"]}
 dataset3={"name":mons[mon3]['name'],
     "form":mons[mon3]['form'],
-    "level":[],
     "tag":mons[mon3]['tag'],
     "evo":mons[mon3]['evo'],
     "ability":mons[mon3]["ability"],
@@ -116,16 +112,14 @@ dataset3={"name":mons[mon3]['name'],
     "status":"none",
     "item":"none",
     "pic":"(img)",
-    "notes":{
     "level":[],
-    "ability":[],
-    "stringnote":"tanks a stab eq",
+    "ability":mons[mon3]["ability"],
+    "stringnote":mons[mon3]["stringnotes"],
     "stats":["","","","","","","",""],
-    "statnotes":["","","","","",""],
-    "moves":["Discharge","Tail Glow","Energy Ball","Flamethrower"]}}
+    "statnotes":mons[mon3]["notes"],
+    "moves":mons[mon2]["moves"]}
 dataset4={"name":mons[mon4]['name'],
     "form":mons[mon4]['form'],
-    "level":[],
     "tag":mons[mon4]['tag'],
     "evo":mons[mon4]['evo'],
     "ability":mons[mon4]["ability"],
@@ -135,16 +129,14 @@ dataset4={"name":mons[mon4]['name'],
     "status":"none",
     "item":"none",
     "pic":"(img)",
-    "notes":{
     "level":[],
-    "ability":[],
-    "stringnote":"tanks a stab eq",
+    "ability":mons[mon4]["ability"],
+    "stringnote":mons[mon4]["stringnotes"],
     "stats":["","","","","","","",""],
-    "statnotes":["","","","","",""],
-    "moves":["Discharge","Tail Glow","Energy Ball","Flamethrower"]}}
+    "statnotes":mons[mon4]["notes"],
+    "moves":mons[mon4]["moves"]}
 dataset5={"name":mons[mon5]['name'],
     "form":mons[mon5]['form'],
-    "level":[],
     "tag":mons[mon5]['tag'],
     "evo":mons[mon5]['evo'],
     "ability":mons[mon5]["ability"],
@@ -154,16 +146,14 @@ dataset5={"name":mons[mon5]['name'],
     "status":"none",
     "item":"none",
     "pic":"(img)",
-    "notes":{
     "level":[],
-    "ability":[],
-    "stringnote":"tanks a stab eq",
+    "ability":mons[mon5]["ability"],
+    "stringnote":mons[mon5]["stringnotes"],
     "stats":["","","","","","","",""],
-    "statnotes":["","","","","",""],
-    "moves":["Discharge","Tail Glow","Energy Ball","Flamethrower"]}}
+    "statnotes":mons[mon5]["notes"],
+    "moves":mons[mon5]["moves"]}
 dataset6={"name":mons[mon6]['name'],
     "form":mons[mon6]['form'],
-    "level":[],
     "tag":mons[mon6]['tag'],
     "evo":mons[mon6]['evo'],
     "ability":mons[mon6]["ability"],
@@ -173,22 +163,21 @@ dataset6={"name":mons[mon6]['name'],
     "status":"none",
     "item":"none",
     "pic":"(img)",
-    "notes":{
     "level":[],
-    "ability":[],
-    "stringnote":"tanks a stab eq",
+    "ability":mons[mon6]["ability"],
+    "stringnote":mons[mon6]["stringnotes"],
     "stats":["","","","","","","",""],
-    "statnotes":["","","","","",""],
-    "moves":["Discharge","Tail Glow","Energy Ball","Flamethrower"]}}
+    "statnotes":mons[mon6]["notes"],
+    "moves":mons[mon6]["moves"]}
 attackingmon=dataset1
 defendingmon=dataset4
-attackingmon["types"].append("Grass")
+print(attackingmon["types"])
 dataset=[dataset1,dataset2,dataset3,dataset4,dataset5,dataset6]
-dataset4["notes"]["moves"][0]="Dragon Pulse"
+print(len(txtfile))
 if txtfile[0].find("notetake")!=-1:
     mons[mon1]["stringnotes"]=txtfile[2][0:-1]
     mons[mon1]["ability"].append(txtfile[3][0:-1])
-    mons[mon1]["lastseenat"].append(txtfile[4][0:-1])
+    mons[mon1]["lastseenat"]=(txtfile[4][0:-1])
     mons[mon1]["moves"].append(txtfile[5][0:-1]+", "+txtfile[4][0:-1])
     mons[mon1]["notes"].append(txtfile[6][0:-1])
     monsfile=r"C:\Users\scien\Documents\GitHub\Orange-Peeler\mon-data"
@@ -196,7 +185,7 @@ if txtfile[0].find("notetake")!=-1:
         json.dump(mons, f)
 for item in dataset:
     if item["name"]!="Egg":
-        print(item["notes"]["moves"])
+        print(item["moves"])
 
 #arrays for defining the effectiveness of typed attacks or special moves
 typetable={
@@ -287,14 +276,16 @@ def coverage(movedef):
     return typemult*weatmult*stabmult*terrmult
 if txtfile[0].find("coverage")!=-1:
     for item in range(0,4):
-        print(coverage(movesfile[attackingmon["notes"]["moves"][item]]["type"])*int(movesfile[attackingmon["notes"]["moves"][item]]["power"]))
+        print(coverage(moves[attackingmon["notes"]["moves"][item]]["type"])*int(moves[attackingmon["notes"]["moves"][item]]["power"]))
         txt.write(str("{"))
-        txt.write(str(coverage(movesfile[attackingmon["notes"]["moves"][item]]["type"])*int(movesfile[attackingmon["notes"]["moves"][item]]["power"])))
-        txt.write(str(", "+movesfile[attackingmon["notes"]["moves"][item]]["type"]))
-        txt.write(str(", "+movesfile[attackingmon["notes"]["moves"][item]]["acc"]))
-        txt.write(str(", "+movesfile[attackingmon["notes"]["moves"][item]]["power"]))
-        txt.write(str(", "+movesfile[attackingmon["notes"]["moves"][item]]["pp"]))
+        txt.write(str(coverage(moves[attackingmon["notes"]["moves"][item]]["type"])*int(moves[attackingmon["notes"]["moves"][item]]["power"])))
+        txt.write(str(", "+moves[attackingmon["notes"]["moves"][item]]["type"]))
+        txt.write(str(", "+moves[attackingmon["notes"]["moves"][item]]["acc"]))
+        txt.write(str(", "+moves[attackingmon["notes"]["moves"][item]]["power"]))
+        txt.write(str(", "+moves[attackingmon["notes"]["moves"][item]]["pp"]))
         txt.write(str("}\n"))
+if txtfile[0].find("notes")!=-1:
+    txt.write(str(mons[mon1]))
 if txtfile[0].find("noteclear")!=-1:
     for mon in mons:
         monsfile=r"C:\Users\scien\Documents\GitHub\Orange-Peeler\mon-data"
@@ -313,14 +304,41 @@ class tracker( Frame ):
     def __init__( self ):
         tkinter.Frame.__init__(self)
         self.master.title("Tracker")
-        abilentry=Text(tracking, height = 1, width = 40, font = "lucida 13")
-        abilentry.grid(row=2,column=4)
-        itementry=Text(tracking, height = 1, width = 40, font = "lucida 13")
-        itementry.grid(row=9,column=3)
-        self.button1=Button( self, text="Run", width=25, command=self.new_window)
-        self.button1.grid( row=0, column=1, columnspan=2, sticky=W+E+N+S )
-        self.button2=Button( self, text="Run Deez", width=25)
-        self.button2.grid( row=1, column=1, columnspan=2, sticky=W+E+N+S )
+        monlabel=Label(tracking, text = "Your Mon")
+        monlabel.grid(row=1, column=1)
+        monentry=Entry(tracking, width=7)
+        monentry.grid(row=2,column=1)
+        abillabel=Label(tracking, text = "Abilities")
+        abillabel.grid(row=1, column=3)
+        abilentry=Entry(tracking, width=7)
+        abilentry.grid(row=2,column=3)
+        itemlabel=Label(tracking, text = "Held Item")
+        itemlabel.grid(row=1, column=4)
+        itementry=Entry(tracking, width=7)
+        itementry.grid(row=2,column=4)
+        debulabel=Label(tracking, text = "Status")
+        debulabel.grid(row=1, column=5)
+        debuentry=Entry(tracking, width=7)
+        debuentry.grid(row=2,column=5)
+        movelabel=Label(tracking, text = "Moves")
+        movelabel.grid(row=1, column=6)
+        moveentry=Entry(tracking, width=7)
+        moveentry.grid(row=2,column=6)
+        levllabel=Label(tracking, text = "Level")
+        levllabel.grid(row=1, column=7)
+        levlentry=Entry(tracking, width=7)
+        levlentry.grid(row=2,column=7)
+        def jsonsave():
+            mon1=monentry.get()
+            abilcont=abilentry.get()
+            print(abilcont, mon1)
+            print(mons[mon1]["ability"])
+            movecont=moveentry.get()
+            levlcont=levlentry.get()
+            mons[mon1]["moves"].append(movecont+levlcont)
+            mons[mon1]["lastseenat"]=levlcont
+        jsonsaver=Button(tracking, text = "Submit", fg = "Black", bg = "Red", command=jsonsave)
+        jsonsaver.grid(row=3, column=3)
     def new_window(self):
         self.newWindow=karl2()
 class karl2(Frame):     
