@@ -180,9 +180,6 @@ if txtfile[0].find("notetake")!=-1:
     mons[mon1]["lastseenat"]=(txtfile[4][0:-1])
     mons[mon1]["moves"].append(txtfile[5][0:-1]+", "+txtfile[4][0:-1])
     mons[mon1]["notes"].append(txtfile[6][0:-1])
-    monsfile=r"C:\Users\scien\Documents\GitHub\Orange-Peeler\mon-data"
-    with open(monsfile, "w") as f:
-        json.dump(mons, f)
 for item in dataset:
     if item["name"]!="Egg":
         print(item["moves"])
@@ -288,14 +285,11 @@ if txtfile[0].find("notes")!=-1:
     txt.write(str(mons[mon1]))
 if txtfile[0].find("noteclear")!=-1:
     for mon in mons:
-        monsfile=r"C:\Users\scien\Documents\GitHub\Orange-Peeler\mon-data"
         mons[mon]["ability"]=[]
         mons[mon]["notes"]=[]
         mons[mon]["stringnotes"]=""
         mons[mon]["lastseenat"]="-"
         mons[mon]["moves"]=[]
-        with open(monsfile, "w") as f:
-            json.dump(mons, f)
     txt.write("done")
 #gui
 tracking=Tk()
@@ -304,41 +298,114 @@ class tracker( Frame ):
     def __init__( self ):
         tkinter.Frame.__init__(self)
         self.master.title("Tracker")
+        status=["Burn","Poison","Sleep","Paralysis","Frozen","-"]
+        statustext=status[0]
+        def statuschange():
+            print(status.index(statustext))
+            statustext=status[status.index(statustext)+1]
+        statusbutton=Button(tracking,text=statustext,command=statuschange)
+        statusbutton.grid(row=4,column=4)
+        monimage=Button(tracking,text="hi",image=PhotoImage(r"C:\Users\scien\Downloads\typeimages\Pokemon Sprites\13.png"))
+        monimage.grid(row=1,column=1)
         monlabel=Label(tracking, text = "Your Mon")
-        monlabel.grid(row=1, column=1)
-        monentry=Entry(tracking, width=7)
-        monentry.grid(row=2,column=1)
+        monlabel.grid(row=1, column=3)
+        monentry=Entry(tracking, width=8)
+        monentry.grid(row=1,column=4)
         abillabel=Label(tracking, text = "Abilities")
-        abillabel.grid(row=1, column=3)
-        abilentry=Entry(tracking, width=7)
-        abilentry.grid(row=2,column=3)
+        abillabel.grid(row=2, column=3)
+        abilentry=Entry(tracking, width=8)
+        abilentry.grid(row=2,column=4)
         itemlabel=Label(tracking, text = "Held Item")
-        itemlabel.grid(row=1, column=4)
-        itementry=Entry(tracking, width=7)
-        itementry.grid(row=2,column=4)
+        itemlabel.grid(row=3, column=3)
+        itementry=Entry(tracking, width=8)
+        itementry.grid(row=3,column=4)
         debulabel=Label(tracking, text = "Status")
-        debulabel.grid(row=1, column=5)
-        debuentry=Entry(tracking, width=7)
-        debuentry.grid(row=2,column=5)
+        debulabel.grid(row=3, column=1)
+        debuentry=Entry(tracking, width=4)
+        debuentry.grid(row=3,column=2)
+        strinlabel=Label(tracking, text = "String")
+        strinlabel.grid(row=1, column=8)
+        strinentry=Entry(tracking, width=18)
+        strinentry.grid(row=2,column=8)
+        hplabel=Label(tracking, text = "HP")
+        hplabel.grid(row=4, column=1)
+        hpentry=Entry(tracking, width=4)
+        hpentry.grid(row=4,column=2)
+        atklabel=Label(tracking, text = "ATK")
+        atklabel.grid(row=5, column=1)
+        atkentry=Entry(tracking, width=4)
+        atkentry.grid(row=5,column=2)
+        deflabel=Label(tracking, text = "DEF")
+        deflabel.grid(row=6, column=1)
+        defentry=Entry(tracking, width=4)
+        defentry.grid(row=6,column=2)
+        spalabel=Label(tracking, text = "SPA")
+        spalabel.grid(row=7, column=1)
+        spaentry=Entry(tracking, width=4)
+        spaentry.grid(row=7,column=2)
+        spdlabel=Label(tracking, text = "SPD")
+        spdlabel.grid(row=8, column=1)
+        spdentry=Entry(tracking, width=4)
+        spdentry.grid(row=8,column=2)
+        spelabel=Label(tracking, text = "SPE")
+        spelabel.grid(row=9, column=1)
+        speentry=Entry(tracking, width=4)
+        speentry.grid(row=9,column=2)
+        acclabel=Label(tracking, text = "ACC")
+        acclabel.grid(row=10, column=1)
+        accentry=Entry(tracking, width=4)
+        accentry.grid(row=10,column=2)
         movelabel=Label(tracking, text = "Moves")
-        movelabel.grid(row=1, column=6)
-        moveentry=Entry(tracking, width=7)
-        moveentry.grid(row=2,column=6)
+        movelabel.grid(row=3, column=8)
+        move1entry=Entry(tracking, width=18)
+        move1entry.grid(row=4,column=8)
+        move2entry=Entry(tracking, width=18)
+        move2entry.grid(row=6,column=8)
+        move3entry=Entry(tracking, width=18)
+        move3entry.grid(row=8,column=8)
+        move4entry=Entry(tracking, width=18)
+        move4entry.grid(row=10,column=8)
+        def movedisplay():
+            if move1entry.get()!="":
+                move1label=Label(tracking, text=moves[move1entry.get()]["type"]+", "+moves[move1entry.get()]["pp"]+", "+moves[move1entry.get()]["power"]+", "+moves[move1entry.get()]["acc"])
+                move1label.grid(row=5, column=8)
+            if move2entry.get()!="":
+                move2label=Label(tracking, text=moves[move2entry.get()]["type"]+", "+moves[move2entry.get()]["pp"]+", "+moves[move2entry.get()]["power"]+", "+moves[move2entry.get()]["acc"])
+                move2label.grid(row=7, column=8)
+            if move3entry.get()!="":
+                move3label=Label(tracking, text=moves[move3entry.get()]["type"]+", "+moves[move3entry.get()]["pp"]+", "+moves[move3entry.get()]["power"]+", "+moves[move3entry.get()]["acc"])
+                move3label.grid(row=9, column=8)
+            if move4entry.get()!="":
+                move4label=Label(tracking, text=moves[move4entry.get()]["type"]+", "+moves[move4entry.get()]["pp"]+", "+moves[move4entry.get()]["power"]+", "+moves[move4entry.get()]["acc"])
+                move4label.grid(row=11, column=8)
+        movesaver=Button(tracking, text = "Display", command=movedisplay)
+        movesaver.grid(row=11, column=5)
         levllabel=Label(tracking, text = "Level")
-        levllabel.grid(row=1, column=7)
-        levlentry=Entry(tracking, width=7)
-        levlentry.grid(row=2,column=7)
+        levllabel.grid(row=1, column=2)
+        levlentry=Entry(tracking, width=4)
+        levlentry.grid(row=2,column=2)
         def jsonsave():
             mon1=monentry.get()
             abilcont=abilentry.get()
-            print(abilcont, mon1)
-            print(mons[mon1]["ability"])
-            movecont=moveentry.get()
+            if abilcont!="":
+                mons[mon1]["ability"].append(abilcont)
+            print(abilcont, mon1, mons[mon1]["ability"])
+            movecont=[move1entry.get(),move2entry.get(),move3entry.get(),move4entry.get(),]
             levlcont=levlentry.get()
-            mons[mon1]["moves"].append(movecont+levlcont)
+            for move in movecont:
+                mons[mon1]["moves"].append(move+", "+levlcont)
             mons[mon1]["lastseenat"]=levlcont
-        jsonsaver=Button(tracking, text = "Submit", fg = "Black", bg = "Red", command=jsonsave)
-        jsonsaver.grid(row=3, column=3)
+        jsonsaver=Button(tracking, text = "Submit", command=jsonsave)
+        jsonsaver.grid(row=11, column=1)
+        def noteclear():
+            for mon in mons:
+                mons[mon]["ability"]=[]
+                mons[mon]["notes"]=[]
+                mons[mon]["stringnotes"]=""
+                mons[mon]["lastseenat"]="-"
+                mons[mon]["moves"]=[]
+        notesclear=Button(tracking, text = "Clear Notes", command=noteclear)
+        notesclear.grid(row=11, column=3)
     def new_window(self):
         self.newWindow=karl2()
 class karl2(Frame):     
@@ -356,3 +423,7 @@ def main():
     tracker().mainloop()
 if __name__ == '__main__':
     main()
+print(mon1, mons["Eevee"]["ability"])
+monsfile=r"C:\Users\scien\Documents\GitHub\Orange-Peeler\mon-data"
+with open(monsfile, "w") as f:
+    json.dump(mons, f)
