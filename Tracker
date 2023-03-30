@@ -8,6 +8,8 @@ movesfile=open(r"C:\Users\scien\Documents\GitHub\Orange-Peeler\move-data")
 moves=json.load(movesfile)
 abilitiesfile=open(r"C:\Users\scien\Documents\GitHub\Orange-Peeler\ability-data")
 abilities=json.load(abilitiesfile)
+trackertempfile=open(r"C:\Users\scien\Documents\GitHub\Orange-Peeler\trackertemp")
+trackertemp=json.load(trackertempfile)
 txt=open(r"C:\Users\scien\Downloads\typeimages\txt.txt","r+")
 txtfile=txt.readlines()
 #4 5 6 placement of mons in a battle
@@ -355,7 +357,12 @@ class tracker( Frame ):
         monentry=Entry(tracking, width=14)
         monentry.grid(row=1,column=4)
         def open_abildata():
-            self.newWindow=abildata()
+            if abilentry.get()!="":
+                trackertemp["ability"]=abilentry.get()
+                trackertempfile=(r"C:\Users\scien\Documents\GitHub\Orange-Peeler\trackertemp")
+                with open(trackertempfile, "w") as f:
+                    json.dump(trackertemp, f)
+                self.newWindow=Ability_Data()
         abillabel=Button(tracking, text = "Abilities",command=open_abildata)
         abillabel.grid(row=4, column=3)
         abilentry=Entry(tracking, width=14)
@@ -454,14 +461,13 @@ class tracker( Frame ):
                 mons[mon]["moves"]=[]
         notesclear=Button(tracking, text = "Clear Notes", command=noteclear)
         notesclear.grid(row=9, column=4)
-class abildata(Frame):     
-    def __init__(self):
-        tkinter.Frame.__init__(self)
-        self.master.title("Ability Data")
-        ability=Label(tracking,text=abilities["Truant"]["detail"])
-        ability.grid(row=1,column=1)
-    def close_window(self):
-        self.destroy()
+class Ability_Data(Toplevel):
+    def __init__(self,master=None):
+        super().__init__(master=master)
+        self.title("AbilityData")
+        self.geometry("300x50")
+        abilitydata=Label(self,text=abilities[trackertemp["ability"]]["detail"],wraplength=300)
+        abilitydata.grid(row=1,column=1)
 def main(): 
     tracker().mainloop()
 if __name__ == '__main__':

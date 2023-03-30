@@ -625,7 +625,7 @@
 	},
 	"Contrary":{
 		"id":"126",
-		"detail":"Reverses any stat changes affecting the Pokémon so that attempts to boost its stats instead lower them— and attempts to lower its stats will boost them.",
+		"detail":"Reverses any stat changes affecting the Pokémon so that attempts to boost its stats instead lower them, and attempts to lower its stats will boost them.",
 		"gen":"XY"
 	},
 	"Unnerve":{
