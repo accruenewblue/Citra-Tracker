@@ -61,8 +61,8 @@ if battleformat=="multi":
     mon5=opponent[1]
     mon6="Egg"
 print(txtfile)
-if txtfile[0].find("noteclear")==-1:
-    if txtfile[0].find("pcuse")==-1:
+if txtfile[0].find("coverage")!=-1:
+    if txtfile[0].find("notetake")!=-1:
         mon1=(txtfile[1])[0:-1]
         if txtfile[0].find("coverage")!=-1:
             mon4=(txtfile[2])[0:-1]
@@ -340,19 +340,28 @@ class tracker( Frame ):
                     coverage4=""
                 move4label=Label(tracking, text="  "+moves[move4entry.get()]["type"]+", "+moves[move4entry.get()]["pp"]+", "+moves[move4entry.get()]["power"]+", "+moves[move4entry.get()]["acc"]+", "+coverage4)
                 move4label.grid(row=9, column=8)
-            monlabel=Label(tracking, text=mons[str(monentry.get())]["bst"])
-            monlabel.grid(row=1, column=3)
-            monlabel=Label(tracking, text=mons[str(monentry.get())]["types"])
-            monlabel.grid(row=2, column=4)
-            monlabel=Label(tracking, text=mons[str(monentry.get())]["lastseenat"])
-            monlabel.grid(row=2, column=3)
+            monbst=Label(tracking, text=(mons[str(monentry.get())]["bst"]+", "+mons[str(monentry.get())]["lastseenat"]))
+            monbst.grid(row=2, column=3)
+            montype=Label(tracking, text=mons[str(monentry.get())]["types"])
+            montype.grid(row=2, column=4)
+            oppbst=Label(tracking, text=(mons[str(opponen.get())]["bst"]+", "+mons[str(opponen.get())]["lastseenat"]))
+            oppbst.grid(row=6, column=3)
+            opptype=Label(tracking, text=mons[str(opponen.get())]["types"])
+            opptype.grid(row=6, column=4)
         statusbutton=Button(tracking,text=statustext,command=statuschange)
         statusbutton.grid(row=8,column=4)
         opponen=Entry(tracking, width=14)
         opponen.grid(row=7,column=4)
         monimage=Button(tracking,text="hi",image=PhotoImage())
         monimage.grid(row=1,column=1)
-        monlabel=Label(tracking, text="Mon")
+        def playermondata():
+            if monentry.get()!="":
+                trackertemp["yourmon"]=monentry.get()
+                trackertempfile=(r"C:\Users\scien\Documents\GitHub\Orange-Peeler\trackertemp")
+                with open(trackertempfile, "w") as f:
+                    json.dump(trackertemp, f)
+                self.newWindow=Mon1_Data()
+        monlabel=Button(tracking, text="Your Mon",command=playermondata)
         monlabel.grid(row=1, column=3)
         monentry=Entry(tracking, width=14)
         monentry.grid(row=1,column=4)
@@ -448,10 +457,24 @@ class tracker( Frame ):
             movecont=[move1entry.get(),move2entry.get(),move3entry.get(),move4entry.get(),]
             levlcont=levlentry.get()
             for move in movecont:
-                mons[mon1]["moves"].append(move+", "+levlcont)
+                if move!="":
+                    mons[mon1]["moves"].append(move+", "+levlcont)
             mons[mon1]["lastseenat"]=levlcont
+            if strinentry.get()!="":
+                mons[mon1]["stringnotes"]=strinentry.get()
         jsonsaver=Button(tracking, text = "Submit", command=jsonsave)
         jsonsaver.grid(row=9, column=3)
+        def clearnotes():
+            self.newWindow=NotesClearer()
+        notesclear=Button(tracking, text = "Clear Notes", command=clearnotes)
+        notesclear.grid(row=9, column=4)
+class NotesClearer(Toplevel):
+    def __init__(self,master=None):
+        super().__init__(master=master)
+        self.title("Are you sure?")
+        self.geometry("215x85")
+        CLEARer=Label(self,justify="center",text="Are you sure you would like to do this? This clears all the notes stored so far. Only recommended when a seed dies.",wraplength=220)
+        CLEARer.grid(row=1,column=1)
         def noteclear():
             for mon in mons:
                 mons[mon]["ability"]=[]
@@ -459,15 +482,79 @@ class tracker( Frame ):
                 mons[mon]["stringnotes"]=""
                 mons[mon]["lastseenat"]="-"
                 mons[mon]["moves"]=[]
-        notesclear=Button(tracking, text = "Clear Notes", command=noteclear)
-        notesclear.grid(row=9, column=4)
+        notesclear=Button(self, text = "Clear Notes", command=noteclear)
+        notesclear.grid(row=2, column=1)
 class Ability_Data(Toplevel):
     def __init__(self,master=None):
         super().__init__(master=master)
-        self.title("AbilityData")
+        self.title("Ability Data")
         self.geometry("300x50")
         abilitydata=Label(self,text=abilities[trackertemp["ability"]]["detail"],wraplength=300)
         abilitydata.grid(row=1,column=1)
+class Mon1_Data(Toplevel):
+    def __init__(self,master=None):
+        super().__init__(master=master)
+        self.title("Mon Data")
+        self.geometry("400x240")
+        def open_abildata(abil):
+            if abil!="":
+                trackertemp["ability"]=abil
+                trackertempfile=(r"C:\Users\scien\Documents\GitHub\Orange-Peeler\trackertemp")
+                with open(trackertempfile, "w") as f:
+                    json.dump(trackertemp, f)
+                self.newWindow=Ability_Data()
+        for item in range(0,len(mons[trackertemp["yourmon"]]["ability"])):
+            abillabel=Button(self, text=mons[trackertemp["yourmon"]]["ability"][item],command=open_abildata(mons[trackertemp["yourmon"]]["ability"][item]))
+            abillabel.grid(row=5+item, column=4)
+            abilentry=Label(self, text="Ability "+str(1+item))
+            abilentry.grid(row=5+item,column=3)
+        for item in range(0,len(mons[trackertemp["yourmon"]]["moves"])):
+            movelabel=Button(self, text=mons[trackertemp["yourmon"]]["moves"][item])
+            movelabel.grid(row=1+item, column=5)
+        mon1name=Label(self,text=trackertemp["yourmon"])
+        mon1name.grid(row=1,column=4)
+        mon1type=Label(self,text=mons[trackertemp["yourmon"]]["types"])
+        mon1type.grid(row=2,column=4)
+        monbst=Label(self,text="BST")
+        monbst.grid(row=2,column=1)
+        mon1bst=Label(self,text=mons[trackertemp["yourmon"]]["bst"])
+        mon1bst.grid(row=2,column=2)
+        monevo=Label(self,text="Evo")
+        monevo.grid(row=1,column=1)
+        mon1evo=Label(self,text=mons[trackertemp["yourmon"]]["evo"])
+        mon1evo.grid(row=1,column=2)
+        itemlabel=Label(self, text = "Held Item")
+        itemlabel.grid(row=3, column=3)
+        itementry=Label(self, text=mons[trackertemp["yourmon"]]["evo"])
+        itementry.grid(row=3,column=4)
+        strinlabel=Label(self, text = "String")
+        strinlabel.grid(row=4, column=3)
+        strinentry=Label(self, text=mons[trackertemp["yourmon"]]["stringnotes"], wraplength=150)
+        strinentry.grid(row=4,column=4)
+        hplabel=Label(self, text = "HP")
+        hplabel.grid(row=3, column=1)
+        hpentry=Label(self, text=mons[trackertemp["yourmon"]]["evo"])
+        hpentry.grid(row=3,column=2)
+        atklabel=Label(self, text = "ATK")
+        atklabel.grid(row=4, column=1)
+        atkentry=Label(self, text=mons[trackertemp["yourmon"]]["evo"])
+        atkentry.grid(row=4,column=2)
+        deflabel=Label(self, text = "DEF")
+        deflabel.grid(row=5, column=1)
+        defentry=Label(self, text=mons[trackertemp["yourmon"]]["evo"])
+        defentry.grid(row=5,column=2)
+        spalabel=Label(self, text = "SPA")
+        spalabel.grid(row=6, column=1)
+        spaentry=Label(self, text=mons[trackertemp["yourmon"]]["evo"])
+        spaentry.grid(row=6,column=2)
+        spdlabel=Label(self, text = "SPD")
+        spdlabel.grid(row=7, column=1)
+        spdentry=Label(self, text=mons[trackertemp["yourmon"]]["evo"])
+        spdentry.grid(row=7,column=2)
+        spelabel=Label(self, text = "SPE")
+        spelabel.grid(row=8, column=1)
+        speentry=Label(self, text=mons[trackertemp["yourmon"]]["evo"])
+        speentry.grid(row=8,column=2)
 def main(): 
     tracker().mainloop()
 if __name__ == '__main__':
