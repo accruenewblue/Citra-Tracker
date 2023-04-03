@@ -60,7 +60,6 @@ if battleformat=="multi":
     mon4=opponent[0]
     mon5=opponent[1]
     mon6="Egg"
-print(txtfile)
 if txtfile[0].find("coverage")!=-1:
     if txtfile[0].find("notetake")!=-1:
         mon1=(txtfile[1])[0:-1]
@@ -72,7 +71,6 @@ if txtfile[0].find("coverage")!=-1:
 else: 
     weather="null"
     terrain="null"
-print(mon1,mon4)
 dataset1={"name":mons[mon1]['name'],
     "form":mons[mon1]['form'],
     "tag":mons[mon1]['tag'],
@@ -176,18 +174,13 @@ dataset6={"name":mons[mon6]['name'],
     "moves":mons[mon6]["moves"]}
 attackingmon=dataset1
 defendingmon=dataset4
-print(attackingmon["types"])
 dataset=[dataset1,dataset2,dataset3,dataset4,dataset5,dataset6]
-print(len(txtfile))
 if txtfile[0].find("notetake")!=-1:
     mons[mon1]["stringnotes"]=txtfile[2][0:-1]
     mons[mon1]["ability"].append(txtfile[3][0:-1])
     mons[mon1]["lastseenat"]=(txtfile[4][0:-1])
     mons[mon1]["moves"].append(txtfile[5][0:-1]+", "+txtfile[4][0:-1])
     mons[mon1]["notes"].append(txtfile[6][0:-1])
-for item in dataset:
-    if item["name"]!="Egg":
-        print(item["moves"])
 
 #arrays for defining the effectiveness of typed attacks or special moves
 typetable={
@@ -240,8 +233,6 @@ typedic={
     "Dark":16,
     "Fairy":17,
     "Null":18,}
-print(typetable["Fighting"][typedic["Rock"]],"test")
-print(mons["Aggron"]["types"][0])
 #extracts and calculates relevant type combo for defenders
 def coverage(movetype,attacker,defender,attabil,currweat,currterr):
     typemult=1
@@ -278,10 +269,8 @@ def coverage(movetype,attacker,defender,attabil,currweat,currterr):
         if movetype=="Water":
             weatmult=1.5
     return typemult*weatmult*stabmult*terrmult
-print(coverage("Rock","Rampardos","Ho-Oh","Truant","",""))
 if txtfile[0].find("coverage")!=-1:
     for item in range(0,4):
-        print(coverage(moves[attackingmon["notes"]["moves"][item]]["type"])*int(moves[attackingmon["notes"]["moves"][item]]["power"]))
         txt.write(str("{"))
         txt.write(str(coverage(moves[attackingmon["notes"]["moves"][item]]["type"])*int(moves[attackingmon["notes"]["moves"][item]]["power"])))
         txt.write(str(", "+moves[attackingmon["notes"]["moves"][item]]["type"]))
@@ -306,11 +295,17 @@ class tracker( Frame ):
     def __init__( self ):
         tkinter.Frame.__init__(self)
         self.master.title("Tracker")
-        status=["Burn","Poison","Sleep","Paralysis","Frozen","-"]
+        status=["-","Burn","Poison","Sleep","Paralysis","Frozen"]
         statustext=status[0]
         def statuschange():
             print(status.index(statustext))
             statustext=status[status.index(statustext)+1]
+        statusbutton=Button(tracking,text=statustext,command=statuschange)
+        statusbutton.grid(row=8,column=4)
+        def searchdict(dict, text):
+            for item in dict:
+                if item==text:
+                    return item
         def movedisplay():
             if move1entry.get()!="":
                 if opponen.get()!="":
@@ -348,10 +343,6 @@ class tracker( Frame ):
             oppbst.grid(row=6, column=3)
             opptype=Label(tracking, text=mons[str(opponen.get())]["types"])
             opptype.grid(row=6, column=4)
-        statusbutton=Button(tracking,text=statustext,command=statuschange)
-        statusbutton.grid(row=8,column=4)
-        opponen=Entry(tracking, width=14)
-        opponen.grid(row=7,column=4)
         monimage=Button(tracking,text="hi",image=PhotoImage())
         monimage.grid(row=1,column=1)
         def playermondata():
@@ -442,7 +433,16 @@ class tracker( Frame ):
         move4entry.grid(row=8,column=8)
         movesaver=Button(tracking, text = "Display", command=movedisplay)
         movesaver.grid(row=8, column=3)
-        opponentb=Button(tracking, text="Opponent")
+        def oppmondata():
+            if opponen.get()!="":
+                trackertemp["yourmon"]=opponen.get()
+                trackertempfile=(r"C:\Users\scien\Documents\GitHub\Orange-Peeler\trackertemp")
+                with open(trackertempfile, "w") as f:
+                    json.dump(trackertemp, f)
+                self.newWindow=Mon1_Data()
+        opponen=Entry(tracking, width=14)
+        opponen.grid(row=7,column=4)
+        opponentb=Button(tracking, text="Opponent",command=oppmondata)
         opponentb.grid(row=7, column=3)
         levllabel=Label(tracking, text = "Level")
         levllabel.grid(row=1, column=2)
@@ -451,18 +451,20 @@ class tracker( Frame ):
         def jsonsave():
             mon1=monentry.get()
             abilcont=abilentry.get()
-            if abilcont!="":
+            if searchdict(abilities, abilcont)!=None:
                 mons[mon1]["ability"].append(abilcont)
-            print(abilcont, mon1, mons[mon1]["ability"])
             movecont=[move1entry.get(),move2entry.get(),move3entry.get(),move4entry.get(),]
             levlcont=levlentry.get()
             for move in movecont:
-                if move!="":
-                    mons[mon1]["moves"].append(move+", "+levlcont)
+                if searchdict(moves, move)!=None:
+                    if mons[mon1]["moves"].index(move)>=0:
+                        mons[mon1]["moves"].append(move+", "+levlcont)
+                    else:
+                        mons[mon1]["moves"].append(move+", "+levlcont)
             mons[mon1]["lastseenat"]=levlcont
             if strinentry.get()!="":
                 mons[mon1]["stringnotes"]=strinentry.get()
-        jsonsaver=Button(tracking, text = "Submit", command=jsonsave)
+        jsonsaver=Button(tracking, text = "Save", command=jsonsave)
         jsonsaver.grid(row=9, column=3)
         def clearnotes():
             self.newWindow=NotesClearer()
@@ -482,6 +484,7 @@ class NotesClearer(Toplevel):
                 mons[mon]["stringnotes"]=""
                 mons[mon]["lastseenat"]="-"
                 mons[mon]["moves"]=[]
+                self.destroy()
         notesclear=Button(self, text = "Clear Notes", command=noteclear)
         notesclear.grid(row=2, column=1)
 class Ability_Data(Toplevel):
@@ -495,7 +498,7 @@ class Mon1_Data(Toplevel):
     def __init__(self,master=None):
         super().__init__(master=master)
         self.title("Mon Data")
-        self.geometry("400x240")
+        self.geometry("240x240")
         def open_abildata(abil):
             if abil!="":
                 trackertemp["ability"]=abil
@@ -513,19 +516,23 @@ class Mon1_Data(Toplevel):
             movelabel.grid(row=1+item, column=5)
         mon1name=Label(self,text=trackertemp["yourmon"])
         mon1name.grid(row=1,column=4)
+        mon1type=Label(self,text="Types")
+        mon1type.grid(row=2,column=3)
         mon1type=Label(self,text=mons[trackertemp["yourmon"]]["types"])
         mon1type.grid(row=2,column=4)
         monbst=Label(self,text="BST")
         monbst.grid(row=2,column=1)
         mon1bst=Label(self,text=mons[trackertemp["yourmon"]]["bst"])
         mon1bst.grid(row=2,column=2)
+        leave=Button(self, text="Leave", command=self.destroy)
+        leave.grid(row=1,column=1)
         monevo=Label(self,text="Evo")
-        monevo.grid(row=1,column=1)
+        monevo.grid(row=1,column=2)
         mon1evo=Label(self,text=mons[trackertemp["yourmon"]]["evo"])
-        mon1evo.grid(row=1,column=2)
-        itemlabel=Label(self, text = "Held Item")
+        mon1evo.grid(row=1,column=3)
+        itemlabel=Label(self, text = "Levels")
         itemlabel.grid(row=3, column=3)
-        itementry=Label(self, text=mons[trackertemp["yourmon"]]["evo"])
+        itementry=Label(self, text=mons[trackertemp["yourmon"]]["lastseenat"])
         itementry.grid(row=3,column=4)
         strinlabel=Label(self, text = "String")
         strinlabel.grid(row=4, column=3)

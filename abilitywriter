@@ -1,0 +1,5 @@
+abils=open(r"C:\Users\scien\Documents\GitHub\Orange-Peeler\abiltext")
+abil=abils.readlines()
+for item in abil:
+    seq=item.split("|")
+    print(seq)
