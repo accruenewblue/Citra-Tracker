@@ -1,42 +1,66 @@
-# This will import all the widgets
-# and modules which are available in
-# tkinter and ttk module
 from tkinter import *
-from tkinter.ttk import *
-
-
+from tkinter import messagebox
 class NewWindow(Toplevel):
-	pause="hi"
-	def __init__(self, master = None):
-		
-		super().__init__(master = master)
-		self.title("New Window")
-		self.geometry("200x200")
-		label = Label(self, text ="This is a new Window")
-		label.grid(row=1,column=1)
-print(NewWindow.pause)
-# creates a Tk() object
-master = Tk()
-
-# sets the geometry of
-# main root window
-master.geometry("200x200")
-
-label = Label(master, text ="This is the main window")
-label.pack(side = TOP, pady = 10)
-
-# a button widget which will
-# open a new window on button click
-btn = Button(master,
-			text ="Click to open a new window")
-
-# Following line will bind click event
-# On any click left / right button
-# of mouse a new window will be opened
-btn.bind("<Button>",
-		lambda e: NewWindow(master))
-
-btn.pack(pady = 10)
-
-# mainloop, runs infinitely
-mainloop()
+    def __init__(self, master = None):
+        super().__init__(master = master)
+        self.title('NewWindow')
+        self.master = master
+        self.lb = Label(self, text='Hello')
+        self.lb.grid(column=0, row=0, columnspan=1)
+        self.bt1 = Button(self, text="apply Hello", command=self.bt_press)
+        self.bt1.grid(column=0, row=1)
+        self.bt1 = Button(self, text="apply Hello", command=self.bt_press2)
+        self.bt1.grid(column=0, row=2)
+    def bt_press(self):
+        self.master.basic_lb.config(text="Hello")
+        self.newWindow(NewWind)
+    def bt_press2(self):
+        
+        self.master.basic_lb.config(text="Hello")
+        self.destroy()
+class NewWind(Toplevel):
+    def __init__(self, master = None):
+        super().__init__(master = master)
+        self.title('NewWindow')
+        self.master = master
+        self.lb = Label(self, text='Hello')
+        self.lb.grid(column=0, row=0, columnspan=1)
+        self.bt1 = Button(self, text="apply Hello", command=self.bt_press)
+        self.bt1.grid(column=0, row=1)
+        self.bt1 = Button(self, text="apply Hello", command=self.bt_press2)
+        self.bt1.grid(column=0, row=2)
+    def bt_press(self):
+        self.master.basic_lb.config(text="Hello")
+        self.newWindow(NewWindo)
+    def bt_press2(self):
+        self.master.basic_lb.config(text="Hello")
+        self.destroy()
+class NewWindo(Toplevel):
+    def __init__(self, master = None):
+        super().__init__(master = master)
+        self.title('NewWindow')
+        self.master = master
+        self.lb = Label(self, text='Hebrllo')
+        self.lb.grid(column=0, row=0, columnspan=1)
+        self.bt1 = Button(self, text="abb", command=self.bt_press)
+        self.bt1.grid(column=0, row=1)
+    def bt_press(self):
+        self.master.basic_lb.config(text="Hello")
+        self.destroy()
+window = Tk()
+class basewindow(Frame):
+    def __init__(self,master=None):
+        super().__init__(master=master)
+        def new_Editor():
+            self.newWindow=NewWindow()
+        def newinfo():
+            messagebox.showinfo("Information","Indo")	
+        print("test")
+        window.title("BasicWindow")	
+        window.basic_lb = Label(window, text='None')
+        window.basic_lb.grid(column=0, row=0, columnspan=1)
+        window.basic_bt = Button(window, text="NewWindow", command=new_Editor)
+        window.basic_bt.grid(column=0, row=1)
+        window.basic_bt = Button(window, text="NewInfo", command=newinfo)
+        window.basic_bt.grid(column=0, row=2)
+basewindow().mainloop()

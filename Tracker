@@ -83,7 +83,7 @@ dataset1={"name":mons[mon1]['name'],
     "pic":"(img)",
     "level":[],
     "ability":mons[mon1]["ability"],
-    "stringnote":mons[mon1]["stringnotes"],
+    "stringnote":mons[mon1]["stringnote"],
     "stats":["","","","","","","",""],
     "statnotes":mons[mon1]["notes"],
     "moves":mons[mon1]["moves"]}
@@ -100,7 +100,7 @@ dataset2={"name":mons[mon2]['name'],
     "pic":"(img)",
     "level":[],
     "ability":mons[mon2]["ability"],
-    "stringnote":mons[mon2]["stringnotes"],
+    "stringnote":mons[mon2]["stringnote"],
     "stats":["","","","","","","",""],
     "statnotes":mons[mon2]["notes"],
     "moves":mons[mon2]["moves"]}
@@ -117,7 +117,7 @@ dataset3={"name":mons[mon3]['name'],
     "pic":"(img)",
     "level":[],
     "ability":mons[mon3]["ability"],
-    "stringnote":mons[mon3]["stringnotes"],
+    "stringnote":mons[mon3]["stringnote"],
     "stats":["","","","","","","",""],
     "statnotes":mons[mon3]["notes"],
     "moves":mons[mon2]["moves"]}
@@ -134,7 +134,7 @@ dataset4={"name":mons[mon4]['name'],
     "pic":"(img)",
     "level":[],
     "ability":mons[mon4]["ability"],
-    "stringnote":mons[mon4]["stringnotes"],
+    "stringnote":mons[mon4]["stringnote"],
     "stats":["","","","","","","",""],
     "statnotes":mons[mon4]["notes"],
     "moves":mons[mon4]["moves"]}
@@ -151,7 +151,7 @@ dataset5={"name":mons[mon5]['name'],
     "pic":"(img)",
     "level":[],
     "ability":mons[mon5]["ability"],
-    "stringnote":mons[mon5]["stringnotes"],
+    "stringnote":mons[mon5]["stringnote"],
     "stats":["","","","","","","",""],
     "statnotes":mons[mon5]["notes"],
     "moves":mons[mon5]["moves"]}
@@ -168,7 +168,7 @@ dataset6={"name":mons[mon6]['name'],
     "pic":"(img)",
     "level":[],
     "ability":mons[mon6]["ability"],
-    "stringnote":mons[mon6]["stringnotes"],
+    "stringnote":mons[mon6]["stringnote"],
     "stats":["","","","","","","",""],
     "statnotes":mons[mon6]["notes"],
     "moves":mons[mon6]["moves"]}
@@ -176,7 +176,7 @@ attackingmon=dataset1
 defendingmon=dataset4
 dataset=[dataset1,dataset2,dataset3,dataset4,dataset5,dataset6]
 if txtfile[0].find("notetake")!=-1:
-    mons[mon1]["stringnotes"]=txtfile[2][0:-1]
+    mons[mon1]["stringnote"]=txtfile[2][0:-1]
     mons[mon1]["ability"].append(txtfile[3][0:-1])
     mons[mon1]["lastseenat"]=(txtfile[4][0:-1])
     mons[mon1]["moves"].append(txtfile[5][0:-1]+", "+txtfile[4][0:-1])
@@ -284,7 +284,7 @@ if txtfile[0].find("noteclear")!=-1:
     for mon in mons:
         mons[mon]["ability"]=[]
         mons[mon]["notes"]=[]
-        mons[mon]["stringnotes"]=""
+        mons[mon]["stringnote"]=""
         mons[mon]["lastseenat"]="-"
         mons[mon]["moves"]=[]
     txt.write("done")
@@ -439,13 +439,13 @@ class tracker( Frame ):
                 trackertempfile=(r"C:\Users\scien\Documents\GitHub\Orange-Peeler\trackertemp")
                 with open(trackertempfile, "w") as f:
                     json.dump(trackertemp, f)
-                self.newWindow=Mon1_Data()
+                a = Mon1_Data(tracking)
         opponen=Entry(tracking, width=14)
         opponen.grid(row=7,column=4)
         opponentb=Button(tracking, text="Opponent",command=oppmondata)
         opponentb.grid(row=7, column=3)
         levllabel=Label(tracking, text = "Level")
-        levllabel.grid(row=1, column=2)
+        levllabel.grid(row=2, column=1)
         levlentry=Entry(tracking, width=4)
         levlentry.grid(row=2,column=2)
         def jsonsave():
@@ -457,13 +457,10 @@ class tracker( Frame ):
             levlcont=levlentry.get()
             for move in movecont:
                 if searchdict(moves, move)!=None:
-                    if mons[mon1]["moves"].index(move)>=0:
-                        mons[mon1]["moves"].append(move+", "+levlcont)
-                    else:
-                        mons[mon1]["moves"].append(move+", "+levlcont)
+                    mons[mon1]["moves"].append(move+", "+levlcont)
             mons[mon1]["lastseenat"]=levlcont
             if strinentry.get()!="":
-                mons[mon1]["stringnotes"]=strinentry.get()
+                mons[mon1]["stringnote"]=strinentry.get()
         jsonsaver=Button(tracking, text = "Save", command=jsonsave)
         jsonsaver.grid(row=9, column=3)
         def clearnotes():
@@ -481,10 +478,10 @@ class NotesClearer(Toplevel):
             for mon in mons:
                 mons[mon]["ability"]=[]
                 mons[mon]["notes"]=[]
-                mons[mon]["stringnotes"]=""
+                mons[mon]["stringnote"]=""
                 mons[mon]["lastseenat"]="-"
                 mons[mon]["moves"]=[]
-                self.destroy()
+            self.destroy()
         notesclear=Button(self, text = "Clear Notes", command=noteclear)
         notesclear.grid(row=2, column=1)
 class Ability_Data(Toplevel):
@@ -500,6 +497,7 @@ class Mon1_Data(Toplevel):
         self.title("Mon Data")
         self.geometry("240x240")
         def open_abildata(abil):
+            print("text")
             if abil!="":
                 trackertemp["ability"]=abil
                 trackertempfile=(r"C:\Users\scien\Documents\GitHub\Orange-Peeler\trackertemp")
@@ -536,7 +534,7 @@ class Mon1_Data(Toplevel):
         itementry.grid(row=3,column=4)
         strinlabel=Label(self, text = "String")
         strinlabel.grid(row=4, column=3)
-        strinentry=Label(self, text=mons[trackertemp["yourmon"]]["stringnotes"], wraplength=150)
+        strinentry=Label(self, text=mons[trackertemp["yourmon"]]["stringnote"], wraplength=150)
         strinentry.grid(row=4,column=4)
         hplabel=Label(self, text = "HP")
         hplabel.grid(row=3, column=1)

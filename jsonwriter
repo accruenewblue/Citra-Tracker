@@ -35,8 +35,12 @@ file2.write('{\n')
 tagORAS=[19,23,101,242,293,301,345,367,372,384,418,430,434,443,445,447,497,548,612,820,822]
 tagSM=[747,817,818,25,27,34,36,38,48,50,63,65,67,69,92,94,96,110,112,128,131]
 tagUSUM=[851,910,911,912]
-for item in range(0,921):
+for item in range(0,1171):
     seq=insertion_sort(content)[item][18:-1].split("|")
+    for it in seq:
+        if it.find('form=')!=-1:
+            del seq[1]
+    print(seq)
     seq2=insertion_sort(ext2)[item].split("|")
     if seq[8].find("Alolan")==-1:
         if seq[8].find("Mega")!=-1:
@@ -66,7 +70,6 @@ for item in range(0,921):
     file2.write('\t\t"weight":"'+seq2[5]+'",\n')
     file2.write('\t\t"bst":"'+str(int(seq[2])+int(seq[3])+int(seq[4])+int(seq[5])+int(seq[6])+int(seq[7]))+'",\n')
     file2.write('\t\t"types":["'+seq2[2]+'","'+seq2[3]+'"],\n')
-    file2.write('\t\t"pic":'',\n')
     file2.write('\t\t"ability":[],\n')
     file2.write('\t\t"notes":[],\n')
     file2.write('\t\t"stringnote":"",\n')
