@@ -1,7 +1,0 @@
-list=["a","e","i","o","u"]
-list2=[]
-for item in list:
-    def pr(item):
-        list2.append(item)
-    pr(item)
-print(list2)

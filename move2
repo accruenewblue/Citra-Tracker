@@ -1,8 +1,0 @@
-abilities=open(r"C:\Users\scien\Documents\GitHub\Orange-Peeler\move1")
-sheet=open(r"C:\Users\scien\Documents\GitHub\Orange-Peeler\ability-data","r+")
-sheetmoves=open(r"C:\Users\scien\Documents\GitHub\Orange-Peeler\move1","r+")
-abil=abilities.readlines()
-list2=["1.png","2.png","10.png","100.png","20.png","1.618.png"]
-list3=[1,2,3.14,5,30,1.618,10]
-list2.sort()
-print(list2)

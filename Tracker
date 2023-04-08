@@ -493,13 +493,11 @@ def Mon1_Data():
     mon1dat=Toplevel()
     mon1dat.title("Mon Data")
     mon1dat.geometry("240x240")
-#try to make it only draw once but still be able to press buttons? i dont fucking know
-#FUCK THIS SHIT
     for abil in mons[trackertemp["yourmon"]]["ability"]:
         abilloc=mons[trackertemp["yourmon"]]["ability"].index(abil)
-        abillabel=Button(mon1dat, text=abil,command=Ability_Data(abil))
-        #lambda: for buttons
-        #either displays everything before buttons are pressed or only the last for loop iteration
+        abillabel=Button(mon1dat, text=abil,command=lambda abil=abil:Ability_Data(abil))
+        #abil=abil stores the value of it when written
+        #I thought it normally did that, but apparently otherwise it only calls that after???
         abillabel.grid(row=5+abilloc, column=4)
         abilentry=Label(mon1dat, text="Ability "+str(1+abilloc))
         abilentry.grid(row=5+abilloc,column=3)

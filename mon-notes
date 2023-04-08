@@ -1,7 +1,0 @@
-accrue={"a":"b","c":"d"}
-it="e"
-def searchdict(dict, text):
-    for item in dict:
-        if item==text:
-            return item
-print(searchdict(accrue, it))
