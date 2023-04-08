@@ -1,4 +1,7 @@
-def test(item):
-    print(item)
-for item in range(0,3):
-    test(item)
+list=["a","e","i","o","u"]
+list2=[]
+for item in list:
+    def pr(item):
+        list2.append(item)
+    pr(item)
+print(list2)

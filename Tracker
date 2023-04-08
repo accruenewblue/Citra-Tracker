@@ -467,23 +467,22 @@ class tracker( Frame ):
             self.newWindow=NotesClearer()
         notesclear=Button(tracking, text = "Clear Notes", command=clearnotes)
         notesclear.grid(row=9, column=4)
-class NotesClearer(Toplevel):
-    def __init__(self,master=None):
-        super().__init__(master=master)
-        self.title("Are you sure?")
-        self.geometry("215x85")
-        CLEARer=Label(self,justify="center",text="Are you sure you would like to do this? This clears all the notes stored so far. Only recommended when a seed dies.",wraplength=220)
-        CLEARer.grid(row=1,column=1)
-        def noteclear():
-            for mon in mons:
-                mons[mon]["ability"]=[]
-                mons[mon]["notes"]=[]
-                mons[mon]["stringnote"]=""
-                mons[mon]["lastseenat"]="-"
-                mons[mon]["moves"]=[]
-            self.destroy()
-        notesclear=Button(self, text = "Clear Notes", command=noteclear)
-        notesclear.grid(row=2, column=1)
+def NotesClearer():
+    clearer=Toplevel()
+    clearer.title("Are you sure?")
+    clearer.geometry("215x85")
+    CLEARer=Label(clearer,justify="center",text="Are you sure you would like to do this? This clears all the notes stored so far. Only recommended when a seed dies.",wraplength=220)
+    CLEARer.grid(row=1,column=1)
+    def noteclear():
+        for mon in mons:
+            mons[mon]["ability"]=[]
+            mons[mon]["notes"]=[]
+            mons[mon]["stringnote"]=""
+            mons[mon]["lastseenat"]="-"
+            mons[mon]["moves"]=[]
+        clearer.destroy()
+    notesclear=Button(clearer, text = "Clear Notes", command=noteclear)
+    notesclear.grid(row=2, column=1)
 def Ability_Data(abil):
     abili=Toplevel()
     abili.title("Ability Data")
@@ -494,12 +493,16 @@ def Mon1_Data():
     mon1dat=Toplevel()
     mon1dat.title("Mon Data")
     mon1dat.geometry("240x240")
-    for abil in range(0,len(mons[trackertemp["yourmon"]]["ability"])):
-        print(abil)
-        abillabel=Button(mon1dat, text=mons[trackertemp["yourmon"]]["ability"][abil],command=lambda:Ability_Data(mons["Empoleon"]["ability"][abil]))
-        abillabel.grid(row=5+abil, column=4)
-        abilentry=Label(mon1dat, text="Ability "+str(1+abil))
-        abilentry.grid(row=5+abil,column=3)
+#try to make it only draw once but still be able to press buttons? i dont fucking know
+#FUCK THIS SHIT
+    for abil in mons[trackertemp["yourmon"]]["ability"]:
+        abilloc=mons[trackertemp["yourmon"]]["ability"].index(abil)
+        abillabel=Button(mon1dat, text=abil,command=Ability_Data(abil))
+        #lambda: for buttons
+        #either displays everything before buttons are pressed or only the last for loop iteration
+        abillabel.grid(row=5+abilloc, column=4)
+        abilentry=Label(mon1dat, text="Ability "+str(1+abilloc))
+        abilentry.grid(row=5+abilloc,column=3)
     for item in range(0,len(mons[trackertemp["yourmon"]]["moves"])):
         movelabel=Button(mon1dat, text=mons[trackertemp["yourmon"]]["moves"][item])
         movelabel.grid(row=1+item, column=5)
