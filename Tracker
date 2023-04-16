@@ -4,6 +4,15 @@ from tkinter import *
 from tkinter import ttk
 monsfile=open(r'C:\Users\scien\Documents\GitHub\Orange-Peeler\mon-data',"r+")
 mons=json.load(monsfile)
+monsfilepriv=open(r'C:\Users\scien\Documents\GitHub\Orange-Peeler\mon-data',"r+")
+monspriv=json.load(monsfilepriv)
+for item in monspriv:
+    if "Fire" in monspriv[item]["types"]:
+        monspriv[item]["types"].remove("Fire")
+        monspriv[item]["types"].append("-")
+    monspriv[item]["item"]="Sitrus Berry"
+print(monspriv["Fennekin"])
+#monsfilepriv=temp changes not displayed on tracker. MAKE SURE TO NOT SAVE THIS.
 movesfile=open(r"C:\Users\scien\Documents\GitHub\Orange-Peeler\move-data")
 moves=json.load(movesfile)
 abilitiesfile=open(r"C:\Users\scien\Documents\GitHub\Orange-Peeler\ability-data")
@@ -143,12 +152,13 @@ def movedisplay():
         move4label.grid(row=9, column=8)
     monbst=Label(tracking, text=(mons[str(monentry.get())]["bst"]+", "+mons[str(monentry.get())]["lastseenat"]))
     monbst.grid(row=2, column=3)
-    montype=Label(tracking, text=mons[str(monentry.get())]["types"])
+    montype=Label(tracking, text=monspriv[str(monentry.get())]["types"])
     montype.grid(row=2, column=4)
-    oppbst=Label(tracking, text=(mons[str(opponen.get())]["bst"]+", "+mons[str(opponen.get())]["lastseenat"]))
-    oppbst.grid(row=6, column=3)
-    opptype=Label(tracking, text=mons[str(opponen.get())]["types"])
-    opptype.grid(row=6, column=4)
+    if opponen.get()!="":
+        oppbst=Label(tracking, text=(mons[str(opponen.get())]["bst"]+", "+mons[str(opponen.get())]["lastseenat"]))
+        oppbst.grid(row=6, column=3)
+        opptype=Label(tracking, text=mons[str(opponen.get())]["types"])
+        opptype.grid(row=6, column=4)
 monimage=Button(tracking,text="hi",image=PhotoImage())
 monimage.grid(row=1,column=1)
 def playermondata():
