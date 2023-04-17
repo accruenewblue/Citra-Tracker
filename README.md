@@ -20,19 +20,12 @@ Tracking options are available as the following:
 
     --Details about moves, abilities and mons
 
-    --
+    --Display features for your mon
 
 
 How to Use:
  
 
-Command List:
-
-    --coverage: calculates the coverage of your moves against 
-
-    --notes: takes and stores notes for you
-
-    --noteclear: clears your notes(for when you start a new seed)
 
 In the future, Citra emulator for 3DS will be required. However, for now, it is purely manual.
 

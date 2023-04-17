@@ -11,10 +11,13 @@ for item in monspriv:
         monspriv[item]["types"].remove("Fire")
         monspriv[item]["types"].append("-")
     monspriv[item]["item"]="Sitrus Berry"
-print(monspriv["Fennekin"])
+#temp- will be removed for a more proper system to keep track of type changes later(eg Burn Up)
 #monsfilepriv=temp changes not displayed on tracker. MAKE SURE TO NOT SAVE THIS.
+#also make sure to add a system to track pp usage
 movesfile=open(r"C:\Users\scien\Documents\GitHub\Orange-Peeler\move-data")
 moves=json.load(movesfile)
+movesfilepriv=open(r"C:\Users\scien\Documents\GitHub\Orange-Peeler\move-data")
+movespriv=json.load(movesfilepriv)
 abilitiesfile=open(r"C:\Users\scien\Documents\GitHub\Orange-Peeler\ability-data")
 abilities=json.load(abilitiesfile)
 trackertempfile=open(r"C:\Users\scien\Documents\GitHub\Orange-Peeler\trackertemp")
@@ -50,26 +53,7 @@ typetable={
 "FlyingPressNormalize":[1,2,1,1,1,.25,2,0,.25,1,1,2,.5,1,1,1,1,1,1],
 "ThousandArrows":[1,1,1,2,1,2,.5,1,2,2,1,.5,2,1,1,1,1,1,1]}
 #defines the columns for the arrays corresponding to the type hit
-typedic={
-    "Normal":0,
-    "Fighting":1,
-    "Flying":2,
-    "Poison":3,
-    "Ground":4,
-    "Rock":5,
-    "Bug":6,
-    "Ghost":7,
-    "Steel":8,
-    "Fire":9,
-    "Water":10,
-    "Grass":11,
-    "Electric":12,
-    "Psychic":13,
-    "Ice":14,
-    "Dragon":15,
-    "Dark":16,
-    "Fairy":17,
-    "Null":18,}
+typedic={"Normal":0,"Fighting":1,"Flying":2,"Poison":3,"Ground":4,"Rock":5,"Bug":6,"Ghost":7,"Steel":8,"Fire":9,"Water":10,"Grass":11,"Electric":12,"Psychic":13,"Ice":14,"Dragon":15,"Dark":16,"Fairy":17,"Null":18,}
 #extracts and calculates relevant type combo for defenders
 def coverage(movetype,attacker,defender,attabil,currweat,currterr):
     typemult=1
@@ -77,7 +61,8 @@ def coverage(movetype,attacker,defender,attabil,currweat,currterr):
     stabmult=1
     terrmult=1
     for item in range(0,len(mons[defender]["types"])):
-        typemult=typemult*(typetable[movetype][typedic[mons[defender]["types"][item]]])
+        if item!="-":
+            typemult=typemult*(typetable[movetype][typedic[mons[defender]["types"][item]]])
     if movetype in mons[attacker]["types"]:
         if attabil=="adaptability":
             stabmult=2
@@ -121,6 +106,10 @@ def searchdict(dict, text):
     for item in dict:
         if item==text:
             return item
+opponen=Entry(tracking, width=14)
+opponen.grid(row=7,column=4)
+monentry=Entry(tracking, width=14)
+monentry.grid(row=1,column=4)
 def movedisplay():
     if move1entry.get()!="":
         if opponen.get()!="":
@@ -134,7 +123,7 @@ def movedisplay():
             coverage2=str(coverage(moves[move2entry.get()]["type"],monentry.get(),opponen.get(),abilentry.get(),"null","null"))
         else:
             coverage2=""
-        move2label=Label(tracking, text="  "+moves[move2entry.get()]["type"]+", "+moves[move2entry.get()]["pp"]+", "+moves[move2entry.get()]["power"]+", "+moves[move2entry.get()]["acc"]+", "+coverage2)
+        move2label=Label(tracking, text="  "+moves[move2entry.get()]["type"]+", "+movespriv[move2entry.get()]["pp"]+", "+moves[move2entry.get()]["power"]+", "+moves[move2entry.get()]["acc"]+", "+coverage2)
         move2label.grid(row=5, column=8)
     if move3entry.get()!="":
         if opponen.get()!="":
@@ -157,7 +146,7 @@ def movedisplay():
     if opponen.get()!="":
         oppbst=Label(tracking, text=(mons[str(opponen.get())]["bst"]+", "+mons[str(opponen.get())]["lastseenat"]))
         oppbst.grid(row=6, column=3)
-        opptype=Label(tracking, text=mons[str(opponen.get())]["types"])
+        opptype=Label(tracking, text=monspriv[str(opponen.get())]["types"])
         opptype.grid(row=6, column=4)
 monimage=Button(tracking,text="hi",image=PhotoImage())
 monimage.grid(row=1,column=1)
@@ -170,8 +159,6 @@ def playermondata():
         Mon1_Data()
 monlabel=Button(tracking, text="Your Mon",command=playermondata)
 monlabel.grid(row=1, column=3)
-monentry=Entry(tracking, width=14)
-monentry.grid(row=1,column=4)
 def open_abildata():
     if abilentry.get()!="":
         Ability_Data(abilentry.get())
@@ -252,8 +239,6 @@ def oppmondata():
         with open(trackertempfile, "w") as f:
             json.dump(trackertemp, f)
         a = Mon1_Data()
-opponen=Entry(tracking, width=14)
-opponen.grid(row=7,column=4)
 opponentb=Button(tracking, text="Opponent",command=oppmondata)
 opponentb.grid(row=7, column=3)
 levllabel=Label(tracking, text = "Level")
