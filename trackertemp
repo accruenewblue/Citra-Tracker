@@ -1,22 +1,28 @@
 {
+    "game":"ORAS",
     "1":{
         "mon":"Volcarona",
+        "level":"",
+        "friendship":"",
         "move1":"Ember",
         "move2":"Bubble",
         "move3":"Eruption",
         "move4":"Earthquake",
         "ability":"Dry Skin",
-        "item":"",
+        "item":"156",
         "currhp":"",
         "maxhp":"420",
         "atk":"69",
         "def":"69",
         "spa":"69",
         "spd":"69",
-        "spe":"69"
+        "spe":"69",
+        "nature": ""
     },
     "2":{
-        "mon":"",
+        "mon":"-",
+        "level":"",
+        "friendship":"",
         "move1":"",
         "move2":"",
         "move3":"",
@@ -29,10 +35,13 @@
         "def":"",
         "spa":"",
         "spd":"",
-        "spe":""
+        "spe":"",
+        "nature": ""
     },
     "3":{
-        "mon":"",
+        "mon":"-",
+        "level":"",
+        "friendship":"",
         "move1":"",
         "move2":"",
         "move3":"",
@@ -45,10 +54,13 @@
         "def":"",
         "spa":"",
         "spd":"",
-        "spe":""
+        "spe":"",
+        "nature": ""
     },
     "4":{
-        "mon":"",
+        "mon":"-",
+        "level":"",
+        "friendship":"",
         "move1":"",
         "move2":"",
         "move3":"",
@@ -61,10 +73,13 @@
         "def":"",
         "spa":"",
         "spd":"",
-        "spe":""
+        "spe":"",
+        "nature": ""
     },
     "5":{
-        "mon":"",
+        "mon":"-",
+        "level":"",
+        "friendship":"",
         "move1":"",
         "move2":"",
         "move3":"",
@@ -77,10 +92,13 @@
         "def":"",
         "spa":"",
         "spd":"",
-        "spe":""
+        "spe":"",
+        "nature": ""
     },
     "6":{
-        "mon":"",
+        "mon":"-",
+        "level":"",
+        "friendship":"",
         "move1":"",
         "move2":"",
         "move3":"",
@@ -93,6 +111,7 @@
         "def":"",
         "spa":"",
         "spd":"",
-        "spe":""
+        "spe":"",
+        "nature": ""
     }
 }

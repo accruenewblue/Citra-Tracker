@@ -18,170 +18,19 @@ movesfilepriv=open(r"C:\Users\scien\Documents\GitHub\Orange-Peeler\move-data.jso
 movespriv=json.load(movesfilepriv)
 abilitiesfile=open(r"C:\Users\scien\Documents\GitHub\Orange-Peeler\ability-data.json")
 abilities=json.load(abilitiesfile)
+itemsfile=open(r"C:\Users\scien\Documents\GitHub\Orange-Peeler\item-data.json","r+")
+items=json.load(itemsfile)
+print(items["004"])
+naturesfile=open(r"C:\Users\scien\Documents\GitHub\Orange-Peeler\nature-data.json")
+natures=json.load(naturesfile)
 pagemon=1
 #4 5 6 placement of mons in a battle
 #1 2 3 single=1,4, double=1,2,4,5
 #battleformat list: single, double, triple, SOS(gen 7), horde, multi, party
 battleformat="party"
-party=["Zeraora","Mega Steelix","School Form Wishiwashi","Zapdos","Mega Altaria","Mega Aggron"]
-opponent=["Ho-Oh","Alolan Exeggutor","Pa'u Style Oricorio","Mimikyu","Gengar"]
-ally=["Primal Groudon","Naganadel","Sawsbuck"]
-if battleformat=="single":
-    mon1=party[0]
-    mon2="Egg"
-    mon3="Egg"
-    mon4=opponent[0]
-    mon5="Egg"
-    mon6="Egg"
-if battleformat=="double":
-    mon1=party[0]
-    mon2=party[1]
-    mon3="Egg"
-    mon4=opponent[0]
-    mon5=opponent[1]
-    mon6="Egg"
-if battleformat=="triple":
-    mon1=party[0]
-    mon2=party[1]
-    mon3=party[2]
-    mon4=opponent[0]
-    mon5=opponent[1]
-    mon6=opponent[2]
-if battleformat=="SOS":
-    mon1=party[0]
-    mon2="Egg"
-    mon3="Egg"
-    mon4=opponent[0]
-    mon5=opponent[1]
-    mon6="Egg"
-if battleformat=="horde":
-    mon1=opponent[0]
-    mon2=party[0]
-    mon3=opponent[1]
-    mon4=opponent[2]
-    mon5=opponent[3]
-    mon6=opponent[4]
-if battleformat=="multi":
-    mon1=party[0]
-    mon2=ally[1]
-    mon3="Egg"
-    mon4=opponent[0]
-    mon5=opponent[1]
-    mon6="Egg"
-if battleformat=="party":
-    mon1=party[0]
-    mon2=party[1]
-    mon3=party[2]
-    mon4=party[3]
-    mon5=party[4]
-    mon6=party[5]
-    mon7=ally[0]
-    mon8=opponent[0]
-    mon9=opponent[1]
-    mon10=opponent[2]
-    mon11=opponent[3]
-    mon12=opponent[4]
-dataset1={"name":mons[mon1]['name'],
-    "form":mons[mon1]['form'],
-    "tag":mons[mon1]['tag'],
-    "evo":mons[mon1]['evo'],
-    "weight":mons[mon1]['weight'][0],
-    "types":mons[mon1]["types"],
-    "bst":mons[mon1]['bst'],
-    "status":"none",
-    "item":"none",
-    "pic":"(img)",
-    "level":[],
-    "ability":mons[mon1]["ability"],
-    "stringnote":mons[mon1]["stringnote"],
-    "stats":["","","","","","","",""],
-    "statnotes":mons[mon1]["notes"],
-    "moves":mons[mon1]["moves"]}
-dataset2={"name":mons[mon2]['name'],
-    "form":mons[mon2]['form'],
-    "tag":mons[mon2]['tag'],
-    "evo":mons[mon2]['evo'],
-    "ability":mons[mon2]["ability"],
-    "weight":mons[mon2]['weight'],
-    "types":mons[mon2]["types"],
-    "bst":mons[mon2]['bst'],
-    "status":"none",
-    "item":"none",
-    "pic":"(img)",
-    "level":[],
-    "ability":mons[mon2]["ability"],
-    "stringnote":mons[mon2]["stringnote"],
-    "stats":["","","","","","","",""],
-    "statnotes":mons[mon2]["notes"],
-    "moves":mons[mon2]["moves"]}
-dataset3={"name":mons[mon3]['name'],
-    "form":mons[mon3]['form'],
-    "tag":mons[mon3]['tag'],
-    "evo":mons[mon3]['evo'],
-    "ability":mons[mon3]["ability"],
-    "weight":mons[mon3]['weight'],
-    "types":mons[mon3]["types"],
-    "bst":mons[mon3]['bst'],
-    "status":"none",
-    "item":"none",
-    "pic":"(img)",
-    "level":[],
-    "ability":mons[mon3]["ability"],
-    "stringnote":mons[mon3]["stringnote"],
-    "stats":["","","","","","","",""],
-    "statnotes":mons[mon3]["notes"],
-    "moves":mons[mon2]["moves"]}
-dataset4={"name":mons[mon4]['name'],
-    "form":mons[mon4]['form'],
-    "tag":mons[mon4]['tag'],
-    "evo":mons[mon4]['evo'],
-    "ability":mons[mon4]["ability"],
-    "weight":mons[mon4]['weight'],
-    "types":mons[mon4]["types"],
-    "bst":mons[mon4]['bst'],
-    "status":"none",
-    "item":"none",
-    "pic":"(img)",
-    "level":[],
-    "ability":mons[mon4]["ability"],
-    "stringnote":mons[mon4]["stringnote"],
-    "stats":["","","","","","","",""],
-    "statnotes":mons[mon4]["notes"],
-    "moves":mons[mon4]["moves"]}
-dataset5={"name":mons[mon5]['name'],
-    "form":mons[mon5]['form'],
-    "tag":mons[mon5]['tag'],
-    "evo":mons[mon5]['evo'],
-    "ability":mons[mon5]["ability"],
-    "weight":mons[mon5]['weight'],
-    "types":mons[mon5]["types"],
-    "bst":mons[mon5]['bst'],
-    "status":"none",
-    "item":"none",
-    "pic":"(img)",
-    "level":[],
-    "ability":mons[mon5]["ability"],
-    "stringnote":mons[mon5]["stringnote"],
-    "stats":["","","","","","","",""],
-    "statnotes":mons[mon5]["notes"],
-    "moves":mons[mon5]["moves"]}
-dataset6={"name":mons[mon6]['name'],
-    "form":mons[mon6]['form'],
-    "tag":mons[mon6]['tag'],
-    "evo":mons[mon6]['evo'],
-    "ability":mons[mon6]["ability"],
-    "weight":mons[mon6]['weight'],
-    "types":mons[mon6]["types"],
-    "bst":mons[mon6]['bst'],
-    "status":"none",
-    "item":"none",
-    "pic":"(img)",
-    "level":[],
-    "ability":mons[mon6]["ability"],
-    "stringnote":mons[mon6]["stringnote"],
-    "stats":["","","","","","","",""],
-    "statnotes":mons[mon6]["notes"],
-    "moves":mons[mon6]["moves"]}
+party=[trackertemp["1"]["mon"],trackertemp["2"]["mon"],trackertemp["3"]["mon"],trackertemp["4"]["mon"],trackertemp["5"]["mon"],trackertemp["6"]["mon"],]
+opponent=["-","-","-","-","-"]
+ally=["-"]
 #arrays for defining the effectiveness of typed attacks or special moves
 typetable={
 "Normal":[1,1,1,1,1,.5,1,0,.5,1,1,1,1,1,1,1,1,1,1],
@@ -439,48 +288,6 @@ def Mon1_Tracker(tracking):
         for item in dict:
             if item==text:
                 return item
-    opponen=Entry(tracking, width=14)
-    opponen.grid(row=7,column=12)
-    monentry=Entry(tracking, width=14)
-    monentry.grid(row=1,column=12)
-    def movedisplay():
-        if move1entry.get()!="":
-            if opponen.get()!="":
-                coverage1=str(coverage(moves[move1entry.get()]["type"],monentry.get(),opponen.get(),abilentry.get(),"null","null"))
-            else:
-                coverage1=""
-            move1label=Label(tracking, text="  "+moves[move1entry.get()]["type"]+", "+moves[move1entry.get()]["pp"]+", "+moves[move1entry.get()]["power"]+", "+moves[move1entry.get()]["acc"]+", "+coverage1)
-            move1label.grid(row=3, column=8)
-        if move2entry.get()!="":
-            if opponen.get()!="":
-                coverage2=str(coverage(moves[move2entry.get()]["type"],monentry.get(),opponen.get(),abilentry.get(),"null","null"))
-            else:
-                coverage2=""
-            move2label=Label(tracking, text="  "+moves[move2entry.get()]["type"]+", "+movespriv[move2entry.get()]["pp"]+", "+moves[move2entry.get()]["power"]+", "+moves[move2entry.get()]["acc"]+", "+coverage2)
-            move2label.grid(row=5, column=8)
-        if move3entry.get()!="":
-            if opponen.get()!="":
-                coverage3=str(coverage(moves[move3entry.get()]["type"],monentry.get(),opponen.get(),abilentry.get(),"null","null"))
-            else:
-                coverage3=""
-            move3label=Label(tracking, text="  "+moves[move3entry.get()]["type"]+", "+moves[move3entry.get()]["pp"]+", "+moves[move3entry.get()]["power"]+", "+moves[move3entry.get()]["acc"]+", "+coverage3)
-            move3label.grid(row=7, column=8)
-        if move4entry.get()!="":
-            if opponen.get()!="":
-                coverage4=str(coverage(moves[move4entry.get()]["type"],monentry.get(),opponen.get(),abilentry.get(),"null","null"))
-            else:
-                coverage4=""
-            move4label=Label(tracking, text="  "+moves[move4entry.get()]["type"]+", "+moves[move4entry.get()]["pp"]+", "+moves[move4entry.get()]["power"]+", "+moves[move4entry.get()]["acc"]+", "+coverage4)
-            move4label.grid(row=9, column=8)
-        monbst=Label(tracking, text=(mons[str(monentry.get())]["bst"]+", "+mons[str(monentry.get())]["lastseenat"]))
-        monbst.grid(row=2, column=3)
-        montype=Label(tracking, text=monspriv[str(monentry.get())]["types"])
-        montype.grid(row=2, column=12)
-        if opponen.get()!="":
-            oppbst=Label(tracking, text=(mons[str(opponen.get())]["bst"]+", "+mons[str(opponen.get())]["lastseenat"]))
-            oppbst.grid(row=6, column=3)
-            opptype=Label(tracking, text=monspriv[str(opponen.get())]["types"])
-            opptype.grid(row=6, column=12)
     monsaver=BooleanVar()
     monimage=Checkbutton(tracking,variable=monsaver,onvalue=1,offvalue=0)
     monimage.grid(row=1,column=1)
@@ -494,7 +301,7 @@ def Mon1_Tracker(tracking):
     abillabel.grid(row=4, column=3)
     abilentry=Entry(tracking, width=14)
     abilentry.grid(row=4,column=12)
-    itemlabel=Label(tracking, text = "Held Item")
+    itemlabel=Label(tracking, text=items[trackertemp["1"]["item"]]["name"])
     itemlabel.grid(row=3, column=3)
     itementry=Entry(tracking, width=14)
     itementry.grid(row=3,column=12)
@@ -603,15 +410,10 @@ def Mon1_Tracker(tracking):
     typmove4entry=Label(tracking, text=moves[trackertemp["1"]["move4"]]["type"])
     typmove4entry.grid(row=10,column=5)
     #display
-    movesaver=Button(tracking, text = "D", command=movedisplay)
-    movesaver.grid(row=2, column=2)
     levllabel=Label(tracking, text = "Lv.")
     levllabel.grid(row=2, column=3)
     def jsonsave():
-        if monsaver.get()==1:
-            mon1=opponen.get()
-        else:
-            mon1=monentry.get()
+        mon1=trackertemp["1"]["mon"]
         abilcont=abilentry.get()
         if searchdict(abilities, abilcont)!=None:
             mons[mon1]["ability"].append(abilcont)
