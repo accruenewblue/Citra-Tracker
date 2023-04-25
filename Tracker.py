@@ -1,27 +1,28 @@
 import json
+import os
+import time
 import tkinter
 from tkinter import *
 from tkinter import ttk
-monsfile=open(r'C:\Users\scien\Documents\GitHub\Orange-Peeler\mon-data.json',"r+")
+monsfile=open(r'mon-data.json',"r+")
 mons=json.load(monsfile)
-monsfilepriv=open(r'C:\Users\scien\Documents\GitHub\Orange-Peeler\mon-data.json',"r+")
-monspriv=json.load(monsfilepriv)
-trackertempfile=open(r"C:\Users\scien\Documents\GitHub\Orange-Peeler\trackertemp","r+")
+trackertempfile3=r"trackertemp.json"
+trackertempfile=open(trackertempfile3,"r+")
 trackertemp=json.load(trackertempfile)
 #trackertemp is brought back to transfer notes from the citra scraper to the tracker gui. 
 #temp- will be removed for a more proper system to keep track of type changes later(eg Burn Up)
 #monsfilepriv=temp changes not saved on tracker. MAKE SURE TO NOT SAVE THIS.
 #also make sure to add a system to track pp usage
-movesfile=open(r"C:\Users\scien\Documents\GitHub\Orange-Peeler\move-data.json")
+movesfile=open(r"move-data.json")
 moves=json.load(movesfile)
-movesfilepriv=open(r"C:\Users\scien\Documents\GitHub\Orange-Peeler\move-data.json")
-movespriv=json.load(movesfilepriv)
-abilitiesfile=open(r"C:\Users\scien\Documents\GitHub\Orange-Peeler\ability-data.json")
+movesetfile=open(r"movelearn.json")
+moveset=json.load(movesetfile)
+abilitiesfile=open(r"ability-data.json")
 abilities=json.load(abilitiesfile)
-itemsfile=open(r"C:\Users\scien\Documents\GitHub\Orange-Peeler\item-data.json","r+")
+itemsfile=open(r"item-data.json")
 items=json.load(itemsfile)
 print(items["004"])
-naturesfile=open(r"C:\Users\scien\Documents\GitHub\Orange-Peeler\nature-data.json")
+naturesfile=open(r"nature-data.json")
 natures=json.load(naturesfile)
 pagemon=1
 #4 5 6 placement of mons in a battle
@@ -31,6 +32,7 @@ battleformat="party"
 party=[trackertemp["1"]["mon"],trackertemp["2"]["mon"],trackertemp["3"]["mon"],trackertemp["4"]["mon"],trackertemp["5"]["mon"],trackertemp["6"]["mon"],]
 opponent=["-","-","-","-","-"]
 ally=["-"]
+print(party)
 #arrays for defining the effectiveness of typed attacks or special moves
 typetable={
 "Normal":[1,1,1,1,1,.5,1,0,.5,1,1,1,1,1,1,1,1,1,1],
@@ -192,18 +194,19 @@ def Mon1_Data(montemp):
     speentry.grid(row=8,column=2)
 def pagechanger():
     global pagemon
-    mon1=party[0]
-    mon2=party[1]
-    mon3=party[2]
-    mon4=party[3]
-    mon5=party[4]
-    mon6=party[5]
-    mon7=ally[0]
-    mon8=opponent[0]
-    mon9=opponent[1]
-    mon10=opponent[2]
-    mon11=opponent[3]
-    mon12=opponent[4]
+    #mon1=party[0]
+    #mon2=party[1]
+    #mon3=party[2]
+    #mon4=party[3]
+    #mon5=party[4]
+    #mon6=party[5]
+    #mon7=ally[0]
+    #mon8=opponent[0]
+    #mon9=opponent[1]
+    #mon10=opponent[2]
+    #mon11=opponent[3]
+    #mon12=opponent[4]
+    print(party[pagemon])
     for widget in tracking.winfo_children():
         widget.destroy()
     if battleformat=="single":
@@ -280,39 +283,88 @@ def pagechanger():
             Mon1_Tracker(tracking)
             pagemon=1
     print(pagemon)
+def pagechangerleft():
+    global pagemon
+    if battleformat=="party":
+        if pagemon==3:
+            Mon2_Tracker(tracking)
+            pagemon=2
+        elif pagemon==4:
+            Mon3_Tracker(tracking)
+            pagemon=3
+        elif pagemon==5:
+            Mon4_Tracker(tracking)
+            pagemon=4
+        elif pagemon==6:
+            Mon5_Tracker(tracking)
+            pagemon=5
+        elif pagemon==1:
+            Mon6_Tracker(tracking)
+            pagemon=6
+        else:
+            Mon1_Tracker(tracking)
+            pagemon=1
+def updater():
+    if pagemon==2:
+        Mon2_Tracker(tracking)
+    elif pagemon==3:
+        Mon3_Tracker(tracking)
+    elif pagemon==4:
+        Mon4_Tracker(tracking)
+    elif pagemon==5:
+        Mon5_Tracker(tracking)
+    elif pagemon==6:
+        Mon6_Tracker(tracking)
+    else:
+        Mon1_Tracker(tracking)
+    tracking.after(10000,updater)
+def gamechanger():
+    print(trackertemp["game"])
+    if trackertemp["game"]=="XY":
+        trackertemp["game"]="ORAS"
+    elif trackertemp["game"]=="ORAS":
+        trackertemp["game"]="SM"
+    elif trackertemp["game"]=="SM":
+        trackertemp["game"]="USUM"
+    elif trackertemp["game"]=="USUM":
+        trackertemp["game"]="XY"
+    print(trackertemp["game"])
+    with open(trackertempfile3, "w") as f:
+        json.dump(trackertemp,trackertempfile3)
 #11 tracking pages for different mons
 def Mon1_Tracker(tracking):
+    trackertempfile=open(r"trackertemp.json","r+")
+    trackertemp=json.load(trackertempfile)
     tracking.geometry("400x300")
     tracking.title("Tracker")
     def searchdict(dict, text):
         for item in dict:
             if item==text:
                 return item
-    monsaver=BooleanVar()
-    monimage=Checkbutton(tracking,variable=monsaver,onvalue=1,offvalue=0)
-    monimage.grid(row=1,column=1)
-    abillabel=Button(tracking, text = "<-",command=pagechanger)
+    abillabel=Button(tracking, text = "<-",command=pagechangerleft)
     abillabel.grid(row=1, column=1)
+    print("test")
     monlabel=Button(tracking, text=trackertemp["1"]["mon"],command=lambda:Mon1_Data(trackertemp["1"]["mon"]))
     monlabel.grid(row=1, column=3)
+    mon_moveset=(moveset[str(int(mons[trackertemp["1"]["mon"]]["id"]))])
+    for item in mon_moveset:
+        if int(item)>int(trackertemp["1"]["level"]):
+            nextmove=item
+            break
+        nextmove="-"
     changepage=Button(tracking, text = "->",command=pagechanger)
     changepage.grid(row=1, column=2)
+    changepage=Button(tracking, text = trackertemp["game"],command=gamechanger)
+    changepage.grid(row=1, column=4)
     abillabel=Button(tracking, text=trackertemp["1"]["ability"],command=lambda: Ability_Data(trackertemp["1"]["ability"]))
     abillabel.grid(row=4, column=3)
-    abilentry=Entry(tracking, width=14)
-    abilentry.grid(row=4,column=12)
-    itemlabel=Label(tracking, text=items[trackertemp["1"]["item"]]["name"])
+    itemlabel=Label(tracking, text=items[str(trackertemp["1"]["item"]).zfill(3)]["name"])
     itemlabel.grid(row=3, column=3)
-    itementry=Entry(tracking, width=14)
-    itementry.grid(row=3,column=12)
     strinlabel=Label(tracking, text = "Heals")
     strinlabel.grid(row=5, column=3)
-    strinentry=Entry(tracking, width=14)
-    strinentry.grid(row=5,column=12)
-    types1=Label(tracking, text =mons[trackertemp["1"]["mon"]]["types"][0])
-    types1.grid(row=3,column=1)
-    types2=Label(tracking, text =mons[trackertemp["1"]["mon"]]["types"][1])
-    types2.grid(row=4,column=1)
+    for item in range(0,len(mons[trackertemp["1"]["mon"]]["types"])):
+        types2=Label(tracking, text =mons[trackertemp["1"]["mon"]]["types"][item])
+        types2.grid(row=3+item,column=1)
     hplabel=Label(tracking, text = "HP")
     hplabel.grid(row=1, column=9)
     hpentry=Label(tracking, text =trackertemp["1"]["maxhp"])
@@ -359,7 +411,7 @@ def Mon1_Tracker(tracking):
     badge7.grid(row=8,column=11)
     badge8=Checkbutton(tracking,text="8")
     badge8.grid(row=9,column=11)
-    movelabel=Label(tracking, text = "Moves")
+    movelabel=Label(tracking, text = "Moves ["+nextmove+"]")
     movelabel.grid(row=6, column=1)
     move1entry=Label(tracking, text=trackertemp["1"]["move1"])
     move1entry.grid(row=7,column=1)
@@ -409,147 +461,92 @@ def Mon1_Tracker(tracking):
     typmove3entry.grid(row=9,column=5)
     typmove4entry=Label(tracking, text=moves[trackertemp["1"]["move4"]]["type"])
     typmove4entry.grid(row=10,column=5)
+    typmovelabel=Label(tracking, text = "Contact")
+    typmovelabel.grid(row=6, column=6)
+    typmove1entry=Label(tracking, text=moves[trackertemp["1"]["move1"]]["contact"])
+    typmove1entry.grid(row=7,column=6)
+    typmove2entry=Label(tracking, text=moves[trackertemp["1"]["move2"]]["contact"])
+    typmove2entry.grid(row=8,column=6)
+    typmove3entry=Label(tracking, text=moves[trackertemp["1"]["move3"]]["contact"])
+    typmove3entry.grid(row=9,column=6)
+    typmove4entry=Label(tracking, text=moves[trackertemp["1"]["move4"]]["contact"])
+    typmove4entry.grid(row=10,column=6)
     #display
-    levllabel=Label(tracking, text = "Lv.")
+    levllabel=Label(tracking, text = "Lv. "+trackertemp["1"]["level"])
     levllabel.grid(row=2, column=3)
     def jsonsave():
         mon1=trackertemp["1"]["mon"]
-        abilcont=abilentry.get()
+        abilcont=trackertemp["1"]["ability"]
         if searchdict(abilities, abilcont)!=None:
             mons[mon1]["ability"].append(abilcont)
         movecont=[move1entry.get(),move2entry.get(),move3entry.get(),move4entry.get(),]
-        levlcont=""
+        levlcont=trackertemp["1"]["level"]
         for move in movecont:
             if searchdict(moves, move)!=None:
                 mons[mon1]["moves"].append(move+", "+levlcont)
         mons[mon1]["lastseenat"]=levlcont
-        if strinentry.get()!="":
-            mons[mon1]["stringnote"]=strinentry.get()
-        if hpentry.get()!="":
-            mons[mon1]["notes"][0]=hpentry.get()
-        if atkentry.get()!="":
-            mons[mon1]["notes"][1]=atkentry.get()
-        if defentry.get()!="":
-            mons[mon1]["notes"][2]=defentry.get()
-        if spaentry.get()!="":
-            mons[mon1]["notes"][3]=spaentry.get()
-        if spdentry.get()!="":
-            mons[mon1]["notes"][4]=spdentry.get()
-        if speentry.get()!="":
-            mons[mon1]["notes"][5]=speentry.get()
     #save
     jsonsaver=Button(tracking, text = "S", command=jsonsave)
     jsonsaver.grid(row=2, column=1)
 def Mon2_Tracker(tracking):
-    tracking.geometry("400x240")
+    trackertempfile=open(r"trackertemp.json","r+")
+    trackertemp=json.load(trackertempfile)
+    tracking.geometry("400x300")
     tracking.title("Tracker")
-    status=["-","Burn","Poison","Sleep","Paralysis","Frozen"]
-    statustext=status[0]
-    def statuschange():
-        statustext=status[status.index(statustext)+1]
-    statusbutton=Button(tracking,text=statustext,command=statuschange)
-    statusbutton.grid(row=8,column=12)
     def searchdict(dict, text):
         for item in dict:
             if item==text:
                 return item
-    opponen=Entry(tracking, width=14)
-    opponen.grid(row=7,column=12)
-    monentry=Entry(tracking, width=14)
-    monentry.grid(row=1,column=12)
-    def movedisplay():
-        if move1entry.get()!="":
-            if opponen.get()!="":
-                coverage1=str(coverage(moves[move1entry.get()]["type"],monentry.get(),opponen.get(),abilentry.get(),"null","null"))
-            else:
-                coverage1=""
-            move1label=Label(tracking, text="  "+moves[move1entry.get()]["type"]+", "+moves[move1entry.get()]["pp"]+", "+moves[move1entry.get()]["power"]+", "+moves[move1entry.get()]["acc"]+", "+coverage1)
-            move1label.grid(row=3, column=8)
-        if move2entry.get()!="":
-            if opponen.get()!="":
-                coverage2=str(coverage(moves[move2entry.get()]["type"],monentry.get(),opponen.get(),abilentry.get(),"null","null"))
-            else:
-                coverage2=""
-            move2label=Label(tracking, text="  "+moves[move2entry.get()]["type"]+", "+movespriv[move2entry.get()]["pp"]+", "+moves[move2entry.get()]["power"]+", "+moves[move2entry.get()]["acc"]+", "+coverage2)
-            move2label.grid(row=5, column=8)
-        if move3entry.get()!="":
-            if opponen.get()!="":
-                coverage3=str(coverage(moves[move3entry.get()]["type"],monentry.get(),opponen.get(),abilentry.get(),"null","null"))
-            else:
-                coverage3=""
-            move3label=Label(tracking, text="  "+moves[move3entry.get()]["type"]+", "+moves[move3entry.get()]["pp"]+", "+moves[move3entry.get()]["power"]+", "+moves[move3entry.get()]["acc"]+", "+coverage3)
-            move3label.grid(row=7, column=8)
-        if move4entry.get()!="":
-            if opponen.get()!="":
-                coverage4=str(coverage(moves[move4entry.get()]["type"],monentry.get(),opponen.get(),abilentry.get(),"null","null"))
-            else:
-                coverage4=""
-            move4label=Label(tracking, text="  "+moves[move4entry.get()]["type"]+", "+moves[move4entry.get()]["pp"]+", "+moves[move4entry.get()]["power"]+", "+moves[move4entry.get()]["acc"]+", "+coverage4)
-            move4label.grid(row=9, column=8)
-        monbst=Label(tracking, text=(mons[str(monentry.get())]["bst"]+", "+mons[str(monentry.get())]["lastseenat"]))
-        monbst.grid(row=2, column=3)
-        montype=Label(tracking, text=monspriv[str(monentry.get())]["types"])
-        montype.grid(row=2, column=12)
-        if opponen.get()!="":
-            oppbst=Label(tracking, text=(mons[str(opponen.get())]["bst"]+", "+mons[str(opponen.get())]["lastseenat"]))
-            oppbst.grid(row=6, column=3)
-            opptype=Label(tracking, text=monspriv[str(opponen.get())]["types"])
-            opptype.grid(row=6, column=12)
-    monsaver=BooleanVar()
-    monimage=Checkbutton(tracking,variable=monsaver,onvalue=1,offvalue=0)
-    monimage.grid(row=1,column=1)
-    abillabel=Button(tracking, text = "<-",command=pagechanger)
+    abillabel=Button(tracking, text = "<-",command=pagechangerleft)
     abillabel.grid(row=1, column=1)
-    def playermondata():
-        if monentry.get()!="":
-            Mon1_Data(monentry.get())
-    monlabel=Button(tracking, text="Your Mon",command=playermondata)
+    print("test")
+    monlabel=Button(tracking, text=trackertemp["2"]["mon"],command=lambda:Mon1_Data(trackertemp["2"]["mon"]))
     monlabel.grid(row=1, column=3)
+    mon_moveset=(moveset[str(int(mons[trackertemp["2"]["mon"]]["id"]))])
+    for item in mon_moveset:
+        if int(item)>int(trackertemp["2"]["level"]):
+            nextmove=item
+            break
+        nextmove="-"
     changepage=Button(tracking, text = "->",command=pagechanger)
     changepage.grid(row=1, column=2)
-    def open_abildata():
-        if abilentry.get()!="":
-            Ability_Data(abilentry.get())
-    abillabel=Button(tracking, text = "Abilities",command=open_abildata)
+    abillabel=Button(tracking, text=trackertemp["2"]["ability"],command=lambda: Ability_Data(trackertemp["2"]["ability"]))
     abillabel.grid(row=4, column=3)
-    abilentry=Entry(tracking, width=14)
-    abilentry.grid(row=4,column=12)
-    itemlabel=Label(tracking, text = "Held Item")
+    itemlabel=Label(tracking, text=items[str(trackertemp["2"]["item"]).zfill(3)]["name"])
     itemlabel.grid(row=3, column=3)
-    itementry=Entry(tracking, width=14)
-    itementry.grid(row=3,column=12)
-    strinlabel=Label(tracking, text = "String")
+    strinlabel=Label(tracking, text = "Heals")
     strinlabel.grid(row=5, column=3)
-    strinentry=Entry(tracking, width=14)
-    strinentry.grid(row=5,column=12)
+    for item in range(0,len(mons[trackertemp["2"]["mon"]]["types"])):
+        types2=Label(tracking, text =mons[trackertemp["2"]["mon"]]["types"][item])
+        types2.grid(row=3+item,column=1)
     hplabel=Label(tracking, text = "HP")
-    hplabel.grid(row=3, column=1)
-    hpentry=Entry(tracking, width=4)
-    hpentry.grid(row=3,column=2)
+    hplabel.grid(row=1, column=9)
+    hpentry=Label(tracking, text =trackertemp["2"]["maxhp"])
+    hpentry.grid(row=1,column=10)
     atklabel=Label(tracking, text = "ATK")
-    atklabel.grid(row=4, column=1)
-    atkentry=Entry(tracking, width=4)
-    atkentry.grid(row=4,column=2)
+    atklabel.grid(row=2, column=9)
+    atkentry=Label(tracking, text =trackertemp["2"]["atk"])
+    atkentry.grid(row=2,column=10)
     deflabel=Label(tracking, text = "DEF")
-    deflabel.grid(row=5, column=1)
-    defentry=Entry(tracking, width=4)
-    defentry.grid(row=5,column=2)
+    deflabel.grid(row=3, column=9)
+    defentry=Label(tracking, text =trackertemp["2"]["def"])
+    defentry.grid(row=3,column=10)
     spalabel=Label(tracking, text = "SPA")
-    spalabel.grid(row=6, column=1)
-    spaentry=Entry(tracking, width=4)
-    spaentry.grid(row=6,column=2)
+    spalabel.grid(row=4, column=9)
+    spaentry=Label(tracking, text =trackertemp["2"]["spa"])
+    spaentry.grid(row=4,column=10)
     spdlabel=Label(tracking, text = "SPD")
-    spdlabel.grid(row=7, column=1)
-    spdentry=Entry(tracking, width=4)
-    spdentry.grid(row=7,column=2)
+    spdlabel.grid(row=5, column=9)
+    spdentry=Label(tracking, text =trackertemp["2"]["spd"])
+    spdentry.grid(row=5,column=10)
     spelabel=Label(tracking, text = "SPE")
-    spelabel.grid(row=8, column=1)
-    speentry=Entry(tracking, width=4)
-    speentry.grid(row=8,column=2)
-    acclabel=Label(tracking, text = "ACC")
-    acclabel.grid(row=9, column=1)
-    accentry=Entry(tracking, width=4)
-    accentry.grid(row=9,column=2)
+    spelabel.grid(row=6, column=9)
+    speentry=Label(tracking, text =trackertemp["2"]["spe"])
+    speentry.grid(row=6,column=10)
+    spelabel=Label(tracking, text = "BST")
+    spelabel.grid(row=7, column=9)
+    bstlabel=Label(tracking, text=mons[trackertemp["2"]["mon"]]["bst"])
+    bstlabel.grid(row=7,column=10)
     badgelabel=Label(tracking, text = "Badges")
     badgelabel.grid(row=1, column=11)
     badge1=Checkbutton(tracking,text="1")
@@ -568,167 +565,142 @@ def Mon2_Tracker(tracking):
     badge7.grid(row=8,column=11)
     badge8=Checkbutton(tracking,text="8")
     badge8.grid(row=9,column=11)
-    movelabel=Label(tracking, text = "Moves")
-    movelabel.grid(row=1, column=8)
-    move1entry=Entry(tracking, width=18)
-    move1entry.grid(row=2,column=8)
-    move2entry=Entry(tracking, width=18)
-    move2entry.grid(row=4,column=8)
-    move3entry=Entry(tracking, width=18)
-    move3entry.grid(row=6,column=8)
-    move4entry=Entry(tracking, width=18)
-    move4entry.grid(row=8,column=8)
-    movesaver=Button(tracking, text = "Display", command=movedisplay)
-    movesaver.grid(row=8, column=3)
-    def oppmondata():
-        if opponen.get()!="":
-            Mon1_Data(opponen.get())
-    opponentb=Button(tracking, text="Opponent",command=oppmondata)
-    opponentb.grid(row=7, column=3)
-    levllabel=Label(tracking, text = "Level")
-    levllabel.grid(row=2, column=1)
-    levlentry=Entry(tracking, width=4)
-    levlentry.grid(row=2,column=2)
+    movelabel=Label(tracking, text = "Moves ["+nextmove+"]")
+    movelabel.grid(row=6, column=1)
+    move1entry=Label(tracking, text=trackertemp["2"]["move1"])
+    move1entry.grid(row=7,column=1)
+    move2entry=Label(tracking, text=trackertemp["2"]["move2"])
+    move2entry.grid(row=8,column=1)
+    move3entry=Label(tracking, text=trackertemp["2"]["move3"])
+    move3entry.grid(row=9,column=1)
+    move4entry=Label(tracking, text=trackertemp["2"]["move4"])
+    move4entry.grid(row=10,column=1)
+    ppmovelabel=Label(tracking, text = "PP")
+    ppmovelabel.grid(row=6, column=2)
+    ppmove1entry=Label(tracking, text=moves[trackertemp["2"]["move1"]]["pp"])
+    ppmove1entry.grid(row=7,column=2)
+    ppmove2entry=Label(tracking, text=moves[trackertemp["2"]["move2"]]["pp"])
+    ppmove2entry.grid(row=8,column=2)
+    ppmove3entry=Label(tracking, text=moves[trackertemp["2"]["move3"]]["pp"])
+    ppmove3entry.grid(row=9,column=2)
+    ppmove4entry=Label(tracking, text=moves[trackertemp["2"]["move4"]]["pp"])
+    ppmove4entry.grid(row=10,column=2)
+    powmovelabel=Label(tracking, text = "Pow")
+    powmovelabel.grid(row=6, column=3)
+    powmove1entry=Label(tracking, text=moves[trackertemp["2"]["move1"]]["power"])
+    powmove1entry.grid(row=7,column=3)
+    powmove2entry=Label(tracking, text=moves[trackertemp["2"]["move2"]]["power"])
+    powmove2entry.grid(row=8,column=3)
+    powmove3entry=Label(tracking, text=moves[trackertemp["2"]["move3"]]["power"])
+    powmove3entry.grid(row=9,column=3)
+    powmove4entry=Label(tracking, text=moves[trackertemp["2"]["move4"]]["power"])
+    powmove4entry.grid(row=10,column=3)
+    accmovelabel=Label(tracking, text = "Acc")
+    accmovelabel.grid(row=6, column=4)
+    accmove1entry=Label(tracking, text=moves[trackertemp["2"]["move1"]]["acc"])
+    accmove1entry.grid(row=7,column=4)
+    accmove2entry=Label(tracking, text=moves[trackertemp["2"]["move2"]]["acc"])
+    accmove2entry.grid(row=8,column=4)
+    accmove3entry=Label(tracking, text=moves[trackertemp["2"]["move3"]]["acc"])
+    accmove3entry.grid(row=9,column=4)
+    accmove4entry=Label(tracking, text=moves[trackertemp["2"]["move4"]]["acc"])
+    accmove4entry.grid(row=10,column=4)
+    typmovelabel=Label(tracking, text = "Type")
+    typmovelabel.grid(row=6, column=5)
+    typmove1entry=Label(tracking, text=moves[trackertemp["2"]["move1"]]["type"])
+    typmove1entry.grid(row=7,column=5)
+    typmove2entry=Label(tracking, text=moves[trackertemp["2"]["move2"]]["type"])
+    typmove2entry.grid(row=8,column=5)
+    typmove3entry=Label(tracking, text=moves[trackertemp["2"]["move3"]]["type"])
+    typmove3entry.grid(row=9,column=5)
+    typmove4entry=Label(tracking, text=moves[trackertemp["2"]["move4"]]["type"])
+    typmove4entry.grid(row=10,column=5)
+    typmovelabel=Label(tracking, text = "Contact")
+    typmovelabel.grid(row=6, column=6)
+    typmove1entry=Label(tracking, text=moves[trackertemp["1"]["move1"]]["contact"])
+    typmove1entry.grid(row=7,column=6)
+    typmove2entry=Label(tracking, text=moves[trackertemp["1"]["move2"]]["contact"])
+    typmove2entry.grid(row=8,column=6)
+    typmove3entry=Label(tracking, text=moves[trackertemp["1"]["move3"]]["contact"])
+    typmove3entry.grid(row=9,column=6)
+    typmove4entry=Label(tracking, text=moves[trackertemp["1"]["move4"]]["contact"])
+    typmove4entry.grid(row=10,column=6)
+    #display
+    levllabel=Label(tracking, text = "Lv. "+trackertemp["2"]["level"])
+    levllabel.grid(row=2, column=3)
     def jsonsave():
-        if monsaver.get()==1:
-            mon1=opponen.get()
-        else:
-            mon1=monentry.get()
-        abilcont=abilentry.get()
+        mon1=trackertemp["2"]["mon"]
+        abilcont=trackertemp["2"]["ability"]
         if searchdict(abilities, abilcont)!=None:
             mons[mon1]["ability"].append(abilcont)
         movecont=[move1entry.get(),move2entry.get(),move3entry.get(),move4entry.get(),]
-        levlcont=levlentry.get()
+        levlcont=trackertemp["2"]["level"]
         for move in movecont:
             if searchdict(moves, move)!=None:
                 mons[mon1]["moves"].append(move+", "+levlcont)
         mons[mon1]["lastseenat"]=levlcont
-        if strinentry.get()!="":
-            mons[mon1]["stringnote"]=strinentry.get()
-        if hpentry.get()!="":
-            mons[mon1]["notes"][0]=hpentry.get()
-        if atkentry.get()!="":
-            mons[mon1]["notes"][1]=atkentry.get()
-        if defentry.get()!="":
-            mons[mon1]["notes"][2]=defentry.get()
-        if spaentry.get()!="":
-            mons[mon1]["notes"][3]=spaentry.get()
-        if spdentry.get()!="":
-            mons[mon1]["notes"][4]=spdentry.get()
-        if speentry.get()!="":
-            mons[mon1]["notes"][5]=speentry.get()
-    jsonsaver=Button(tracking, text = "Save", command=jsonsave)
-    jsonsaver.grid(row=9, column=3)
+    #save
+    jsonsaver=Button(tracking, text = "S", command=jsonsave)
+    jsonsaver.grid(row=2, column=1)
 def Mon3_Tracker(tracking):
-    tracking.geometry("400x240")
+    trackertempfile=open(r"trackertemp.json","r+")
+    trackertemp=json.load(trackertempfile)
+    tracking.geometry("400x300")
     tracking.title("Tracker")
-    status=["-","Burn","Poison","Sleep","Paralysis","Frozen"]
-    statustext=status[0]
-    def statuschange():
-        statustext=status[status.index(statustext)+1]
-    statusbutton=Button(tracking,text=statustext,command=statuschange)
-    statusbutton.grid(row=8,column=12)
     def searchdict(dict, text):
         for item in dict:
             if item==text:
                 return item
-    opponen=Entry(tracking, width=14)
-    opponen.grid(row=7,column=12)
-    monentry=Entry(tracking, width=14)
-    monentry.grid(row=1,column=12)
-    def movedisplay():
-        if move1entry.get()!="":
-            if opponen.get()!="":
-                coverage1=str(coverage(moves[move1entry.get()]["type"],monentry.get(),opponen.get(),abilentry.get(),"null","null"))
-            else:
-                coverage1=""
-            move1label=Label(tracking, text="  "+moves[move1entry.get()]["type"]+", "+moves[move1entry.get()]["pp"]+", "+moves[move1entry.get()]["power"]+", "+moves[move1entry.get()]["acc"]+", "+coverage1)
-            move1label.grid(row=3, column=8)
-        if move2entry.get()!="":
-            if opponen.get()!="":
-                coverage2=str(coverage(moves[move2entry.get()]["type"],monentry.get(),opponen.get(),abilentry.get(),"null","null"))
-            else:
-                coverage2=""
-            move2label=Label(tracking, text="  "+moves[move2entry.get()]["type"]+", "+movespriv[move2entry.get()]["pp"]+", "+moves[move2entry.get()]["power"]+", "+moves[move2entry.get()]["acc"]+", "+coverage2)
-            move2label.grid(row=5, column=8)
-        if move3entry.get()!="":
-            if opponen.get()!="":
-                coverage3=str(coverage(moves[move3entry.get()]["type"],monentry.get(),opponen.get(),abilentry.get(),"null","null"))
-            else:
-                coverage3=""
-            move3label=Label(tracking, text="  "+moves[move3entry.get()]["type"]+", "+moves[move3entry.get()]["pp"]+", "+moves[move3entry.get()]["power"]+", "+moves[move3entry.get()]["acc"]+", "+coverage3)
-            move3label.grid(row=7, column=8)
-        if move4entry.get()!="":
-            if opponen.get()!="":
-                coverage4=str(coverage(moves[move4entry.get()]["type"],monentry.get(),opponen.get(),abilentry.get(),"null","null"))
-            else:
-                coverage4=""
-            move4label=Label(tracking, text="  "+moves[move4entry.get()]["type"]+", "+moves[move4entry.get()]["pp"]+", "+moves[move4entry.get()]["power"]+", "+moves[move4entry.get()]["acc"]+", "+coverage4)
-            move4label.grid(row=9, column=8)
-        monbst=Label(tracking, text=(mons[str(monentry.get())]["bst"]+", "+mons[str(monentry.get())]["lastseenat"]))
-        monbst.grid(row=2, column=3)
-        montype=Label(tracking, text=monspriv[str(monentry.get())]["types"])
-        montype.grid(row=2, column=12)
-        if opponen.get()!="":
-            oppbst=Label(tracking, text=(mons[str(opponen.get())]["bst"]+", "+mons[str(opponen.get())]["lastseenat"]))
-            oppbst.grid(row=6, column=3)
-            opptype=Label(tracking, text=monspriv[str(opponen.get())]["types"])
-            opptype.grid(row=6, column=12)
-    monsaver=BooleanVar()
-    monimage=Checkbutton(tracking,variable=monsaver,onvalue=1,offvalue=0)
-    monimage.grid(row=1,column=1)
-    abillabel=Button(tracking, text = "<-",command=pagechanger)
+    abillabel=Button(tracking, text = "<-",command=pagechangerleft)
     abillabel.grid(row=1, column=1)
-    def playermondata():
-        if monentry.get()!="":
-            Mon1_Data(monentry.get())
-    monlabel=Button(tracking, text="Your Mon",command=playermondata)
+    print("test")
+    monlabel=Button(tracking, text=trackertemp["3"]["mon"],command=lambda:Mon1_Data(trackertemp["3"]["mon"]))
     monlabel.grid(row=1, column=3)
+    mon_moveset=(moveset[str(int(mons[trackertemp["3"]["mon"]]["id"]))])
+    for item in mon_moveset:
+        if int(item)>int(trackertemp["3"]["level"]):
+            nextmove=item
+            break
+        nextmove="-"
     changepage=Button(tracking, text = "->",command=pagechanger)
     changepage.grid(row=1, column=2)
-    def open_abildata():
-        if abilentry.get()!="":
-            Ability_Data(abilentry.get())
-    abillabel=Button(tracking, text = "Abilities",command=open_abildata)
+    abillabel=Button(tracking, text=trackertemp["3"]["ability"],command=lambda: Ability_Data(trackertemp["3"]["ability"]))
     abillabel.grid(row=4, column=3)
-    abilentry=Entry(tracking, width=14)
-    abilentry.grid(row=4,column=12)
-    itemlabel=Label(tracking, text = "Held Item")
+    itemlabel=Label(tracking, text=items[str(trackertemp["3"]["item"]).zfill(3)]["name"])
     itemlabel.grid(row=3, column=3)
-    itementry=Entry(tracking, width=14)
-    itementry.grid(row=3,column=12)
-    strinlabel=Label(tracking, text = "String")
+    strinlabel=Label(tracking, text = "Heals")
     strinlabel.grid(row=5, column=3)
-    strinentry=Entry(tracking, width=14)
-    strinentry.grid(row=5,column=12)
+    for item in range(0,len(mons[trackertemp["3"]["mon"]]["types"])):
+        types2=Label(tracking, text =mons[trackertemp["3"]["mon"]]["types"][item])
+        types2.grid(row=3+item,column=1)
     hplabel=Label(tracking, text = "HP")
-    hplabel.grid(row=3, column=1)
-    hpentry=Entry(tracking, width=4)
-    hpentry.grid(row=3,column=2)
+    hplabel.grid(row=1, column=9)
+    hpentry=Label(tracking, text =trackertemp["3"]["maxhp"])
+    hpentry.grid(row=1,column=10)
     atklabel=Label(tracking, text = "ATK")
-    atklabel.grid(row=4, column=1)
-    atkentry=Entry(tracking, width=4)
-    atkentry.grid(row=4,column=2)
+    atklabel.grid(row=2, column=9)
+    atkentry=Label(tracking, text =trackertemp["3"]["atk"])
+    atkentry.grid(row=2,column=10)
     deflabel=Label(tracking, text = "DEF")
-    deflabel.grid(row=5, column=1)
-    defentry=Entry(tracking, width=4)
-    defentry.grid(row=5,column=2)
+    deflabel.grid(row=3, column=9)
+    defentry=Label(tracking, text =trackertemp["3"]["def"])
+    defentry.grid(row=3,column=10)
     spalabel=Label(tracking, text = "SPA")
-    spalabel.grid(row=6, column=1)
-    spaentry=Entry(tracking, width=4)
-    spaentry.grid(row=6,column=2)
+    spalabel.grid(row=4, column=9)
+    spaentry=Label(tracking, text =trackertemp["3"]["spa"])
+    spaentry.grid(row=4,column=10)
     spdlabel=Label(tracking, text = "SPD")
-    spdlabel.grid(row=7, column=1)
-    spdentry=Entry(tracking, width=4)
-    spdentry.grid(row=7,column=2)
+    spdlabel.grid(row=5, column=9)
+    spdentry=Label(tracking, text =trackertemp["3"]["spd"])
+    spdentry.grid(row=5,column=10)
     spelabel=Label(tracking, text = "SPE")
-    spelabel.grid(row=8, column=1)
-    speentry=Entry(tracking, width=4)
-    speentry.grid(row=8,column=2)
-    acclabel=Label(tracking, text = "ACC")
-    acclabel.grid(row=9, column=1)
-    accentry=Entry(tracking, width=4)
-    accentry.grid(row=9,column=2)
+    spelabel.grid(row=6, column=9)
+    speentry=Label(tracking, text =trackertemp["3"]["spe"])
+    speentry.grid(row=6,column=10)
+    spelabel=Label(tracking, text = "BST")
+    spelabel.grid(row=7, column=9)
+    bstlabel=Label(tracking, text=mons[trackertemp["3"]["mon"]]["bst"])
+    bstlabel.grid(row=7,column=10)
     badgelabel=Label(tracking, text = "Badges")
     badgelabel.grid(row=1, column=11)
     badge1=Checkbutton(tracking,text="1")
@@ -746,168 +718,143 @@ def Mon3_Tracker(tracking):
     badge7=Checkbutton(tracking,text="7")
     badge7.grid(row=8,column=11)
     badge8=Checkbutton(tracking,text="8")
-    badge8.grid(row=9,column=9)
-    movelabel=Label(tracking, text = "Moves")
-    movelabel.grid(row=1, column=8)
-    move1entry=Entry(tracking, width=18)
-    move1entry.grid(row=2,column=8)
-    move2entry=Entry(tracking, width=18)
-    move2entry.grid(row=4,column=8)
-    move3entry=Entry(tracking, width=18)
-    move3entry.grid(row=6,column=8)
-    move4entry=Entry(tracking, width=18)
-    move4entry.grid(row=8,column=8)
-    movesaver=Button(tracking, text = "Display", command=movedisplay)
-    movesaver.grid(row=8, column=3)
-    def oppmondata():
-        if opponen.get()!="":
-            Mon1_Data(opponen.get())
-    opponentb=Button(tracking, text="Opponent",command=oppmondata)
-    opponentb.grid(row=7, column=3)
-    levllabel=Label(tracking, text = "Level")
-    levllabel.grid(row=2, column=1)
-    levlentry=Entry(tracking, width=4)
-    levlentry.grid(row=2,column=2)
+    badge8.grid(row=9,column=11)
+    movelabel=Label(tracking, text = "Moves ["+nextmove+"]")
+    movelabel.grid(row=6, column=1)
+    move1entry=Label(tracking, text=trackertemp["3"]["move1"])
+    move1entry.grid(row=7,column=1)
+    move2entry=Label(tracking, text=trackertemp["3"]["move2"])
+    move2entry.grid(row=8,column=1)
+    move3entry=Label(tracking, text=trackertemp["3"]["move3"])
+    move3entry.grid(row=9,column=1)
+    move4entry=Label(tracking, text=trackertemp["3"]["move4"])
+    move4entry.grid(row=10,column=1)
+    ppmovelabel=Label(tracking, text = "PP")
+    ppmovelabel.grid(row=6, column=2)
+    ppmove1entry=Label(tracking, text=moves[trackertemp["3"]["move1"]]["pp"])
+    ppmove1entry.grid(row=7,column=2)
+    ppmove2entry=Label(tracking, text=moves[trackertemp["3"]["move2"]]["pp"])
+    ppmove2entry.grid(row=8,column=2)
+    ppmove3entry=Label(tracking, text=moves[trackertemp["3"]["move3"]]["pp"])
+    ppmove3entry.grid(row=9,column=2)
+    ppmove4entry=Label(tracking, text=moves[trackertemp["3"]["move4"]]["pp"])
+    ppmove4entry.grid(row=10,column=2)
+    powmovelabel=Label(tracking, text = "Pow")
+    powmovelabel.grid(row=6, column=3)
+    powmove1entry=Label(tracking, text=moves[trackertemp["3"]["move1"]]["power"])
+    powmove1entry.grid(row=7,column=3)
+    powmove2entry=Label(tracking, text=moves[trackertemp["3"]["move2"]]["power"])
+    powmove2entry.grid(row=8,column=3)
+    powmove3entry=Label(tracking, text=moves[trackertemp["3"]["move3"]]["power"])
+    powmove3entry.grid(row=9,column=3)
+    powmove4entry=Label(tracking, text=moves[trackertemp["3"]["move4"]]["power"])
+    powmove4entry.grid(row=10,column=3)
+    accmovelabel=Label(tracking, text = "Acc")
+    accmovelabel.grid(row=6, column=4)
+    accmove1entry=Label(tracking, text=moves[trackertemp["3"]["move1"]]["acc"])
+    accmove1entry.grid(row=7,column=4)
+    accmove2entry=Label(tracking, text=moves[trackertemp["3"]["move2"]]["acc"])
+    accmove2entry.grid(row=8,column=4)
+    accmove3entry=Label(tracking, text=moves[trackertemp["3"]["move3"]]["acc"])
+    accmove3entry.grid(row=9,column=4)
+    accmove4entry=Label(tracking, text=moves[trackertemp["3"]["move4"]]["acc"])
+    accmove4entry.grid(row=10,column=4)
+    typmovelabel=Label(tracking, text = "Type")
+    typmovelabel.grid(row=6, column=5)
+    typmove1entry=Label(tracking, text=moves[trackertemp["3"]["move1"]]["type"])
+    typmove1entry.grid(row=7,column=5)
+    typmove2entry=Label(tracking, text=moves[trackertemp["3"]["move2"]]["type"])
+    typmove2entry.grid(row=8,column=5)
+    typmove3entry=Label(tracking, text=moves[trackertemp["3"]["move3"]]["type"])
+    typmove3entry.grid(row=9,column=5)
+    typmove4entry=Label(tracking, text=moves[trackertemp["3"]["move4"]]["type"])
+    typmove4entry.grid(row=10,column=5)
+    typmovelabel=Label(tracking, text = "Contact")
+    typmovelabel.grid(row=6, column=6)
+    typmove1entry=Label(tracking, text=moves[trackertemp["1"]["move1"]]["contact"])
+    typmove1entry.grid(row=7,column=6)
+    typmove2entry=Label(tracking, text=moves[trackertemp["1"]["move2"]]["contact"])
+    typmove2entry.grid(row=8,column=6)
+    typmove3entry=Label(tracking, text=moves[trackertemp["1"]["move3"]]["contact"])
+    typmove3entry.grid(row=9,column=6)
+    typmove4entry=Label(tracking, text=moves[trackertemp["1"]["move4"]]["contact"])
+    typmove4entry.grid(row=10,column=6)
+    #display
+    levllabel=Label(tracking, text = "Lv. "+trackertemp["3"]["level"])
+    levllabel.grid(row=2, column=3)
     def jsonsave():
-        if monsaver.get()==1:
-            mon1=opponen.get()
-        else:
-            mon1=monentry.get()
-        abilcont=abilentry.get()
+        mon1=trackertemp["3"]["mon"]
+        abilcont=trackertemp["3"]["ability"]
         if searchdict(abilities, abilcont)!=None:
             mons[mon1]["ability"].append(abilcont)
         movecont=[move1entry.get(),move2entry.get(),move3entry.get(),move4entry.get(),]
-        levlcont=levlentry.get()
+        levlcont=trackertemp["3"]["level"]
         for move in movecont:
             if searchdict(moves, move)!=None:
                 mons[mon1]["moves"].append(move+", "+levlcont)
         mons[mon1]["lastseenat"]=levlcont
-        if strinentry.get()!="":
-            mons[mon1]["stringnote"]=strinentry.get()
-        if hpentry.get()!="":
-            mons[mon1]["notes"][0]=hpentry.get()
-        if atkentry.get()!="":
-            mons[mon1]["notes"][1]=atkentry.get()
-        if defentry.get()!="":
-            mons[mon1]["notes"][2]=defentry.get()
-        if spaentry.get()!="":
-            mons[mon1]["notes"][3]=spaentry.get()
-        if spdentry.get()!="":
-            mons[mon1]["notes"][4]=spdentry.get()
-        if speentry.get()!="":
-            mons[mon1]["notes"][5]=speentry.get()
-    jsonsaver=Button(tracking, text = "Save", command=jsonsave)
-    jsonsaver.grid(row=9, column=3)
+    #save
+    jsonsaver=Button(tracking, text = "S", command=jsonsave)
+    jsonsaver.grid(row=2, column=1)
 def Mon4_Tracker(tracking):
-    tracking.geometry("400x240")
+    trackertempfile=open(r"trackertemp.json","r+")
+    trackertemp=json.load(trackertempfile)
+    tracking.geometry("400x300")
     tracking.title("Tracker")
-    status=["-","Burn","Poison","Sleep","Paralysis","Frozen"]
-    statustext=status[0]
-    def statuschange():
-        statustext=status[status.index(statustext)+1]
-    statusbutton=Button(tracking,text=statustext,command=statuschange)
-    statusbutton.grid(row=8,column=12)
     def searchdict(dict, text):
         for item in dict:
             if item==text:
                 return item
-    opponen=Entry(tracking, width=14)
-    opponen.grid(row=7,column=12)
-    monentry=Entry(tracking, width=14)
-    monentry.grid(row=1,column=12)
-    def movedisplay():
-        if move1entry.get()!="":
-            if opponen.get()!="":
-                coverage1=str(coverage(moves[move1entry.get()]["type"],monentry.get(),opponen.get(),abilentry.get(),"null","null"))
-            else:
-                coverage1=""
-            move1label=Label(tracking, text="  "+moves[move1entry.get()]["type"]+", "+moves[move1entry.get()]["pp"]+", "+moves[move1entry.get()]["power"]+", "+moves[move1entry.get()]["acc"]+", "+coverage1)
-            move1label.grid(row=3, column=8)
-        if move2entry.get()!="":
-            if opponen.get()!="":
-                coverage2=str(coverage(moves[move2entry.get()]["type"],monentry.get(),opponen.get(),abilentry.get(),"null","null"))
-            else:
-                coverage2=""
-            move2label=Label(tracking, text="  "+moves[move2entry.get()]["type"]+", "+movespriv[move2entry.get()]["pp"]+", "+moves[move2entry.get()]["power"]+", "+moves[move2entry.get()]["acc"]+", "+coverage2)
-            move2label.grid(row=5, column=8)
-        if move3entry.get()!="":
-            if opponen.get()!="":
-                coverage3=str(coverage(moves[move3entry.get()]["type"],monentry.get(),opponen.get(),abilentry.get(),"null","null"))
-            else:
-                coverage3=""
-            move3label=Label(tracking, text="  "+moves[move3entry.get()]["type"]+", "+moves[move3entry.get()]["pp"]+", "+moves[move3entry.get()]["power"]+", "+moves[move3entry.get()]["acc"]+", "+coverage3)
-            move3label.grid(row=7, column=8)
-        if move4entry.get()!="":
-            if opponen.get()!="":
-                coverage4=str(coverage(moves[move4entry.get()]["type"],monentry.get(),opponen.get(),abilentry.get(),"null","null"))
-            else:
-                coverage4=""
-            move4label=Label(tracking, text="  "+moves[move4entry.get()]["type"]+", "+moves[move4entry.get()]["pp"]+", "+moves[move4entry.get()]["power"]+", "+moves[move4entry.get()]["acc"]+", "+coverage4)
-            move4label.grid(row=9, column=8)
-        monbst=Label(tracking, text=(mons[str(monentry.get())]["bst"]+", "+mons[str(monentry.get())]["lastseenat"]))
-        monbst.grid(row=2, column=3)
-        montype=Label(tracking, text=monspriv[str(monentry.get())]["types"])
-        montype.grid(row=2, column=12)
-        if opponen.get()!="":
-            oppbst=Label(tracking, text=(mons[str(opponen.get())]["bst"]+", "+mons[str(opponen.get())]["lastseenat"]))
-            oppbst.grid(row=6, column=3)
-            opptype=Label(tracking, text=monspriv[str(opponen.get())]["types"])
-            opptype.grid(row=6, column=12)
-    monsaver=BooleanVar()
-    monimage=Checkbutton(tracking,variable=monsaver,onvalue=1,offvalue=0)
-    monimage.grid(row=1,column=1)
-    abillabel=Button(tracking, text = "<-",command=pagechanger)
+    abillabel=Button(tracking, text = "<-",command=pagechangerleft)
     abillabel.grid(row=1, column=1)
-    def playermondata():
-        if monentry.get()!="":
-            Mon1_Data(monentry.get())
-    monlabel=Button(tracking, text="Your Mon",command=playermondata)
+    print("test")
+    monlabel=Button(tracking, text=trackertemp["4"]["mon"],command=lambda:Mon1_Data(trackertemp["4"]["mon"]))
     monlabel.grid(row=1, column=3)
+    mon_moveset=(moveset[str(int(mons[trackertemp["4"]["mon"]]["id"]))])
+    for item in mon_moveset:
+        if int(item)>int(trackertemp["4"]["level"]):
+            nextmove=item
+            break
+        nextmove="-"
     changepage=Button(tracking, text = "->",command=pagechanger)
     changepage.grid(row=1, column=2)
-    def open_abildata():
-        if abilentry.get()!="":
-            Ability_Data(abilentry.get())
-    abillabel=Button(tracking, text = "Abilities",command=open_abildata)
+    abillabel=Button(tracking, text=trackertemp["4"]["ability"],command=lambda: Ability_Data(trackertemp["4"]["ability"]))
     abillabel.grid(row=4, column=3)
-    abilentry=Entry(tracking, width=14)
-    abilentry.grid(row=4,column=12)
-    itemlabel=Label(tracking, text = "Held Item")
+    itemlabel=Label(tracking, text=items[str(trackertemp["4"]["item"]).zfill(3)]["name"])
     itemlabel.grid(row=3, column=3)
-    itementry=Entry(tracking, width=14)
-    itementry.grid(row=3,column=12)
-    strinlabel=Label(tracking, text = "String")
+    strinlabel=Label(tracking, text = "Heals")
     strinlabel.grid(row=5, column=3)
-    strinentry=Entry(tracking, width=14)
-    strinentry.grid(row=5,column=12)
+    for item in range(0,len(mons[trackertemp["4"]["mon"]]["types"])):
+        types2=Label(tracking, text =mons[trackertemp["4"]["mon"]]["types"][item])
+        types2.grid(row=3+item,column=1)
     hplabel=Label(tracking, text = "HP")
-    hplabel.grid(row=3, column=1)
-    hpentry=Entry(tracking, width=4)
-    hpentry.grid(row=3,column=2)
+    hplabel.grid(row=1, column=9)
+    hpentry=Label(tracking, text =trackertemp["4"]["maxhp"])
+    hpentry.grid(row=1,column=10)
     atklabel=Label(tracking, text = "ATK")
-    atklabel.grid(row=4, column=1)
-    atkentry=Entry(tracking, width=4)
-    atkentry.grid(row=4,column=2)
+    atklabel.grid(row=2, column=9)
+    atkentry=Label(tracking, text =trackertemp["4"]["atk"])
+    atkentry.grid(row=2,column=10)
     deflabel=Label(tracking, text = "DEF")
-    deflabel.grid(row=5, column=1)
-    defentry=Entry(tracking, width=4)
-    defentry.grid(row=5,column=2)
+    deflabel.grid(row=3, column=9)
+    defentry=Label(tracking, text =trackertemp["4"]["def"])
+    defentry.grid(row=3,column=10)
     spalabel=Label(tracking, text = "SPA")
-    spalabel.grid(row=6, column=1)
-    spaentry=Entry(tracking, width=4)
-    spaentry.grid(row=6,column=2)
+    spalabel.grid(row=4, column=9)
+    spaentry=Label(tracking, text =trackertemp["4"]["spa"])
+    spaentry.grid(row=4,column=10)
     spdlabel=Label(tracking, text = "SPD")
-    spdlabel.grid(row=7, column=1)
-    spdentry=Entry(tracking, width=4)
-    spdentry.grid(row=7,column=2)
+    spdlabel.grid(row=5, column=9)
+    spdentry=Label(tracking, text =trackertemp["4"]["spd"])
+    spdentry.grid(row=5,column=10)
     spelabel=Label(tracking, text = "SPE")
-    spelabel.grid(row=8, column=1)
-    speentry=Entry(tracking, width=4)
-    speentry.grid(row=8,column=2)
-    acclabel=Label(tracking, text = "ACC")
-    acclabel.grid(row=9, column=1)
-    accentry=Entry(tracking, width=4)
-    accentry.grid(row=9,column=2)
+    spelabel.grid(row=6, column=9)
+    speentry=Label(tracking, text =trackertemp["4"]["spe"])
+    speentry.grid(row=6,column=10)
+    spelabel=Label(tracking, text = "BST")
+    spelabel.grid(row=7, column=9)
+    bstlabel=Label(tracking, text=mons[trackertemp["4"]["mon"]]["bst"])
+    bstlabel.grid(row=7,column=10)
     badgelabel=Label(tracking, text = "Badges")
     badgelabel.grid(row=1, column=11)
     badge1=Checkbutton(tracking,text="1")
@@ -925,168 +872,143 @@ def Mon4_Tracker(tracking):
     badge7=Checkbutton(tracking,text="7")
     badge7.grid(row=8,column=11)
     badge8=Checkbutton(tracking,text="8")
-    badge8.grid(row=9,column=9)
-    movelabel=Label(tracking, text = "Moves")
-    movelabel.grid(row=1, column=8)
-    move1entry=Entry(tracking, width=18)
-    move1entry.grid(row=2,column=8)
-    move2entry=Entry(tracking, width=18)
-    move2entry.grid(row=4,column=8)
-    move3entry=Entry(tracking, width=18)
-    move3entry.grid(row=6,column=8)
-    move4entry=Entry(tracking, width=18)
-    move4entry.grid(row=8,column=8)
-    movesaver=Button(tracking, text = "Display", command=movedisplay)
-    movesaver.grid(row=8, column=3)
-    def oppmondata():
-        if opponen.get()!="":
-            Mon1_Data(opponen.get())
-    opponentb=Button(tracking, text="Opponent",command=oppmondata)
-    opponentb.grid(row=7, column=3)
-    levllabel=Label(tracking, text = "Level")
-    levllabel.grid(row=2, column=1)
-    levlentry=Entry(tracking, width=4)
-    levlentry.grid(row=2,column=2)
+    badge8.grid(row=9,column=11)
+    movelabel=Label(tracking, text = "Moves ["+nextmove+"]")
+    movelabel.grid(row=6, column=1)
+    move1entry=Label(tracking, text=trackertemp["4"]["move1"])
+    move1entry.grid(row=7,column=1)
+    move2entry=Label(tracking, text=trackertemp["4"]["move2"])
+    move2entry.grid(row=8,column=1)
+    move3entry=Label(tracking, text=trackertemp["4"]["move3"])
+    move3entry.grid(row=9,column=1)
+    move4entry=Label(tracking, text=trackertemp["4"]["move4"])
+    move4entry.grid(row=10,column=1)
+    ppmovelabel=Label(tracking, text = "PP")
+    ppmovelabel.grid(row=6, column=2)
+    ppmove1entry=Label(tracking, text=moves[trackertemp["4"]["move1"]]["pp"])
+    ppmove1entry.grid(row=7,column=2)
+    ppmove2entry=Label(tracking, text=moves[trackertemp["4"]["move2"]]["pp"])
+    ppmove2entry.grid(row=8,column=2)
+    ppmove3entry=Label(tracking, text=moves[trackertemp["4"]["move3"]]["pp"])
+    ppmove3entry.grid(row=9,column=2)
+    ppmove4entry=Label(tracking, text=moves[trackertemp["4"]["move4"]]["pp"])
+    ppmove4entry.grid(row=10,column=2)
+    powmovelabel=Label(tracking, text = "Pow")
+    powmovelabel.grid(row=6, column=3)
+    powmove1entry=Label(tracking, text=moves[trackertemp["4"]["move1"]]["power"])
+    powmove1entry.grid(row=7,column=3)
+    powmove2entry=Label(tracking, text=moves[trackertemp["4"]["move2"]]["power"])
+    powmove2entry.grid(row=8,column=3)
+    powmove3entry=Label(tracking, text=moves[trackertemp["4"]["move3"]]["power"])
+    powmove3entry.grid(row=9,column=3)
+    powmove4entry=Label(tracking, text=moves[trackertemp["4"]["move4"]]["power"])
+    powmove4entry.grid(row=10,column=3)
+    accmovelabel=Label(tracking, text = "Acc")
+    accmovelabel.grid(row=6, column=4)
+    accmove1entry=Label(tracking, text=moves[trackertemp["4"]["move1"]]["acc"])
+    accmove1entry.grid(row=7,column=4)
+    accmove2entry=Label(tracking, text=moves[trackertemp["4"]["move2"]]["acc"])
+    accmove2entry.grid(row=8,column=4)
+    accmove3entry=Label(tracking, text=moves[trackertemp["4"]["move3"]]["acc"])
+    accmove3entry.grid(row=9,column=4)
+    accmove4entry=Label(tracking, text=moves[trackertemp["4"]["move4"]]["acc"])
+    accmove4entry.grid(row=10,column=4)
+    typmovelabel=Label(tracking, text = "Type")
+    typmovelabel.grid(row=6, column=5)
+    typmove1entry=Label(tracking, text=moves[trackertemp["4"]["move1"]]["type"])
+    typmove1entry.grid(row=7,column=5)
+    typmove2entry=Label(tracking, text=moves[trackertemp["4"]["move2"]]["type"])
+    typmove2entry.grid(row=8,column=5)
+    typmove3entry=Label(tracking, text=moves[trackertemp["4"]["move3"]]["type"])
+    typmove3entry.grid(row=9,column=5)
+    typmove4entry=Label(tracking, text=moves[trackertemp["4"]["move4"]]["type"])
+    typmove4entry.grid(row=10,column=5)
+    typmovelabel=Label(tracking, text = "Contact")
+    typmovelabel.grid(row=6, column=6)
+    typmove1entry=Label(tracking, text=moves[trackertemp["1"]["move1"]]["contact"])
+    typmove1entry.grid(row=7,column=6)
+    typmove2entry=Label(tracking, text=moves[trackertemp["1"]["move2"]]["contact"])
+    typmove2entry.grid(row=8,column=6)
+    typmove3entry=Label(tracking, text=moves[trackertemp["1"]["move3"]]["contact"])
+    typmove3entry.grid(row=9,column=6)
+    typmove4entry=Label(tracking, text=moves[trackertemp["1"]["move4"]]["contact"])
+    typmove4entry.grid(row=10,column=6)
+    #display
+    levllabel=Label(tracking, text = "Lv. "+trackertemp["4"]["level"])
+    levllabel.grid(row=2, column=3)
     def jsonsave():
-        if monsaver.get()==1:
-            mon1=opponen.get()
-        else:
-            mon1=monentry.get()
-        abilcont=abilentry.get()
+        mon1=trackertemp["4"]["mon"]
+        abilcont=trackertemp["4"]["ability"]
         if searchdict(abilities, abilcont)!=None:
             mons[mon1]["ability"].append(abilcont)
         movecont=[move1entry.get(),move2entry.get(),move3entry.get(),move4entry.get(),]
-        levlcont=levlentry.get()
+        levlcont=trackertemp["4"]["level"]
         for move in movecont:
             if searchdict(moves, move)!=None:
                 mons[mon1]["moves"].append(move+", "+levlcont)
         mons[mon1]["lastseenat"]=levlcont
-        if strinentry.get()!="":
-            mons[mon1]["stringnote"]=strinentry.get()
-        if hpentry.get()!="":
-            mons[mon1]["notes"][0]=hpentry.get()
-        if atkentry.get()!="":
-            mons[mon1]["notes"][1]=atkentry.get()
-        if defentry.get()!="":
-            mons[mon1]["notes"][2]=defentry.get()
-        if spaentry.get()!="":
-            mons[mon1]["notes"][3]=spaentry.get()
-        if spdentry.get()!="":
-            mons[mon1]["notes"][4]=spdentry.get()
-        if speentry.get()!="":
-            mons[mon1]["notes"][5]=speentry.get()
-    jsonsaver=Button(tracking, text = "Save", command=jsonsave)
-    jsonsaver.grid(row=9, column=3)
+    #save
+    jsonsaver=Button(tracking, text = "S", command=jsonsave)
+    jsonsaver.grid(row=2, column=1)
 def Mon5_Tracker(tracking):
-    tracking.geometry("400x240")
+    trackertempfile=open(r"trackertemp.json","r+")
+    trackertemp=json.load(trackertempfile)
+    tracking.geometry("400x300")
     tracking.title("Tracker")
-    status=["-","Burn","Poison","Sleep","Paralysis","Frozen"]
-    statustext=status[0]
-    def statuschange():
-        statustext=status[status.index(statustext)+1]
-    statusbutton=Button(tracking,text=statustext,command=statuschange)
-    statusbutton.grid(row=8,column=12)
     def searchdict(dict, text):
         for item in dict:
             if item==text:
                 return item
-    opponen=Entry(tracking, width=14)
-    opponen.grid(row=7,column=12)
-    monentry=Entry(tracking, width=14)
-    monentry.grid(row=1,column=12)
-    def movedisplay():
-        if move1entry.get()!="":
-            if opponen.get()!="":
-                coverage1=str(coverage(moves[move1entry.get()]["type"],monentry.get(),opponen.get(),abilentry.get(),"null","null"))
-            else:
-                coverage1=""
-            move1label=Label(tracking, text="  "+moves[move1entry.get()]["type"]+", "+moves[move1entry.get()]["pp"]+", "+moves[move1entry.get()]["power"]+", "+moves[move1entry.get()]["acc"]+", "+coverage1)
-            move1label.grid(row=3, column=8)
-        if move2entry.get()!="":
-            if opponen.get()!="":
-                coverage2=str(coverage(moves[move2entry.get()]["type"],monentry.get(),opponen.get(),abilentry.get(),"null","null"))
-            else:
-                coverage2=""
-            move2label=Label(tracking, text="  "+moves[move2entry.get()]["type"]+", "+movespriv[move2entry.get()]["pp"]+", "+moves[move2entry.get()]["power"]+", "+moves[move2entry.get()]["acc"]+", "+coverage2)
-            move2label.grid(row=5, column=8)
-        if move3entry.get()!="":
-            if opponen.get()!="":
-                coverage3=str(coverage(moves[move3entry.get()]["type"],monentry.get(),opponen.get(),abilentry.get(),"null","null"))
-            else:
-                coverage3=""
-            move3label=Label(tracking, text="  "+moves[move3entry.get()]["type"]+", "+moves[move3entry.get()]["pp"]+", "+moves[move3entry.get()]["power"]+", "+moves[move3entry.get()]["acc"]+", "+coverage3)
-            move3label.grid(row=7, column=8)
-        if move4entry.get()!="":
-            if opponen.get()!="":
-                coverage4=str(coverage(moves[move4entry.get()]["type"],monentry.get(),opponen.get(),abilentry.get(),"null","null"))
-            else:
-                coverage4=""
-            move4label=Label(tracking, text="  "+moves[move4entry.get()]["type"]+", "+moves[move4entry.get()]["pp"]+", "+moves[move4entry.get()]["power"]+", "+moves[move4entry.get()]["acc"]+", "+coverage4)
-            move4label.grid(row=9, column=8)
-        monbst=Label(tracking, text=(mons[str(monentry.get())]["bst"]+", "+mons[str(monentry.get())]["lastseenat"]))
-        monbst.grid(row=2, column=3)
-        montype=Label(tracking, text=monspriv[str(monentry.get())]["types"])
-        montype.grid(row=2, column=12)
-        if opponen.get()!="":
-            oppbst=Label(tracking, text=(mons[str(opponen.get())]["bst"]+", "+mons[str(opponen.get())]["lastseenat"]))
-            oppbst.grid(row=6, column=3)
-            opptype=Label(tracking, text=monspriv[str(opponen.get())]["types"])
-            opptype.grid(row=6, column=12)
-    monsaver=BooleanVar()
-    monimage=Checkbutton(tracking,variable=monsaver,onvalue=1,offvalue=0)
-    monimage.grid(row=1,column=1)
-    abillabel=Button(tracking, text = "<-",command=pagechanger)
+    abillabel=Button(tracking, text = "<-",command=pagechangerleft)
     abillabel.grid(row=1, column=1)
-    def playermondata():
-        if monentry.get()!="":
-            Mon1_Data(monentry.get())
-    monlabel=Button(tracking, text="Your Mon",command=playermondata)
+    print("test")
+    monlabel=Button(tracking, text=trackertemp["5"]["mon"],command=lambda:Mon1_Data(trackertemp["5"]["mon"]))
     monlabel.grid(row=1, column=3)
+    mon_moveset=(moveset[str(int(mons[trackertemp["5"]["mon"]]["id"]))])
+    for item in mon_moveset:
+        if int(item)>int(trackertemp["5"]["level"]):
+            nextmove=item
+            break
+        nextmove="-"
     changepage=Button(tracking, text = "->",command=pagechanger)
     changepage.grid(row=1, column=2)
-    def open_abildata():
-        if abilentry.get()!="":
-            Ability_Data(abilentry.get())
-    abillabel=Button(tracking, text = "Abilities",command=open_abildata)
+    abillabel=Button(tracking, text=trackertemp["5"]["ability"],command=lambda: Ability_Data(trackertemp["5"]["ability"]))
     abillabel.grid(row=4, column=3)
-    abilentry=Entry(tracking, width=14)
-    abilentry.grid(row=4,column=12)
-    itemlabel=Label(tracking, text = "Held Item")
+    itemlabel=Label(tracking, text=items[str(trackertemp["5"]["item"]).zfill(3)]["name"])
     itemlabel.grid(row=3, column=3)
-    itementry=Entry(tracking, width=14)
-    itementry.grid(row=3,column=12)
-    strinlabel=Label(tracking, text = "String")
+    strinlabel=Label(tracking, text = "Heals")
     strinlabel.grid(row=5, column=3)
-    strinentry=Entry(tracking, width=14)
-    strinentry.grid(row=5,column=12)
+    for item in range(0,len(mons[trackertemp["5"]["mon"]]["types"])):
+        types2=Label(tracking, text =mons[trackertemp["5"]["mon"]]["types"][item])
+        types2.grid(row=3+item,column=1)
     hplabel=Label(tracking, text = "HP")
-    hplabel.grid(row=3, column=1)
-    hpentry=Entry(tracking, width=4)
-    hpentry.grid(row=3,column=2)
+    hplabel.grid(row=1, column=9)
+    hpentry=Label(tracking, text =trackertemp["5"]["maxhp"])
+    hpentry.grid(row=1,column=10)
     atklabel=Label(tracking, text = "ATK")
-    atklabel.grid(row=4, column=1)
-    atkentry=Entry(tracking, width=4)
-    atkentry.grid(row=4,column=2)
+    atklabel.grid(row=2, column=9)
+    atkentry=Label(tracking, text =trackertemp["5"]["atk"])
+    atkentry.grid(row=2,column=10)
     deflabel=Label(tracking, text = "DEF")
-    deflabel.grid(row=5, column=1)
-    defentry=Entry(tracking, width=4)
-    defentry.grid(row=5,column=2)
+    deflabel.grid(row=3, column=9)
+    defentry=Label(tracking, text =trackertemp["5"]["def"])
+    defentry.grid(row=3,column=10)
     spalabel=Label(tracking, text = "SPA")
-    spalabel.grid(row=6, column=1)
-    spaentry=Entry(tracking, width=4)
-    spaentry.grid(row=6,column=2)
+    spalabel.grid(row=4, column=9)
+    spaentry=Label(tracking, text =trackertemp["5"]["spa"])
+    spaentry.grid(row=4,column=10)
     spdlabel=Label(tracking, text = "SPD")
-    spdlabel.grid(row=7, column=1)
-    spdentry=Entry(tracking, width=4)
-    spdentry.grid(row=7,column=2)
+    spdlabel.grid(row=5, column=9)
+    spdentry=Label(tracking, text =trackertemp["5"]["spd"])
+    spdentry.grid(row=5,column=10)
     spelabel=Label(tracking, text = "SPE")
-    spelabel.grid(row=8, column=1)
-    speentry=Entry(tracking, width=4)
-    speentry.grid(row=8,column=2)
-    acclabel=Label(tracking, text = "ACC")
-    acclabel.grid(row=9, column=1)
-    accentry=Entry(tracking, width=4)
-    accentry.grid(row=9,column=2)
+    spelabel.grid(row=6, column=9)
+    speentry=Label(tracking, text =trackertemp["5"]["spe"])
+    speentry.grid(row=6,column=10)
+    spelabel=Label(tracking, text = "BST")
+    spelabel.grid(row=7, column=9)
+    bstlabel=Label(tracking, text=mons[trackertemp["5"]["mon"]]["bst"])
+    bstlabel.grid(row=7,column=10)
     badgelabel=Label(tracking, text = "Badges")
     badgelabel.grid(row=1, column=11)
     badge1=Checkbutton(tracking,text="1")
@@ -1104,168 +1026,143 @@ def Mon5_Tracker(tracking):
     badge7=Checkbutton(tracking,text="7")
     badge7.grid(row=8,column=11)
     badge8=Checkbutton(tracking,text="8")
-    badge8.grid(row=9,column=9)
-    movelabel=Label(tracking, text = "Moves")
-    movelabel.grid(row=1, column=8)
-    move1entry=Entry(tracking, width=18)
-    move1entry.grid(row=2,column=8)
-    move2entry=Entry(tracking, width=18)
-    move2entry.grid(row=4,column=8)
-    move3entry=Entry(tracking, width=18)
-    move3entry.grid(row=6,column=8)
-    move4entry=Entry(tracking, width=18)
-    move4entry.grid(row=8,column=8)
-    movesaver=Button(tracking, text = "Display", command=movedisplay)
-    movesaver.grid(row=8, column=3)
-    def oppmondata():
-        if opponen.get()!="":
-            Mon1_Data(opponen.get())
-    opponentb=Button(tracking, text="Opponent",command=oppmondata)
-    opponentb.grid(row=7, column=3)
-    levllabel=Label(tracking, text = "Level")
-    levllabel.grid(row=2, column=1)
-    levlentry=Entry(tracking, width=4)
-    levlentry.grid(row=2,column=2)
+    badge8.grid(row=9,column=11)
+    movelabel=Label(tracking, text = "Moves ["+nextmove+"]")
+    movelabel.grid(row=6, column=1)
+    move1entry=Label(tracking, text=trackertemp["5"]["move1"])
+    move1entry.grid(row=7,column=1)
+    move2entry=Label(tracking, text=trackertemp["5"]["move2"])
+    move2entry.grid(row=8,column=1)
+    move3entry=Label(tracking, text=trackertemp["5"]["move3"])
+    move3entry.grid(row=9,column=1)
+    move4entry=Label(tracking, text=trackertemp["5"]["move4"])
+    move4entry.grid(row=10,column=1)
+    ppmovelabel=Label(tracking, text = "PP")
+    ppmovelabel.grid(row=6, column=2)
+    ppmove1entry=Label(tracking, text=moves[trackertemp["5"]["move1"]]["pp"])
+    ppmove1entry.grid(row=7,column=2)
+    ppmove2entry=Label(tracking, text=moves[trackertemp["5"]["move2"]]["pp"])
+    ppmove2entry.grid(row=8,column=2)
+    ppmove3entry=Label(tracking, text=moves[trackertemp["5"]["move3"]]["pp"])
+    ppmove3entry.grid(row=9,column=2)
+    ppmove4entry=Label(tracking, text=moves[trackertemp["5"]["move4"]]["pp"])
+    ppmove4entry.grid(row=10,column=2)
+    powmovelabel=Label(tracking, text = "Pow")
+    powmovelabel.grid(row=6, column=3)
+    powmove1entry=Label(tracking, text=moves[trackertemp["5"]["move1"]]["power"])
+    powmove1entry.grid(row=7,column=3)
+    powmove2entry=Label(tracking, text=moves[trackertemp["5"]["move2"]]["power"])
+    powmove2entry.grid(row=8,column=3)
+    powmove3entry=Label(tracking, text=moves[trackertemp["5"]["move3"]]["power"])
+    powmove3entry.grid(row=9,column=3)
+    powmove4entry=Label(tracking, text=moves[trackertemp["5"]["move4"]]["power"])
+    powmove4entry.grid(row=10,column=3)
+    accmovelabel=Label(tracking, text = "Acc")
+    accmovelabel.grid(row=6, column=4)
+    accmove1entry=Label(tracking, text=moves[trackertemp["5"]["move1"]]["acc"])
+    accmove1entry.grid(row=7,column=4)
+    accmove2entry=Label(tracking, text=moves[trackertemp["5"]["move2"]]["acc"])
+    accmove2entry.grid(row=8,column=4)
+    accmove3entry=Label(tracking, text=moves[trackertemp["5"]["move3"]]["acc"])
+    accmove3entry.grid(row=9,column=4)
+    accmove4entry=Label(tracking, text=moves[trackertemp["5"]["move4"]]["acc"])
+    accmove4entry.grid(row=10,column=4)
+    typmovelabel=Label(tracking, text = "Type")
+    typmovelabel.grid(row=6, column=5)
+    typmove1entry=Label(tracking, text=moves[trackertemp["5"]["move1"]]["type"])
+    typmove1entry.grid(row=7,column=5)
+    typmove2entry=Label(tracking, text=moves[trackertemp["5"]["move2"]]["type"])
+    typmove2entry.grid(row=8,column=5)
+    typmove3entry=Label(tracking, text=moves[trackertemp["5"]["move3"]]["type"])
+    typmove3entry.grid(row=9,column=5)
+    typmove4entry=Label(tracking, text=moves[trackertemp["5"]["move4"]]["type"])
+    typmove4entry.grid(row=10,column=5)
+    typmovelabel=Label(tracking, text = "Contact")
+    typmovelabel.grid(row=6, column=6)
+    typmove1entry=Label(tracking, text=moves[trackertemp["1"]["move1"]]["contact"])
+    typmove1entry.grid(row=7,column=6)
+    typmove2entry=Label(tracking, text=moves[trackertemp["1"]["move2"]]["contact"])
+    typmove2entry.grid(row=8,column=6)
+    typmove3entry=Label(tracking, text=moves[trackertemp["1"]["move3"]]["contact"])
+    typmove3entry.grid(row=9,column=6)
+    typmove4entry=Label(tracking, text=moves[trackertemp["1"]["move4"]]["contact"])
+    typmove4entry.grid(row=10,column=6)
+    #display
+    levllabel=Label(tracking, text = "Lv. "+trackertemp["5"]["level"])
+    levllabel.grid(row=2, column=3)
     def jsonsave():
-        if monsaver.get()==1:
-            mon1=opponen.get()
-        else:
-            mon1=monentry.get()
-        abilcont=abilentry.get()
+        mon1=trackertemp["5"]["mon"]
+        abilcont=trackertemp["5"]["ability"]
         if searchdict(abilities, abilcont)!=None:
             mons[mon1]["ability"].append(abilcont)
         movecont=[move1entry.get(),move2entry.get(),move3entry.get(),move4entry.get(),]
-        levlcont=levlentry.get()
+        levlcont=trackertemp["5"]["level"]
         for move in movecont:
             if searchdict(moves, move)!=None:
                 mons[mon1]["moves"].append(move+", "+levlcont)
         mons[mon1]["lastseenat"]=levlcont
-        if strinentry.get()!="":
-            mons[mon1]["stringnote"]=strinentry.get()
-        if hpentry.get()!="":
-            mons[mon1]["notes"][0]=hpentry.get()
-        if atkentry.get()!="":
-            mons[mon1]["notes"][1]=atkentry.get()
-        if defentry.get()!="":
-            mons[mon1]["notes"][2]=defentry.get()
-        if spaentry.get()!="":
-            mons[mon1]["notes"][3]=spaentry.get()
-        if spdentry.get()!="":
-            mons[mon1]["notes"][4]=spdentry.get()
-        if speentry.get()!="":
-            mons[mon1]["notes"][5]=speentry.get()
-    jsonsaver=Button(tracking, text = "Save", command=jsonsave)
-    jsonsaver.grid(row=9, column=3)
+    #save
+    jsonsaver=Button(tracking, text = "S", command=jsonsave)
+    jsonsaver.grid(row=2, column=1)
 def Mon6_Tracker(tracking):
-    tracking.geometry("400x240")
+    trackertempfile=open(r"trackertemp.json","r+")
+    trackertemp=json.load(trackertempfile)
+    tracking.geometry("400x300")
     tracking.title("Tracker")
-    status=["-","Burn","Poison","Sleep","Paralysis","Frozen"]
-    statustext=status[0]
-    def statuschange():
-        statustext=status[status.index(statustext)+1]
-    statusbutton=Button(tracking,text=statustext,command=statuschange)
-    statusbutton.grid(row=8,column=12)
     def searchdict(dict, text):
         for item in dict:
             if item==text:
                 return item
-    opponen=Entry(tracking, width=14)
-    opponen.grid(row=7,column=12)
-    monentry=Entry(tracking, width=14)
-    monentry.grid(row=1,column=12)
-    def movedisplay():
-        if move1entry.get()!="":
-            if opponen.get()!="":
-                coverage1=str(coverage(moves[move1entry.get()]["type"],monentry.get(),opponen.get(),abilentry.get(),"null","null"))
-            else:
-                coverage1=""
-            move1label=Label(tracking, text="  "+moves[move1entry.get()]["type"]+", "+moves[move1entry.get()]["pp"]+", "+moves[move1entry.get()]["power"]+", "+moves[move1entry.get()]["acc"]+", "+coverage1)
-            move1label.grid(row=3, column=8)
-        if move2entry.get()!="":
-            if opponen.get()!="":
-                coverage2=str(coverage(moves[move2entry.get()]["type"],monentry.get(),opponen.get(),abilentry.get(),"null","null"))
-            else:
-                coverage2=""
-            move2label=Label(tracking, text="  "+moves[move2entry.get()]["type"]+", "+movespriv[move2entry.get()]["pp"]+", "+moves[move2entry.get()]["power"]+", "+moves[move2entry.get()]["acc"]+", "+coverage2)
-            move2label.grid(row=5, column=8)
-        if move3entry.get()!="":
-            if opponen.get()!="":
-                coverage3=str(coverage(moves[move3entry.get()]["type"],monentry.get(),opponen.get(),abilentry.get(),"null","null"))
-            else:
-                coverage3=""
-            move3label=Label(tracking, text="  "+moves[move3entry.get()]["type"]+", "+moves[move3entry.get()]["pp"]+", "+moves[move3entry.get()]["power"]+", "+moves[move3entry.get()]["acc"]+", "+coverage3)
-            move3label.grid(row=7, column=8)
-        if move4entry.get()!="":
-            if opponen.get()!="":
-                coverage4=str(coverage(moves[move4entry.get()]["type"],monentry.get(),opponen.get(),abilentry.get(),"null","null"))
-            else:
-                coverage4=""
-            move4label=Label(tracking, text="  "+moves[move4entry.get()]["type"]+", "+moves[move4entry.get()]["pp"]+", "+moves[move4entry.get()]["power"]+", "+moves[move4entry.get()]["acc"]+", "+coverage4)
-            move4label.grid(row=9, column=8)
-        monbst=Label(tracking, text=(mons[str(monentry.get())]["bst"]+", "+mons[str(monentry.get())]["lastseenat"]))
-        monbst.grid(row=2, column=3)
-        montype=Label(tracking, text=monspriv[str(monentry.get())]["types"])
-        montype.grid(row=2, column=12)
-        if opponen.get()!="":
-            oppbst=Label(tracking, text=(mons[str(opponen.get())]["bst"]+", "+mons[str(opponen.get())]["lastseenat"]))
-            oppbst.grid(row=6, column=3)
-            opptype=Label(tracking, text=monspriv[str(opponen.get())]["types"])
-            opptype.grid(row=6, column=12)
-    monsaver=BooleanVar()
-    monimage=Checkbutton(tracking,variable=monsaver,onvalue=1,offvalue=0)
-    monimage.grid(row=1,column=1)
-    abillabel=Button(tracking, text = "<-",command=pagechanger)
+    abillabel=Button(tracking, text = "<-",command=pagechangerleft)
     abillabel.grid(row=1, column=1)
-    def playermondata():
-        if monentry.get()!="":
-            Mon1_Data(monentry.get())
-    monlabel=Button(tracking, text="Your Mon",command=playermondata)
+    print("test")
+    monlabel=Button(tracking, text=trackertemp["6"]["mon"],command=lambda:Mon1_Data(trackertemp["6"]["mon"]))
     monlabel.grid(row=1, column=3)
+    mon_moveset=(moveset[str(int(mons[trackertemp["6"]["mon"]]["id"]))])
+    for item in mon_moveset:
+        if int(item)>int(trackertemp["6"]["level"]):
+            nextmove=item
+            break
+        nextmove="-"
     changepage=Button(tracking, text = "->",command=pagechanger)
     changepage.grid(row=1, column=2)
-    def open_abildata():
-        if abilentry.get()!="":
-            Ability_Data(abilentry.get())
-    abillabel=Button(tracking, text = "Abilities",command=open_abildata)
+    abillabel=Button(tracking, text=trackertemp["6"]["ability"],command=lambda: Ability_Data(trackertemp["6"]["ability"]))
     abillabel.grid(row=4, column=3)
-    abilentry=Entry(tracking, width=14)
-    abilentry.grid(row=4,column=12)
-    itemlabel=Label(tracking, text = "Held Item")
+    itemlabel=Label(tracking, text=items[str(trackertemp["6"]["item"]).zfill(3)]["name"])
     itemlabel.grid(row=3, column=3)
-    itementry=Entry(tracking, width=14)
-    itementry.grid(row=3,column=12)
-    strinlabel=Label(tracking, text = "String")
+    strinlabel=Label(tracking, text = "Heals")
     strinlabel.grid(row=5, column=3)
-    strinentry=Entry(tracking, width=14)
-    strinentry.grid(row=5,column=12)
+    for item in range(0,len(mons[trackertemp["6"]["mon"]]["types"])):
+        types2=Label(tracking, text =mons[trackertemp["6"]["mon"]]["types"][item])
+        types2.grid(row=3+item,column=1)
     hplabel=Label(tracking, text = "HP")
-    hplabel.grid(row=3, column=1)
-    hpentry=Entry(tracking, width=4)
-    hpentry.grid(row=3,column=2)
+    hplabel.grid(row=1, column=9)
+    hpentry=Label(tracking, text =trackertemp["6"]["maxhp"])
+    hpentry.grid(row=1,column=10)
     atklabel=Label(tracking, text = "ATK")
-    atklabel.grid(row=4, column=1)
-    atkentry=Entry(tracking, width=4)
-    atkentry.grid(row=4,column=2)
+    atklabel.grid(row=2, column=9)
+    atkentry=Label(tracking, text =trackertemp["6"]["atk"])
+    atkentry.grid(row=2,column=10)
     deflabel=Label(tracking, text = "DEF")
-    deflabel.grid(row=5, column=1)
-    defentry=Entry(tracking, width=4)
-    defentry.grid(row=5,column=2)
+    deflabel.grid(row=3, column=9)
+    defentry=Label(tracking, text =trackertemp["6"]["def"])
+    defentry.grid(row=3,column=10)
     spalabel=Label(tracking, text = "SPA")
-    spalabel.grid(row=6, column=1)
-    spaentry=Entry(tracking, width=4)
-    spaentry.grid(row=6,column=2)
+    spalabel.grid(row=4, column=9)
+    spaentry=Label(tracking, text =trackertemp["6"]["spa"])
+    spaentry.grid(row=4,column=10)
     spdlabel=Label(tracking, text = "SPD")
-    spdlabel.grid(row=7, column=1)
-    spdentry=Entry(tracking, width=4)
-    spdentry.grid(row=7,column=2)
+    spdlabel.grid(row=5, column=9)
+    spdentry=Label(tracking, text =trackertemp["6"]["spd"])
+    spdentry.grid(row=5,column=10)
     spelabel=Label(tracking, text = "SPE")
-    spelabel.grid(row=8, column=1)
-    speentry=Entry(tracking, width=4)
-    speentry.grid(row=8,column=2)
-    acclabel=Label(tracking, text = "ACC")
-    acclabel.grid(row=9, column=1)
-    accentry=Entry(tracking, width=4)
-    accentry.grid(row=9,column=2)
+    spelabel.grid(row=6, column=9)
+    speentry=Label(tracking, text =trackertemp["6"]["spe"])
+    speentry.grid(row=6,column=10)
+    spelabel=Label(tracking, text = "BST")
+    spelabel.grid(row=7, column=9)
+    bstlabel=Label(tracking, text=mons[trackertemp["6"]["mon"]]["bst"])
+    bstlabel.grid(row=7,column=10)
     badgelabel=Label(tracking, text = "Badges")
     badgelabel.grid(row=1, column=11)
     badge1=Checkbutton(tracking,text="1")
@@ -1283,58 +1180,84 @@ def Mon6_Tracker(tracking):
     badge7=Checkbutton(tracking,text="7")
     badge7.grid(row=8,column=11)
     badge8=Checkbutton(tracking,text="8")
-    badge8.grid(row=9,column=9)
-    movelabel=Label(tracking, text = "Moves")
-    movelabel.grid(row=1, column=8)
-    move1entry=Entry(tracking, width=18)
-    move1entry.grid(row=2,column=8)
-    move2entry=Entry(tracking, width=18)
-    move2entry.grid(row=4,column=8)
-    move3entry=Entry(tracking, width=18)
-    move3entry.grid(row=6,column=8)
-    move4entry=Entry(tracking, width=18)
-    move4entry.grid(row=8,column=8)
-    movesaver=Button(tracking, text = "Display", command=movedisplay)
-    movesaver.grid(row=8, column=3)
-    def oppmondata():
-        if opponen.get()!="":
-            Mon1_Data(opponen.get())
-    opponentb=Button(tracking, text="Opponent",command=oppmondata)
-    opponentb.grid(row=7, column=3)
-    levllabel=Label(tracking, text = "Level")
-    levllabel.grid(row=2, column=1)
-    levlentry=Entry(tracking, width=4)
-    levlentry.grid(row=2,column=2)
+    badge8.grid(row=9,column=11)
+    movelabel=Label(tracking, text = "Moves ["+nextmove+"]")
+    movelabel.grid(row=6, column=1)
+    move1entry=Label(tracking, text=trackertemp["6"]["move1"])
+    move1entry.grid(row=7,column=1)
+    move2entry=Label(tracking, text=trackertemp["6"]["move2"])
+    move2entry.grid(row=8,column=1)
+    move3entry=Label(tracking, text=trackertemp["6"]["move3"])
+    move3entry.grid(row=9,column=1)
+    move4entry=Label(tracking, text=trackertemp["6"]["move4"])
+    move4entry.grid(row=10,column=1)
+    ppmovelabel=Label(tracking, text = "PP")
+    ppmovelabel.grid(row=6, column=2)
+    ppmove1entry=Label(tracking, text=moves[trackertemp["6"]["move1"]]["pp"])
+    ppmove1entry.grid(row=7,column=2)
+    ppmove2entry=Label(tracking, text=moves[trackertemp["6"]["move2"]]["pp"])
+    ppmove2entry.grid(row=8,column=2)
+    ppmove3entry=Label(tracking, text=moves[trackertemp["6"]["move3"]]["pp"])
+    ppmove3entry.grid(row=9,column=2)
+    ppmove4entry=Label(tracking, text=moves[trackertemp["6"]["move4"]]["pp"])
+    ppmove4entry.grid(row=10,column=2)
+    powmovelabel=Label(tracking, text = "Pow")
+    powmovelabel.grid(row=6, column=3)
+    powmove1entry=Label(tracking, text=moves[trackertemp["6"]["move1"]]["power"])
+    powmove1entry.grid(row=7,column=3)
+    powmove2entry=Label(tracking, text=moves[trackertemp["6"]["move2"]]["power"])
+    powmove2entry.grid(row=8,column=3)
+    powmove3entry=Label(tracking, text=moves[trackertemp["6"]["move3"]]["power"])
+    powmove3entry.grid(row=9,column=3)
+    powmove4entry=Label(tracking, text=moves[trackertemp["6"]["move4"]]["power"])
+    powmove4entry.grid(row=10,column=3)
+    accmovelabel=Label(tracking, text = "Acc")
+    accmovelabel.grid(row=6, column=4)
+    accmove1entry=Label(tracking, text=moves[trackertemp["6"]["move1"]]["acc"])
+    accmove1entry.grid(row=7,column=4)
+    accmove2entry=Label(tracking, text=moves[trackertemp["6"]["move2"]]["acc"])
+    accmove2entry.grid(row=8,column=4)
+    accmove3entry=Label(tracking, text=moves[trackertemp["6"]["move3"]]["acc"])
+    accmove3entry.grid(row=9,column=4)
+    accmove4entry=Label(tracking, text=moves[trackertemp["6"]["move4"]]["acc"])
+    accmove4entry.grid(row=10,column=4)
+    typmovelabel=Label(tracking, text = "Type")
+    typmovelabel.grid(row=6, column=5)
+    typmove1entry=Label(tracking, text=moves[trackertemp["6"]["move1"]]["type"])
+    typmove1entry.grid(row=7,column=5)
+    typmove2entry=Label(tracking, text=moves[trackertemp["6"]["move2"]]["type"])
+    typmove2entry.grid(row=8,column=5)
+    typmove3entry=Label(tracking, text=moves[trackertemp["6"]["move3"]]["type"])
+    typmove3entry.grid(row=9,column=5)
+    typmove4entry=Label(tracking, text=moves[trackertemp["6"]["move4"]]["type"])
+    typmove4entry.grid(row=10,column=5)
+    typmovelabel=Label(tracking, text = "Contact")
+    typmovelabel.grid(row=6, column=6)
+    typmove1entry=Label(tracking, text=moves[trackertemp["1"]["move1"]]["contact"])
+    typmove1entry.grid(row=7,column=6)
+    typmove2entry=Label(tracking, text=moves[trackertemp["1"]["move2"]]["contact"])
+    typmove2entry.grid(row=8,column=6)
+    typmove3entry=Label(tracking, text=moves[trackertemp["1"]["move3"]]["contact"])
+    typmove3entry.grid(row=9,column=6)
+    typmove4entry=Label(tracking, text=moves[trackertemp["1"]["move4"]]["contact"])
+    typmove4entry.grid(row=10,column=6)
+    #display
+    levllabel=Label(tracking, text = "Lv. "+trackertemp["6"]["level"])
+    levllabel.grid(row=2, column=3)
     def jsonsave():
-        if monsaver.get()==1:
-            mon1=opponen.get()
-        else:
-            mon1=monentry.get()
-        abilcont=abilentry.get()
+        mon1=trackertemp["6"]["mon"]
+        abilcont=trackertemp["6"]["ability"]
         if searchdict(abilities, abilcont)!=None:
             mons[mon1]["ability"].append(abilcont)
         movecont=[move1entry.get(),move2entry.get(),move3entry.get(),move4entry.get(),]
-        levlcont=levlentry.get()
+        levlcont=trackertemp["6"]["level"]
         for move in movecont:
             if searchdict(moves, move)!=None:
                 mons[mon1]["moves"].append(move+", "+levlcont)
         mons[mon1]["lastseenat"]=levlcont
-        if strinentry.get()!="":
-            mons[mon1]["stringnote"]=strinentry.get()
-        if hpentry.get()!="":
-            mons[mon1]["notes"][0]=hpentry.get()
-        if atkentry.get()!="":
-            mons[mon1]["notes"][1]=atkentry.get()
-        if defentry.get()!="":
-            mons[mon1]["notes"][2]=defentry.get()
-        if spaentry.get()!="":
-            mons[mon1]["notes"][3]=spaentry.get()
-        if spdentry.get()!="":
-            mons[mon1]["notes"][4]=spdentry.get()
-        if speentry.get()!="":
-            mons[mon1]["notes"][5]=speentry.get()
-    jsonsaver=Button(tracking, text = "Save", command=jsonsave)
-    jsonsaver.grid(row=9, column=3)
+    #save
+    jsonsaver=Button(tracking, text = "S", command=jsonsave)
+    jsonsaver.grid(row=2, column=1)
 def Mon7_Tracker(tracking):
     page=tkinter.Frame(tracking)
     page.grid()
@@ -1367,7 +1290,7 @@ def Mon7_Tracker(tracking):
                 coverage2=str(coverage(moves[move2entry.get()]["type"],monentry.get(),opponen.get(),abilentry.get(),"null","null"))
             else:
                 coverage2=""
-            move2label=Label(tracking, text="  "+moves[move2entry.get()]["type"]+", "+movespriv[move2entry.get()]["pp"]+", "+moves[move2entry.get()]["power"]+", "+moves[move2entry.get()]["acc"]+", "+coverage2)
+            move2label=Label(tracking, text="  "+moves[move2entry.get()]["type"]+", "+moves[move2entry.get()]["pp"]+", "+moves[move2entry.get()]["power"]+", "+moves[move2entry.get()]["acc"]+", "+coverage2)
             move2label.grid(row=5, column=8)
         if move3entry.get()!="":
             if opponen.get()!="":
@@ -1385,21 +1308,22 @@ def Mon7_Tracker(tracking):
             move4label.grid(row=9, column=8)
         monbst=Label(tracking, text=(mons[str(monentry.get())]["bst"]+", "+mons[str(monentry.get())]["lastseenat"]))
         monbst.grid(row=2, column=3)
-        montype=Label(tracking, text=monspriv[str(monentry.get())]["types"])
+        montype=Label(tracking, text=mons[str(monentry.get())]["types"])
         montype.grid(row=2, column=12)
         if opponen.get()!="":
             oppbst=Label(tracking, text=(mons[str(opponen.get())]["bst"]+", "+mons[str(opponen.get())]["lastseenat"]))
             oppbst.grid(row=6, column=3)
-            opptype=Label(tracking, text=monspriv[str(opponen.get())]["types"])
+            opptype=Label(tracking, text=mons[str(opponen.get())]["types"])
             opptype.grid(row=6, column=12)
     monsaver=BooleanVar()
     monimage=Checkbutton(tracking,variable=monsaver,onvalue=1,offvalue=0)
     monimage.grid(row=1,column=1)
-    abillabel=Button(tracking, text = "<-",command=pagechanger)
+    abillabel=Button(tracking, text = "<-",command=pagechangerleft)
     abillabel.grid(row=1, column=1)
     def playermondata():
         if monentry.get()!="":
             Mon1_Data(monentry.get())
+    print("test")
     monlabel=Button(tracking, text="Opponent",command=playermondata)
     monlabel.grid(row=1, column=3)
     changepage=Button(tracking, text = "->",command=pagechanger)
@@ -1525,7 +1449,7 @@ def Mon8_Tracker(tracking):
                 coverage2=str(coverage(moves[move2entry.get()]["type"],monentry.get(),opponen.get(),abilentry.get(),"null","null"))
             else:
                 coverage2=""
-            move2label=Label(tracking, text="  "+moves[move2entry.get()]["type"]+", "+movespriv[move2entry.get()]["pp"]+", "+moves[move2entry.get()]["power"]+", "+moves[move2entry.get()]["acc"]+", "+coverage2)
+            move2label=Label(tracking, text="  "+moves[move2entry.get()]["type"]+", "+moves[move2entry.get()]["pp"]+", "+moves[move2entry.get()]["power"]+", "+moves[move2entry.get()]["acc"]+", "+coverage2)
             move2label.grid(row=5, column=8)
         if move3entry.get()!="":
             if opponen.get()!="":
@@ -1543,21 +1467,22 @@ def Mon8_Tracker(tracking):
             move4label.grid(row=9, column=8)
         monbst=Label(tracking, text=(mons[str(monentry.get())]["bst"]+", "+mons[str(monentry.get())]["lastseenat"]))
         monbst.grid(row=2, column=3)
-        montype=Label(tracking, text=monspriv[str(monentry.get())]["types"])
+        montype=Label(tracking, text=mons[str(monentry.get())]["types"])
         montype.grid(row=2, column=12)
         if opponen.get()!="":
             oppbst=Label(tracking, text=(mons[str(opponen.get())]["bst"]+", "+mons[str(opponen.get())]["lastseenat"]))
             oppbst.grid(row=6, column=3)
-            opptype=Label(tracking, text=monspriv[str(opponen.get())]["types"])
+            opptype=Label(tracking, text=mons[str(opponen.get())]["types"])
             opptype.grid(row=6, column=12)
     monsaver=BooleanVar()
     monimage=Checkbutton(tracking,variable=monsaver,onvalue=1,offvalue=0)
     monimage.grid(row=1,column=1)
-    abillabel=Button(tracking, text = "<-",command=pagechanger)
+    abillabel=Button(tracking, text = "<-",command=pagechangerleft)
     abillabel.grid(row=1, column=1)
     def playermondata():
         if monentry.get()!="":
             Mon1_Data(monentry.get())
+    print("test")
     monlabel=Button(tracking, text="Opponent",command=playermondata)
     monlabel.grid(row=1, column=3)
     changepage=Button(tracking, text = "->",command=pagechanger)
@@ -1683,7 +1608,7 @@ def Mon9_Tracker(tracking):
                 coverage2=str(coverage(moves[move2entry.get()]["type"],monentry.get(),opponen.get(),abilentry.get(),"null","null"))
             else:
                 coverage2=""
-            move2label=Label(tracking, text="  "+moves[move2entry.get()]["type"]+", "+movespriv[move2entry.get()]["pp"]+", "+moves[move2entry.get()]["power"]+", "+moves[move2entry.get()]["acc"]+", "+coverage2)
+            move2label=Label(tracking, text="  "+moves[move2entry.get()]["type"]+", "+moves[move2entry.get()]["pp"]+", "+moves[move2entry.get()]["power"]+", "+moves[move2entry.get()]["acc"]+", "+coverage2)
             move2label.grid(row=5, column=8)
         if move3entry.get()!="":
             if opponen.get()!="":
@@ -1701,21 +1626,22 @@ def Mon9_Tracker(tracking):
             move4label.grid(row=9, column=8)
         monbst=Label(tracking, text=(mons[str(monentry.get())]["bst"]+", "+mons[str(monentry.get())]["lastseenat"]))
         monbst.grid(row=2, column=3)
-        montype=Label(tracking, text=monspriv[str(monentry.get())]["types"])
+        montype=Label(tracking, text=mons[str(monentry.get())]["types"])
         montype.grid(row=2, column=12)
         if opponen.get()!="":
             oppbst=Label(tracking, text=(mons[str(opponen.get())]["bst"]+", "+mons[str(opponen.get())]["lastseenat"]))
             oppbst.grid(row=6, column=3)
-            opptype=Label(tracking, text=monspriv[str(opponen.get())]["types"])
+            opptype=Label(tracking, text=mons[str(opponen.get())]["types"])
             opptype.grid(row=6, column=12)
     monsaver=BooleanVar()
     monimage=Checkbutton(tracking,variable=monsaver,onvalue=1,offvalue=0)
     monimage.grid(row=1,column=1)
-    abillabel=Button(tracking, text = "<-",command=pagechanger)
+    abillabel=Button(tracking, text = "<-",command=pagechangerleft)
     abillabel.grid(row=1, column=1)
     def playermondata():
         if monentry.get()!="":
             Mon1_Data(monentry.get())
+    print("test")
     monlabel=Button(tracking, text="Opponent",command=playermondata)
     monlabel.grid(row=1, column=3)
     changepage=Button(tracking, text = "->",command=pagechanger)
@@ -1841,7 +1767,7 @@ def Mon10_Tracker(tracking):
                 coverage2=str(coverage(moves[move2entry.get()]["type"],monentry.get(),opponen.get(),abilentry.get(),"null","null"))
             else:
                 coverage2=""
-            move2label=Label(tracking, text="  "+moves[move2entry.get()]["type"]+", "+movespriv[move2entry.get()]["pp"]+", "+moves[move2entry.get()]["power"]+", "+moves[move2entry.get()]["acc"]+", "+coverage2)
+            move2label=Label(tracking, text="  "+moves[move2entry.get()]["type"]+", "+moves[move2entry.get()]["pp"]+", "+moves[move2entry.get()]["power"]+", "+moves[move2entry.get()]["acc"]+", "+coverage2)
             move2label.grid(row=5, column=8)
         if move3entry.get()!="":
             if opponen.get()!="":
@@ -1859,21 +1785,22 @@ def Mon10_Tracker(tracking):
             move4label.grid(row=9, column=8)
         monbst=Label(tracking, text=(mons[str(monentry.get())]["bst"]+", "+mons[str(monentry.get())]["lastseenat"]))
         monbst.grid(row=2, column=3)
-        montype=Label(tracking, text=monspriv[str(monentry.get())]["types"])
+        montype=Label(tracking, text=mons[str(monentry.get())]["types"])
         montype.grid(row=2, column=12)
         if opponen.get()!="":
             oppbst=Label(tracking, text=(mons[str(opponen.get())]["bst"]+", "+mons[str(opponen.get())]["lastseenat"]))
             oppbst.grid(row=6, column=3)
-            opptype=Label(tracking, text=monspriv[str(opponen.get())]["types"])
+            opptype=Label(tracking, text=mons[str(opponen.get())]["types"])
             opptype.grid(row=6, column=12)
     monsaver=BooleanVar()
     monimage=Checkbutton(tracking,variable=monsaver,onvalue=1,offvalue=0)
     monimage.grid(row=1,column=1)
-    abillabel=Button(tracking, text = "<-",command=pagechanger)
+    abillabel=Button(tracking, text = "<-",command=pagechangerleft)
     abillabel.grid(row=1, column=1)
     def playermondata():
         if monentry.get()!="":
             Mon1_Data(monentry.get())
+    print("test")
     monlabel=Button(tracking, text="Opponent",command=playermondata)
     monlabel.grid(row=1, column=3)
     changepage=Button(tracking, text = "->",command=pagechanger)
@@ -1999,7 +1926,7 @@ def Mon11_Tracker(tracking):
                 coverage2=str(coverage(moves[move2entry.get()]["type"],monentry.get(),opponen.get(),abilentry.get(),"null","null"))
             else:
                 coverage2=""
-            move2label=Label(tracking, text="  "+moves[move2entry.get()]["type"]+", "+movespriv[move2entry.get()]["pp"]+", "+moves[move2entry.get()]["power"]+", "+moves[move2entry.get()]["acc"]+", "+coverage2)
+            move2label=Label(tracking, text="  "+moves[move2entry.get()]["type"]+", "+moves[move2entry.get()]["pp"]+", "+moves[move2entry.get()]["power"]+", "+moves[move2entry.get()]["acc"]+", "+coverage2)
             move2label.grid(row=5, column=8)
         if move3entry.get()!="":
             if opponen.get()!="":
@@ -2017,21 +1944,22 @@ def Mon11_Tracker(tracking):
             move4label.grid(row=9, column=8)
         monbst=Label(tracking, text=(mons[str(monentry.get())]["bst"]+", "+mons[str(monentry.get())]["lastseenat"]))
         monbst.grid(row=2, column=3)
-        montype=Label(tracking, text=monspriv[str(monentry.get())]["types"])
+        montype=Label(tracking, text=mons[str(monentry.get())]["types"])
         montype.grid(row=2, column=12)
         if opponen.get()!="":
             oppbst=Label(tracking, text=(mons[str(opponen.get())]["bst"]+", "+mons[str(opponen.get())]["lastseenat"]))
             oppbst.grid(row=6, column=3)
-            opptype=Label(tracking, text=monspriv[str(opponen.get())]["types"])
+            opptype=Label(tracking, text=mons[str(opponen.get())]["types"])
             opptype.grid(row=6, column=12)
     monsaver=BooleanVar()
     monimage=Checkbutton(tracking,variable=monsaver,onvalue=1,offvalue=0)
     monimage.grid(row=1,column=1)
-    abillabel=Button(tracking, text = "<-",command=pagechanger)
+    abillabel=Button(tracking, text = "<-",command=pagechangerleft)
     abillabel.grid(row=1, column=1)
     def playermondata():
         if monentry.get()!="":
             Mon1_Data(monentry.get())
+    print("test")
     monlabel=Button(tracking, text="Opponent",command=playermondata)
     monlabel.grid(row=1, column=3)
     changepage=Button(tracking, text = "->",command=pagechanger)
@@ -2157,7 +2085,7 @@ def Mon12_Tracker(tracking):
                 coverage2=str(coverage(moves[move2entry.get()]["type"],monentry.get(),opponen.get(),abilentry.get(),"null","null"))
             else:
                 coverage2=""
-            move2label=Label(tracking, text="  "+moves[move2entry.get()]["type"]+", "+movespriv[move2entry.get()]["pp"]+", "+moves[move2entry.get()]["power"]+", "+moves[move2entry.get()]["acc"]+", "+coverage2)
+            move2label=Label(tracking, text="  "+moves[move2entry.get()]["type"]+", "+moves[move2entry.get()]["pp"]+", "+moves[move2entry.get()]["power"]+", "+moves[move2entry.get()]["acc"]+", "+coverage2)
             move2label.grid(row=5, column=8)
         if move3entry.get()!="":
             if opponen.get()!="":
@@ -2175,21 +2103,22 @@ def Mon12_Tracker(tracking):
             move4label.grid(row=9, column=8)
         monbst=Label(tracking, text=(mons[str(monentry.get())]["bst"]+", "+mons[str(monentry.get())]["lastseenat"]))
         monbst.grid(row=2, column=3)
-        montype=Label(tracking, text=monspriv[str(monentry.get())]["types"])
+        montype=Label(tracking, text=mons[str(monentry.get())]["types"])
         montype.grid(row=2, column=12)
         if opponen.get()!="":
             oppbst=Label(tracking, text=(mons[str(opponen.get())]["bst"]+", "+mons[str(opponen.get())]["lastseenat"]))
             oppbst.grid(row=6, column=3)
-            opptype=Label(tracking, text=monspriv[str(opponen.get())]["types"])
+            opptype=Label(tracking, text=mons[str(opponen.get())]["types"])
             opptype.grid(row=6, column=12)
     monsaver=BooleanVar()
     monimage=Checkbutton(tracking,variable=monsaver,onvalue=1,offvalue=0)
     monimage.grid(row=1,column=1)
-    abillabel=Button(tracking, text = "<-",command=pagechanger)
+    abillabel=Button(tracking, text = "<-",command=pagechangerleft)
     abillabel.grid(row=1, column=1)
     def playermondata():
         if monentry.get()!="":
             Mon1_Data(monentry.get())
+    print("test")
     monlabel=Button(tracking, text="Opponent",command=playermondata)
     monlabel.grid(row=1, column=3)
     changepage=Button(tracking, text = "->",command=pagechanger)
@@ -2283,8 +2212,8 @@ def Mon12_Tracker(tracking):
             mons[mon1]["notes"][5]=speentry.get()
     jsonsaver=Button(tracking, text = "Save", command=jsonsave)
     jsonsaver.grid(row=9, column=3)
-Mon1_Tracker(tracking)
+updater()
 tracking.mainloop()
-monsfile=r"C:\Users\scien\Documents\GitHub\Orange-Peeler\mon-data.json"
-with open(monsfile, "w") as f:
-    json.dump(mons, f)
+monsfile2=r"mon-data.json"
+with open(monsfile2, "w") as f:
+    json.dump(mons, monsfile2)

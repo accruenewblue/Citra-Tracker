@@ -1,5 +1,4 @@
 # Orange Peeler
- Peels Oranges.
 
 Tracker for Gen 6/7 Pokémon Ironmon.
 
@@ -25,10 +24,9 @@ Tracking options are available as the following:
 
 How to Use:
  
-
-
+ 
 In the future, Citra emulator for 3DS will be required. However, for now, it is purely manual.
 
 Python interface is required link [here](https://www.python.org/downloads/)
 
-If you were looking for different games, there are trackers available for the [NDS games](https://github.com/Brian0255/NDS-Ironmon-Tracker)(DPPt, HGSS, BW, B2W2) requiring Bizhawk and the [GBA games](https://github.com/besteon/Ironmon-Tracker)(FRLG, RSE) using Bizhawk or mGBA games.
+If you were looking for different games, there are trackers available for the [NDS games](https://github.com/Brian0255/NDS-Ironmon-Tracker)(DPPt, HGSS, BW, B2W2) requiring Bizhawk and the [GBA games](https://github.com/besteon/Ironmon-Tracker)(FRLG, RSE) using Bizhawk or mGBA emulator
