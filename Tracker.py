@@ -27,8 +27,6 @@ natures=json.load(naturesfile)
 pagemon=1
 #4 5 6 placement of mons in a battle
 #1 2 3 single=1,4, double=1,2,4,5
-#battleformat list: single, double, triple, SOS(gen 7), horde, multi, party
-battleformat="party"
 party=[trackertemp["1"]["mon"],trackertemp["2"]["mon"],trackertemp["3"]["mon"],trackertemp["4"]["mon"],trackertemp["5"]["mon"],trackertemp["6"]["mon"],]
 opponent=["-","-","-","-","-"]
 ally=["-"]
@@ -121,8 +119,6 @@ def NotesClearer():
         clearer.destroy()
     notesclear=Button(clearer, text = "Clear Notes", command=noteclear)
     notesclear.grid(row=2, column=1)
-    notesclear=Button(tracking, text = "Clear Notes", command=NotesClearer)
-    notesclear.grid(row=9, column=12)
 def Ability_Data(abil):
     abili=Toplevel()
     abili.title("Ability Data")
@@ -192,6 +188,21 @@ def Mon1_Data(montemp):
     spelabel.grid(row=8, column=1)
     speentry=Label(mon1dat, text=mons[montemp]["notes"][5])
     speentry.grid(row=8,column=2)
+#battleformat list: single, double, triple, SOS(gen 7), horde, multi, party
+battleformat="party"
+def formatchanger():
+    global battleformat
+    if battleformat=="party":
+        battleformat="single"
+    #to be used later then this is properly implemented, not gonna bother with more than singles rn
+    #elif battleformat=="single":
+        #battleformat="double"
+    #elif battleformat=="double":
+        #battleformat="triple"
+    #elif battleformat=="triple":
+        #battleformat="horde"
+    else:
+        battleformat="party"
 def pagechanger():
     global pagemon
     #mon1=party[0]
@@ -207,6 +218,7 @@ def pagechanger():
     #mon11=opponent[3]
     #mon12=opponent[4]
     print(party[pagemon])
+    print(tracking.winfo_children())
     for widget in tracking.winfo_children():
         widget.destroy()
     if battleformat=="single":
@@ -304,6 +316,60 @@ def pagechangerleft():
         else:
             Mon1_Tracker(tracking)
             pagemon=1
+    if battleformat=="single":
+        if pagemon==1:
+            Mon8_Tracker(tracking)
+            pagemon=8
+        else:
+            Mon1_Tracker(tracking)
+            pagemon=1
+    elif battleformat=="double":
+        if pagemon==1:
+            Mon2_Tracker(tracking)
+            pagemon=2
+        elif pagemon==2:
+            Mon8_Tracker(tracking)
+            pagemon=8
+        elif pagemon==8:
+            Mon9_Tracker(tracking)
+            pagemon=9
+        else:
+            Mon1_Tracker(tracking)
+            pagemon=1
+    elif battleformat=="multi":
+        if pagemon==1:
+            Mon7_Tracker(tracking)
+            pagemon=7
+        elif pagemon==7:
+            Mon8_Tracker(tracking)
+            pagemon=8
+        elif pagemon==8:
+            Mon9_Tracker(tracking)
+            pagemon=9
+        else:
+            Mon1_Tracker(tracking)
+            pagemon=1
+    if battleformat=="triple":
+        if pagemon==1:
+            Mon8_Tracker(tracking)
+            pagemon=8
+        else:
+            Mon1_Tracker(tracking)
+            pagemon=1
+    if battleformat=="SOS":
+        if pagemon==1:
+            Mon8_Tracker(tracking)
+            pagemon=8
+        else:
+            Mon1_Tracker(tracking)
+            pagemon=1
+    if battleformat=="horde":
+        if pagemon==1:
+            Mon8_Tracker(tracking)
+            pagemon=8
+        else:
+            Mon1_Tracker(tracking)
+            pagemon=1
 def updater():
     if pagemon==2:
         Mon2_Tracker(tracking)
@@ -315,11 +381,22 @@ def updater():
         Mon5_Tracker(tracking)
     elif pagemon==6:
         Mon6_Tracker(tracking)
+    elif pagemon==7:
+        Mon7_Tracker(tracking)
+    elif pagemon==8:
+        Mon8_Tracker(tracking)
+    elif pagemon==9:
+        Mon9_Tracker(tracking)
+    elif pagemon==10:
+        Mon10_Tracker(tracking)
+    elif pagemon==11:
+        Mon11_Tracker(tracking)
+    elif pagemon==12:
+        Mon12_Tracker(tracking)
     else:
         Mon1_Tracker(tracking)
     tracking.after(10000,updater)
 def gamechanger():
-    print(trackertemp["game"])
     if trackertemp["game"]=="XY":
         trackertemp["game"]="ORAS"
     elif trackertemp["game"]=="ORAS":
@@ -328,9 +405,8 @@ def gamechanger():
         trackertemp["game"]="USUM"
     elif trackertemp["game"]=="USUM":
         trackertemp["game"]="XY"
-    print(trackertemp["game"])
     with open(trackertempfile3, "w") as f:
-        json.dump(trackertemp,trackertempfile3)
+        json.dump(trackertemp,f)
 #11 tracking pages for different mons
 def Mon1_Tracker(tracking):
     trackertempfile=open(r"trackertemp.json","r+")
@@ -352,10 +428,12 @@ def Mon1_Tracker(tracking):
             nextmove=item
             break
         nextmove="-"
-    changepage=Button(tracking, text = "->",command=pagechanger)
+    changepage=Button(tracking, text="->",command=pagechanger)
     changepage.grid(row=1, column=2)
-    changepage=Button(tracking, text = trackertemp["game"],command=gamechanger)
-    changepage.grid(row=1, column=4)
+    changegame=Button(tracking, text=trackertemp["game"],command=gamechanger)
+    changegame.grid(row=1, column=4)
+    changeform=Button(tracking, text=battleformat,command=formatchanger)
+    changeform.grid(row=2, column=4)
     abillabel=Button(tracking, text=trackertemp["1"]["ability"],command=lambda: Ability_Data(trackertemp["1"]["ability"]))
     abillabel.grid(row=4, column=3)
     itemlabel=Label(tracking, text=items[str(trackertemp["1"]["item"]).zfill(3)]["name"])
@@ -393,24 +471,24 @@ def Mon1_Tracker(tracking):
     spelabel.grid(row=7, column=9)
     bstlabel=Label(tracking, text=mons[trackertemp["1"]["mon"]]["bst"])
     bstlabel.grid(row=7,column=10)
-    badgelabel=Label(tracking, text = "Badges")
-    badgelabel.grid(row=1, column=11)
-    badge1=Checkbutton(tracking,text="1")
-    badge1.grid(row=2,column=11)
-    badge2=Checkbutton(tracking,text="2")
-    badge2.grid(row=3,column=11)
-    badge3=Checkbutton(tracking,text="3")
-    badge3.grid(row=4,column=11)
-    badge4=Checkbutton(tracking,text="4")
-    badge4.grid(row=5,column=11)
-    badge5=Checkbutton(tracking,text="5")
-    badge5.grid(row=6,column=11)
-    badge6=Checkbutton(tracking,text="6")
-    badge6.grid(row=7,column=11)
-    badge7=Checkbutton(tracking,text="7")
-    badge7.grid(row=8,column=11)
-    badge8=Checkbutton(tracking,text="8")
-    badge8.grid(row=9,column=11)
+    #badgelabel=Label(tracking, text = "Badges")
+    #badgelabel.grid(row=1, column=11)
+    #badge1=Checkbutton(tracking,text="1")
+    #badge1.grid(row=2,column=11)
+    #badge2=Checkbutton(tracking,text="2")
+    #badge2.grid(row=3,column=11)
+    #badge3=Checkbutton(tracking,text="3")
+    #badge3.grid(row=4,column=11)
+    #badge4=Checkbutton(tracking,text="4")
+    #badge4.grid(row=5,column=11)
+    #badge5=Checkbutton(tracking,text="5")
+    #badge5.grid(row=6,column=11)
+    #badge6=Checkbutton(tracking,text="6")
+    #badge6.grid(row=7,column=11)
+    #badge7=Checkbutton(tracking,text="7")
+    #badge7.grid(row=8,column=11)
+    #badge8=Checkbutton(tracking,text="8")
+    #badge8.grid(row=9,column=11)
     movelabel=Label(tracking, text = "Moves ["+nextmove+"]")
     movelabel.grid(row=6, column=1)
     move1entry=Label(tracking, text=trackertemp["1"]["move1"])
@@ -1422,20 +1500,20 @@ def Mon8_Tracker(tracking):
     page.grid()
     tracking.geometry("400x240")
     tracking.title("Tracker")
-    status=["-","Burn","Poison","Sleep","Paralysis","Frozen"]
-    statustext=status[0]
-    def statuschange():
-        statustext=status[status.index(statustext)+1]
-    statusbutton=Button(tracking,text=statustext,command=statuschange)
-    statusbutton.grid(row=8,column=12)
+    #status=["-","Burn","Poison","Sleep","Paralysis","Frozen"]
+    #statustext=status[0]
+    #def statuschange():
+        #statustext=status[status.index(statustext)+1]
+    #statusbutton=Button(tracking,text=statustext,command=statuschange)
+    #statusbutton.grid(row=8,column=12)
     def searchdict(dict, text):
         for item in dict:
             if item==text:
                 return item
     opponen=Entry(tracking, width=14)
-    opponen.grid(row=7,column=12)
+    opponen.grid(row=7,column=5)
     monentry=Entry(tracking, width=14)
-    monentry.grid(row=1,column=12)
+    monentry.grid(row=1,column=5)
     def movedisplay():
         if move1entry.get()!="":
             if opponen.get()!="":
@@ -1487,21 +1565,23 @@ def Mon8_Tracker(tracking):
     monlabel.grid(row=1, column=3)
     changepage=Button(tracking, text = "->",command=pagechanger)
     changepage.grid(row=1, column=2)
+    notesclear=Button(tracking, text = "Clear Notes", command=NotesClearer)
+    notesclear.grid(row=9, column=5)
     def open_abildata():
         if abilentry.get()!="":
             Ability_Data(abilentry.get())
     abillabel=Button(tracking, text = "Abilities",command=open_abildata)
     abillabel.grid(row=4, column=3)
     abilentry=Entry(tracking, width=14)
-    abilentry.grid(row=4,column=12)
+    abilentry.grid(row=4,column=5)
     itemlabel=Label(tracking, text = "Held Item")
     itemlabel.grid(row=3, column=3)
     itementry=Entry(tracking, width=14)
-    itementry.grid(row=3,column=12)
+    itementry.grid(row=3,column=5)
     strinlabel=Label(tracking, text = "String")
     strinlabel.grid(row=5, column=3)
     strinentry=Entry(tracking, width=14)
-    strinentry.grid(row=5,column=12)
+    strinentry.grid(row=5,column=5)
     hplabel=Label(tracking, text = "HP")
     hplabel.grid(row=3, column=1)
     hpentry=Entry(tracking, width=4)
@@ -2216,4 +2296,4 @@ updater()
 tracking.mainloop()
 monsfile2=r"mon-data.json"
 with open(monsfile2, "w") as f:
-    json.dump(mons, monsfile2)
+    json.dump(mons, f)
