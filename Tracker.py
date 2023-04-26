@@ -134,18 +134,18 @@ def Mon1_Data(montemp):
         abillabel=Button(mon1dat, text=abil,command=lambda abil=abil:Ability_Data(abil))
         #abil=abil stores the value of it when written
         #I thought it normally did that, but apparently otherwise it only calls that after???
-        abillabel.grid(row=5+abilloc, column=12)
+        abillabel.grid(row=5+abilloc, column=4)
         abilentry=Label(mon1dat, text="Ability "+str(1+abilloc))
         abilentry.grid(row=5+abilloc,column=3)
     for item in range(0,len(mons[montemp]["moves"])):
         movelabel=Button(mon1dat, text=mons[montemp]["moves"][item])
         movelabel.grid(row=1+item, column=5)
     mon1name=Label(mon1dat,text=montemp)
-    mon1name.grid(row=1,column=12)
+    mon1name.grid(row=1,column=4)
     mon1type=Label(mon1dat,text="Types")
     mon1type.grid(row=2,column=3)
     mon1type=Label(mon1dat,text=mons[montemp]["types"])
-    mon1type.grid(row=2,column=12)
+    mon1type.grid(row=2,column=4)
     monbst=Label(mon1dat,text="BST")
     monbst.grid(row=2,column=1)
     mon1bst=Label(mon1dat,text=mons[montemp]["bst"])
@@ -163,7 +163,7 @@ def Mon1_Data(montemp):
     strinlabel=Label(mon1dat, text = "String")
     strinlabel.grid(row=4, column=3)
     strinentry=Label(mon1dat, text=mons[montemp]["stringnote"], wraplength=150)
-    strinentry.grid(row=4,column=12)
+    strinentry.grid(row=4,column=4)
     hplabel=Label(mon1dat, text = "HP")
     hplabel.grid(row=3, column=1)
     hpentry=Label(mon1dat, text=mons[montemp]["notes"][0])
@@ -195,14 +195,17 @@ def formatchanger():
     if battleformat=="party":
         battleformat="single"
     #to be used later then this is properly implemented, not gonna bother with more than singles rn
-    #elif battleformat=="single":
-        #battleformat="double"
-    #elif battleformat=="double":
-        #battleformat="triple"
+    elif battleformat=="single":
+        battleformat="double"
+    elif battleformat=="double":
+        battleformat="triple"
     #elif battleformat=="triple":
         #battleformat="horde"
     else:
         battleformat="party"
+def frameclearer():
+    for widget in tracking.winfo_children():
+        widget.destroy()
 def pagechanger():
     global pagemon
     #mon1=party[0]
@@ -217,10 +220,6 @@ def pagechanger():
     #mon10=opponent[2]
     #mon11=opponent[3]
     #mon12=opponent[4]
-    print(party[pagemon])
-    print(tracking.winfo_children())
-    for widget in tracking.winfo_children():
-        widget.destroy()
     if battleformat=="single":
         if pagemon==1:
             Mon8_Tracker(tracking)
@@ -256,8 +255,20 @@ def pagechanger():
             pagemon=1
     if battleformat=="triple":
         if pagemon==1:
+            Mon2_Tracker(tracking)
+            pagemon=2
+        elif pagemon==2:
+            Mon3_Tracker(tracking)
+            pagemon=3
+        elif pagemon==3:
             Mon8_Tracker(tracking)
             pagemon=8
+        elif pagemon==8:
+            Mon9_Tracker(tracking)
+            pagemon=9
+        elif pagemon==9:
+            Mon10_Tracker(tracking)
+            pagemon=10
         else:
             Mon1_Tracker(tracking)
             pagemon=1
@@ -277,42 +288,92 @@ def pagechanger():
             pagemon=1
     if battleformat=="party":
         if pagemon==1:
-            Mon2_Tracker(tracking)
-            pagemon=2
+            if trackertemp["2"]["mon"]!="-":
+                Mon2_Tracker(tracking)
+                pagemon=2
+            else:
+                Mon1_Tracker(tracking)
+                pagemon=1
         elif pagemon==2:
-            Mon3_Tracker(tracking)
-            pagemon=3
+            if trackertemp["3"]["mon"]!="-":
+                Mon3_Tracker(tracking)
+                pagemon=3
+            else:
+                Mon1_Tracker(tracking)
+                pagemon=1
         elif pagemon==3:
-            Mon4_Tracker(tracking)
-            pagemon=4
+            if trackertemp["4"]["mon"]!="-":
+                Mon4_Tracker(tracking)
+                pagemon=4
+            else:
+                Mon1_Tracker(tracking)
+                pagemon=1
         elif pagemon==4:
-            Mon5_Tracker(tracking)
-            pagemon=5
+            if trackertemp["5"]["mon"]!="-":
+                Mon5_Tracker(tracking)
+                pagemon=5
+            else:
+                Mon1_Tracker(tracking)
+                pagemon=1
         elif pagemon==5:
-            Mon6_Tracker(tracking)
-            pagemon=6
+            if trackertemp["6"]["mon"]!="-":
+                Mon6_Tracker(tracking)
+                pagemon=6
+            else:
+                Mon1_Tracker(tracking)
+                pagemon=1
         else:
             Mon1_Tracker(tracking)
             pagemon=1
+        print(trackertemp[str(pagemon)]["mon"])
     print(pagemon)
 def pagechangerleft():
     global pagemon
     if battleformat=="party":
         if pagemon==3:
-            Mon2_Tracker(tracking)
-            pagemon=2
+            if trackertemp["2"]["mon"]!="-":
+                Mon2_Tracker(tracking)
+                pagemon=2
+            else:
+                Mon1_Tracker(tracking)
+                pagemon=1
         elif pagemon==4:
-            Mon3_Tracker(tracking)
-            pagemon=3
+            if trackertemp["3"]["mon"]!="-":
+                Mon3_Tracker(tracking)
+                pagemon=3
+            else:
+                Mon1_Tracker(tracking)
+                pagemon=1
         elif pagemon==5:
-            Mon4_Tracker(tracking)
-            pagemon=4
+            if trackertemp["4"]["mon"]!="-":
+                Mon4_Tracker(tracking)
+                pagemon=4
+            else:
+                Mon1_Tracker(tracking)
+                pagemon=1
         elif pagemon==6:
-            Mon5_Tracker(tracking)
-            pagemon=5
+            if trackertemp["5"]["mon"]!="-":
+                Mon5_Tracker(tracking)
+                pagemon=5
+            else:
+                Mon1_Tracker(tracking)
+                pagemon=1
         elif pagemon==1:
-            Mon6_Tracker(tracking)
-            pagemon=6
+            if trackertemp["6"]["mon"]!="-":
+                Mon6_Tracker(tracking)
+                pagemon=6
+            elif trackertemp["5"]["mon"]!="-":
+                Mon5_Tracker(tracking)
+                pagemon=5
+            elif trackertemp["4"]["mon"]!="-":
+                Mon4_Tracker(tracking)
+                pagemon=4
+            elif trackertemp["3"]["mon"]!="-":
+                Mon3_Tracker(tracking)
+                pagemon=3
+            elif trackertemp["2"]["mon"]!="-":
+                Mon2_Tracker(tracking)
+                pagemon=2
         else:
             Mon1_Tracker(tracking)
             pagemon=1
@@ -324,13 +385,13 @@ def pagechangerleft():
             Mon1_Tracker(tracking)
             pagemon=1
     elif battleformat=="double":
-        if pagemon==1:
+        if pagemon==8:
             Mon2_Tracker(tracking)
             pagemon=2
-        elif pagemon==2:
+        elif pagemon==9:
             Mon8_Tracker(tracking)
             pagemon=8
-        elif pagemon==8:
+        elif pagemon==1:
             Mon9_Tracker(tracking)
             pagemon=9
         else:
@@ -350,9 +411,21 @@ def pagechangerleft():
             Mon1_Tracker(tracking)
             pagemon=1
     if battleformat=="triple":
-        if pagemon==1:
+        if pagemon==3:
+            Mon2_Tracker(tracking)
+            pagemon=2
+        elif pagemon==8:
+            Mon3_Tracker(tracking)
+            pagemon=3
+        elif pagemon==9:
             Mon8_Tracker(tracking)
             pagemon=8
+        elif pagemon==10:
+            Mon9_Tracker(tracking)
+            pagemon=9
+        elif pagemon==1:
+            Mon10_Tracker(tracking)
+            pagemon=10
         else:
             Mon1_Tracker(tracking)
             pagemon=1
@@ -409,9 +482,10 @@ def gamechanger():
         json.dump(trackertemp,f)
 #11 tracking pages for different mons
 def Mon1_Tracker(tracking):
+    frameclearer()
     trackertempfile=open(r"trackertemp.json","r+")
     trackertemp=json.load(trackertempfile)
-    tracking.geometry("400x300")
+    tracking.geometry("360x240")
     tracking.title("Tracker")
     def searchdict(dict, text):
         for item in dict:
@@ -419,7 +493,6 @@ def Mon1_Tracker(tracking):
                 return item
     abillabel=Button(tracking, text = "<-",command=pagechangerleft)
     abillabel.grid(row=1, column=1)
-    print("test")
     monlabel=Button(tracking, text=trackertemp["1"]["mon"],command=lambda:Mon1_Data(trackertemp["1"]["mon"]))
     monlabel.grid(row=1, column=3)
     mon_moveset=(moveset[str(int(mons[trackertemp["1"]["mon"]]["id"]))])
@@ -438,7 +511,7 @@ def Mon1_Tracker(tracking):
     abillabel.grid(row=4, column=3)
     itemlabel=Label(tracking, text=items[str(trackertemp["1"]["item"]).zfill(3)]["name"])
     itemlabel.grid(row=3, column=3)
-    strinlabel=Label(tracking, text = "Heals")
+    strinlabel=Label(tracking, text=str(trackertemp["1"]["currhp"])+"/"+str(trackertemp["1"]["maxhp"]))
     strinlabel.grid(row=5, column=3)
     for item in range(0,len(mons[trackertemp["1"]["mon"]]["types"])):
         types2=Label(tracking, text =mons[trackertemp["1"]["mon"]]["types"][item])
@@ -567,9 +640,10 @@ def Mon1_Tracker(tracking):
     jsonsaver=Button(tracking, text = "S", command=jsonsave)
     jsonsaver.grid(row=2, column=1)
 def Mon2_Tracker(tracking):
+    frameclearer()
     trackertempfile=open(r"trackertemp.json","r+")
     trackertemp=json.load(trackertempfile)
-    tracking.geometry("400x300")
+    tracking.geometry("360x240")
     tracking.title("Tracker")
     def searchdict(dict, text):
         for item in dict:
@@ -577,7 +651,6 @@ def Mon2_Tracker(tracking):
                 return item
     abillabel=Button(tracking, text = "<-",command=pagechangerleft)
     abillabel.grid(row=1, column=1)
-    print("test")
     monlabel=Button(tracking, text=trackertemp["2"]["mon"],command=lambda:Mon1_Data(trackertemp["2"]["mon"]))
     monlabel.grid(row=1, column=3)
     mon_moveset=(moveset[str(int(mons[trackertemp["2"]["mon"]]["id"]))])
@@ -592,7 +665,7 @@ def Mon2_Tracker(tracking):
     abillabel.grid(row=4, column=3)
     itemlabel=Label(tracking, text=items[str(trackertemp["2"]["item"]).zfill(3)]["name"])
     itemlabel.grid(row=3, column=3)
-    strinlabel=Label(tracking, text = "Heals")
+    strinlabel=Label(tracking, text=str(trackertemp["2"]["currhp"])+"/"+str(trackertemp["2"]["maxhp"]))
     strinlabel.grid(row=5, column=3)
     for item in range(0,len(mons[trackertemp["2"]["mon"]]["types"])):
         types2=Label(tracking, text =mons[trackertemp["2"]["mon"]]["types"][item])
@@ -625,24 +698,6 @@ def Mon2_Tracker(tracking):
     spelabel.grid(row=7, column=9)
     bstlabel=Label(tracking, text=mons[trackertemp["2"]["mon"]]["bst"])
     bstlabel.grid(row=7,column=10)
-    badgelabel=Label(tracking, text = "Badges")
-    badgelabel.grid(row=1, column=11)
-    badge1=Checkbutton(tracking,text="1")
-    badge1.grid(row=2,column=11)
-    badge2=Checkbutton(tracking,text="2")
-    badge2.grid(row=3,column=11)
-    badge3=Checkbutton(tracking,text="3")
-    badge3.grid(row=4,column=11)
-    badge4=Checkbutton(tracking,text="4")
-    badge4.grid(row=5,column=11)
-    badge5=Checkbutton(tracking,text="5")
-    badge5.grid(row=6,column=11)
-    badge6=Checkbutton(tracking,text="6")
-    badge6.grid(row=7,column=11)
-    badge7=Checkbutton(tracking,text="7")
-    badge7.grid(row=8,column=11)
-    badge8=Checkbutton(tracking,text="8")
-    badge8.grid(row=9,column=11)
     movelabel=Label(tracking, text = "Moves ["+nextmove+"]")
     movelabel.grid(row=6, column=1)
     move1entry=Label(tracking, text=trackertemp["2"]["move1"])
@@ -721,9 +776,10 @@ def Mon2_Tracker(tracking):
     jsonsaver=Button(tracking, text = "S", command=jsonsave)
     jsonsaver.grid(row=2, column=1)
 def Mon3_Tracker(tracking):
+    frameclearer()
     trackertempfile=open(r"trackertemp.json","r+")
     trackertemp=json.load(trackertempfile)
-    tracking.geometry("400x300")
+    tracking.geometry("360x240")
     tracking.title("Tracker")
     def searchdict(dict, text):
         for item in dict:
@@ -731,7 +787,6 @@ def Mon3_Tracker(tracking):
                 return item
     abillabel=Button(tracking, text = "<-",command=pagechangerleft)
     abillabel.grid(row=1, column=1)
-    print("test")
     monlabel=Button(tracking, text=trackertemp["3"]["mon"],command=lambda:Mon1_Data(trackertemp["3"]["mon"]))
     monlabel.grid(row=1, column=3)
     mon_moveset=(moveset[str(int(mons[trackertemp["3"]["mon"]]["id"]))])
@@ -746,7 +801,7 @@ def Mon3_Tracker(tracking):
     abillabel.grid(row=4, column=3)
     itemlabel=Label(tracking, text=items[str(trackertemp["3"]["item"]).zfill(3)]["name"])
     itemlabel.grid(row=3, column=3)
-    strinlabel=Label(tracking, text = "Heals")
+    strinlabel=Label(tracking, text=str(trackertemp["3"]["currhp"])+"/"+str(trackertemp["3"]["maxhp"]))
     strinlabel.grid(row=5, column=3)
     for item in range(0,len(mons[trackertemp["3"]["mon"]]["types"])):
         types2=Label(tracking, text =mons[trackertemp["3"]["mon"]]["types"][item])
@@ -779,24 +834,6 @@ def Mon3_Tracker(tracking):
     spelabel.grid(row=7, column=9)
     bstlabel=Label(tracking, text=mons[trackertemp["3"]["mon"]]["bst"])
     bstlabel.grid(row=7,column=10)
-    badgelabel=Label(tracking, text = "Badges")
-    badgelabel.grid(row=1, column=11)
-    badge1=Checkbutton(tracking,text="1")
-    badge1.grid(row=2,column=11)
-    badge2=Checkbutton(tracking,text="2")
-    badge2.grid(row=3,column=11)
-    badge3=Checkbutton(tracking,text="3")
-    badge3.grid(row=4,column=11)
-    badge4=Checkbutton(tracking,text="4")
-    badge4.grid(row=5,column=11)
-    badge5=Checkbutton(tracking,text="5")
-    badge5.grid(row=6,column=11)
-    badge6=Checkbutton(tracking,text="6")
-    badge6.grid(row=7,column=11)
-    badge7=Checkbutton(tracking,text="7")
-    badge7.grid(row=8,column=11)
-    badge8=Checkbutton(tracking,text="8")
-    badge8.grid(row=9,column=11)
     movelabel=Label(tracking, text = "Moves ["+nextmove+"]")
     movelabel.grid(row=6, column=1)
     move1entry=Label(tracking, text=trackertemp["3"]["move1"])
@@ -875,9 +912,10 @@ def Mon3_Tracker(tracking):
     jsonsaver=Button(tracking, text = "S", command=jsonsave)
     jsonsaver.grid(row=2, column=1)
 def Mon4_Tracker(tracking):
+    frameclearer()
     trackertempfile=open(r"trackertemp.json","r+")
     trackertemp=json.load(trackertempfile)
-    tracking.geometry("400x300")
+    tracking.geometry("360x240")
     tracking.title("Tracker")
     def searchdict(dict, text):
         for item in dict:
@@ -885,7 +923,6 @@ def Mon4_Tracker(tracking):
                 return item
     abillabel=Button(tracking, text = "<-",command=pagechangerleft)
     abillabel.grid(row=1, column=1)
-    print("test")
     monlabel=Button(tracking, text=trackertemp["4"]["mon"],command=lambda:Mon1_Data(trackertemp["4"]["mon"]))
     monlabel.grid(row=1, column=3)
     mon_moveset=(moveset[str(int(mons[trackertemp["4"]["mon"]]["id"]))])
@@ -900,7 +937,7 @@ def Mon4_Tracker(tracking):
     abillabel.grid(row=4, column=3)
     itemlabel=Label(tracking, text=items[str(trackertemp["4"]["item"]).zfill(3)]["name"])
     itemlabel.grid(row=3, column=3)
-    strinlabel=Label(tracking, text = "Heals")
+    strinlabel=Label(tracking, text=str(trackertemp["4"]["currhp"])+"/"+str(trackertemp["4"]["maxhp"]))
     strinlabel.grid(row=5, column=3)
     for item in range(0,len(mons[trackertemp["4"]["mon"]]["types"])):
         types2=Label(tracking, text =mons[trackertemp["4"]["mon"]]["types"][item])
@@ -933,24 +970,6 @@ def Mon4_Tracker(tracking):
     spelabel.grid(row=7, column=9)
     bstlabel=Label(tracking, text=mons[trackertemp["4"]["mon"]]["bst"])
     bstlabel.grid(row=7,column=10)
-    badgelabel=Label(tracking, text = "Badges")
-    badgelabel.grid(row=1, column=11)
-    badge1=Checkbutton(tracking,text="1")
-    badge1.grid(row=2,column=11)
-    badge2=Checkbutton(tracking,text="2")
-    badge2.grid(row=3,column=11)
-    badge3=Checkbutton(tracking,text="3")
-    badge3.grid(row=4,column=11)
-    badge4=Checkbutton(tracking,text="4")
-    badge4.grid(row=5,column=11)
-    badge5=Checkbutton(tracking,text="5")
-    badge5.grid(row=6,column=11)
-    badge6=Checkbutton(tracking,text="6")
-    badge6.grid(row=7,column=11)
-    badge7=Checkbutton(tracking,text="7")
-    badge7.grid(row=8,column=11)
-    badge8=Checkbutton(tracking,text="8")
-    badge8.grid(row=9,column=11)
     movelabel=Label(tracking, text = "Moves ["+nextmove+"]")
     movelabel.grid(row=6, column=1)
     move1entry=Label(tracking, text=trackertemp["4"]["move1"])
@@ -1029,9 +1048,10 @@ def Mon4_Tracker(tracking):
     jsonsaver=Button(tracking, text = "S", command=jsonsave)
     jsonsaver.grid(row=2, column=1)
 def Mon5_Tracker(tracking):
+    frameclearer()
     trackertempfile=open(r"trackertemp.json","r+")
     trackertemp=json.load(trackertempfile)
-    tracking.geometry("400x300")
+    tracking.geometry("360x240")
     tracking.title("Tracker")
     def searchdict(dict, text):
         for item in dict:
@@ -1039,7 +1059,6 @@ def Mon5_Tracker(tracking):
                 return item
     abillabel=Button(tracking, text = "<-",command=pagechangerleft)
     abillabel.grid(row=1, column=1)
-    print("test")
     monlabel=Button(tracking, text=trackertemp["5"]["mon"],command=lambda:Mon1_Data(trackertemp["5"]["mon"]))
     monlabel.grid(row=1, column=3)
     mon_moveset=(moveset[str(int(mons[trackertemp["5"]["mon"]]["id"]))])
@@ -1054,7 +1073,7 @@ def Mon5_Tracker(tracking):
     abillabel.grid(row=4, column=3)
     itemlabel=Label(tracking, text=items[str(trackertemp["5"]["item"]).zfill(3)]["name"])
     itemlabel.grid(row=3, column=3)
-    strinlabel=Label(tracking, text = "Heals")
+    strinlabel=Label(tracking, text=str(trackertemp["5"]["currhp"])+"/"+str(trackertemp["5"]["maxhp"]))
     strinlabel.grid(row=5, column=3)
     for item in range(0,len(mons[trackertemp["5"]["mon"]]["types"])):
         types2=Label(tracking, text =mons[trackertemp["5"]["mon"]]["types"][item])
@@ -1087,24 +1106,6 @@ def Mon5_Tracker(tracking):
     spelabel.grid(row=7, column=9)
     bstlabel=Label(tracking, text=mons[trackertemp["5"]["mon"]]["bst"])
     bstlabel.grid(row=7,column=10)
-    badgelabel=Label(tracking, text = "Badges")
-    badgelabel.grid(row=1, column=11)
-    badge1=Checkbutton(tracking,text="1")
-    badge1.grid(row=2,column=11)
-    badge2=Checkbutton(tracking,text="2")
-    badge2.grid(row=3,column=11)
-    badge3=Checkbutton(tracking,text="3")
-    badge3.grid(row=4,column=11)
-    badge4=Checkbutton(tracking,text="4")
-    badge4.grid(row=5,column=11)
-    badge5=Checkbutton(tracking,text="5")
-    badge5.grid(row=6,column=11)
-    badge6=Checkbutton(tracking,text="6")
-    badge6.grid(row=7,column=11)
-    badge7=Checkbutton(tracking,text="7")
-    badge7.grid(row=8,column=11)
-    badge8=Checkbutton(tracking,text="8")
-    badge8.grid(row=9,column=11)
     movelabel=Label(tracking, text = "Moves ["+nextmove+"]")
     movelabel.grid(row=6, column=1)
     move1entry=Label(tracking, text=trackertemp["5"]["move1"])
@@ -1183,9 +1184,10 @@ def Mon5_Tracker(tracking):
     jsonsaver=Button(tracking, text = "S", command=jsonsave)
     jsonsaver.grid(row=2, column=1)
 def Mon6_Tracker(tracking):
+    frameclearer()
     trackertempfile=open(r"trackertemp.json","r+")
     trackertemp=json.load(trackertempfile)
-    tracking.geometry("400x300")
+    tracking.geometry("360x240")
     tracking.title("Tracker")
     def searchdict(dict, text):
         for item in dict:
@@ -1193,7 +1195,6 @@ def Mon6_Tracker(tracking):
                 return item
     abillabel=Button(tracking, text = "<-",command=pagechangerleft)
     abillabel.grid(row=1, column=1)
-    print("test")
     monlabel=Button(tracking, text=trackertemp["6"]["mon"],command=lambda:Mon1_Data(trackertemp["6"]["mon"]))
     monlabel.grid(row=1, column=3)
     mon_moveset=(moveset[str(int(mons[trackertemp["6"]["mon"]]["id"]))])
@@ -1208,7 +1209,7 @@ def Mon6_Tracker(tracking):
     abillabel.grid(row=4, column=3)
     itemlabel=Label(tracking, text=items[str(trackertemp["6"]["item"]).zfill(3)]["name"])
     itemlabel.grid(row=3, column=3)
-    strinlabel=Label(tracking, text = "Heals")
+    strinlabel=Label(tracking, text=str(trackertemp["6"]["currhp"])+"/"+str(trackertemp["6"]["maxhp"]))
     strinlabel.grid(row=5, column=3)
     for item in range(0,len(mons[trackertemp["6"]["mon"]]["types"])):
         types2=Label(tracking, text =mons[trackertemp["6"]["mon"]]["types"][item])
@@ -1241,24 +1242,6 @@ def Mon6_Tracker(tracking):
     spelabel.grid(row=7, column=9)
     bstlabel=Label(tracking, text=mons[trackertemp["6"]["mon"]]["bst"])
     bstlabel.grid(row=7,column=10)
-    badgelabel=Label(tracking, text = "Badges")
-    badgelabel.grid(row=1, column=11)
-    badge1=Checkbutton(tracking,text="1")
-    badge1.grid(row=2,column=11)
-    badge2=Checkbutton(tracking,text="2")
-    badge2.grid(row=3,column=11)
-    badge3=Checkbutton(tracking,text="3")
-    badge3.grid(row=4,column=11)
-    badge4=Checkbutton(tracking,text="4")
-    badge4.grid(row=5,column=11)
-    badge5=Checkbutton(tracking,text="5")
-    badge5.grid(row=6,column=11)
-    badge6=Checkbutton(tracking,text="6")
-    badge6.grid(row=7,column=11)
-    badge7=Checkbutton(tracking,text="7")
-    badge7.grid(row=8,column=11)
-    badge8=Checkbutton(tracking,text="8")
-    badge8.grid(row=9,column=11)
     movelabel=Label(tracking, text = "Moves ["+nextmove+"]")
     movelabel.grid(row=6, column=1)
     move1entry=Label(tracking, text=trackertemp["6"]["move1"])
@@ -1337,9 +1320,10 @@ def Mon6_Tracker(tracking):
     jsonsaver=Button(tracking, text = "S", command=jsonsave)
     jsonsaver.grid(row=2, column=1)
 def Mon7_Tracker(tracking):
+    frameclearer()
     page=tkinter.Frame(tracking)
     page.grid()
-    tracking.geometry("400x240")
+    tracking.geometry("360x240")
     tracking.title("Tracker")
     status=["-","Burn","Poison","Sleep","Paralysis","Frozen"]
     statustext=status[0]
@@ -1401,7 +1385,6 @@ def Mon7_Tracker(tracking):
     def playermondata():
         if monentry.get()!="":
             Mon1_Data(monentry.get())
-    print("test")
     monlabel=Button(tracking, text="Opponent",command=playermondata)
     monlabel.grid(row=1, column=3)
     changepage=Button(tracking, text = "->",command=pagechanger)
@@ -1496,9 +1479,10 @@ def Mon7_Tracker(tracking):
     jsonsaver=Button(tracking, text = "Save", command=jsonsave)
     jsonsaver.grid(row=9, column=3)
 def Mon8_Tracker(tracking):
+    frameclearer()
     page=tkinter.Frame(tracking)
     page.grid()
-    tracking.geometry("400x240")
+    tracking.geometry("360x240")
     tracking.title("Tracker")
     #status=["-","Burn","Poison","Sleep","Paralysis","Frozen"]
     #statustext=status[0]
@@ -1560,7 +1544,6 @@ def Mon8_Tracker(tracking):
     def playermondata():
         if monentry.get()!="":
             Mon1_Data(monentry.get())
-    print("test")
     monlabel=Button(tracking, text="Opponent",command=playermondata)
     monlabel.grid(row=1, column=3)
     changepage=Button(tracking, text = "->",command=pagechanger)
@@ -1657,24 +1640,25 @@ def Mon8_Tracker(tracking):
     jsonsaver=Button(tracking, text = "Save", command=jsonsave)
     jsonsaver.grid(row=9, column=3)
 def Mon9_Tracker(tracking):
+    frameclearer()
     page=tkinter.Frame(tracking)
     page.grid()
-    tracking.geometry("400x240")
+    tracking.geometry("360x240")
     tracking.title("Tracker")
-    status=["-","Burn","Poison","Sleep","Paralysis","Frozen"]
-    statustext=status[0]
-    def statuschange():
-        statustext=status[status.index(statustext)+1]
-    statusbutton=Button(tracking,text=statustext,command=statuschange)
-    statusbutton.grid(row=8,column=12)
+    #status=["-","Burn","Poison","Sleep","Paralysis","Frozen"]
+    #statustext=status[0]
+    #def statuschange():
+        #statustext=status[status.index(statustext)+1]
+    #statusbutton=Button(tracking,text=statustext,command=statuschange)
+    #statusbutton.grid(row=8,column=12)
     def searchdict(dict, text):
         for item in dict:
             if item==text:
                 return item
     opponen=Entry(tracking, width=14)
-    opponen.grid(row=7,column=12)
+    opponen.grid(row=7,column=5)
     monentry=Entry(tracking, width=14)
-    monentry.grid(row=1,column=12)
+    monentry.grid(row=1,column=5)
     def movedisplay():
         if move1entry.get()!="":
             if opponen.get()!="":
@@ -1721,26 +1705,27 @@ def Mon9_Tracker(tracking):
     def playermondata():
         if monentry.get()!="":
             Mon1_Data(monentry.get())
-    print("test")
     monlabel=Button(tracking, text="Opponent",command=playermondata)
     monlabel.grid(row=1, column=3)
     changepage=Button(tracking, text = "->",command=pagechanger)
     changepage.grid(row=1, column=2)
+    notesclear=Button(tracking, text = "Clear Notes", command=NotesClearer)
+    notesclear.grid(row=9, column=5)
     def open_abildata():
         if abilentry.get()!="":
             Ability_Data(abilentry.get())
     abillabel=Button(tracking, text = "Abilities",command=open_abildata)
     abillabel.grid(row=4, column=3)
     abilentry=Entry(tracking, width=14)
-    abilentry.grid(row=4,column=12)
+    abilentry.grid(row=4,column=5)
     itemlabel=Label(tracking, text = "Held Item")
     itemlabel.grid(row=3, column=3)
     itementry=Entry(tracking, width=14)
-    itementry.grid(row=3,column=12)
+    itementry.grid(row=3,column=5)
     strinlabel=Label(tracking, text = "String")
     strinlabel.grid(row=5, column=3)
     strinentry=Entry(tracking, width=14)
-    strinentry.grid(row=5,column=12)
+    strinentry.grid(row=5,column=5)
     hplabel=Label(tracking, text = "HP")
     hplabel.grid(row=3, column=1)
     hpentry=Entry(tracking, width=4)
@@ -1816,24 +1801,25 @@ def Mon9_Tracker(tracking):
     jsonsaver=Button(tracking, text = "Save", command=jsonsave)
     jsonsaver.grid(row=9, column=3)
 def Mon10_Tracker(tracking):
+    frameclearer()
     page=tkinter.Frame(tracking)
     page.grid()
-    tracking.geometry("400x240")
+    tracking.geometry("360x240")
     tracking.title("Tracker")
-    status=["-","Burn","Poison","Sleep","Paralysis","Frozen"]
-    statustext=status[0]
-    def statuschange():
-        statustext=status[status.index(statustext)+1]
-    statusbutton=Button(tracking,text=statustext,command=statuschange)
-    statusbutton.grid(row=8,column=12)
+    #status=["-","Burn","Poison","Sleep","Paralysis","Frozen"]
+    #statustext=status[0]
+    #def statuschange():
+        #statustext=status[status.index(statustext)+1]
+    #statusbutton=Button(tracking,text=statustext,command=statuschange)
+    #statusbutton.grid(row=8,column=12)
     def searchdict(dict, text):
         for item in dict:
             if item==text:
                 return item
     opponen=Entry(tracking, width=14)
-    opponen.grid(row=7,column=12)
+    opponen.grid(row=7,column=5)
     monentry=Entry(tracking, width=14)
-    monentry.grid(row=1,column=12)
+    monentry.grid(row=1,column=5)
     def movedisplay():
         if move1entry.get()!="":
             if opponen.get()!="":
@@ -1880,26 +1866,27 @@ def Mon10_Tracker(tracking):
     def playermondata():
         if monentry.get()!="":
             Mon1_Data(monentry.get())
-    print("test")
     monlabel=Button(tracking, text="Opponent",command=playermondata)
     monlabel.grid(row=1, column=3)
     changepage=Button(tracking, text = "->",command=pagechanger)
     changepage.grid(row=1, column=2)
+    notesclear=Button(tracking, text = "Clear Notes", command=NotesClearer)
+    notesclear.grid(row=9, column=5)
     def open_abildata():
         if abilentry.get()!="":
             Ability_Data(abilentry.get())
     abillabel=Button(tracking, text = "Abilities",command=open_abildata)
     abillabel.grid(row=4, column=3)
     abilentry=Entry(tracking, width=14)
-    abilentry.grid(row=4,column=12)
+    abilentry.grid(row=4,column=5)
     itemlabel=Label(tracking, text = "Held Item")
     itemlabel.grid(row=3, column=3)
     itementry=Entry(tracking, width=14)
-    itementry.grid(row=3,column=12)
+    itementry.grid(row=3,column=5)
     strinlabel=Label(tracking, text = "String")
     strinlabel.grid(row=5, column=3)
     strinentry=Entry(tracking, width=14)
-    strinentry.grid(row=5,column=12)
+    strinentry.grid(row=5,column=5)
     hplabel=Label(tracking, text = "HP")
     hplabel.grid(row=3, column=1)
     hpentry=Entry(tracking, width=4)
@@ -1975,9 +1962,10 @@ def Mon10_Tracker(tracking):
     jsonsaver=Button(tracking, text = "Save", command=jsonsave)
     jsonsaver.grid(row=9, column=3)
 def Mon11_Tracker(tracking):
+    frameclearer()
     page=tkinter.Frame(tracking)
     page.grid()
-    tracking.geometry("400x240")
+    tracking.geometry("360x240")
     tracking.title("Tracker")
     status=["-","Burn","Poison","Sleep","Paralysis","Frozen"]
     statustext=status[0]
@@ -2039,7 +2027,6 @@ def Mon11_Tracker(tracking):
     def playermondata():
         if monentry.get()!="":
             Mon1_Data(monentry.get())
-    print("test")
     monlabel=Button(tracking, text="Opponent",command=playermondata)
     monlabel.grid(row=1, column=3)
     changepage=Button(tracking, text = "->",command=pagechanger)
@@ -2134,9 +2121,10 @@ def Mon11_Tracker(tracking):
     jsonsaver=Button(tracking, text = "Save", command=jsonsave)
     jsonsaver.grid(row=9, column=3)
 def Mon12_Tracker(tracking):
+    frameclearer()
     page=tkinter.Frame(tracking)
     page.grid()
-    tracking.geometry("400x240")
+    tracking.geometry("360x240")
     tracking.title("Tracker")
     status=["-","Burn","Poison","Sleep","Paralysis","Frozen"]
     statustext=status[0]
@@ -2198,7 +2186,6 @@ def Mon12_Tracker(tracking):
     def playermondata():
         if monentry.get()!="":
             Mon1_Data(monentry.get())
-    print("test")
     monlabel=Button(tracking, text="Opponent",command=playermondata)
     monlabel.grid(row=1, column=3)
     changepage=Button(tracking, text = "->",command=pagechanger)
