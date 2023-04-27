@@ -427,9 +427,6 @@ def run():
                         trackertemp[str(pk)]["move2"]=pkmn.move_2()
                         trackertemp[str(pk)]["move3"]=pkmn.move_3()
                         trackertemp[str(pk)]["move4"]=pkmn.move_4()
-                        print("EVs: " + pkmn.ev_hp() + "/" + pkmn.ev_attack() + "/" + pkmn.ev_defense() + "/" + pkmn.ev_sp_attack() + "/" + pkmn.ev_sp_defense() + "/" + pkmn.ev_speed() + "  ")
-                        
-                        print("IVs: " + pkmn.iv_hp() + "/" + pkmn.iv_attack() + "/" + pkmn.iv_defense() + "/" + pkmn.iv_sp_attack() + "/" + pkmn.iv_sp_defense() + "/" + pkmn.iv_speed() + "\n")
                         trackertemp[str(pk)]["item"]=str(pkmn.held_item_num())
                         print("Stats: " + pkmn.stat_hp() + "/" + pkmn.stat_attack() + "/" + pkmn.stat_defense() + "/" + pkmn.stat_sp_attack() + "/" + pkmn.stat_sp_defense() + "/" + pkmn.stat_speed() + "\n")
                         trackertemp[str(pk)]["maxhp"]=pkmn.stat_hp()
@@ -441,9 +438,6 @@ def run():
                         print("Level: " + pkmn.level() + "  Friendship: " + pkmn.friendship() + "\n")
                         trackertemp[str(pk)]["level"]=pkmn.level()
                         trackertemp[str(pk)]["friendship"]=pkmn.friendship()
-                        print("\n")
-                        print((trackertemp[str(pk)]))
-                        print(str(pk))
                     else:
                         pk=pk+1
                         trackertemp[str(pk)]["mon"]="-"
@@ -463,9 +457,6 @@ def run():
                         trackertemp[str(pk)]["spe"]=""
                         trackertemp[str(pk)]["level"]=""
                         trackertemp[str(pk)]["friendship"]=""
-                        print("\n")
-                        print((trackertemp[str(pk)]))
-                        print(str)
                 trackertempfile=r"trackertemp.json"
                 with open(trackertempfile, "w") as f:
                     json.dump(trackertemp, f)

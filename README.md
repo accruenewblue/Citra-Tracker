@@ -1,24 +1,15 @@
 Tracker for Gen 6/7 Pokémon Ironmon.
 
 Specifically, this includes:
-
     --Pokémon X/Y
-
     --Pokémon Omega Ruby/Alpha Sapphire
-
     --Pokémon Sun/Moon
-
     --Pokémon Ultra Sun/Ultra Moon
 
-
 Tracking options are available as the following:
-
     --Ability to save details about each mon
-
     --Details about moves, abilities and mons
-
     --Display features for your mon(s)
-
 
 How to Use:
  
@@ -30,7 +21,7 @@ There are also buttons to open windows for more information, in particular the o
 
 Keep in mind this is an alpha version, do not expect perfection right now.
 
-Thanks to UTDZac for helping with some of the features being imported from Citra, and something_smart_ for the move level up sets. Otherwise, thank Bulbapedia for the helpful lists I used.
+Thanks to UTDZac for helping with some of the features being imported from Citra, and something_smart_ for the move level up sets. Otherwise, thank Bulbapedia for the helpful lists I used. Additionally, thank [this](https://github.com/EverOddish/PokeStreamer-Tools) for the citra tracking data.
 
 Python interface is required link [here](https://www.python.org/downloads/)
 

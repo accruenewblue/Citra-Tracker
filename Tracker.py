@@ -21,7 +21,6 @@ abilitiesfile=open(r"ability-data.json")
 abilities=json.load(abilitiesfile)
 itemsfile=open(r"item-data.json")
 items=json.load(itemsfile)
-print(items["004"])
 naturesfile=open(r"nature-data.json")
 natures=json.load(naturesfile)
 pagemon=1
@@ -30,7 +29,6 @@ pagemon=1
 party=[trackertemp["1"]["mon"],trackertemp["2"]["mon"],trackertemp["3"]["mon"],trackertemp["4"]["mon"],trackertemp["5"]["mon"],trackertemp["6"]["mon"],]
 opponent=["-","-","-","-","-"]
 ally=["-"]
-print(party)
 #arrays for defining the effectiveness of typed attacks or special moves
 typetable={
 "Normal":[1,1,1,1,1,.5,1,0,.5,1,1,1,1,1,1,1,1,1,1],
@@ -336,8 +334,6 @@ def pagechanger():
         else:
             Mon1_Tracker(tracking)
             pagemon=1
-        print(trackertemp[str(pagemon)]["mon"])
-    print(pagemon)
 def pagechangerleft():
     global pagemon
     if battleformat=="party":
@@ -498,7 +494,6 @@ def naturecalcm(numt):
     Sspa=""
     Sspd=""
     Sspe=""
-    print(natures[trackertemp[numt]["nature"]]["-"])
     if natures[trackertemp[numt]["nature"]]["-"]==" Attack":
         Satk="-"
     elif natures[trackertemp[numt]["nature"]]["-"]==" Defense":
@@ -511,7 +506,6 @@ def naturecalcm(numt):
         Sspe="-"
 def naturecalcp(numt):
     global Satk,Sdef,Sspa,Sspd,Sspe
-    print(natures[trackertemp[numt]["nature"]]["+"])
     if natures[trackertemp[numt]["nature"]]["+"]==" Attack":
         Satk="+"
     elif natures[trackertemp[numt]["nature"]]["+"]==" Defense":
