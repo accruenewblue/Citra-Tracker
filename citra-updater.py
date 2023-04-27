@@ -342,6 +342,8 @@ class Pokemon:
         return str(struct.unpack("B", self.raw_data[0xEC:0xED])[0])
     def held_item_num(self):
         return struct.unpack("<H", self.raw_data[0xA:0xC])[0]
+    def cur_hp(self):
+        return struct.unpack("<H", self.raw_data[0xF0:0xF2])[0]
     def stat_hp(self):
         return str(struct.unpack("<H", self.raw_data[0xF2:0xF4])[0])
     def stat_attack(self):
@@ -420,7 +422,7 @@ def run():
                         trackertemp[str(pk)]["ability"]=pkmn.ability()
                         trackertemp[str(pk)]["nature"]=pkmn.nature()
                         print("Moves: " + pkmn.move_1() + ", " + pkmn.move_2() + ", " + pkmn.move_3() + ", " + pkmn.move_4() + "\n")
-                        
+                        trackertemp[str(pk)]["currhp"]=pkmn.cur_hp()
                         trackertemp[str(pk)]["move1"]=pkmn.move_1()
                         trackertemp[str(pk)]["move2"]=pkmn.move_2()
                         trackertemp[str(pk)]["move3"]=pkmn.move_3()
@@ -442,6 +444,28 @@ def run():
                         print("\n")
                         print((trackertemp[str(pk)]))
                         print(str(pk))
+                    else:
+                        pk=pk+1
+                        trackertemp[str(pk)]["mon"]="-"
+                        trackertemp[str(pk)]["ability"]=""
+                        trackertemp[str(pk)]["nature"]=""
+                        trackertemp[str(pk)]["currhp"]=""
+                        trackertemp[str(pk)]["move1"]=""
+                        trackertemp[str(pk)]["move2"]=""
+                        trackertemp[str(pk)]["move3"]=""
+                        trackertemp[str(pk)]["move4"]=""
+                        trackertemp[str(pk)]["item"]=""
+                        trackertemp[str(pk)]["maxhp"]=""
+                        trackertemp[str(pk)]["atk"]=""
+                        trackertemp[str(pk)]["def"]=""
+                        trackertemp[str(pk)]["spa"]=""
+                        trackertemp[str(pk)]["spd"]=""
+                        trackertemp[str(pk)]["spe"]=""
+                        trackertemp[str(pk)]["level"]=""
+                        trackertemp[str(pk)]["friendship"]=""
+                        print("\n")
+                        print((trackertemp[str(pk)]))
+                        print(str)
                 trackertempfile=r"trackertemp.json"
                 with open(trackertempfile, "w") as f:
                     json.dump(trackertemp, f)
