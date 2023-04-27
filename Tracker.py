@@ -125,12 +125,6 @@ def Ability_Data(abil):
     abili.geometry("300x50")
     abilitydata=Label(abili,text=abilities[abil]["detail"],wraplength=300)
     abilitydata.pack()
-def moveinfo():
-    infom=Toplevel()
-    infom.title("Ability Data")
-    infom.geometry("300x50")
-    movedata=Label(infom,text="First two letters are Ph=Physical, Sp=Special, St=Status. Second two are Co.=Contact, NC=Non-Contact.",wraplength=300)
-    movedata.pack()
 def Mon1_Data(montemp):
     mon1dat=Toplevel()
     mon1dat.title("Mon Data")
@@ -140,9 +134,9 @@ def Mon1_Data(montemp):
         abillabel=Button(mon1dat, text=abil,command=lambda abil=abil:Ability_Data(abil))
         #abil=abil stores the value of it when written
         #I thought it normally did that, but apparently otherwise it only calls that after???
-        abillabel.grid(row=6+abilloc, column=4)
+        abillabel.grid(row=5+abilloc, column=4)
         abilentry=Label(mon1dat, text="Ability "+str(1+abilloc))
-        abilentry.grid(row=6+abilloc,column=3)
+        abilentry.grid(row=5+abilloc,column=3)
     for item in range(0,len(mons[montemp]["moves"])):
         movelabel=Button(mon1dat, text=mons[montemp]["moves"][item])
         movelabel.grid(row=1+item, column=5)
@@ -168,13 +162,8 @@ def Mon1_Data(montemp):
     itementry.grid(row=3,column=12)
     strinlabel=Label(mon1dat, text = "String")
     strinlabel.grid(row=4, column=3)
-    strinentry=Label(mon1dat, text=mons[montemp]["stringnote"], wraplength=100)
+    strinentry=Label(mon1dat, text=mons[montemp]["stringnote"], wraplength=150)
     strinentry.grid(row=4,column=4)
-    strinlabel=Label(mon1dat, text = "Moveset")
-    strinlabel.grid(row=5, column=3)
-    mon_moveset=(moveset[str(int(mons[trackertemp["1"]["mon"]]["id"]))])
-    strinentry=Label(mon1dat, text=mon_moveset, wraplength=100)
-    strinentry.grid(row=5,column=4)
     hplabel=Label(mon1dat, text = "HP")
     hplabel.grid(row=3, column=1)
     hpentry=Label(mon1dat, text=mons[montemp]["notes"][0])
@@ -264,7 +253,7 @@ def pagechanger():
         else:
             Mon1_Tracker(tracking)
             pagemon=1
-    elif battleformat=="triple":
+    if battleformat=="triple":
         if pagemon==1:
             Mon2_Tracker(tracking)
             pagemon=2
@@ -283,21 +272,21 @@ def pagechanger():
         else:
             Mon1_Tracker(tracking)
             pagemon=1
-    elif battleformat=="SOS":
+    if battleformat=="SOS":
         if pagemon==1:
             Mon8_Tracker(tracking)
             pagemon=8
         else:
             Mon1_Tracker(tracking)
             pagemon=1
-    elif battleformat=="horde":
+    if battleformat=="horde":
         if pagemon==1:
             Mon8_Tracker(tracking)
             pagemon=8
         else:
             Mon1_Tracker(tracking)
             pagemon=1
-    elif battleformat=="party":
+    if battleformat=="party":
         if pagemon==1:
             if trackertemp["2"]["mon"]!="-":
                 Mon2_Tracker(tracking)
@@ -388,7 +377,7 @@ def pagechangerleft():
         else:
             Mon1_Tracker(tracking)
             pagemon=1
-    elif battleformat=="single":
+    if battleformat=="single":
         if pagemon==1:
             Mon8_Tracker(tracking)
             pagemon=8
@@ -421,7 +410,7 @@ def pagechangerleft():
         else:
             Mon1_Tracker(tracking)
             pagemon=1
-    elif battleformat=="triple":
+    if battleformat=="triple":
         if pagemon==3:
             Mon2_Tracker(tracking)
             pagemon=2
@@ -440,14 +429,14 @@ def pagechangerleft():
         else:
             Mon1_Tracker(tracking)
             pagemon=1
-    elif battleformat=="SOS":
+    if battleformat=="SOS":
         if pagemon==1:
             Mon8_Tracker(tracking)
             pagemon=8
         else:
             Mon1_Tracker(tracking)
             pagemon=1
-    elif battleformat=="horde":
+    if battleformat=="horde":
         if pagemon==1:
             Mon8_Tracker(tracking)
             pagemon=8
@@ -491,37 +480,6 @@ def gamechanger():
         trackertemp["game"]="XY"
     with open(trackertempfile3, "w") as f:
         json.dump(trackertemp,f)
-def naturecalcm(numt):
-    global Satk,Sdef,Sspa,Sspd,Sspe
-    Satk=""
-    Sdef=""
-    Sspa=""
-    Sspd=""
-    Sspe=""
-    print(natures[trackertemp[numt]["nature"]]["-"])
-    if natures[trackertemp[numt]["nature"]]["-"]==" Attack":
-        Satk="-"
-    elif natures[trackertemp[numt]["nature"]]["-"]==" Defense":
-        Sdef="-"
-    elif natures[trackertemp[numt]["nature"]]["-"]==" Sp. Attack":
-        Sspa="-"
-    elif natures[trackertemp[numt]["nature"]]["-"]==" Sp. Defense":
-        Sspd="-"
-    elif natures[trackertemp[numt]["nature"]]["-"]==" Speed":
-        Sspe="-"
-def naturecalcp(numt):
-    global Satk,Sdef,Sspa,Sspd,Sspe
-    print(natures[trackertemp[numt]["nature"]]["+"])
-    if natures[trackertemp[numt]["nature"]]["+"]==" Attack":
-        Satk="+"
-    elif natures[trackertemp[numt]["nature"]]["+"]==" Defense":
-        Sdef="+"
-    elif natures[trackertemp[numt]["nature"]]["+"]==" Sp. Attack":
-        Sspa="+"
-    elif natures[trackertemp[numt]["nature"]]["+"]==" Sp. Defense":
-        Sspd="+"
-    elif natures[trackertemp[numt]["nature"]]["+"]==" Speed":
-        Sspe="+"
 #11 tracking pages for different mons
 def Mon1_Tracker(tracking):
     frameclearer()
@@ -560,29 +518,27 @@ def Mon1_Tracker(tracking):
         types2.grid(row=3+item,column=1)
     hplabel=Label(tracking, text = "HP")
     hplabel.grid(row=1, column=9)
-    hpentry=Label(tracking, text=trackertemp["1"]["maxhp"])
+    hpentry=Label(tracking, text =trackertemp["1"]["maxhp"])
     hpentry.grid(row=1,column=10)
-    naturecalcm("1")
-    naturecalcp("1")
     atklabel=Label(tracking, text = "ATK")
     atklabel.grid(row=2, column=9)
-    atkentry=Label(tracking, text=Satk+trackertemp["1"]["atk"])
+    atkentry=Label(tracking, text =trackertemp["1"]["atk"])
     atkentry.grid(row=2,column=10)
     deflabel=Label(tracking, text = "DEF")
     deflabel.grid(row=3, column=9)
-    defentry=Label(tracking, text=Sdef+trackertemp["1"]["def"])
+    defentry=Label(tracking, text =trackertemp["1"]["def"])
     defentry.grid(row=3,column=10)
     spalabel=Label(tracking, text = "SPA")
     spalabel.grid(row=4, column=9)
-    spaentry=Label(tracking, text=Sspa+trackertemp["1"]["spa"])
+    spaentry=Label(tracking, text =trackertemp["1"]["spa"])
     spaentry.grid(row=4,column=10)
     spdlabel=Label(tracking, text = "SPD")
     spdlabel.grid(row=5, column=9)
-    spdentry=Label(tracking, text=Sspd+trackertemp["1"]["spd"])
+    spdentry=Label(tracking, text =trackertemp["1"]["spd"])
     spdentry.grid(row=5,column=10)
     spelabel=Label(tracking, text = "SPE")
     spelabel.grid(row=6, column=9)
-    speentry=Label(tracking, text=Sspe+trackertemp["1"]["spe"])
+    speentry=Label(tracking, text =trackertemp["1"]["spe"])
     speentry.grid(row=6,column=10)
     spelabel=Label(tracking, text = "BST")
     spelabel.grid(row=7, column=9)
@@ -656,18 +612,18 @@ def Mon1_Tracker(tracking):
     typmove3entry.grid(row=9,column=5)
     typmove4entry=Label(tracking, text=moves[trackertemp["1"]["move4"]]["type"])
     typmove4entry.grid(row=10,column=5)
-    typmovelabel=Button(tracking, text = "Contact", command=moveinfo)
+    typmovelabel=Label(tracking, text = "Contact")
     typmovelabel.grid(row=6, column=6)
-    typmove1entry=Label(tracking, text=moves[trackertemp["1"]["move1"]]["detail"][0:2]+", "+moves[trackertemp["1"]["move1"]]["contact"])
+    typmove1entry=Label(tracking, text=moves[trackertemp["1"]["move1"]]["contact"])
     typmove1entry.grid(row=7,column=6)
-    typmove2entry=Label(tracking, text=moves[trackertemp["1"]["move2"]]["detail"][0:2]+", "+moves[trackertemp["1"]["move2"]]["contact"])
+    typmove2entry=Label(tracking, text=moves[trackertemp["1"]["move2"]]["contact"])
     typmove2entry.grid(row=8,column=6)
-    typmove3entry=Label(tracking, text=moves[trackertemp["1"]["move3"]]["detail"][0:2]+", "+moves[trackertemp["1"]["move3"]]["contact"])
+    typmove3entry=Label(tracking, text=moves[trackertemp["1"]["move3"]]["contact"])
     typmove3entry.grid(row=9,column=6)
-    typmove4entry=Label(tracking, text=moves[trackertemp["1"]["move4"]]["detail"][0:2]+", "+moves[trackertemp["1"]["move4"]]["contact"])
+    typmove4entry=Label(tracking, text=moves[trackertemp["1"]["move4"]]["contact"])
     typmove4entry.grid(row=10,column=6)
     #display
-    levllabel=Label(tracking, text = "Lv. "+trackertemp["1"]["level"]+" ("+mons[trackertemp["1"]["mon"]]["evo"]+")")
+    levllabel=Label(tracking, text = "Lv. "+trackertemp["1"]["level"])
     levllabel.grid(row=2, column=3)
     def jsonsave():
         mon1=trackertemp["1"]["mon"]
@@ -718,27 +674,25 @@ def Mon2_Tracker(tracking):
     hplabel.grid(row=1, column=9)
     hpentry=Label(tracking, text =trackertemp["2"]["maxhp"])
     hpentry.grid(row=1,column=10)
-    naturecalcm("2")
-    naturecalcp("2")
     atklabel=Label(tracking, text = "ATK")
     atklabel.grid(row=2, column=9)
-    atkentry=Label(tracking, text =Satk+trackertemp["2"]["atk"])
+    atkentry=Label(tracking, text =trackertemp["2"]["atk"])
     atkentry.grid(row=2,column=10)
     deflabel=Label(tracking, text = "DEF")
     deflabel.grid(row=3, column=9)
-    defentry=Label(tracking, text =Sdef+trackertemp["2"]["def"])
+    defentry=Label(tracking, text =trackertemp["2"]["def"])
     defentry.grid(row=3,column=10)
     spalabel=Label(tracking, text = "SPA")
     spalabel.grid(row=4, column=9)
-    spaentry=Label(tracking, text =Sspa+trackertemp["2"]["spa"])
+    spaentry=Label(tracking, text =trackertemp["2"]["spa"])
     spaentry.grid(row=4,column=10)
     spdlabel=Label(tracking, text = "SPD")
     spdlabel.grid(row=5, column=9)
-    spdentry=Label(tracking, text =Sspd+trackertemp["2"]["spd"])
+    spdentry=Label(tracking, text =trackertemp["2"]["spd"])
     spdentry.grid(row=5,column=10)
     spelabel=Label(tracking, text = "SPE")
     spelabel.grid(row=6, column=9)
-    speentry=Label(tracking, text =Sspe+trackertemp["2"]["spe"])
+    speentry=Label(tracking, text =trackertemp["2"]["spe"])
     speentry.grid(row=6,column=10)
     spelabel=Label(tracking, text = "BST")
     spelabel.grid(row=7, column=9)
@@ -794,18 +748,18 @@ def Mon2_Tracker(tracking):
     typmove3entry.grid(row=9,column=5)
     typmove4entry=Label(tracking, text=moves[trackertemp["2"]["move4"]]["type"])
     typmove4entry.grid(row=10,column=5)
-    typmovelabel=Button(tracking, text = "Contact", command=moveinfo)
+    typmovelabel=Label(tracking, text = "Contact")
     typmovelabel.grid(row=6, column=6)
-    typmove1entry=Label(tracking, text=moves[trackertemp["2"]["move1"]]["detail"][0:2]+", "+moves[trackertemp["2"]["move1"]]["contact"])
+    typmove1entry=Label(tracking, text=moves[trackertemp["1"]["move1"]]["contact"])
     typmove1entry.grid(row=7,column=6)
-    typmove2entry=Label(tracking, text=moves[trackertemp["2"]["move2"]]["detail"][0:2]+", "+moves[trackertemp["2"]["move2"]]["contact"])
+    typmove2entry=Label(tracking, text=moves[trackertemp["1"]["move2"]]["contact"])
     typmove2entry.grid(row=8,column=6)
-    typmove3entry=Label(tracking, text=moves[trackertemp["2"]["move3"]]["detail"][0:2]+", "+moves[trackertemp["2"]["move3"]]["contact"])
+    typmove3entry=Label(tracking, text=moves[trackertemp["1"]["move3"]]["contact"])
     typmove3entry.grid(row=9,column=6)
-    typmove4entry=Label(tracking, text=moves[trackertemp["2"]["move4"]]["detail"][0:2]+", "+moves[trackertemp["2"]["move4"]]["contact"])
+    typmove4entry=Label(tracking, text=moves[trackertemp["1"]["move4"]]["contact"])
     typmove4entry.grid(row=10,column=6)
     #display
-    levllabel=Label(tracking, text = "Lv. "+trackertemp["2"]["level"]+" ("+mons[trackertemp["2"]["mon"]]["evo"]+")")
+    levllabel=Label(tracking, text = "Lv. "+trackertemp["2"]["level"])
     levllabel.grid(row=2, column=3)
     def jsonsave():
         mon1=trackertemp["2"]["mon"]
@@ -856,27 +810,25 @@ def Mon3_Tracker(tracking):
     hplabel.grid(row=1, column=9)
     hpentry=Label(tracking, text =trackertemp["3"]["maxhp"])
     hpentry.grid(row=1,column=10)
-    naturecalcm("3")
-    naturecalcp("3")
     atklabel=Label(tracking, text = "ATK")
     atklabel.grid(row=2, column=9)
-    atkentry=Label(tracking, text =Satk+trackertemp["3"]["atk"])
+    atkentry=Label(tracking, text =trackertemp["3"]["atk"])
     atkentry.grid(row=2,column=10)
     deflabel=Label(tracking, text = "DEF")
     deflabel.grid(row=3, column=9)
-    defentry=Label(tracking, text =Sdef+trackertemp["3"]["def"])
+    defentry=Label(tracking, text =trackertemp["3"]["def"])
     defentry.grid(row=3,column=10)
     spalabel=Label(tracking, text = "SPA")
     spalabel.grid(row=4, column=9)
-    spaentry=Label(tracking, text =Sspa+trackertemp["3"]["spa"])
+    spaentry=Label(tracking, text =trackertemp["3"]["spa"])
     spaentry.grid(row=4,column=10)
     spdlabel=Label(tracking, text = "SPD")
     spdlabel.grid(row=5, column=9)
-    spdentry=Label(tracking, text =Sspd+trackertemp["3"]["spd"])
+    spdentry=Label(tracking, text =trackertemp["3"]["spd"])
     spdentry.grid(row=5,column=10)
     spelabel=Label(tracking, text = "SPE")
     spelabel.grid(row=6, column=9)
-    speentry=Label(tracking, text =Sspe+trackertemp["3"]["spe"])
+    speentry=Label(tracking, text =trackertemp["3"]["spe"])
     speentry.grid(row=6,column=10)
     spelabel=Label(tracking, text = "BST")
     spelabel.grid(row=7, column=9)
@@ -932,18 +884,18 @@ def Mon3_Tracker(tracking):
     typmove3entry.grid(row=9,column=5)
     typmove4entry=Label(tracking, text=moves[trackertemp["3"]["move4"]]["type"])
     typmove4entry.grid(row=10,column=5)
-    typmovelabel=Button(tracking, text = "Contact", command=moveinfo)
+    typmovelabel=Label(tracking, text = "Contact")
     typmovelabel.grid(row=6, column=6)
-    typmove1entry=Label(tracking, text=moves[trackertemp["3"]["move1"]]["detail"][0:2]+", "+moves[trackertemp["3"]["move1"]]["contact"])
+    typmove1entry=Label(tracking, text=moves[trackertemp["1"]["move1"]]["contact"])
     typmove1entry.grid(row=7,column=6)
-    typmove2entry=Label(tracking, text=moves[trackertemp["3"]["move2"]]["detail"][0:2]+", "+moves[trackertemp["3"]["move2"]]["contact"])
+    typmove2entry=Label(tracking, text=moves[trackertemp["1"]["move2"]]["contact"])
     typmove2entry.grid(row=8,column=6)
-    typmove3entry=Label(tracking, text=moves[trackertemp["3"]["move3"]]["detail"][0:2]+", "+moves[trackertemp["3"]["move3"]]["contact"])
+    typmove3entry=Label(tracking, text=moves[trackertemp["1"]["move3"]]["contact"])
     typmove3entry.grid(row=9,column=6)
-    typmove4entry=Label(tracking, text=moves[trackertemp["3"]["move4"]]["detail"][0:2]+", "+moves[trackertemp["3"]["move4"]]["contact"])
+    typmove4entry=Label(tracking, text=moves[trackertemp["1"]["move4"]]["contact"])
     typmove4entry.grid(row=10,column=6)
     #display
-    levllabel=Label(tracking, text = "Lv. "+trackertemp["3"]["level"]+" ("+mons[trackertemp["3"]["mon"]]["evo"]+")")
+    levllabel=Label(tracking, text = "Lv. "+trackertemp["3"]["level"])
     levllabel.grid(row=2, column=3)
     def jsonsave():
         mon1=trackertemp["3"]["mon"]
@@ -994,27 +946,25 @@ def Mon4_Tracker(tracking):
     hplabel.grid(row=1, column=9)
     hpentry=Label(tracking, text =trackertemp["4"]["maxhp"])
     hpentry.grid(row=1,column=10)
-    naturecalcm("4")
-    naturecalcp("4")
     atklabel=Label(tracking, text = "ATK")
     atklabel.grid(row=2, column=9)
-    atkentry=Label(tracking, text =Satk+trackertemp["4"]["atk"])
+    atkentry=Label(tracking, text =trackertemp["4"]["atk"])
     atkentry.grid(row=2,column=10)
     deflabel=Label(tracking, text = "DEF")
     deflabel.grid(row=3, column=9)
-    defentry=Label(tracking, text =Sdef+trackertemp["4"]["def"])
+    defentry=Label(tracking, text =trackertemp["4"]["def"])
     defentry.grid(row=3,column=10)
     spalabel=Label(tracking, text = "SPA")
     spalabel.grid(row=4, column=9)
-    spaentry=Label(tracking, text =Sspa+trackertemp["4"]["spa"])
+    spaentry=Label(tracking, text =trackertemp["4"]["spa"])
     spaentry.grid(row=4,column=10)
     spdlabel=Label(tracking, text = "SPD")
     spdlabel.grid(row=5, column=9)
-    spdentry=Label(tracking, text =Sspd+trackertemp["4"]["spd"])
+    spdentry=Label(tracking, text =trackertemp["4"]["spd"])
     spdentry.grid(row=5,column=10)
     spelabel=Label(tracking, text = "SPE")
     spelabel.grid(row=6, column=9)
-    speentry=Label(tracking, text =Sspe+trackertemp["4"]["spe"])
+    speentry=Label(tracking, text =trackertemp["4"]["spe"])
     speentry.grid(row=6,column=10)
     spelabel=Label(tracking, text = "BST")
     spelabel.grid(row=7, column=9)
@@ -1070,18 +1020,18 @@ def Mon4_Tracker(tracking):
     typmove3entry.grid(row=9,column=5)
     typmove4entry=Label(tracking, text=moves[trackertemp["4"]["move4"]]["type"])
     typmove4entry.grid(row=10,column=5)
-    typmovelabel=Button(tracking, text = "Contact", command=moveinfo)
+    typmovelabel=Label(tracking, text = "Contact")
     typmovelabel.grid(row=6, column=6)
-    typmove1entry=Label(tracking, text=moves[trackertemp["4"]["move1"]]["detail"][0:2]+", "+moves[trackertemp["4"]["move1"]]["contact"])
+    typmove1entry=Label(tracking, text=moves[trackertemp["1"]["move1"]]["contact"])
     typmove1entry.grid(row=7,column=6)
-    typmove2entry=Label(tracking, text=moves[trackertemp["4"]["move2"]]["detail"][0:2]+", "+moves[trackertemp["4"]["move2"]]["contact"])
+    typmove2entry=Label(tracking, text=moves[trackertemp["1"]["move2"]]["contact"])
     typmove2entry.grid(row=8,column=6)
-    typmove3entry=Label(tracking, text=moves[trackertemp["4"]["move3"]]["detail"][0:2]+", "+moves[trackertemp["4"]["move3"]]["contact"])
+    typmove3entry=Label(tracking, text=moves[trackertemp["1"]["move3"]]["contact"])
     typmove3entry.grid(row=9,column=6)
-    typmove4entry=Label(tracking, text=moves[trackertemp["4"]["move4"]]["detail"][0:2]+", "+moves[trackertemp["4"]["move4"]]["contact"])
+    typmove4entry=Label(tracking, text=moves[trackertemp["1"]["move4"]]["contact"])
     typmove4entry.grid(row=10,column=6)
     #display
-    levllabel=Label(tracking, text = "Lv. "+trackertemp["4"]["level"]+" ("+mons[trackertemp["4"]["mon"]]["evo"]+")")
+    levllabel=Label(tracking, text = "Lv. "+trackertemp["4"]["level"])
     levllabel.grid(row=2, column=3)
     def jsonsave():
         mon1=trackertemp["4"]["mon"]
@@ -1132,27 +1082,25 @@ def Mon5_Tracker(tracking):
     hplabel.grid(row=1, column=9)
     hpentry=Label(tracking, text =trackertemp["5"]["maxhp"])
     hpentry.grid(row=1,column=10)
-    naturecalcm("5")
-    naturecalcp("5")
     atklabel=Label(tracking, text = "ATK")
     atklabel.grid(row=2, column=9)
-    atkentry=Label(tracking, text =Satk+trackertemp["5"]["atk"])
+    atkentry=Label(tracking, text =trackertemp["5"]["atk"])
     atkentry.grid(row=2,column=10)
     deflabel=Label(tracking, text = "DEF")
     deflabel.grid(row=3, column=9)
-    defentry=Label(tracking, text =Sdef+trackertemp["5"]["def"])
+    defentry=Label(tracking, text =trackertemp["5"]["def"])
     defentry.grid(row=3,column=10)
     spalabel=Label(tracking, text = "SPA")
     spalabel.grid(row=4, column=9)
-    spaentry=Label(tracking, text =Sspa+trackertemp["5"]["spa"])
+    spaentry=Label(tracking, text =trackertemp["5"]["spa"])
     spaentry.grid(row=4,column=10)
     spdlabel=Label(tracking, text = "SPD")
     spdlabel.grid(row=5, column=9)
-    spdentry=Label(tracking, text =Sspd+trackertemp["5"]["spd"])
+    spdentry=Label(tracking, text =trackertemp["5"]["spd"])
     spdentry.grid(row=5,column=10)
     spelabel=Label(tracking, text = "SPE")
     spelabel.grid(row=6, column=9)
-    speentry=Label(tracking, text =Sspe+trackertemp["5"]["spe"])
+    speentry=Label(tracking, text =trackertemp["5"]["spe"])
     speentry.grid(row=6,column=10)
     spelabel=Label(tracking, text = "BST")
     spelabel.grid(row=7, column=9)
@@ -1208,18 +1156,18 @@ def Mon5_Tracker(tracking):
     typmove3entry.grid(row=9,column=5)
     typmove4entry=Label(tracking, text=moves[trackertemp["5"]["move4"]]["type"])
     typmove4entry.grid(row=10,column=5)
-    typmovelabel=Button(tracking, text = "Contact", command=moveinfo)
+    typmovelabel=Label(tracking, text = "Contact")
     typmovelabel.grid(row=6, column=6)
-    typmove1entry=Label(tracking, text=moves[trackertemp["5"]["move1"]]["detail"][0:2]+", "+moves[trackertemp["5"]["move1"]]["contact"])
+    typmove1entry=Label(tracking, text=moves[trackertemp["1"]["move1"]]["contact"])
     typmove1entry.grid(row=7,column=6)
-    typmove2entry=Label(tracking, text=moves[trackertemp["5"]["move2"]]["detail"][0:2]+", "+moves[trackertemp["5"]["move2"]]["contact"])
+    typmove2entry=Label(tracking, text=moves[trackertemp["1"]["move2"]]["contact"])
     typmove2entry.grid(row=8,column=6)
-    typmove3entry=Label(tracking, text=moves[trackertemp["5"]["move3"]]["detail"][0:2]+", "+moves[trackertemp["5"]["move3"]]["contact"])
+    typmove3entry=Label(tracking, text=moves[trackertemp["1"]["move3"]]["contact"])
     typmove3entry.grid(row=9,column=6)
-    typmove4entry=Label(tracking, text=moves[trackertemp["5"]["move4"]]["detail"][0:2]+", "+moves[trackertemp["5"]["move4"]]["contact"])
+    typmove4entry=Label(tracking, text=moves[trackertemp["1"]["move4"]]["contact"])
     typmove4entry.grid(row=10,column=6)
     #display
-    levllabel=Label(tracking, text = "Lv. "+trackertemp["5"]["level"]+" ("+mons[trackertemp["5"]["mon"]]["evo"]+")")
+    levllabel=Label(tracking, text = "Lv. "+trackertemp["5"]["level"])
     levllabel.grid(row=2, column=3)
     def jsonsave():
         mon1=trackertemp["5"]["mon"]
@@ -1270,27 +1218,25 @@ def Mon6_Tracker(tracking):
     hplabel.grid(row=1, column=9)
     hpentry=Label(tracking, text =trackertemp["6"]["maxhp"])
     hpentry.grid(row=1,column=10)
-    naturecalcm("6")
-    naturecalcp("6")
     atklabel=Label(tracking, text = "ATK")
     atklabel.grid(row=2, column=9)
-    atkentry=Label(tracking, text =Satk+trackertemp["6"]["atk"])
+    atkentry=Label(tracking, text =trackertemp["6"]["atk"])
     atkentry.grid(row=2,column=10)
     deflabel=Label(tracking, text = "DEF")
     deflabel.grid(row=3, column=9)
-    defentry=Label(tracking, text =Sdef+trackertemp["6"]["def"])
+    defentry=Label(tracking, text =trackertemp["6"]["def"])
     defentry.grid(row=3,column=10)
     spalabel=Label(tracking, text = "SPA")
     spalabel.grid(row=4, column=9)
-    spaentry=Label(tracking, text =Sspa+trackertemp["6"]["spa"])
+    spaentry=Label(tracking, text =trackertemp["6"]["spa"])
     spaentry.grid(row=4,column=10)
     spdlabel=Label(tracking, text = "SPD")
     spdlabel.grid(row=5, column=9)
-    spdentry=Label(tracking, text =Sspd+trackertemp["6"]["spd"])
+    spdentry=Label(tracking, text =trackertemp["6"]["spd"])
     spdentry.grid(row=5,column=10)
     spelabel=Label(tracking, text = "SPE")
     spelabel.grid(row=6, column=9)
-    speentry=Label(tracking, text =Sspe+trackertemp["6"]["spe"])
+    speentry=Label(tracking, text =trackertemp["6"]["spe"])
     speentry.grid(row=6,column=10)
     spelabel=Label(tracking, text = "BST")
     spelabel.grid(row=7, column=9)
@@ -1346,18 +1292,18 @@ def Mon6_Tracker(tracking):
     typmove3entry.grid(row=9,column=5)
     typmove4entry=Label(tracking, text=moves[trackertemp["6"]["move4"]]["type"])
     typmove4entry.grid(row=10,column=5)
-    typmovelabel=Button(tracking, text = "Contact", command=moveinfo)
+    typmovelabel=Label(tracking, text = "Contact")
     typmovelabel.grid(row=6, column=6)
-    typmove1entry=Label(tracking, text=moves[trackertemp["6"]["move1"]]["detail"][0:2]+", "+moves[trackertemp["6"]["move1"]]["contact"])
+    typmove1entry=Label(tracking, text=moves[trackertemp["1"]["move1"]]["contact"])
     typmove1entry.grid(row=7,column=6)
-    typmove2entry=Label(tracking, text=moves[trackertemp["6"]["move2"]]["detail"][0:2]+", "+moves[trackertemp["6"]["move2"]]["contact"])
+    typmove2entry=Label(tracking, text=moves[trackertemp["1"]["move2"]]["contact"])
     typmove2entry.grid(row=8,column=6)
-    typmove3entry=Label(tracking, text=moves[trackertemp["6"]["move3"]]["detail"][0:2]+", "+moves[trackertemp["6"]["move3"]]["contact"])
+    typmove3entry=Label(tracking, text=moves[trackertemp["1"]["move3"]]["contact"])
     typmove3entry.grid(row=9,column=6)
-    typmove4entry=Label(tracking, text=moves[trackertemp["6"]["move4"]]["detail"][0:2]+", "+moves[trackertemp["6"]["move4"]]["contact"])
+    typmove4entry=Label(tracking, text=moves[trackertemp["1"]["move4"]]["contact"])
     typmove4entry.grid(row=10,column=6)
     #display
-    levllabel=Label(tracking, text = "Lv. "+trackertemp["6"]["level"]+" ("+mons[trackertemp["6"]["mon"]]["evo"]+")")
+    levllabel=Label(tracking, text = "Lv. "+trackertemp["6"]["level"])
     levllabel.grid(row=2, column=3)
     def jsonsave():
         mon1=trackertemp["6"]["mon"]
