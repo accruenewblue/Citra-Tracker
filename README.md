@@ -26,6 +26,10 @@ This is currently a separate window that updates automatically every 10 seconds 
 
 There are also buttons to open windows for more information, in particular the one with the mon's name, which displays saved info about it as well as the levels it learns moves at. The next move level is automatically displayed on the main screen.
 
+Heal slots are added for right now, but are nonfunctional. This functionality will be added later.
+
+A general coverage page is available by hitting the "Types" button in the moves area
+
 Keep in mind this is an alpha version, do not expect perfection right now.
 
 Thanks to UTDZac for helping with some of the features being imported from Citra, and something_smart_ for the move level up sets. Otherwise, thank Bulbapedia for the helpful lists I used. Additionally, thank [this](https://github.com/EverOddish/PokeStreamer-Tools) for the citra tracking data.
