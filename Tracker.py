@@ -6,8 +6,7 @@ from tkinter import *
 from tkinter import ttk
 monsfile=open(r'mon-data.json',"r+")
 mons=json.load(monsfile)
-trackertempfile3=r"trackertemp.json"
-trackertempfile=open(trackertempfile3,"r+")
+trackertempfile=open(r"trackertemp.json","r+")
 trackertemp=json.load(trackertempfile)
 #trackertemp is brought back to transfer notes from the citra scraper to the tracker gui. 
 #temp- will be removed for a more proper system to keep track of type changes later(eg Burn Up)
@@ -24,6 +23,7 @@ items=json.load(itemsfile)
 naturesfile=open(r"nature-data.json")
 natures=json.load(naturesfile)
 pagemon="1"
+pageflag=FALSE
 #4 5 6 placement of mons in a battle
 #1 2 3 single=1,4, double=1,2,4,5
 #party=[trackertemp["1"]["mon"],trackertemp["2"]["mon"],trackertemp["3"]["mon"],trackertemp["4"]["mon"],trackertemp["5"]["mon"],trackertemp["6"]["mon"],]
@@ -70,8 +70,8 @@ def coverage(movetype,defender):
     return typemult
 def gendefcov(mon):
     moncov=Toplevel()
-    global pagemon
-    pagemon="14"
+    global pageflag
+    pageflag=TRUE
     cov25=[]
     cov5=[]
     cov1=[]
@@ -341,15 +341,19 @@ def pagechangerleft():
             pagemon="1"
     updater()
 def updater():
-    global pagemon
+    global pagemon,pageflag
     pagemonenemylist=["7","8","9","10","11","12"]
-    if pagemon in pagemonenemylist:
+    pagemonfriendlist=["1","2","3","4","5","6"]
+    if pagemon in pagemonfriendlist:
+        if trackertemp[pagemon]["mon"]=="-":
+            pagemon=str(int(pagemon)+1)
+        if pageflag==FALSE:
+            PartyMonTracker(tracking,pagemon)
+            tracking.after(10000,updater)
+    elif pagemon in pagemonenemylist:
         EnemyMonTracker(tracking)
-    elif pagemon=="14":
-        pagemon="1"
-    else:
-        PartyMonTracker(tracking,pagemon)
-        tracking.after(10000,updater)
+    if pageflag==TRUE:
+        pageflag=FALSE
 def gamechanger():
     if trackertemp["game"]=="XY":
         trackertemp["game"]="ORAS"
@@ -359,7 +363,7 @@ def gamechanger():
         trackertemp["game"]="USUM"
     elif trackertemp["game"]=="USUM":
         trackertemp["game"]="XY"
-    with open(trackertempfile3, "w") as f:
+    with open(r"trackertemp.json", "w") as f:
         json.dump(trackertemp,f)
 def naturecalcm(numt):
     global Satk,Sdef,Sspa,Sspd,Sspe
@@ -378,6 +382,12 @@ def naturecalcm(numt):
         Sspd="-"
     elif natures[trackertemp[numt]["nature"]]["-"]==" Speed":
         Sspe="-"
+    else:
+        Satk=""
+        Sdef=""
+        Sspa=""
+        Sspd=""
+        Sspe=""
 def naturecalcp(numt):
     global Satk,Sdef,Sspa,Sspd,Sspe
     if natures[trackertemp[numt]["nature"]]["+"]==" Attack":
@@ -390,6 +400,12 @@ def naturecalcp(numt):
         Sspd="+"
     elif natures[trackertemp[numt]["nature"]]["+"]==" Speed":
         Sspe="+"
+    else:
+        Satk=""
+        Sdef=""
+        Sspa=""
+        Sspd=""
+        Sspe=""
 #determine type and power of certain moves
 variablemoves=["Low Kick","Grass Knot","Eruption","Water Spout","Natural Gift","Present","Psywave","Heat Crash","Heavy Slam","Magnitude","Wring Out","Crush Grip","Trump Card","Return","Frustration","Reversal","Flail","Fling","Power Trip","Stored Power","Punishment","Electro Ball","Spit Up"]
 #hp, friend, userkg are integer values.
@@ -540,8 +556,8 @@ def movetype(move,mon,item):
 #auxiliary page functions
 def NotesClearer():
     clearer=Toplevel()
-    global pagemon
-    pagemon="14"
+    global pageflag
+    pageflag=TRUE
     clearer.title("Are you sure?")
     clearer.geometry("215x85")
     CLEARer=Label(clearer,justify="center",text="Are you sure you would like to do this? This clears all the notes stored so far. Only recommended when a seed dies.",wraplength=220)
@@ -559,24 +575,24 @@ def NotesClearer():
     notesclear.grid(row=2, column=1)
 def Ability_Data(abil):
     abili=Toplevel()
-    global pagemon
-    pagemon="14"
+    global pageflag
+    pageflag=TRUE
     abili.title("Ability Data")
     abili.geometry("300x50")
     abilitydata=Label(abili,text=abilities[abil]["detail"],wraplength=300)
     abilitydata.pack()
 def moveinfo():
     infom=Toplevel()
-    global pagemon
-    pagemon="14"
+    global pageflag
+    pageflag=TRUE
     infom.title("Ability Data")
     infom.geometry("300x50")
     movedata=Label(infom,text="First two letters are Ph=Physical, Sp=Special, St=Status. Second two are Co.=Contact, NC=Non-Contact.",wraplength=300)
     movedata.pack()
 def Mon_Data(montemp):
     frameclearer()
-    global pagemon
-    pagemon="14"
+    global pageflag
+    pageflag=TRUE
     tracking.title("Mon Data")
     for abil in mons[montemp]["ability"]:
         abilloc=mons[montemp]["ability"].index(abil)
@@ -650,10 +666,10 @@ def ccombextra(data):
 def ccombpage(movetypes,game):
     frameclearer()
     cov4,cov2,cov1,cov5,cov25=ccomb(movetypes,game)
-    global pagemon
-    pagemon="14"
+    global pageflag
+    pageflag=TRUE
     def extra(de):
-        if len(de)<16:
+        if len(de)<20:
             return str(de)
         else:
             return "HERE"
@@ -663,23 +679,23 @@ def ccombpage(movetypes,game):
     leave.grid(row=2,column=1,columnspan=2)
     c25l=Label(tracking, text=".25x: "+str(len(cov25)))
     c25l.grid(row=3, column=1)
-    c25=Button(tracking,borderwidth=0, text=extra(cov25),wraplength=270,command=lambda:ccombextra(cov25))
+    c25=Button(tracking,borderwidth=0, text=extra(cov25),wraplength=300,command=lambda:ccombextra(cov25))
     c25.grid(row=3, column=2)
     c5l=Label(tracking, text=".5x: "+str(len(cov5)))
     c5l.grid(row=5, column=1)
-    c5=Button(tracking,borderwidth=0,text=extra(cov5),wraplength=270,command=lambda:ccombextra(cov5))
+    c5=Button(tracking,borderwidth=0,text=extra(cov5),wraplength=300,command=lambda:ccombextra(cov5))
     c5.grid(row=5, column=2)
     c1l=Label(tracking, text="1x: "+str(len(cov1)))
     c1l.grid(row=7, column=1)
-    c1=Button(tracking,borderwidth=0,text=extra(cov1),wraplength=270,command=lambda:ccombextra(cov1))
+    c1=Button(tracking,borderwidth=0,text=extra(cov1),wraplength=300,command=lambda:ccombextra(cov1))
     c1.grid(row=7, column=2)
     c2l=Label(tracking, text="2x: "+str(len(cov2)))
     c2l.grid(row=9, column=1)
-    c2=Button(tracking,borderwidth=0,text=extra(cov2),wraplength=270,command=lambda:ccombextra(cov2))
+    c2=Button(tracking,borderwidth=0,text=extra(cov2),wraplength=300,command=lambda:ccombextra(cov2))
     c2.grid(row=9, column=2)
     c4l=Label(tracking, text="4x: "+str(len(cov4)))
     c4l.grid(row=11, column=1)
-    c4=Button(tracking,borderwidth=0,text=extra(cov4),wraplength=270,command=lambda:ccombextra(cov4))
+    c4=Button(tracking,borderwidth=0,text=extra(cov4),wraplength=300,command=lambda:ccombextra(cov4))
     c4.grid(row=11, column=2)
 def PartyMonTracker(tracking,pok):
     frameclearer()
@@ -740,7 +756,7 @@ def PartyMonTracker(tracking,pok):
     atkentry.place(x=260,y=20)
     deflabel=Label(tracking, text = "DEF")
     deflabel.place(x=210,y=40)
-    defentry=Label(tracking, text=Sdef+trackertemp[pok]["def"])
+    defentry=Label(tracking, text=Sdef+trackertemp[pok]["def"],)
     defentry.place(x=260,y=40)
     spalabel=Label(tracking, text = "SPA")
     spalabel.place(x=210,y=60)

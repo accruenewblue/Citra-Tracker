@@ -24,11 +24,11 @@ Citra emulator for 3DS is required. Drop the files in the folder into the citra 
 
 This is currently a separate window that updates automatically every 10 seconds when ran correctly. The party mode(default) automatically displays all the mons in your party, while the left and right arrows scroll between them. The party mode can be updated by pressing it to change to single, double, and triple battles. This allows you to take notes on opponent mons, although it is manual right now. Also, click the button above "party" to change the game being played(defaults to ORAS), which can be XY,ORAS,SM,USUM. 
 
-There are also buttons to open windows for more information, in particular the one with the mon's name, which displays saved info about it as well as the levels it learns moves at. The next move level is automatically displayed on the main screen.
+There are also buttons to open windows for more information, in particular the one with the mon's name, which displays saved info about it as well as the levels it learns moves at. The next move level is automatically displayed on the main screen. Some of these are new tabs, though on the base page the buttons are not explicitly marked.
 
 Heal slots are added for right now, but are nonfunctional. This functionality will be added later.
 
-A general coverage page is available by hitting the "Types" button in the moves area
+A general coverage page is available by hitting the "Types" button in the moves area. This tells the amount of mons you can hit by how hard- basically an adaptation of [this](https://wesleystedman.github.io/ironmon-moveset-coverage-calc/)
 
 Keep in mind this is an alpha version, do not expect perfection right now.
 
