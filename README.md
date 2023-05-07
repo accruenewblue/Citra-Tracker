@@ -17,10 +17,15 @@ Tracking options are available as the following:
     --Details about moves, abilities and mons
 
     --Display features for your mon(s)
+    
+    --See coverage for your moves against other mons to help decide on moves
 
 How to Use:
- 
+
+![CitraTrackerGuide_v0 2 0](https://user-images.githubusercontent.com/104039936/236666717-5667d013-5fe8-4dee-86b1-bc046415d930.png)
+
 Citra emulator for 3DS is required. Drop the files in the folder into the citra scripting folder(the one with a citra.py inside, usually in appdata/local) and run the Tracker.py and citra-updater.py simultaneously.
+
 
 This is currently a separate window that updates automatically every 10 seconds when ran correctly. The party mode(default) automatically displays all the mons in your party, while the left and right arrows scroll between them. The party mode can be updated by pressing it to change to single, double, and triple battles. This allows you to take notes on opponent mons, although it is manual right now. Also, click the button above "party" to change the game being played(defaults to ORAS), which can be XY,ORAS,SM,USUM. 
 
