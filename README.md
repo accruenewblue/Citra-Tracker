@@ -28,7 +28,7 @@ There are also buttons to open windows for more information, in particular the o
 
 Heal slots are added for right now, but are nonfunctional. This functionality will be added later.
 
-A general coverage page is available by hitting the "Types" button in the moves area. This tells the amount of mons you can hit by how hard- basically an adaptation of [this](https://wesleystedman.github.io/ironmon-moveset-coverage-calc/)
+A general coverage page is available by hitting the "Types" button in the moves area. This tells the amount of mons you can hit by how hard- basically an adaptation of [this.](https://wesleystedman.github.io/ironmon-moveset-coverage-calc/)
 
 Keep in mind this is an alpha version, do not expect perfection right now.
 

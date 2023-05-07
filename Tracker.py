@@ -50,6 +50,7 @@ typetable={
 "Dark":[1,.5,1,1,1,1,1,2,1,1,1,1,1,2,1,1,.5,.5,1],
 "Fairy":[1,2,1,.5,1,1,1,1,.5,.5,1,1,1,1,1,2,2,1,1],
 "Null":[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+"-":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
 "Freeze-Dry":[1,1,2,1,2,1,1,1,.5,.5,2,2,1,1,.5,2,1,1,1],
 "FreezeDryNormalize":[1,1,1,1,1,.5,1,0,.5,1,2,1,1,1,1,1,1,1,1],
 "DeltaStreamElectric":[1,1,1,1,0,1,1,1,1,1,2,.5,.5,1,1,.5,1,1,1],
@@ -663,40 +664,52 @@ def ccombextra(data):
     extra.title("Extra Ccomb Data")
     extradata=Label(extra,text=data,wraplength=1250)
     extradata.pack()
+typelist=["-",'Normal', 'Fighting', 'Flying', 'Poison', 'Ground', 'Rock', 'Bug', 'Ghost', 'Steel', 'Fire', 'Water', 'Grass', 'Electric', 'Psychic', 'Ice', 'Dragon', 'Dark', 'Fairy']
+typeex=StringVar(tracking)
+typex2=""
 def ccombpage(movetypes,game):
+    global pageflag,typex2
     frameclearer()
+    leav=OptionMenu(tracking,typeex,*typelist)
+    leav.grid(row=2,column=2)
+    if typeex.get()!=typex2:
+        if typex2!="":
+            movetypes.remove(typex2)
+        movetypes.append(typeex.get())
+        typex2=typeex.get()
     cov4,cov2,cov1,cov5,cov25=ccomb(movetypes,game)
-    global pageflag
     pageflag=TRUE
     def extra(de):
         if len(de)<20:
             return str(de)
         else:
             return "HERE"
-    header=Label(tracking, text="ACCRUE'S CCOMB CALC")
-    header.grid(row=1, column=1,columnspan=2)
-    leave=Button(tracking, text="PRESS HERE TO LEAVE", command=updater)
-    leave.grid(row=2,column=1,columnspan=2)
+    header=Label(tracking, text="ACCRUE'S CCOMB CALC(wait 10s)")
+    header.grid(row=1, column=2,columnspan=2)
+    leave=Button(tracking, text="Leave", command=updater)
+    leave.grid(row=2,column=3)
+    c25l=Button(tracking, text="Extra: ",command=lambda:ccombpage(movetypes,game))
+    c25l.grid(row=2, column=1)
     c25l=Label(tracking, text=".25x: "+str(len(cov25)))
     c25l.grid(row=3, column=1)
-    c25=Button(tracking,borderwidth=0, text=extra(cov25),wraplength=300,command=lambda:ccombextra(cov25))
-    c25.grid(row=3, column=2)
+    c25=Button(tracking,borderwidth=0, text=extra(cov25),wraplength=270,command=lambda:ccombextra(cov25))
+    c25.grid(row=3, column=2,columnspan=2)
     c5l=Label(tracking, text=".5x: "+str(len(cov5)))
     c5l.grid(row=5, column=1)
-    c5=Button(tracking,borderwidth=0,text=extra(cov5),wraplength=300,command=lambda:ccombextra(cov5))
-    c5.grid(row=5, column=2)
+    c5=Button(tracking,borderwidth=0,text=extra(cov5),wraplength=270,command=lambda:ccombextra(cov5))
+    c5.grid(row=5, column=2,columnspan=2)
     c1l=Label(tracking, text="1x: "+str(len(cov1)))
     c1l.grid(row=7, column=1)
-    c1=Button(tracking,borderwidth=0,text=extra(cov1),wraplength=300,command=lambda:ccombextra(cov1))
-    c1.grid(row=7, column=2)
+    c1=Button(tracking,borderwidth=0,text=extra(cov1),wraplength=270,command=lambda:ccombextra(cov1))
+    c1.grid(row=7, column=2,columnspan=2)
     c2l=Label(tracking, text="2x: "+str(len(cov2)))
     c2l.grid(row=9, column=1)
-    c2=Button(tracking,borderwidth=0,text=extra(cov2),wraplength=300,command=lambda:ccombextra(cov2))
-    c2.grid(row=9, column=2)
+    c2=Button(tracking,borderwidth=0,text=extra(cov2),wraplength=270,command=lambda:ccombextra(cov2))
+    c2.grid(row=9, column=2,columnspan=2)
     c4l=Label(tracking, text="4x: "+str(len(cov4)))
     c4l.grid(row=11, column=1)
-    c4=Button(tracking,borderwidth=0,text=extra(cov4),wraplength=300,command=lambda:ccombextra(cov4))
-    c4.grid(row=11, column=2)
+    c4=Button(tracking,borderwidth=0,text=extra(cov4),wraplength=270,command=lambda:ccombextra(cov4))
+    c4.grid(row=11, column=2,columnspan=2)
 def PartyMonTracker(tracking,pok):
     frameclearer()
     trackertempfile=open(r"trackertemp.json","r+")
@@ -852,10 +865,12 @@ def PartyMonTracker(tracking,pok):
     typmove4entry.place(x=210,y=240)
     movepowlist=[move1pow,move2pow,move3pow,move4pow]
     movetypelist=[move1type,move2type,move3type,move4type]
-    for item in movepowlist:
-        if item=="-" or item=="0":
-            movetypelist.remove(movetypelist[movepowlist.index(item)])
-            movepowlist.remove(item)
+    movetypelist2=[]
+    for item in range(0,len(movepowlist)):
+        if movepowlist[item]=="-" or movepowlist[item]=="0":
+            movetypelist2.append(movetypelist[item])
+    for item in movetypelist2:
+        movetypelist.remove(item)
     typmovelabel=Button(tracking,borderwidth=0,text="Type",command=lambda:ccombpage(movetypelist,trackertemp["game"]))
     typmovelabel.place(x=210,y=160)
     typmovelabel=Button(tracking,borderwidth=0, text = "Contact", command=moveinfo)
