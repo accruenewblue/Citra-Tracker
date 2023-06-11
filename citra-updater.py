@@ -322,7 +322,8 @@ class Pokemon:
 
     def iv32(self):
         return struct.unpack("<I", self.raw_data[0x74:0x78])[0]
-
+    def eggcheck(self):
+        return str((self.iv32() >> 30) & 0x1F)
     def iv_hp(self):
         return str((self.iv32() >> 0) & 0x1F)
     def iv_attack(self):
@@ -342,8 +343,11 @@ class Pokemon:
         return str(struct.unpack("B", self.raw_data[0xEC:0xED])[0])
     def held_item_num(self):
         return struct.unpack("<H", self.raw_data[0xA:0xC])[0]
+    def status(self):
+        return struct.unpack("B", self.raw_data[0xE8:0xE9])[0]
     def cur_hp(self):
         return struct.unpack("<H", self.raw_data[0xF0:0xF2])[0]
+    
     def stat_hp(self):
         return str(struct.unpack("<H", self.raw_data[0xF2:0xF4])[0])
     def stat_attack(self):
@@ -357,6 +361,23 @@ class Pokemon:
     def stat_sp_defense(self):
         return str(struct.unpack("<H", self.raw_data[0xFC:0xFE])[0])
 
+def get_status_string(bits):
+    if bits == 0:
+        return ""
+    elif (bits & 0b111) > 0: # Bits 0-2 - Asleep (0-7 rounds)
+        return "SLP"
+    elif (bits & 0b1000) > 0: # Bit 3 - Poisoned
+        return "PSN"
+    elif (bits & 0b10000) > 0: # Bit 4 - Burned
+        return "BRN"
+    elif (bits & 0b100000) > 0: # Bit 5 - Frozen
+        return "FZN"
+    elif (bits & 0b1000000) > 0: # Bit 6 - Paralyzed
+        return "PRZ"
+    elif (bits & 0b10000000) > 0: # Bit 7 - Toxic
+        return "PSN"
+    else:
+        return ""
 class Pokemon6(Pokemon):
     def __init__(self, data):
         Pokemon.__init__(self, data)
@@ -375,6 +396,13 @@ def get_party_address():
     elif 4 == current_game:
         return 0x33F7FA44
     return 0
+def get_opp_address():
+    if 1==current_game or 2==current_game:
+        return 0x8800000
+    elif 3==current_game or 4==current_game:
+        return 0x3254F4AC
+    else:
+        return 0
 
 def cls():
     os.system('cls' if os.name=='nt' else 'clear')
@@ -399,6 +427,25 @@ def read_party(c):
                 pass
     return party
 
+def read_opponent(c):
+    opp = []
+    opp_address = get_party_address()
+    
+    for i in range(6):
+        read_address = opp_address + (i * SLOT_OFFSET)
+        party_data = c.read_memory(read_address, SLOT_DATA_SIZE)
+        stats_data = c.read_memory(read_address + SLOT_DATA_SIZE + STAT_DATA_OFFSET, STAT_DATA_SIZE)
+        if party_data and stats_data:
+            data = party_data + stats_data
+            try:
+                if 1 == current_game or 2 == current_game:
+                    pokemon = Pokemon6(data)
+                elif 3 == current_game or 4 == current_game:
+                    pokemon = Pokemon7(data)
+                opp.append(pokemon)
+            except ValueError:
+                pass
+    return opp
 def run():
     try:
         c = Citra()
@@ -408,7 +455,8 @@ def run():
             while True:
                 print("PokeStreamer-Tools Auto-Layout Tool - Gen 6/7\n\n")
                 party = read_party(c)
-
+                partyopp = read_opponent(c)
+                print(partyopp)
                 if first_loop:
                     last_party = party
                     first_loop = False
@@ -428,6 +476,7 @@ def run():
                         trackertemp[str(pk)]["move3"]=pkmn.move_3()
                         trackertemp[str(pk)]["move4"]=pkmn.move_4()
                         trackertemp[str(pk)]["item"]=str(pkmn.held_item_num())
+                        trackertemp[str(pk)]["status"]=get_status_string(pkmn.status())
                         print("Stats: " + pkmn.stat_hp() + "/" + pkmn.stat_attack() + "/" + pkmn.stat_defense() + "/" + pkmn.stat_sp_attack() + "/" + pkmn.stat_sp_defense() + "/" + pkmn.stat_speed() + "\n")
                         trackertemp[str(pk)]["maxhp"]=pkmn.stat_hp()
                         trackertemp[str(pk)]["atk"]=pkmn.stat_attack()
