@@ -1,211 +1,19 @@
 import struct
 import time
-import re
-import shutil
-import http.client
 import os
+import subprocess
 import json
+import sqlite3
+import threading
+import traceback
+from configparser import ConfigParser
+from datetime import datetime
+from http.server import HTTPServer, SimpleHTTPRequestHandler, BaseHTTPRequestHandler
+import logging
 from citra import Citra
 
-trackertempfile=open(r"trackertemp.json","r+")
-trackertemp=json.load(trackertempfile)
-print(trackertemp["game"])
-# Change this value to your desired game
-if trackertemp["game"]=="XY":
-    current_game = 1
-if trackertemp["game"]=="ORAS":
-    current_game = 2
-if trackertemp["game"]=="SM":
-    current_game = 3
-if trackertemp["game"]=="USUM":
-    current_game = 4
-# Change this value to False to disable auto-layout sprite file management
-manage_sprites = True
-
-# -----------------------------------------------------------------------------
-
-species = [
-"Egg", "Bulbasaur", "Ivysaur", "Venusaur", "Charmander", "Charmeleon", "Charizard", "Squirtle", "Wartortle", "Blastoise",
-"Caterpie", "Metapod", "Butterfree", "Weedle", "Kakuna", "Beedrill", "Pidgey", "Pidgeotto", "Pidgeot", "Rattata",
-"Raticate", "Spearow", "Fearow", "Ekans", "Arbok", "Pikachu", "Raichu", "Sandshrew", "Sandslash", "Nidoran♀", "Nidorina",
-"Nidoqueen", "Nidoran♂", "Nidorino", "Nidoking", "Clefairy", "Clefable", "Vulpix", "Ninetales", "Jigglypuff", "Wigglytuff",
-"Zubat", "Golbat", "Oddish", "Gloom", "Vileplume", "Paras", "Parasect", "Venonat", "Venomoth", "Diglett", "Dugtrio",
-"Meowth", "Persian", "Psyduck", "Golduck", "Mankey", "Primeape", "Growlithe", "Arcanine", "Poliwag", "Poliwhirl",
-"Poliwrath", "Abra", "Kadabra", "Alakazam", "Machop", "Machoke", "Machamp", "Bellsprout", "Weepinbell", "Victreebel",
-"Tentacool", "Tentacruel", "Geodude", "Graveler", "Golem", "Ponyta", "Rapidash", "Slowpoke", "Slowbro", "Magnemite",
-"Magneton", "Farfetch’d", "Doduo", "Dodrio", "Seel", "Dewgong", "Grimer", "Muk", "Shellder", "Cloyster", "Gastly",
-"Haunter", "Gengar", "Onix", "Drowzee", "Hypno", "Krabby", "Kingler", "Voltorb", "Electrode", "Exeggcute", "Exeggutor",
-"Cubone", "Marowak", "Hitmonlee", "Hitmonchan", "Lickitung", "Koffing", "Weezing", "Rhyhorn", "Rhydon", "Chansey",
-"Tangela", "Kangaskhan", "Horsea", "Seadra", "Goldeen", "Seaking", "Staryu", "Starmie", "Mr. Mime", "Scyther", "Jynx",
-"Electabuzz", "Magmar", "Pinsir", "Tauros", "Magikarp", "Gyarados", "Lapras", "Ditto", "Eevee", "Vaporeon", "Jolteon",
-"Flareon", "Porygon", "Omanyte", "Omastar", "Kabuto", "Kabutops", "Aerodactyl", "Snorlax", "Articuno", "Zapdos", "Moltres",
-"Dratini", "Dragonair", "Dragonite", "Mewtwo", "Mew", "Chikorita", "Bayleef", "Meganium", "Cyndaquil", "Quilava", "Typhlosion",
-"Totodile", "Croconaw", "Feraligatr", "Sentret", "Furret", "Hoothoot", "Noctowl", "Ledyba", "Ledian", "Spinarak", "Ariados",
-"Crobat", "Chinchou", "Lanturn", "Pichu", "Cleffa", "Igglybuff", "Togepi", "Togetic", "Natu", "Xatu", "Mareep", "Flaaffy",
-"Ampharos", "Bellossom", "Marill", "Azumarill", "Sudowoodo", "Politoed", "Hoppip", "Skiploom", "Jumpluff", "Aipom",
-"Sunkern", "Sunflora", "Yanma", "Wooper", "Quagsire", "Espeon", "Umbreon", "Murkrow", "Slowking", "Misdreavus", "Unown",
-"Wobbuffet", "Girafarig", "Pineco", "Forretress", "Dunsparce", "Gligar", "Steelix", "Snubbull", "Granbull", "Qwilfish",
-"Scizor", "Shuckle", "Heracross", "Sneasel", "Teddiursa", "Ursaring", "Slugma", "Magcargo", "Swinub", "Piloswine",
-"Corsola", "Remoraid", "Octillery", "Delibird", "Mantine", "Skarmory", "Houndour", "Houndoom", "Kingdra", "Phanpy", "Donphan",
-"Porygon2", "Stantler", "Smeargle", "Tyrogue", "Hitmontop", "Smoochum", "Elekid", "Magby", "Miltank", "Blissey", "Raikou",
-"Entei", "Suicune", "Larvitar", "Pupitar", "Tyranitar", "Lugia", "Ho-Oh", "Celebi", "Treecko", "Grovyle", "Sceptile", "Torchic",
-"Combusken", "Blaziken", "Mudkip", "Marshtomp", "Swampert", "Poochyena", "Mightyena", "Zigzagoon", "Linoone", "Wurmple",
-"Silcoon", "Beautifly", "Cascoon", "Dustox", "Lotad", "Lombre", "Ludicolo", "Seedot", "Nuzleaf", "Shiftry", "Taillow", "Swellow",
-"Wingull", "Pelipper", "Ralts", "Kirlia", "Gardevoir", "Surskit", "Masquerain", "Shroomish", "Breloom", "Slakoth", "Vigoroth",
-"Slaking", "Nincada", "Ninjask", "Shedinja", "Whismur", "Loudred", "Exploud", "Makuhita", "Hariyama", "Azurill", "Nosepass",
-"Skitty", "Delcatty", "Sableye", "Mawile", "Aron", "Lairon", "Aggron", "Meditite", "Medicham", "Electrike", "Manectric",
-"Plusle", "Minun", "Volbeat", "Illumise", "Roselia", "Gulpin", "Swalot", "Carvanha", "Sharpedo", "Wailmer", "Wailord", "Numel",
-"Camerupt", "Torkoal", "Spoink", "Grumpig", "Spinda", "Trapinch", "Vibrava", "Flygon", "Cacnea", "Cacturne", "Swablu", "Altaria",
-"Zangoose", "Seviper", "Lunatone", "Solrock", "Barboach", "Whiscash", "Corphish", "Crawdaunt", "Baltoy", "Claydol", "Lileep",
-"Cradily", "Anorith", "Armaldo", "Feebas", "Milotic", "Castform", "Kecleon", "Shuppet", "Banette", "Duskull", "Dusclops", "Tropius",
-"Chimecho", "Absol", "Wynaut", "Snorunt", "Glalie", "Spheal", "Sealeo", "Walrein", "Clamperl", "Huntail", "Gorebyss", "Relicanth",
-"Luvdisc", "Bagon", "Shelgon", "Salamence", "Beldum", "Metang", "Metagross", "Regirock", "Regice", "Registeel", "Latias", "Latios",
-"Kyogre", "Groudon", "Rayquaza", "Jirachi", "Deoxys", "Turtwig", "Grotle", "Torterra", "Chimchar", "Monferno", "Infernape", "Piplup",
-"Prinplup", "Empoleon", "Starly", "Staravia", "Staraptor", "Bidoof", "Bibarel", "Kricketot", "Kricketune", "Shinx", "Luxio", "Luxray",
-"Budew", "Roserade", "Cranidos", "Rampardos", "Shieldon", "Bastiodon", "Burmy", "Wormadam", "Mothim", "Combee", "Vespiquen",
-"Pachirisu", "Buizel", "Floatzel", "Cherubi", "Cherrim", "Shellos", "Gastrodon", "Ambipom", "Drifloon", "Drifblim", "Buneary",
-"Lopunny", "Mismagius", "Honchkrow", "Glameow", "Purugly", "Chingling", "Stunky", "Skuntank", "Bronzor", "Bronzong", "Bonsly",
-"Mime Jr.", "Happiny", "Chatot", "Spiritomb", "Gible", "Gabite", "Garchomp", "Munchlax", "Riolu", "Lucario", "Hippopotas",
-"Hippowdon", "Skorupi", "Drapion", "Croagunk", "Toxicroak", "Carnivine", "Finneon", "Lumineon", "Mantyke", "Snover", "Abomasnow",
-"Weavile", "Magnezone", "Lickilicky", "Rhyperior", "Tangrowth", "Electivire", "Magmortar", "Togekiss", "Yanmega", "Leafeon",
-"Glaceon", "Gliscor", "Mamoswine", "Porygon-Z", "Gallade", "Probopass", "Dusknoir", "Froslass", "Rotom", "Uxie", "Mesprit",
-"Azelf", "Dialga", "Palkia", "Heatran", "Regigigas", "Giratina", "Cresselia", "Phione", "Manaphy", "Darkrai", "Shaymin", "Arceus",
-"Victini", "Snivy", "Servine", "Serperior", "Tepig", "Pignite", "Emboar", "Oshawott", "Dewott", "Samurott", "Patrat", "Watchog",
-"Lillipup", "Herdier", "Stoutland", "Purrloin", "Liepard", "Pansage", "Simisage", "Pansear", "Simisear", "Panpour", "Simipour",
-"Munna", "Musharna", "Pidove", "Tranquill", "Unfezant", "Blitzle", "Zebstrika", "Roggenrola", "Boldore", "Gigalith", "Woobat",
-"Swoobat", "Drilbur", "Excadrill", "Audino", "Timburr", "Gurdurr", "Conkeldurr", "Tympole", "Palpitoad", "Seismitoad", "Throh",
-"Sawk", "Sewaddle", "Swadloon", "Leavanny", "Venipede", "Whirlipede", "Scolipede", "Cottonee", "Whimsicott", "Petilil", "Lilligant",
-"Basculin", "Sandile", "Krokorok", "Krookodile", "Darumaka", "Darmanitan", "Maractus", "Dwebble", "Crustle", "Scraggy", "Scrafty",
-"Sigilyph", "Yamask", "Cofagrigus", "Tirtouga", "Carracosta", "Archen", "Archeops", "Trubbish", "Garbodor", "Zorua", "Zoroark",
-"Minccino", "Cinccino", "Gothita", "Gothorita", "Gothitelle", "Solosis", "Duosion", "Reuniclus", "Ducklett", "Swanna", "Vanillite",
-"Vanillish", "Vanilluxe", "Deerling", "Sawsbuck", "Emolga", "Karrablast", "Escavalier", "Foongus", "Amoonguss", "Frillish", "Jellicent",
-"Alomomola", "Joltik", "Galvantula", "Ferroseed", "Ferrothorn", "Klink", "Klang", "Klinklang", "Tynamo", "Eelektrik", "Eelektross",
-"Elgyem", "Beheeyem", "Litwick", "Lampent", "Chandelure", "Axew", "Fraxure", "Haxorus", "Cubchoo", "Beartic", "Cryogonal", "Shelmet",
-"Accelgor", "Stunfisk", "Mienfoo", "Mienshao", "Druddigon", "Golett", "Golurk", "Pawniard", "Bisharp", "Bouffalant", "Rufflet",
-"Braviary", "Vullaby", "Mandibuzz", "Heatmor", "Durant", "Deino", "Zweilous", "Hydreigon", "Larvesta", "Volcarona", "Cobalion",
-"Terrakion", "Virizion", "Tornadus", "Thundurus", "Reshiram", "Zekrom", "Landorus", "Kyurem", "Keldeo", "Meloetta", "Genesect",
-"Chespin", "Quilladin", "Chesnaught", "Fennekin", "Braixen", "Delphox", "Froakie", "Frogadier", "Greninja", "Bunnelby", "Diggersby",
-"Fletchling", "Fletchinder", "Talonflame", "Scatterbug", "Spewpa", "Vivillon", "Litleo", "Pyroar", "Flabébé", "Floette", "Florges",
-"Skiddo", "Gogoat", "Pancham", "Pangoro", "Furfrou", "Espurr", "Meowstic", "Honedge", "Doublade", "Aegislash", "Spritzee", "Aromatisse",
-"Swirlix", "Slurpuff", "Inkay", "Malamar", "Binacle", "Barbaracle", "Skrelp", "Dragalge", "Clauncher", "Clawitzer", "Helioptile",
-"Heliolisk", "Tyrunt", "Tyrantrum", "Amaura", "Aurorus", "Sylveon", "Hawlucha", "Dedenne", "Carbink", "Goomy", "Sliggoo", "Goodra",
-"Klefki", "Phantump", "Trevenant", "Pumpkaboo", "Gourgeist", "Bergmite", "Avalugg", "Noibat", "Noivern", "Xerneas", "Yveltal",
-"Zygarde", "Diancie", "Hoopa", "Volcanion", "Rowlet", "Dartrix", "Decidueye", "Litten", "Torracat", "Incineroar", "Popplio", "Brionne",
-"Primarina", "Pikipek", "Trumbeak", "Toucannon", "Yungoos", "Gumshoos", "Grubbin", "Charjabug", "Vikavolt", "Crabrawler", "Crabominable",
-"Oricorio", "Cutiefly", "Ribombee", "Rockruff", "Lycanroc", "Wishiwashi", "Mareanie", "Toxapex", "Mudbray", "Mudsdale", "Dewpider",
-"Araquanid", "Fomantis", "Lurantis", "Morelull", "Shiinotic", "Salandit", "Salazzle", "Stufful", "Bewear", "Bounsweet", "Steenee",
-"Tsareena", "Comfey", "Oranguru", "Passimian", "Wimpod", "Golisopod", "Sandygast", "Palossand", "Pyukumuku", "Type: Null", "Silvally",
-"Minior", "Komala", "Turtonator", "Togedemaru", "Mimikyu", "Bruxish", "Drampa", "Dhelmise", "Jangmo-o", "Hakamo-o", "Kommo-o",
-"Tapu Koko", "Tapu Lele", "Tapu Bulu", "Tapu Fini", "Cosmog", "Cosmoem", "Solgaleo", "Lunala", "Nihilego", "Buzzwole", "Pheromosa",
-"Xurkitree", "Celesteela", "Kartana", "Guzzlord", "Necrozma", "Magearna", "Marshadow", "Poipole", "Naganadel", "Stakataka",
-"Blacephalon", "Zeraora"]
-
-moves = ["--", "Pound", "Karate Chop", "Double Slap", "Comet Punch", "Mega Punch", "Pay Day", "Fire Punch", "Ice Punch", "Thunder Punch",
-"Scratch", "Vice Grip", "Guillotine", "Razor Wind", "Swords Dance", "Cut", "Gust", "Wing Attack", "Whirlwind", "Fly", "Bind", "Slam",
-"Vine Whip", "Stomp", "Double Kick", "Mega Kick", "Jump Kick", "Rolling Kick", "Sand Attack", "Headbutt", "Horn Attack", "Fury Attack",
-"Horn Drill", "Tackle", "Body Slam", "Wrap", "Take Down", "Thrash", "Double-Edge", "Tail Whip", "Poison Sting", "Twineedle", "Pin Missile",
-"Leer", "Bite", "Growl", "Roar", "Sing", "Supersonic", "Sonic Boom", "Disable", "Acid", "Ember", "Flamethrower", "Mist", "Water Gun",
-"Hydro Pump", "Surf", "Ice Beam", "Blizzard", "Psybeam", "Bubble Beam", "Aurora Beam", "Hyper Beam", "Peck", "Drill Peck", "Submission",
-"Low Kick", "Counter", "Seismic Toss", "Strength", "Absorb", "Mega Drain", "Leech Seed", "Growth", "Razor Leaf", "Solar Beam", "Poison Powder",
-"Stun Spore", "Sleep Powder", "Petal Dance", "String Shot", "Dragon Rage", "Fire Spin", "Thunder Shock", "Thunderbolt", "Thunder Wave",
-"Thunder", "Rock Throw", "Earthquake", "Fissure", "Dig", "Toxic", "Confusion", "Psychic", "Hypnosis", "Meditate", "Agility", "Quick Attack",
-"Rage", "Teleport", "Night Shade", "Mimic", "Screech", "Double Team", "Recover", "Harden", "Minimize", "Smokescreen", "Confuse Ray", "Withdraw",
-"Defense Curl", "Barrier", "Light Screen", "Haze", "Reflect", "Focus Energy", "Bide", "Metronome", "Mirror Move", "Self-Destruct", "Egg Bomb",
-"Lick", "Smog", "Sludge", "Bone Club", "Fire Blast", "Waterfall", "Clamp", "Swift", "Skull Bash", "Spike Cannon", "Constrict", "Amnesia",
-"Kinesis", "Soft-Boiled", "High Jump Kick", "Glare", "Dream Eater", "Poison Gas", "Barrage", "Leech Life", "Lovely Kiss", "Sky Attack",
-"Transform", "Bubble", "Dizzy Punch", "Spore", "Flash", "Psywave", "Splash", "Acid Armor", "Crabhammer", "Explosion", "Fury Swipes", "Bonemerang",
-"Rest", "Rock Slide", "Hyper Fang", "Sharpen", "Conversion", "Tri Attack", "Super Fang", "Slash", "Substitute", "Struggle", "Sketch", "Triple Kick",
-"Thief", "Spider Web", "Mind Reader", "Nightmare", "Flame Wheel", "Snore", "Curse", "Flail", "Conversion 2", "Aeroblast", "Cotton Spore", "Reversal",
-"Spite", "Powder Snow", "Protect", "Mach Punch", "Scary Face", "Feint Attack", "Sweet Kiss", "Belly Drum", "Sludge Bomb", "Mud-Slap", "Octazooka",
-"Spikes", "Zap Cannon", "Foresight", "Destiny Bond", "Perish Song", "Icy Wind", "Detect", "Bone Rush", "Lock-On", "Outrage", "Sandstorm",
-"Giga Drain", "Endure", "Charm", "Rollout", "False Swipe", "Swagger", "Milk Drink", "Spark", "Fury Cutter", "Steel Wing", "Mean Look", "Attract",
-"Sleep Talk", "Heal Bell", "Return", "Present", "Frustration", "Safeguard", "Pain Split", "Sacred Fire", "Magnitude", "Dynamic Punch", "Megahorn",
-"Dragon Breath", "Baton Pass", "Encore", "Pursuit", "Rapid Spin", "Sweet Scent", "Iron Tail", "Metal Claw", "Vital Throw", "Morning Sun",
-"Synthesis", "Moonlight", "Hidden Power", "Cross Chop", "Twister", "Rain Dance", "Sunny Day", "Crunch", "Mirror Coat", "Psych Up", "Extreme Speed",
-"Ancient Power", "Shadow Ball", "Future Sight", "Rock Smash", "Whirlpool", "Beat Up", "Fake Out", "Uproar", "Stockpile", "Spit Up", "Swallow",
-"Heat Wave", "Hail", "Torment", "Flatter", "Will-O-Wisp", "Memento", "Facade", "Focus Punch", "Smelling Salts", "Follow Me", "Nature Power",
-"Charge", "Taunt", "Helping Hand", "Trick", "Role Play", "Wish", "Assist", "Ingrain", "Superpower", "Magic Coat", "Recycle", "Revenge",
-"Brick Break", "Yawn", "Knock Off", "Endeavor", "Eruption", "Skill Swap", "Imprison", "Refresh", "Grudge", "Snatch", "Secret Power", "Dive",
-"Arm Thrust", "Camouflage", "Tail Glow", "Luster Purge", "Mist Ball", "Feather Dance", "Teeter Dance", "Blaze Kick", "Mud Sport", "Ice Ball",
-"Needle Arm", "Slack Off", "Hyper Voice", "Poison Fang", "Crush Claw", "Blast Burn", "Hydro Cannon", "Meteor Mash", "Astonish", "Weather Ball",
-"Aromatherapy", "Fake Tears", "Air Cutter", "Overheat", "Odor Sleuth", "Rock Tomb", "Silver Wind", "Metal Sound", "Grass Whistle", "Tickle",
-"Cosmic Power", "Water Spout", "Signal Beam", "Shadow Punch", "Extrasensory", "Sky Uppercut", "Sand Tomb", "Sheer Cold", "Muddy Water", "Bullet Seed",
-"Aerial Ace", "Icicle Spear", "Iron Defense", "Block", "Howl", "Dragon Claw", "Frenzy Plant", "Bulk Up", "Bounce", "Mud Shot", "Poison Tail",
-"Covet", "Volt Tackle", "Magical Leaf", "Water Sport", "Calm Mind", "Leaf Blade", "Dragon Dance", "Rock Blast", "Shock Wave", "Water Pulse",
-"Doom Desire", "Psycho Boost", "Roost", "Gravity", "Miracle Eye", "Wake-Up Slap", "Hammer Arm", "Gyro Ball", "Healing Wish", "Brine", "Natural Gift",
-"Feint", "Pluck", "Tailwind", "Acupressure", "Metal Burst", "U-turn", "Close Combat", "Payback", "Assurance", "Embargo", "Fling", "Psycho Shift",
-"Trump Card", "Heal Block", "Wring Out", "Power Trick", "Gastro Acid", "Lucky Chant", "Me First", "Copycat", "Power Swap", "Guard Swap", "Punishment",
-"Last Resort", "Worry Seed", "Sucker Punch", "Toxic Spikes", "Heart Swap", "Aqua Ring", "Magnet Rise", "Flare Blitz", "Force Palm", "Aura Sphere",
-"Rock Polish", "Poison Jab", "Dark Pulse", "Night Slash", "Aqua Tail", "Seed Bomb", "Air Slash", "X-Scissor", "Bug Buzz", "Dragon Pulse", "Dragon Rush",
-"Power Gem", "Drain Punch", "Vacuum Wave", "Focus Blast", "Energy Ball", "Brave Bird", "Earth Power", "Switcheroo", "Giga Impact", "Nasty Plot",
-"Bullet Punch", "Avalanche", "Ice Shard", "Shadow Claw", "Thunder Fang", "Ice Fang", "Fire Fang", "Shadow Sneak", "Mud Bomb", "Psycho Cut", "Zen Headbutt",
-"Mirror Shot", "Flash Cannon", "Rock Climb", "Defog", "Trick Room", "Draco Meteor", "Discharge", "Lava Plume", "Leaf Storm", "Power Whip", "Rock Wrecker",
-"Cross Poison", "Gunk Shot", "Iron Head", "Magnet Bomb", "Stone Edge", "Captivate", "Stealth Rock", "Grass Knot", "Chatter", "Judgment", "Bug Bite",
-"Charge Beam", "Wood Hammer", "Aqua Jet", "Attack Order", "Defend Order", "Heal Order", "Head Smash", "Double Hit", "Roar of Time", "Spacial Rend",
-"Lunar Dance", "Crush Grip", "Magma Storm", "Dark Void", "Seed Flare", "Ominous Wind", "Shadow Force", "Hone Claws", "Wide Guard", "Guard Split",
-"Power Split", "Wonder Room", "Psyshock", "Venoshock", "Autotomize", "Rage Powder", "Telekinesis", "Magic Room", "Smack Down", "Storm Throw",
-"Flame Burst", "Sludge Wave", "Quiver Dance", "Heavy Slam", "Synchronoise", "Electro Ball", "Soak", "Flame Charge", "Coil", "Low Sweep", "Acid Spray",
-"Foul Play", "Simple Beam", "Entrainment", "After You", "Round", "Echoed Voice", "Chip Away", "Clear Smog", "Stored Power", "Quick Guard", "Ally Switch",
-"Scald", "Shell Smash", "Heal Pulse", "Hex", "Sky Drop", "Shift Gear", "Circle Throw", "Incinerate", "Quash", "Acrobatics", "Reflect Type", "Retaliate",
-"Final Gambit", "Bestow", "Inferno", "Water Pledge", "Fire Pledge", "Grass Pledge", "Volt Switch", "Struggle Bug", "Bulldoze", "Frost Breath",
-"Dragon Tail", "Work Up", "Electroweb", "Wild Charge", "Drill Run", "Dual Chop", "Heart Stamp", "Horn Leech", "Sacred Sword", "Razor Shell", "Heat Crash",
-"Leaf Tornado", "Steamroller", "Cotton Guard", "Night Daze", "Psystrike", "Tail Slap", "Hurricane", "Head Charge", "Gear Grind", "Searing Shot",
-"Techno Blast", "Relic Song", "Secret Sword", "Glaciate", "Bolt Strike", "Blue Flare", "Fiery Dance", "Freeze Shock", "Ice Burn", "Snarl", "Icicle Crash",
-"V-create", "Fusion Flare", "Fusion Bolt", "Flying Press", "Mat Block", "Belch", "Rototiller", "Sticky Web", "Fell Stinger", "Phantom Force",
-"Trick-or-Treat", "Noble Roar", "Ion Deluge", "Parabolic Charge", "Forest’s Curse", "Petal Blizzard", "Freeze-Dry", "Disarming Voice", "Parting Shot",
-"Topsy-Turvy", "Draining Kiss", "Crafty Shield", "Flower Shield", "Grassy Terrain", "Misty Terrain", "Electrify", "Play Rough", "Fairy Wind", "Moonblast",
-"Boomburst", "Fairy Lock", "King’s Shield", "Play Nice", "Confide", "Diamond Storm", "Steam Eruption", "Hyperspace Hole", "Water Shuriken", "Mystical Fire",
-"Spiky Shield", "Aromatic Mist", "Eerie Impulse", "Venom Drench", "Powder", "Geomancy", "Magnetic Flux", "Happy Hour", "Electric Terrain", "Dazzling Gleam",
-"Celebrate", "Hold Hands", "Baby-Doll Eyes", "Nuzzle", "Hold Back", "Infestation", "Power-Up Punch", "Oblivion Wing", "Thousand Arrows", "Thousand Waves",
-"Land’s Wrath", "Light of Ruin", "Origin Pulse", "Precipice Blades", "Dragon Ascent", "Hyperspace Fury", "Breakneck Blitz", "Breakneck Blitz",
-"All-Out Pummeling", "All-Out Pummeling", "Supersonic Skystrike", "Supersonic Skystrike", "Acid Downpour", "Acid Downpour", "Tectonic Rage", "Tectonic Rage",
-"Continental Crush", "Continental Crush", "Savage Spin-Out", "Savage Spin-Out", "Never-Ending Nightmare", "Never-Ending Nightmare", "Corkscrew Crash",
-"Corkscrew Crash", "Inferno Overdrive", "Inferno Overdrive", "Hydro Vortex", "Hydro Vortex", "Bloom Doom", "Bloom Doom", "Gigavolt Havoc", "Gigavolt Havoc",
-"Shattered Psyche", "Shattered Psyche", "Subzero Slammer", "Subzero Slammer", "Devastating Drake", "Devastating Drake", "Black Hole Eclipse",
-"Black Hole Eclipse", "Twinkle Tackle", "Twinkle Tackle", "Catastropika", "Shore Up", "First Impression", "Baneful Bunker", "Spirit Shackle", "Darkest Lariat",
-"Sparkling Aria", "Ice Hammer", "Floral Healing", "High Horsepower", "Strength Sap", "Solar Blade", "Leafage", "Spotlight", "Toxic Thread", "Laser Focus",
-"Gear Up", "Throat Chop", "Pollen Puff", "Anchor Shot", "Psychic Terrain", "Lunge", "Fire Lash", "Power Trip", "Burn Up", "Speed Swap", "Smart Strike",
-"Purify", "Revelation Dance", "Core Enforcer", "Trop Kick", "Instruct", "Beak Blast", "Clanging Scales", "Dragon Hammer", "Brutal Swing", "Aurora Veil",
-"Sinister Arrow Raid", "Malicious Moonsault", "Oceanic Operetta", "Guardian of Alola", "Soul-Stealing 7-Star Strike", "Stoked Sparksurfer",
-"Pulverizing Pancake", "Extreme Evoboost", "Genesis Supernova", "Shell Trap", "Fleur Cannon", "Psychic Fangs", "Stomping Tantrum", "Shadow Bone", "Accelerock",
-"Liquidation", "Prismatic Laser", "Spectral Thief", "Sunsteel Strike", "Moongeist Beam", "Tearful Look", "Zing Zap", "Nature’s Madness", "Multi-Attack",
-"10,000,000 Volt Thunderbolt", "Mind Blown", "Plasma Fists", "Photon Geyser", "Light That Burns the Sky", "Searing Sunraze Smash",
-"Menacing Moonraze Maelstrom", "Let’s Snuggle Forever", "Splintered Stormshards", "Clangorous Soulblaze"]
-
-abilities = ["—", "Stench", "Drizzle", "Speed Boost", "Battle Armor", "Sturdy", "Damp", "Limber", "Sand Veil", "Static", "Volt Absorb",
-"Water Absorb", "Oblivious", "Cloud Nine", "Compound Eyes", "Insomnia", "Color Change", "Immunity", "Flash Fire", "Shield Dust", "Own Tempo",
-"Suction Cups", "Intimidate", "Shadow Tag", "Rough Skin", "Wonder Guard", "Levitate", "Effect Spore", "Synchronize", "Clear Body", "Natural Cure",
-"Lightning Rod", "Serene Grace", "Swift Swim", "Chlorophyll", "Illuminate", "Trace", "Huge Power", "Poison Point", "Inner Focus", "Magma Armor",
-"Water Veil", "Magnet Pull", "Soundproof", "Rain Dish", "Sand Stream", "Pressure", "Thick Fat", "Early Bird", "Flame Body", "Run Away", "Keen Eye",
-"Hyper Cutter", "Pickup", "Truant", "Hustle", "Cute Charm", "Plus", "Minus", "Forecast", "Sticky Hold", "Shed Skin", "Guts", "Marvel Scale",
-"Liquid Ooze", "Overgrow", "Blaze", "Torrent", "Swarm", "Rock Head", "Drought", "Arena Trap", "Vital Spirit", "White Smoke", "Pure Power",
-"Shell Armor", "Air Lock", "Tangled Feet", "Motor Drive", "Rivalry", "Steadfast", "Snow Cloak", "Gluttony", "Anger Point", "Unburden", "Heatproof",
-"Simple", "Dry Skin", "Download", "Iron Fist", "Poison Heal", "Adaptability", "Skill Link", "Hydration", "Solar Power", "Quick Feet", "Normalize",
-"Sniper", "Magic Guard", "No Guard", "Stall", "Technician", "Leaf Guard", "Klutz", "Mold Breaker", "Super Luck", "Aftermath", "Anticipation",
-"Forewarn", "Unaware", "Tinted Lens", "Filter", "Slow Start", "Scrappy", "Storm Drain", "Ice Body", "Solid Rock", "Snow Warning", "Honey Gather",
-"Frisk", "Reckless", "Multitype", "Flower Gift", "Bad Dreams", "Pickpocket", "Sheer Force", "Contrary", "Unnerve", "Defiant", "Defeatist",
-"Cursed Body", "Healer", "Friend Guard", "Weak Armor", "Heavy Metal", "Light Metal", "Multiscale", "Toxic Boost", "Flare Boost", "Harvest",
-"Telepathy", "Moody", "Overcoat", "Poison Touch", "Regenerator", "Big Pecks", "Sand Rush", "Wonder Skin", "Analytic", "Illusion", "Imposter",
-"Infiltrator", "Mummy", "Moxie", "Justified", "Rattled", "Magic Bounce", "Sap Sipper", "Prankster", "Sand Force", "Iron Barbs", "Zen Mode",
-"Victory Star", "Turboblaze", "Teravolt", "Aroma Veil", "Flower Veil", "Cheek Pouch", "Protean", "Fur Coat", "Magician", "Bulletproof",
-"Competitive", "Strong Jaw", "Refrigerate", "Sweet Veil", "Stance Change", "Gale Wings", "Mega Launcher", "Grass Pelt", "Symbiosis", "Tough Claws",
-"Pixilate", "Gooey", "Aerilate", "Parental Bond", "Dark Aura", "Fairy Aura", "Aura Break", "Primordial Sea", "Desolate Land", "Delta Stream",
-"Stamina", "Wimp Out", "Emergency Exit", "Water Compaction", "Merciless", "Shields Down", "Stakeout", "Water Bubble", "Steelworker", "Berserk",
-"Slush Rush", "Long Reach", "Liquid Voice", "Triage", "Galvanize", "Surge Surfer", "Schooling", "Disguise", "Battle Bond", "Power Construct",
-"Corrosion", "Comatose", "Queenly Majesty", "Innards Out", "Dancer", "Battery", "Fluffy", "Dazzling", "Soul-Heart", "Tangling Hair", "Receiver",
-"Power of Alchemy", "Beast Boost", "RKS System", "Electric Surge", "Psychic Surge", "Misty Surge", "Grassy Surge", "Full Metal Body",
-"Shadow Shield", "Prism Armor", "Neuroforce"]
-
-natures = ["Hardy", "Lonely", "Brave", "Adamant", "Naughty", "Bold", "Docile", "Relaxed", "Impish", "Lax", "Timid", "Hasty", "Serious",
-"Jolly", "Naive", "Modest", "Mild", "Quiet", "Bashful", "Rash", "Calm", "Gentle", "Sassy", "Careful", "Quirky"]
-
-# -----------------------------------------------------------------------------
-
-BLOCK_SIZE = 56
-SLOT_OFFSET = 484
-SLOT_DATA_SIZE = (8 + (4 * BLOCK_SIZE))
-STAT_DATA_OFFSET = 112
-STAT_DATA_SIZE = 22
+trackadd=r"C:\Users\scien\Documents\GitHub\Orange-Peeler\trackerdata.json"
+trackdata=json.load(open(trackadd,"r+"))
 
 def crypt(data, seed, i):
     value = data[i]
@@ -269,7 +77,7 @@ def decrypt_data(encrypted_data):
 class Pokemon:
     def __init__(self, encrypted_data):
         first_byte = encrypted_data[0]
-        if 0 != first_byte:
+        if first_byte != 0:
             self.raw_data = decrypt_data(encrypted_data)
         else:
             self.raw_data = ""
@@ -280,104 +88,415 @@ class Pokemon:
         else:
             return 0
 
-    def species(self):
-        return species[self.species_num()]
+    def getAtts(self,gamegroupid,gen):
+        dex = self.species_num()
+        form = struct.unpack("B",self.raw_data[0x1D:0x1E])[0]
+        query = f"""select pokemonid from "pokemon.pokemon" where pokemonpokedexnumber = {dex}"""
+        match dex:
+            case 81 | 82 | 100 | 101 | 120 | 121 | 137 | 233 | 292 | 337 | 338 | 343 | 344 | 374 | 375 | 376 | 436 | 437 | 462 | 474 | 489 | 490 | 599 | 600 | 601 | 615 | 622 | 623 | 703 | 774 | 781 | 854 | 855 | 770 | 132 | 144 | 145 | 146 | 201 | 243 | 244 | 245 | 249 | 250 | 251 | 377 | 378 | 379 | 382 | 383 | 384 | 385 | 386 | 480 | 481 | 482 | 483 | 484 | 486 | 491 | 493 | 494 | 638 | 639 | 640 | 643 | 644 | 646 | 647 | 649 | 716 | 717 | 718 | 719 | 721: ### Genderless exceptions
+                query+= " and pokemonsuffix is null"
+            case 641 | 642 | 645:
+                if form > 0: ### Therian forms of Tornadus, Thundurus, Landorus
+                    query+= " and pokemonsuffix = 'therian"
+            case 6: #Charizard
+                match form:
+                    case 8 | 10:
+                        query+= " and pokemonsuffix = 'mega-x'"
+                    case 16 | 18:
+                        query+= " and pokemonsuffix = 'mega-y'"
+            case 150: ### Mewtwo
+                match form:
+                    case 12:
+                        query+= " and pokemonsuffix = 'mega-x'"
+                    case 20: ### Mewtwo Y
+                        query+= " and pokemonsuffix = 'mega-y'"
+            case 351: ### Castform
+                match form:
+                    case 8 | 10:
+                        query+= " and pokemonsuffix = 'sunny'"
+                    case 16 | 18:
+                        query+= " and pokemonsuffix = 'rainy'"
+                    case 24 | 26:
+                        query+= " and pokemonsuffix = 'snowy'"
+            case 386: ### Deoxys
+                match form:
+                    case 12:
+                        query+= " and pokemonsuffix = 'attack'"
+                    case 20:
+                        query+= " and pokemonsuffix = 'defense'"
+                    case 28:
+                        query+= " and pokemonsuffix = 'speed'"
+            case 413: ### Wormadam
+                match form:
+                    case 10:
+                        query+= " and pokemonsuffix = 'sandy'"
+                    case 18:
+                        query+= " and pokemonsuffix = 'trash'"
+                    case 2:
+                        query+= " and pokemonsuffix = 'plant'"
+            case 479: ### Rotom
+                match form:
+                    case 12:
+                        query+= " and pokemonsuffix = 'heat'"
+                    case 20:
+                        query+= " and pokemonsuffix = 'wash'"
+                    case 28:
+                        query+= " and pokemonsuffix = 'frost'"
+                    case 36:
+                        query+= " and pokemonsuffix = 'fan'"
+                    case 44:
+                        query+= " and pokemonsuffix = 'mow'"
+            case 487: ### Giratina
+                match form:
+                    case 12:
+                        query+= " and pokemonsuffix = 'origin'"
+            case 492: ### Shaymin
+                match form:
+                    case 12:
+                        query+= " and pokemonsuffix = 'sky'"
+            case 555: ### Darmanitan
+                match form:
+                    case 8 | 10:
+                        query+= " and pokemonsuffix = 'zen'"
+            case 648: ### Meloetta
+                match form:
+                    case 12:
+                        query+= " and pokemonsuffix = 'pirouette'"
+                    case 4:
+                        query+= " and pokemonsuffix = 'aria'"
+            case 646: ### Kyurem
+                match form:
+                    case 12:
+                        query+= " and pokemonsuffix = 'white'"
+                match form:
+                    case 20:
+                        query+= " and pokemonsuffix = 'black'"
+            case 670: ### Floette
+                match form:
+                    case 18:
+                        query+= " and pokemonsuffix = 'eternal'"
+            case 678: ### Meowstic
+                match form:
+                    case 10:
+                        query+= " and pokemonsuffix = 'f'"
+            case 681: ### Aegislash
+                match form:
+                    case 0 | 2:
+                        query+= " and pokemonsuffix = 'shield'"
+                    case 8 | 10:
+                        query+= " and pokemonsuffix = 'blade'"
+            # case 718: ### Zygarde only needed for gen 7
+            #     print(form)
+            # case 720: ### Hoopa
+            #     print(form)
+            # case 741: ### Oricorio
+            #     print(form)
+            # case 745: ### Lycanroc
+            #     print(form)
+            # case 746: ### Wishiwashi
+            #     print(form)
+            # case 774: ### Minior
+            #     print(form)
+            # case 800: ### Necrozma
+            #     print(form)
+            case _:
+                if form == 2:
+                    query+= " and pokemonsuffix is null"
+                elif form > 0:
+                    query+= " and pokemonsuffix ='mega'"
+                else:
+                    query+= " and pokemonsuffix is null"
+        # print(form)
+        # print(query)
+        self.id = cursor.execute(query).fetchone()[0]
+        self.species,self.suffix,self.name = cursor.execute(f"""select pokemonspeciesname,pokemonsuffix,pokemonname from "pokemon.pokemon" where pokemonid = {self.id}""").fetchone()
+        self.suffix = self.suffix or ''
+        self.name = self.name.replace(' Form','').replace(' Cloak','')
+        self.spritename = self.species.lower()+('' if self.suffix == '' else ('-'+self.suffix))
+        self.spriteurl = "https://img.pokemondb.net/sprites/"+getURLAbbr(gamegroupid)+"/normal/"+self.spritename+".png"
+        self.bst = cursor.execute(f"""select
+                                sum(pokemonstatvalue)
+                            from "pokemon.pokemonstat"
+                                where pokemonid = {self.id}
+                                and generationid = (
+                                    select
+                                        max(generationid)
+                                    from "pokemon.pokemonstat"
+                                        where generationid <= {gen}
+                                )""").fetchone()[0]    
+        self.types = cursor.execute(f"""
+                               select
+                                    ty.typename
+                                from "pokemon.pokemontype" pt
+                                    left join "pokemon.type" ty on pt.typeid = ty.typeid
+                                where pt.pokemonid = {self.id} and pt.generationid = {gen}                              
+                               """).fetchall()
+        self.types = [type for type in self.types]
+        self.held_item_num=str(struct.unpack("<H", self.raw_data[0xA:0xC])[0])
+        self.held_item_name = items[self.held_item_num]['name'].replace("é","&#233;")
+        self.ability_num = struct.unpack("B", self.raw_data[0x14:0x15])[0] # Ability
+        query = f"""select
+                        ab.abilityname
+                        ,abilitydescription
+                    from "pokemon.generationability" ga
+                        left join "pokemon.ability" ab on ga.abilityid = ab.abilityid
+                        left join "pokemon.abilitylookup" al on ab.abilityname = al.abilityname
+                    where al.abilityindex = {self.ability_num} and ga.generationid <= {gen}
+                    order by ga.generationid desc
+                    """
+        self.abilityname,self.abilitydescription = cursor.execute(query).fetchone()
+        self.ability = {'name':self.abilityname,'description':self.abilitydescription}
+        self.nature_num = struct.unpack("B", self.raw_data[0x1C:0x1D])[0] ## Nature
+        self.nature = cursor.execute(f"""select
+                        n.naturename
+                    from "pokemon.nature" n
+                        left join "pokemon.naturelookup" nl on n.naturename = nl.naturename
+                    where nl.natureindex = {self.nature_num}
+                    """).fetchone()[0]
+        self.friendship = struct.unpack("B", self.raw_data[0xCA:0xCB])[0] ### Friendship
+        self.level_met = struct.unpack("<H", self.raw_data[0xDD:0xDF])[0] ####### Level met
+        self.level = struct.unpack("B", self.raw_data[0xEC:0xED])[0] ### Current level
+        self.cur_hp = struct.unpack("<H", self.raw_data[0xF0:0xF2])[0] ####### Current HP
+        self.maxhp = struct.unpack("<H", self.raw_data[0xF2:0xF4])[0] ## Max HP
+        self.attack = struct.unpack("<H", self.raw_data[0xF4:0xF6])[0] ## Attack stat
+        self.defense = struct.unpack("<H", self.raw_data[0xF6:0xF8])[0] ## Defense stat
+        self.speed = struct.unpack("<H", self.raw_data[0xF8:0xFA])[0] ## Speed stat
+        self.spatk = struct.unpack("<H", self.raw_data[0xFA:0xFC])[0] ## Special attack stat
+        self.spdef = struct.unpack("<H", self.raw_data[0xFC:0xFE])[0] ## Special defense stat
+        self.evhp = struct.unpack("B", self.raw_data[0x1E:0x1F])[0]
+        self.evattack = struct.unpack("B", self.raw_data[0x1F:0x20])[0]
+        self.evdefense = struct.unpack("B", self.raw_data[0x20:0x21])[0]
+        self.evspeed = struct.unpack("B", self.raw_data[0x21:0x22])[0]
+        self.evspatk = struct.unpack("B", self.raw_data[0x22:0x23])[0]
+        self.evspdef = struct.unpack("B", self.raw_data[0x23:0x24])[0]
+        self.ivloc = struct.unpack("<I", self.raw_data[0x74:0x78])[0]
+        self.ivhp = (self.ivloc >> 0) & 0x1F ############################## HP IV
+        self.ivattack = (self.ivloc >> 5) & 0x1F ############################## Attack IV
+        self.ivdefense = (self.ivloc >> 10) & 0x1F ############################# Defense IV
+        self.ivspeed = (self.ivloc >> 15) & 0x1F ############################# Speed IV
+        self.ivspatk = (self.ivloc >> 20) & 0x1F ############################# Special attack IV
+        self.ivspdef = (self.ivloc >> 25) & 0x1F ############################# Special defense IV
+        def moves(self):
+                def movedescription(id):
+                    query = f"""select movedescription from "pokemon.generationmove" where generationmoveid = {id}"""
+                    return cursor.execute(query).fetchone()[0]
+                move1 = ((0x5A,0x5C),(0x62,0x63))
+                move2 = ((0x5C,0x5E),(0x63,0x64))
+                move3 = ((0x5E,0x60),(0x64,0x65))
+                move4 = ((0x60,0x62),(0x65,0x66))
+                for ml,pl in (move1,move2,move3,move4):
+                    try:
+                        move_num = struct.unpack("<H", self.raw_data[ml[0]:ml[1]])[0]
+                        query = f"""
+                            select
+                                mv.movename,
+                                gm.generationmoveid,
+                                movepp,
+                                typename,
+                                movepower,
+                                moveaccuracy,
+                                movecontactflag,
+                                movecategoryname
+                            from "pokemon.generationmove" gm
+                                left join "pokemon.move" mv on gm.moveid = mv.moveid
+                                left join "pokemon.movelookup" ml on mv.movename = ml.movename
+                                left join "pokemon.type" ty on gm.typeid = ty.typeid
+                                left join "pokemon.movecategory" mc on gm.movecategoryid = mc.movecategoryid
+                            where ml.moveindex = {move_num} and gm.generationid = {gen}"""
+                        movename,id,pp,type,power,acc,contact,category = cursor.execute(query).fetchone()
+                        yield {'name':movename,
+                            'description':movedescription(id),
+                                'pp':struct.unpack("<B",self.raw_data[pl[0]:pl[1]])[0],
+                                'maxpp':int(pp),
+                                'type':type,
+                                'power':power,
+                                'acc':acc,
+                                'contact':contact,
+                                'category':category
+                            }
+                    except:
+                        yield {'name':'',
+                               'description':'',
+                               'pp':0,
+                               'maxpp':0,
+                                'type':None,
+                                'power':0,
+                                'acc':0,
+                                'contact':False,
+                                'category':None}
+                    
+        self.moves = [move for move in moves(self)]
+        try:
+            self.evotype,self.evoitem,self.evolevel,self.evostring,self.evolocation = cursor.execute(f"""
+                                            SELECT
+                                                evolutiontypename,
+                                                itemname,
+                                                pokemonevolutionlevel,
+                                                pokemonevolutionuniquestring,
+                                                locationname
+                                            FROM "pokemon.pokemonevolutioninfokaizo" peik
+                                                LEFT JOIN "pokemon.item" it ON peik.itemid = it.itemid
+                                                LEFT JOIN "pokemon.pokemon" target ON peik.targetpokemonid = target.pokemonid
+                                                LEFT JOIN "pokemon.evolutiontype" evot ON peik.evolutiontypeid = evot.evolutiontypeid
+                                                LEFT JOIN "pokemon.location" loc ON peik.locationid = loc.locationid
+                                                WHERE gamegroupid IN (
+                                                    SELECT
+                                                        gamegroupid
+                                                    FROM "pokemon.gamegroup"
+                                                        WHERE gamegrouporder < (
+                                                            SELECT
+                                                                gamegrouporder
+                                                            FROM "pokemon.gamegroup"
+                                                                WHERE gamegroupid = '{gamegroupid}'
+                                                            )
+                                                    )
+                                                AND basepokemonid = {str(self.id)}
+            """).fetchone()
+            self.evo = True
+        except:
+            self.evo = False
+        self.statusbyte = struct.unpack("<B",self.raw_data[0xE8:0xE9])[0] ### Status byte
+        match self.statusbyte:
+            case 1:
+                self.status = 'Paralyzed'
+            case 2:
+                self.status = 'Asleep'
+            case 3:
+                self.status = 'Frozen'
+            case 4:
+                self.status = 'Burned'
+            case 5:
+                self.status = 'Poisoned'
+            case _:
+                self.status = ''
+        
+    def getStatChanges(self):
+            raised,lowered = cursor.execute(f"""
+            select
+                    raisedstat.statname
+                    ,loweredstat.statname
+                from "pokemon.nature" n
+                    left join "pokemon.stat" raisedstat on n.raisedstatid = raisedstat.statid
+                    left join "pokemon.stat" loweredstat on n.loweredstatid = loweredstat.statid
+                where n.naturename = '{self.nature}'
+                """).fetchone()
+            for stat in ('Attack','Defense','Special Attack','Special Defense','Speed'):
+                if stat == raised:
+                    yield 'raised'
+                elif stat == lowered:
+                    yield 'lowered'
+                else:
+                    yield ''
 
-    def held_item_num(self):
-        return struct.unpack("<H", self.raw_data[0xA:0xC])[0]
+    def getMoves(self,gamegroupid):
+        learnedcount = 0
+        query = f"""
+            select
+                pokemonmovelevel
+            from "pokemon.pokemonmove" pm
+                left join "pokemon.pokemonmovemethod" pmm on pm.pokemonmovemethodid = pmm.pokemonmovemethodid
+                where gamegroupid = {gamegroupid}
+                    and pokemonmovemethodname = 'Level up'
+                    and pokemonmovelevel > 1
+                    and pokemonid = {self.id}
+                order by pokemonmovelevel
+        """
+        learnlist = cursor.execute(query).fetchall()
+        nextmove = None
+        totallearn = 0
+        learnstr = ''
+        for learn in learnlist:
+            learnstr+=str(learn[0])+', '
+            if int(learn[0]) > 1:
+                totallearn+=1
+        for learn in learnlist:
+            if not int(learn[0]) <= int(self.level):
+                nextmove = learn[0]
+                break
+            elif int(learn[0]) > 1:
+                learnedcount+=1
+        return totallearn,nextmove,learnedcount,learnstr[0:len(learnstr)-2]
 
-    def ability(self):
-        ability_num = struct.unpack("B", self.raw_data[0x14:0x15])[0]
-        return abilities[ability_num]
+    def getCoverage(self,gen,gamegroupid):
+        types = []
+        for move in self.moves:
+            if move['power']:
+                if move['power'] > 0:
+                    types.append(move['type'])
+        monTypes = f"""
+            with montypes as (
+                select distinct
+                    mon.pokemonid as pokemonid,
+                    type1.typeid as type1id,
+                    type2.typeid as type2id,
+                    pt1.generationid as gen
+                from "pokemon.pokemon" mon
+                    join "pokemon.pokemontype" pt1 on mon.pokemonid = pt1.pokemonid and pt1.pokemontypeorder = 1 and pt1.generationid = {gen}
+                    left join "pokemon.pokemontype" pt2 on mon.pokemonid = pt2.pokemonid and pt2.pokemontypeorder = 2 and pt2.generationid = {gen}
+                    join "pokemon.type" type1 on pt1.typeid = type1.typeid
+                    left join "pokemon.type" type2 on pt2.typeid = type2.typeid
+                    join "pokemon.gamegroup" gg on pt1.generationid = gg.generationid and gg.gamegroupid = {gamegroupid}
+                    join "pokemon.game" gm on gg.gamegroupid = gm.gamegroupid
+                    join "pokemon.pokemongameavailability" pga on mon.pokemonid = pga.pokemonid and gm.gameid = pga.gameid and pga.gameid
+                    ),
+        """
+        monbsts = f"""
+            monbsts as (
+                select
+                    ps.pokemonid as pokemonid,
+                    mt.type1id,
+                    mt.type2id,
+                    mt.gen,
+                    sum(ps.pokemonstatvalue) as bst
+                from "pokemon.pokemonstat" ps
+                    join montypes mt on ps.generationid = mt.gen AND ps.pokemonid = mt.pokemonid
+                    GROUP BY 1,2,3,4
+            ),
+        """
+        attackingdamage = f"""
+            attackingdmg as (
+                select
+                    mb.pokemonid as pokemoeeeeeeenid,
+                    mb.type1id as type1id,
+                    mb.type2id as type2id,
+                    max(tm1.damagemodifier*coalesce(tm2.damagemodifier,1)) as dmgmod
+                from monbsts mb
+                    join "pokemon.typematchup" tm1 on mb.type1id = tm1.defendingtypeid and tm1.generationid = mb.gen
+                    left join "pokemon.typematchup" tm2
+                        on mb.type2id = tm2.defendingtypeid
+                        and tm1.attackingtypeid = tm2.attackingtypeid
+                        and tm2.generationid = mb.gen
+                    join "pokemon.type" attackingtype on tm1.attackingtypeid = attackingtype.typeid
+                where attackingtype.typename in {str(types).replace('[','(').replace(']',')')}
+                group by 1,2,3
 
-    def nature(self):
-        nature_num = struct.unpack("B", self.raw_data[0x1C:0x1D])[0]
-        return natures[nature_num]
+            )
+        """
+        coveragecountsquery = f"""
+                select
+                    ad.dmgmod,
+                    count(ad.pokemonid)
+                from attackingdmg ad
+                group by 1
+                order by 1 asc
+        """
+        coveragecounts = cursor.execute(monTypes+monbsts+attackingdamage+coveragecountsquery).fetchall()
+        # topbstsquery = f"""
+        #     select 
+        #         mb.bst,
+        #         mon.pokemonname
+        #     from attackingdmg ad
+        #         join monbsts mb on ad.pokemonid = mb.pokemonid
+        #         join "pokemon.pokemon" mon on ad.pokemonid = mon.pokemonid
+        #     order by ad.dmgmod asc, mb.bst desc limit 10
+        # """
+        # topbsts = cursor.execute(monTypes+monbsts+attackingdamage+topbstsquery).fetchall()
+        return coveragecounts#,topbsts
+        
 
-    def ev_hp(self):
-        return str(struct.unpack("B", self.raw_data[0x1E:0x1F])[0])
-    def ev_attack(self):
-        return str(struct.unpack("B", self.raw_data[0x1F:0x20])[0])
-    def ev_defense(self):
-        return str(struct.unpack("B", self.raw_data[0x20:0x21])[0])
-    def ev_speed(self):
-        return str(struct.unpack("B", self.raw_data[0x21:0x22])[0])
-    def ev_sp_attack(self):
-        return str(struct.unpack("B", self.raw_data[0x22:0x23])[0])
-    def ev_sp_defense(self):
-        return str(struct.unpack("B", self.raw_data[0x23:0x24])[0])
+#######################################################################
 
-    def move_1(self):
-        move_num = struct.unpack("<H", self.raw_data[0x5A:0x5C])[0]
-        return moves[move_num]
-    def move_2(self):
-        move_num = struct.unpack("<H", self.raw_data[0x5C:0x5E])[0]
-        return moves[move_num]
-    def move_3(self):
-        move_num = struct.unpack("<H", self.raw_data[0x5E:0x60])[0]
-        return moves[move_num]
-    def move_4(self):
-        move_num = struct.unpack("<H", self.raw_data[0x60:0x62])[0]
-        return moves[move_num]
 
-    def iv32(self):
-        return struct.unpack("<I", self.raw_data[0x74:0x78])[0]
-    def eggcheck(self):
-        return str((self.iv32() >> 30) & 0x1F)
-    def iv_hp(self):
-        return str((self.iv32() >> 0) & 0x1F)
-    def iv_attack(self):
-        return str((self.iv32() >> 5) & 0x1F)
-    def iv_defense(self):
-        return str((self.iv32() >> 10) & 0x1F)
-    def iv_speed(self):
-        return str((self.iv32() >> 15) & 0x1F)
-    def iv_sp_attack(self):
-        return str((self.iv32() >> 20) & 0x1F)
-    def iv_sp_defense(self):
-        return str((self.iv32() >> 25) & 0x1F)
-
-    def friendship(self):
-        return str(struct.unpack("B", self.raw_data[0xA2:0xA3])[0])
-    def level(self):
-        return str(struct.unpack("B", self.raw_data[0xEC:0xED])[0])
-    def held_item_num(self):
-        return struct.unpack("<H", self.raw_data[0xA:0xC])[0]
-    def status(self):
-        return struct.unpack("B", self.raw_data[0xE8:0xE9])[0]
-    def cur_hp(self):
-        return struct.unpack("<H", self.raw_data[0xF0:0xF2])[0]
-    
-    def stat_hp(self):
-        return str(struct.unpack("<H", self.raw_data[0xF2:0xF4])[0])
-    def stat_attack(self):
-        return str(struct.unpack("<H", self.raw_data[0xF4:0xF6])[0])
-    def stat_defense(self):
-        return str(struct.unpack("<H", self.raw_data[0xF6:0xF8])[0])
-    def stat_speed(self):
-        return str(struct.unpack("<H", self.raw_data[0xF8:0xFA])[0])
-    def stat_sp_attack(self):
-        return str(struct.unpack("<H", self.raw_data[0xFA:0xFC])[0])
-    def stat_sp_defense(self):
-        return str(struct.unpack("<H", self.raw_data[0xFC:0xFE])[0])
-
-def get_status_string(bits):
-    if bits == 0:
-        return ""
-    elif (bits & 0b111) > 0: # Bits 0-2 - Asleep (0-7 rounds)
-        return "SLP"
-    elif (bits & 0b1000) > 0: # Bit 3 - Poisoned
-        return "PSN"
-    elif (bits & 0b10000) > 0: # Bit 4 - Burned
-        return "BRN"
-    elif (bits & 0b100000) > 0: # Bit 5 - Frozen
-        return "FZN"
-    elif (bits & 0b1000000) > 0: # Bit 6 - Paralyzed
-        return "PRZ"
-    elif (bits & 0b10000000) > 0: # Bit 7 - Toxic
-        return "PSN"
-    else:
-        return ""
 class Pokemon6(Pokemon):
     def __init__(self, data):
         Pokemon.__init__(self, data)
@@ -386,31 +505,39 @@ class Pokemon7(Pokemon):
     def __init__(self, data):
         Pokemon.__init__(self, data)
 
-def get_party_address():
-    if 1 == current_game:
-        return 0x8CE1CE8
-    elif 2 == current_game:
-        return 0x8CF727C
-    elif 3 == current_game:
-        return 0x34195E10
-    elif 4 == current_game:
-        return 0x33F7FA44
-    return 0
-def get_opp_address():
-    if 1==current_game or 2==current_game:
-        return 0x8800000
-    elif 3==current_game or 4==current_game:
-        return 0x3254F4AC
-    else:
-        return 0
+def getGame():
+    config = ConfigParser()
+    config.read('config.ini')
+    game = config['config']['game']
+    return game
 
+def getaddresses(c):
+    if getGame()=='X/Y':
+        partyaddress=0x8CE1CE8
+        battlewildpartyadd=142625392
+        battlewildoppadd=142622412
+        battletrainerpartyadd=142622504
+        battletraineroppadd=142625484
+        curoppadd=138545352
+        wildppadd=136331232
+        trainerppadd=136338160
+        if read_party(c,battlewildoppadd)[0].species_num() in range(1,808) and int.from_bytes(c.read_memory(wildppadd,1))<65:
+            #print("wild",read_party(c,battlewildpartyadd)[0].species_num())
+            return battlewildpartyadd,battlewildoppadd,wildppadd,curoppadd,'w'
+        elif read_party(c,battletraineroppadd)[0].species_num() in range(1,808) and int.from_bytes(c.read_memory(trainerppadd,1))<65:
+            #print("trainer",read_party(c,battletrainerpartyadd)[0].species_num())
+            return battletrainerpartyadd,battletraineroppadd,trainerppadd,curoppadd,'t'
+        else:
+            #print("party")
+            return partyaddress,0,0,0,'p'
+        #'OmegaRuby/AlphaSapphire':0x8CF727C,
+        #'Sun/Moon':0x34195E10,
+        #'UltraSun/UltraMoon':0x33F7FA44
 def cls():
     os.system('cls' if os.name=='nt' else 'clear')
 
-def read_party(c):
-    party = []
-    party_address = get_party_address()
-    
+def read_party(c,party_address):
+    party = []    
     for i in range(6):
         read_address = party_address + (i * SLOT_OFFSET)
         party_data = c.read_memory(read_address, SLOT_DATA_SIZE)
@@ -418,130 +545,602 @@ def read_party(c):
         if party_data and stats_data:
             data = party_data + stats_data
             try:
-                if 1 == current_game or 2 == current_game:
-                    pokemon = Pokemon6(data)
-                elif 3 == current_game or 4 == current_game:
-                    pokemon = Pokemon7(data)
+                pokemon = Pokemon6(data)
                 party.append(pokemon)
             except ValueError:
+                traceback.print_exc()
                 pass
     return party
-
-def read_opponent(c):
-    opp = []
-    opp_address = get_party_address()
-    
-    for i in range(6):
-        read_address = opp_address + (i * SLOT_OFFSET)
-        party_data = c.read_memory(read_address, SLOT_DATA_SIZE)
-        stats_data = c.read_memory(read_address + SLOT_DATA_SIZE + STAT_DATA_OFFSET, STAT_DATA_SIZE)
-        if party_data and stats_data:
-            data = party_data + stats_data
-            try:
-                if 1 == current_game or 2 == current_game:
-                    pokemon = Pokemon6(data)
-                elif 3 == current_game or 4 == current_game:
-                    pokemon = Pokemon7(data)
-                opp.append(pokemon)
-            except ValueError:
-                pass
-    return opp
-def run():
+class server(SimpleHTTPRequestHandler):
+    def do_GET(self):
+        logging.info("GET request,\nPath: %s\nHeaders:\n%s\n", str(self.path), str(self.headers))
+        SimpleHTTPRequestHandler.do_GET(self)
+    def do_POST(self):
+        content_length = int(self.headers['Content-Length']) # <--- Gets the size of data
+        post_data = self.rfile.read(content_length) # <--- Gets the data itself
+        logging.info("POST request,\nPath: %s\nHeaders:\n%s\n\nBody:\n%s\n",str(self.path), str(self.headers), post_data.decode('utf-8'))
+        with open(trackadd,'w') as f:
+            datajson=post_data.decode('utf-8').replace('\"',"")[1:-1]
+            json.dump(datajson,f)
+def launchHTTP(server_class=HTTPServer, handler_class=server, port=8000):
+    logging.basicConfig(level=logging.INFO)
+    server_address = ('', port)
+    httpd = server_class(server_address, handler_class)
+    logging.info('Starting httpd...\n')
+    print(httpd)
     try:
+        httpd.serve_forever()
+    except KeyboardInterrupt:
+        pass
+    else:
+        print("Please direct an OBS Browser Source to http://localhost:8000/tracker.html or ./tracker.html")
+    httpd.server_close()
+    logging.info('Stopping httpd...\n')
+#def launch2():
+    #httpd = HTTPServer(('localhost', 8000), SimpleHTTPRequestHandler)
+    #httpd.serve_forever()
+def print_bits(value):
+    binary = bin(value)[2:].zfill(8)
+    bits = [bool(int(bit)) for bit in binary]
+    print(bits)
+
+def analyze_statuses(self):
+    print('begin statuses')
+    # print('statuses:', self.statuses)
+    print_bits(self.statusbyte)
+    # Analyze bit positions
+    print('Asleep:', self.asleep)
+    print('Poisoned:', self.poisoned)
+    print('Burned:', self.burned)
+    print('Frozen:', self.frozen())
+    print('Paralyzed:', self.paralyzed)
+    # print('Toxic:', self.badlypoisoned())
+    print('end statuses')
+
+def calcPower(pkmn,move):
+    if move in ('Eruption','Water Spout'):
+        return int(int(pkmn.cur_hp)/int(pkmn.maxhp)*150)
+    elif move['name']=='Return':
+        return round(pkmn.friendship/2.5)
+    elif move['name']=="Frustration":
+        return round((255-pkmn.friendship)/2.5)
+    elif move["name"] in ("Low Kick","Grass Knot"):
+        return "WT"
+    elif move['name']=="Fling":
+        return "ITEM"
+    elif move['name'] in ("Crush Grip","Wring Out"):
+        return ">HP"
+    elif move['name'] in ("Flail","Reversal"):
+        if pkmn.hp>=.6875:
+            return 20
+        elif pkmn.hp>=.3542:
+            return 40
+        elif pkmn.hp>=.2083:
+            return 80
+        elif pkmn.hp>=.1042:
+            return 100
+        elif pkmn.hp>=.417:
+            return 150
+        elif pkmn.hp<.417:
+            return 200
+        else:
+            return "ERR"
+    else:
+        return ('-' if not move['power'] else int(move['power']))
+    
+def movetype(pkmn,move,item):
+    if move=="Revelation Dance":
+        return (pkmn.types)[0]
+    elif move=="Hidden Power":
+        return "Null"
+    elif move=="Natural Gift":
+        return "Normal"
+    elif move=="Judgement":
+        if item=="298":
+            return "Fire"
+        elif item=="299":
+            return "Water"
+        elif item=="300":
+            return "Electric"
+        elif item=="301":
+            return "Grass"
+        elif item=="302":
+            return "Ice"
+        elif item=="303":
+            return "Fighting"
+        elif item=="304":
+            return "Poison"
+        elif item=="305":
+            return "Ground"
+        elif item=="306":
+            return "Flying"
+        elif item=="307":
+            return "Psychic"
+        elif item=="308":
+            return "Bug"
+        elif item=="309":
+            return "Rock"
+        elif item=="310":
+            return "Ghost"
+        elif item=="311":
+            return "Dragon"
+        elif item=="312":
+            return "Dark"
+        elif item=="313":
+            return "Steel"
+        elif item=="644":
+            return "Fairy"
+        else:
+            return "Normal"
+    elif move=="Techno Blast":
+        if item=="116":
+            return "Water"
+        elif item=="117":
+            return "Electric"
+        elif item=="118":
+            return "Fire"
+        elif item=="119":
+            return "Ice"
+        else:
+            return "Normal"
+    elif move=="Multi-Attack":
+        if item=="912":
+            return "Fire"
+        elif item=="913":
+            return "Water"
+        elif item=="915":
+            return "Electric"
+        elif item=="914":
+            return "Grass"
+        elif item=="917":
+            return "Ice"
+        elif item=="904":
+            return "Fighting"
+        elif item=="906":
+            return "Poison"
+        elif item=="907":
+            return "Ground"
+        elif item=="905":
+            return "Flying"
+        elif item=="916":
+            return "Psychic"
+        elif item=="909":
+            return "Bug"
+        elif item=="908":
+            return "Rock"
+        elif item=="910":
+            return "Ghost"
+        elif item=="918":
+            return "Dragon"
+        elif item=="919":
+            return "Dark"
+        elif item=="911":
+            return "Steel"
+        elif item=="920":
+            return "Fairy"
+        else:
+            return "Normal"
+    else:
+        return move['type']
+    
+def getURLAbbr(game):
+    if game == 15:
+        return 'x-y'
+    elif game == 16:
+        return 'omega-ruby-alpha-sapphire/dex' ## ORAS sprites end in /dex
+    else:
+        return 'home'
+
+def run():
+    game=getGame()
+    gamegroupid,gamegroupabbreviation,gen = cursor.execute(f"""
+            select
+                gg.gamegroupid
+                ,gg.gamegroupabbreviation
+                ,gg.generationid
+            from "pokemon.gamegroup" gg
+            where gamegroupname = '{game}'""").fetchone()
+    print('running..')
+    threading.Thread(target=launchHTTP).start()
+    htmlfile='tracker.html'
+    prevhtmltext=''
+    try:
+        #print('connecting to citra')
         c = Citra()
-        if c.is_connected():
-            first_loop = True
-            last_party = []
-            while True:
-                print("PokeStreamer-Tools Auto-Layout Tool - Gen 6/7\n\n")
-                party = read_party(c)
-                partyopp = read_opponent(c)
-                print(partyopp)
-                if first_loop:
-                    last_party = party
-                    first_loop = False
-                pk=0
-                for pkmn in party:
-                    
-                    if 0 != pkmn.species_num():
-                        pk=pk+1
-                        print("Species: " + pkmn.species() + "  Ability: " + pkmn.ability() + "  Nature: " + pkmn.nature() + "\n")
-                        trackertemp[str(pk)]["mon"]=pkmn.species()
-                        trackertemp[str(pk)]["ability"]=pkmn.ability()
-                        trackertemp[str(pk)]["nature"]=pkmn.nature()
-                        print("Moves: " + pkmn.move_1() + ", " + pkmn.move_2() + ", " + pkmn.move_3() + ", " + pkmn.move_4() + "\n")
-                        trackertemp[str(pk)]["currhp"]=pkmn.cur_hp()
-                        trackertemp[str(pk)]["move1"]=pkmn.move_1()
-                        trackertemp[str(pk)]["move2"]=pkmn.move_2()
-                        trackertemp[str(pk)]["move3"]=pkmn.move_3()
-                        trackertemp[str(pk)]["move4"]=pkmn.move_4()
-                        trackertemp[str(pk)]["item"]=str(pkmn.held_item_num())
-                        trackertemp[str(pk)]["status"]=get_status_string(pkmn.status())
-                        print("Stats: " + pkmn.stat_hp() + "/" + pkmn.stat_attack() + "/" + pkmn.stat_defense() + "/" + pkmn.stat_sp_attack() + "/" + pkmn.stat_sp_defense() + "/" + pkmn.stat_speed() + "\n")
-                        trackertemp[str(pk)]["maxhp"]=pkmn.stat_hp()
-                        trackertemp[str(pk)]["atk"]=pkmn.stat_attack()
-                        trackertemp[str(pk)]["def"]=pkmn.stat_defense()
-                        trackertemp[str(pk)]["spa"]=pkmn.stat_sp_attack()
-                        trackertemp[str(pk)]["spd"]=pkmn.stat_sp_defense()
-                        trackertemp[str(pk)]["spe"]=pkmn.stat_speed()
-                        print("Level: " + pkmn.level() + "  Friendship: " + pkmn.friendship() + "\n")
-                        trackertemp[str(pk)]["level"]=pkmn.level()
-                        trackertemp[str(pk)]["friendship"]=pkmn.friendship()
-                    else:
-                        pk=pk+1
-                        trackertemp[str(pk)]["mon"]="-"
-                        trackertemp[str(pk)]["ability"]=""
-                        trackertemp[str(pk)]["nature"]=""
-                        trackertemp[str(pk)]["currhp"]=""
-                        trackertemp[str(pk)]["move1"]=""
-                        trackertemp[str(pk)]["move2"]=""
-                        trackertemp[str(pk)]["move3"]=""
-                        trackertemp[str(pk)]["move4"]=""
-                        trackertemp[str(pk)]["item"]=""
-                        trackertemp[str(pk)]["maxhp"]=""
-                        trackertemp[str(pk)]["atk"]=""
-                        trackertemp[str(pk)]["def"]=""
-                        trackertemp[str(pk)]["spa"]=""
-                        trackertemp[str(pk)]["spd"]=""
-                        trackertemp[str(pk)]["spe"]=""
-                        trackertemp[str(pk)]["level"]=""
-                        trackertemp[str(pk)]["friendship"]=""
-                trackertempfile=r"trackertemp.json"
-                with open(trackertempfile, "w") as f:
-                    json.dump(trackertemp, f)
-                    f.close()
-                if manage_sprites:
-                    for i in range(6):
-##                        if last_party[i].species_num() != party[i].species_num():
-                            print(str(last_party[i].species_num()) + " -> " + str(party[i].species_num()))
-
-                            # First, try to copy by species number
-                            copied = False
-                            try:
-                                species_num = party[i].species_num()
-                                if 0 == species_num:
-                                    shutil.copyfile("000.png", "p" + str(i + 1) + ".png")
-                                    print("000.png -> " + "p" + str(i + 1) + ".png")
-                                    copied = True
+        #print('connected to citra')
+        htmltext=''
+        while True:
+            try:
+                if c.is_connected():
+                    partyadd,enemyadd,ppadd,curoppnum,enctype=getaddresses(c)
+                    #print('reading party')
+                    htmltext='<!DOCTYPE html>\r\n<html>\r\n<head>\r\n\t<title>Gen 6 Tracker</title>\r\n'
+                    htmltext+='\t<link rel="stylesheet" type="text/css" href="tracker.css">\r\n</head>\r\n<body>'
+                    party1=read_party(c,partyadd)
+                    party2=read_party(c,enemyadd)
+                    party=party1+party2
+                    pk=0
+                    #print('read party... performing loop')
+                    htmltext+='<div id="party">\r\n'
+                    #skips trainer mons that arent out yet
+                    enemynum=int.from_bytes(c.read_memory(curoppnum,2),"little")
+                    pkmni=0
+                    for pkmn in party2:
+                        pkmni+=1
+                        if pkmn.species_num()!=enemynum:
+                            party.remove(pkmn)
+                        else:
+                            pkmnindex=(pkmni+6)
+                    typelist=["Normal","Fighting","Flying","Poison","Ground","Rock","Bug","Ghost","Steel","Fire","Water","Grass","Electric","Psychic","Ice","Dragon","Dark","Fairy"]
+                    enemytypes=[]
+                    typereadere=c.read_memory(ppadd+(580*(pkmnindex-1))-24,2)
+                    for byte in typereadere:
+                        if typelist[byte] not in enemytypes:
+                            enemytypes.append(typelist[byte])
+                    print(enemytypes)
+                    for pkmn in party:
+                        if pkmn.species_num() in range (1,808): ### Make sure the slot is valid & not an egg
+                            pkmn.getAtts(gamegroupid,gen)
+                            if int(pkmn.cur_hp) > 5000: ### Make sure the memory dump hasn't happened (or whatever causes the invalid values)
+                                continue
+                            pk=pk+1
+                            if pkmn in party2:
+                                pk=pkmnindex
+                            if enctype!='p':
+                                #grabs in battle types
+                                pkmntypes=[]
+                                typereader=c.read_memory(ppadd+(580*(pk-1))-24,2)
+                                for byte in typereader:
+                                    if typelist[byte] not in pkmntypes:
+                                        pkmntypes.append(typelist[byte])
+                                # print('unknown flags')
+                                # print_bits(pkmn.alt_form)
+                                # print_bits(pkmn.unknown_flags_ea())
+                                # print_bits(pkmn.unknown_flags_eb())
+                                # analyze_statuses(pkmn)
+                                #### Begin Pokemon div
+                                htmltext+='<div class="pokemon">\r\n\t'
+                                htmltext+='<div class="pokemon-top-block">\r\n\t'
+                                htmltext+='<div class="pokemon-top-left-block">\r\n\t'
+                                htmltext+=f'<div class="sprite">\r\n\t<img src="{pkmn.spriteurl}" data-src="{pkmn.spriteurl}" width="80" height="80" alt="{pkmn.name} sprite">\r\n</div>\r\n\t'
+                                htmltext+='     <div class="species">\r\n\t\t'
+                                htmltext+='         <div class="slot-number">Slot '+str(party.index(pkmn)+1)+'</div>\r\n\t\t'
+                                htmltext+='         <div class="species-number">#'+str(pkmn.species_num())+'</div>\r\n\t\t'
+                                if pkmn in party2:
+                                    pkd=2
                                 else:
-                                    shutil.copyfile(str(species_num) + ".png", "p" + str(i + 1) + ".png")
-                                    print(str(species_num) + ".png -> " + "p" + str(i + 1) + ".png")
-                                    copied = True
-                            except:
-                                pass
-                            if not copied:
-                                # If that failed, try to copy by species name
-                                try:
-                                    shutil.copyfile(party[i].species().lower() + ".png", "p" + str(i + 1) + ".png")
-                                    print(party[i].species().lower() + ".png -> " + "p" + str(i + 1) + ".png")
-                                except:
-                                    print("ERROR") 
-                                    pass
-
-                last_party = party
-                time.sleep(10)
-        else: print("Failed to connect to Citra RPC Server")  
+                                    pkd=1
+                                htmltext+=f'         <div class="species-name" id="speciesname{pkd}">{pkmn.name.replace("Farfetchd","Farfetch&#x27;d")}</div>\r\n'
+                                htmltext+='     </div>\r\n' ## close species
+                                ##### TYPES, STATS, ABIILITIES, ETC.
+                                typestr = '<div class="type">'
+                                for type in pkmntypes:
+                                    typestr+=f'<img src="images/types/{type}.png" height="16" width="18" alt="{type}"><span class="type '+type+' name">'+type+' </span>'
+                                typestr+='</div>'
+                                htmltext+='<div class="major-stats">\r\n\t'
+                                htmltext+=typestr
+                                htmltext+='<div class="level-status">'
+                                if pkmn.evo:
+                                    # evotype = ('' if not pkmn.evotype else pkmn.evotype)
+                                    evoitem = ('' if not pkmn.evoitem else 'w/'+pkmn.evoitem)
+                                    evofriend = ('' if pkmn.evotype != 'Friendship' else 'w/ high friendship')
+                                    evolevel = ('' if not pkmn.evolevel else '@ level '+str(int(pkmn.evolevel)))
+                                    evostring = ('' if not pkmn.evostring else pkmn.evostring)
+                                    evoloc = ('' if not pkmn.evolocation else 'in '+pkmn.evolocation)
+                                    evohtml=f'<div class="evoarrow">></div><div class="evo">Evolves {evoitem} {evofriend} {evolevel} {evostring} {evoloc}</div>'
+                                else:
+                                    evohtml=''
+                                htmltext+=f'     <div class="level mstat"><span class="level name">Level: </span><span class="level value">'+str(int.from_bytes(c.read_memory(ppadd+(580*(pk-1))-256,1)))+f'</span>{evohtml}</div>\r\n\t'
+                                if pkmn.status != '':
+                                    if int.from_bytes(c.read_memory((ppadd+(580*(pk-1))-264),2),"little")!=0:
+                                        htmltext+=f'     <div class="status mstat"><img src="images/statuses/{pkmn.status}.png" alt={pkmn.status} height="25" width="40"></div>'
+                                    else:
+                                        htmltext+=f'     <div class="status mstat"><img src="images/statuses/Fainted.png" alt=Fainted height="25" width="40"></div>'
+                                else:
+                                    htmltext+='     <div class="status mstat"></div>'
+                                htmltext+='</div>\r\n' ## Close level-status div
+                                htmltext+='</div>\r\n' ## Close major stats div
+                                if pkmn in party1:
+                                    htmltext+='<div class="ability">\r\n\t'
+                                    query=f"""select
+                                            ab.abilityname
+                                            ,abilitydescription
+                                        from "pokemon.generationability" ga
+                                            left join "pokemon.ability" ab on ga.abilityid = ab.abilityid
+                                            left join "pokemon.abilitylookup" al on ab.abilityname = al.abilityname
+                                        where al.abilityindex = {int.from_bytes(c.read_memory((ppadd+(580*(pk-1))+6-264),1))} and ga.generationid <= {gen}
+                                        order by ga.generationid desc
+                                        """
+                                    abilityname,abilitydescription = cursor.execute(query).fetchone()
+                                    htmltext+='     <div class="ability name"><div class="description">'+str(abilitydescription)+'</div>'+str(abilityname)+'</div>\r\n'
+                                    htmltext+='</div>\r\n' ## close ability div
+                                    htmltext+='<div class="nature">\r\n\t'
+                                    htmltext+=f'     <div class="nature-name">{pkmn.nature}</div>\r\n'
+                                    htmltext+='</div>\r\n'
+                                    htmltext+='<div class="held-item">\r\n\t'
+                                    htmltext+=f'     <div class="held-item-name">{pkmn.held_item_name}</div>\r\n'
+                                    htmltext+='</div>\r\n'
+                                    htmltext+='</div>\r\n'
+                                    htmltext+='<div class="pokemon-top-right-block">'
+                                    ### STATS ########
+                                    htmltext+='<div class="stats">\r\n'
+                                    #print(int.from_bytes(c.read_memory((ppadd+(580*(pk-1))-264),1)))
+                                    attackchange,defchange,spatkchange,spdefchange,speedchange = pkmn.getStatChanges()
+                                    htmltext+=f'     <div class="hp stat"><span class="name">HP: </span><span class="value"><span class="ev">EV: {pkmn.evhp}</span>{int.from_bytes(c.read_memory((ppadd+(580*(pk-1))-264),2),"little")}/{int.from_bytes(c.read_memory((ppadd+(580*(pk-1))-266),2),"little")}</span></div>\r\n'
+                                    htmltext+=f'     <div class="attack stat {attackchange}"><span class="name">Atk:</span><span class="value"><span class="ev">EV: {pkmn.evattack}</span><img src="images/modifiers/modifier{int.from_bytes(c.read_memory((ppadd+(580*(pk-1))-20),1))}.png" alt={6-int.from_bytes(c.read_memory((ppadd+(580*(pk-1))-20),1))} height="18" width="9">{pkmn.attack}</span></div>\r\n\t'
+                                    htmltext+=f'     <div class="def stat {defchange}"><span class="name">Def:</span><span class="value"><span class="ev">EV: {pkmn.evdefense}</span><img src="images/modifiers/modifier{int.from_bytes(c.read_memory((ppadd+(580*(pk-1))-19),1))}.png" alt={6-int.from_bytes(c.read_memory((ppadd+(580*(pk-1))-19),1))} height="18" width="9">{pkmn.defense}</span></div>\r\n\t'
+                                    htmltext+=f'     <div class="spatk stat {spatkchange}"><span class="name">SpAtk:</span><span class="value"><span class="ev">EV: {pkmn.evspatk}</span><img src="images/modifiers/modifier{int.from_bytes(c.read_memory((ppadd+(580*(pk-1))-18),1))}.png" alt={6-int.from_bytes(c.read_memory((ppadd+(580*(pk-1))-18),1))} height="18" width="9">{pkmn.spatk}</span></div>\r\n\t'
+                                    htmltext+=f'     <div class="spdef stat {spdefchange}"><span class="name">SpDef:</span><span class="value"><span class="ev">EV: {pkmn.evspdef}</span><img src="images/modifiers/modifier{int.from_bytes(c.read_memory((ppadd+(580*(pk-1))-17),1))}.png" alt={6-int.from_bytes(c.read_memory((ppadd+(580*(pk-1))-17),1))} height="18" width="9">{pkmn.spdef}</span></div>\r\n\t'
+                                    htmltext+=f'     <div class="speed stat {speedchange}"><span class="name">Speed:</span><span class="value"><span class="ev">EV: {pkmn.evspeed}</span><img src="images/modifiers/modifier{int.from_bytes(c.read_memory((ppadd+(580*(pk-1))-16),1))}.png" alt={6-int.from_bytes(c.read_memory((ppadd+(580*(pk-1))-16),1))} height="18" width="9">{pkmn.speed}</span></div>\r\n\t'
+                                    htmltext+=f'     <div class="bst stat"><span class="name">BST:</span><span class="value">{pkmn.bst}</span></div>\r\n\t'
+                                    htmltext+='</div>' ## Close stats div
+                                    htmltext+='</div>' ## Close top right block
+                                    htmltext+='</div>' ## Close top block
+                                    htmltext+='<div class="pokemon-bottom-block">\r\n\t'
+                                    ### MOVES ########
+                                    totallearn,nextmove,learnedcount,learnstr = pkmn.getMoves(gamegroupid)
+                                    htmltext+='<div class="moves">\r\n\t'
+                                    # counts = pkmn.getCoverage(gen,gamegroupid)
+                                    # countstr = ''
+                                    # for dmg,count in counts:
+                                    #     countstr+='<div class="damage-bracket">['+str(dmg)+'x]</div>'
+                                    #     countstr+='<div class="bracket-count">'+str(count)+'</div>'
+                                    nmove = (' - ' if not nextmove else nextmove)
+                                    htmltext+=f'     <div class="move label"><div class="move category label"><div class="learnset">{learnstr}</div>Moves {learnedcount}/{totallearn} ({nmove})</div><div class="move name label"></div><div class="move maxpp label">PP</div><div class="move power label">BP</div><div class="move accuracy label">Acc</div><div class="move contact label">C</div></div>\r\n\t'
+                                    for move in pkmn.moves:
+                                        stab = ''
+                                        movetyp=movetype(pkmn,move,pkmn.held_item_num)
+                                        for type in pkmn.types:
+                                            if move['type'] == type[0]:
+                                                stab = move['type']
+                                                continue
+                                        typetable={
+                                        "Normal":[1,1,1,1,1,.5,1,0,.5,1,1,1,1,1,1,1,1,1,1],
+                                        "Fighting":[2,1,.5,.5,1,2,.5,0,2,1,1,1,1,.5,2,1,2,.5,1],
+                                        "Flying":[1,2,1,1,1,.5,2,1,.5,1,1,2,.5,1,1,1,1,1,1],
+                                        "Poison":[1,1,1,.5,.5,.5,1,.5,0,1,1,2,1,1,1,1,1,2,1],
+                                        "Ground":[1,1,0,2,1,2,.5,1,2,2,1,.5,2,1,1,1,1,1,1],
+                                        "Rock":[1,.5,2,1,.5,1,2,1,.5,2,1,1,1,1,2,1,1,1,1],
+                                        "Bug":[1,.5,.5,.5,1,1,1,.5,.5,.5,1,2,1,2,1,1,2,.5,1],
+                                        "Ghost":[0,1,1,1,1,1,1,2,1,1,1,1,1,2,1,1,.5,1,1],
+                                        "Steel":[1,1,1,1,1,2,1,1,.5,.5,.5,1,.5,1,2,1,1,2,1],
+                                        "Fire":[1,1,1,1,1,.5,2,1,2,.5,.5,2,1,1,2,.5,1,1,1],
+                                        "Water":[1,1,1,1,2,2,1,1,1,2,.5,.5,1,1,1,.5,1,1,1],
+                                        "Grass":[1,1,.5,.5,2,2,.5,1,.5,.5,2,.5,1,1,1,.5,1,1,1],
+                                        "Electric":[1,1,2,1,0,1,1,1,1,1,2,.5,.5,1,1,.5,1,1,1],
+                                        "Psychic":[1,2,1,2,1,1,1,1,.5,1,1,1,1,.5,1,1,0,1,1],
+                                        "Ice":[1,1,2,1,2,1,1,1,.5,.5,.5,2,1,1,.5,2,1,1,1],
+                                        "Dragon":[1,1,1,1,1,1,1,1,.5,1,1,1,1,1,1,2,1,0,1],
+                                        "Dark":[1,.5,1,1,1,1,1,2,1,1,1,1,1,2,1,1,.5,.5,1],
+                                        "Fairy":[1,2,1,.5,1,1,1,1,.5,.5,1,1,1,1,1,2,2,1,1],
+                                        "Null":[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+                                        "-":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],}
+                                        #defines the columns for the arrays corresponding to the type hit
+                                        typedic={"Normal":0,"Fighting":1,"Flying":2,"Poison":3,"Ground":4,"Rock":5,"Bug":6,"Ghost":7,"Steel":8,"Fire":9,"Water":10,"Grass":11,"Electric":12,"Psychic":13,"Ice":14,"Dragon":15,"Dark":16,"Fairy":17,"Null":18}
+                                        typemult=1
+                                        if movetyp!=None:
+                                            for type in enemytypes:
+                                                typemult=typemult*(typetable[movetyp][typedic[type]])
+                                        if move["category"]!="Non-Damaging":
+                                            if typemult==.25:
+                                                image="4"
+                                            elif typemult==.5:
+                                                image="5"
+                                            elif typemult==1:
+                                                image="6"
+                                            elif typemult==2:
+                                                image="7"
+                                            elif typemult==4:
+                                                image="8"
+                                            elif typemult==0:
+                                                image="X"
+                                        else:
+                                            image="6"
+                                        htmltext+=f'     <div class="move">'
+                                        htmltext+=f'         <div class="move category"><img src="images/categories/{move["category"]}.png" alt={move["category"]} height="13" width="18"></div>'
+                                        htmltext+=f'         <div class="move name {movetyp}"><div class="description">{move["description"]}</div>{move["name"]}</div>'
+                                        htmltext+=f'         <div class="move maxpp">{int.from_bytes(c.read_memory(ppadd+(580*(pk-1))+(14*(pkmn.moves).index(move)),1))}/{int.from_bytes(c.read_memory(ppadd+(580*(pk-1))+1+(14*(pkmn.moves).index(move)),1))}<img src="images/modifiers/modifier{image}.png" alt={image} height="18" width="9"></div>'
+                                        movepower = calcPower(pkmn,move)
+                                        htmltext+=f'         <div class="move power {stab}">{movepower}</div>'
+                                        acc = '-' if not move['acc'] else int(move['acc'])
+                                        htmltext+=f'         <div class="move accuracy">{acc}</div>'
+                                        contact = ('Y' if move['contact'] else 'N')
+                                        htmltext+=f'         <div class="move contact">{contact}</div></div>\r\n\t'
+                                elif pkmn in party2:
+                                    htmltext+='<div class="ability">\r\n\t'
+                                    htmltext+='     <div class="ability name"><div class="description">'+str("-")+'</div>'+str("-")+'</div>\r\n'
+                                    htmltext+='</div>\r\n' ## close ability div
+                                    htmltext+='<div class="held-item">\r\n\t'
+                                    htmltext+='     <button onclick=editnotes() id="enemynotes">-</button>\r\n'
+                                    htmltext+='<script>function editnotes() {note=prompt("","")\ndocument.getElementById("enemynotes").innerHTML = note\n}</script>'
+                                    htmltext+='</div>\r\n'
+                                    htmltext+='</div>\r\n'
+                                    htmltext+='<div class="pokemon-top-right-block">'
+                                    ### STATS ########
+                                    htmltext+='<div class="stats">\r\n'
+                                    htmltext+="<script>function changeText(idElement) {var element = document.getElementById('stat' + idElement);if (element.innerHTML === '_') element.innerHTML = '+';else if (element.innerHTML === '+') element.innerHTML = '-';else if (element.innerHTML === '-') element.innerHTML = '=';else {element.innerHTML = '_';} }</script>\n"
+                                    htmltext+=f'<div class="hp stat"><span class="name">HP: </span><span class="value"><button id="stat0" onClick="javascript:changeText(0)">_</button></span></div>\n\t'
+                                    htmltext+=f'<div class="attack stat "><span class="name">Atk:<img src="images/modifiers/modifier{int.from_bytes(c.read_memory((ppadd+(580*(pk-1))-20),1))}.png" alt={6-int.from_bytes(c.read_memory((ppadd+(580*(pk-1))-20),1))} height="18" width="9"></span><span class="value"><button id="stat1" onClick="javascript:changeText(1)">_</button></span></div>\n\t'
+                                    htmltext+=f'<div class="def stat "><span class="name">Def:<img src="images/modifiers/modifier{int.from_bytes(c.read_memory((ppadd+(580*(pk-1))-19),1))}.png" alt={6-int.from_bytes(c.read_memory((ppadd+(580*(pk-1))-19),1))} height="18" width="9"></span><span class="value"><button id="stat2" onClick="javascript:changeText(2)">_</button></span></div>\n\t'
+                                    htmltext+=f'<div class="spatk stat "><span class="name">SpAtk:<img src="images/modifiers/modifier{int.from_bytes(c.read_memory((ppadd+(580*(pk-1))-18),1))}.png" alt={6-int.from_bytes(c.read_memory((ppadd+(580*(pk-1))-18),1))} height="18" width="9"></span><span class="value"><button id="stat3" onClick="javascript:changeText(3)">_</button></span></div>\n\t'
+                                    htmltext+=f'<div class="spdef stat "><span class="name">SpDef:<img src="images/modifiers/modifier{int.from_bytes(c.read_memory((ppadd+(580*(pk-1))-17),1))}.png" alt={6-int.from_bytes(c.read_memory((ppadd+(580*(pk-1))-17),1))} height="18" width="9"></span><span class="value"><button id="stat4" onClick="javascript:changeText(4)">_</button></span></div>\n\t'
+                                    htmltext+=f'<div class="speed stat "><span class="name">Speed:<img src="images/modifiers/modifier{int.from_bytes(c.read_memory((ppadd+(580*(pk-1))-16),1))}.png" alt={6-int.from_bytes(c.read_memory((ppadd+(580*(pk-1))-16),1))} height="18" width="9"></span><span class="value"><button id="stat5" onClick="javascript:changeText(5)">_</button></span></div>\n\t'
+                                    htmltext+=f'<div class="bst stat"><span class="name">BST:</span><span class="value">{pkmn.bst}</span></div>\r\n\t'
+                                    htmltext+='</div>' ## Close stats div
+                                    htmltext+='</div>' ## Close top right block
+                                    htmltext+='</div>' ## Close top block
+                                    htmltext+='<div class="pokemon-bottom-block">\r\n\t'
+                                    ### MOVES ########
+                                    totallearn,nextmove,learnedcount,learnstr = pkmn.getMoves(gamegroupid)
+                                    htmltext+='<div class="moves">\r\n\t'
+                                    # counts = pkmn.getCoverage(gen,gamegroupid)
+                                    # countstr = ''
+                                    # for dmg,count in counts:
+                                    #     countstr+='<div class="damage-bracket">['+str(dmg)+'x]</div>'
+                                    #     countstr+='<div class="bracket-count">'+str(count)+'</div>'
+                                    nmove = (' - ' if not nextmove else nextmove)
+                                    htmltext+=f'     <div class="move label"><div class="move category label"><div class="learnset">{learnstr}</div>Moves {learnedcount}/{totallearn} ({nmove})</div><div class="move name label"></div><div class="move maxpp label">PP</div><div class="move power label">BP</div><div class="move accuracy label">Acc</div><div class="move contact label">C</div></div>\r\n\t'
+                                    for move in pkmn.moves:
+                                        if int.from_bytes(c.read_memory(ppadd+(580*(pk-1))+(14*(pkmn.moves).index(move)),1))==int.from_bytes(c.read_memory(ppadd+1+(580*(pk-1))+(14*(pkmn.moves).index(move)),1)): 
+                                            continue
+                                        stab = ''
+                                        for type in pkmn.types:
+                                            if move['type'] == type[0]:
+                                                stab = move['type']
+                                                continue
+                                        htmltext+=f'     <div class="move">'
+                                        htmltext+=f'         <div class="move category"><img src="images/categories/{move["category"]}.png" height="13" width="18"></div>'
+                                        htmltext+=f'         <div class="move name {move["type"]}"><div class="description">{move["description"]}</div>{move["name"]}</div>'
+                                        htmltext+=f'         <div class="move maxpp">{int.from_bytes(c.read_memory(ppadd+(580*(pk-1))+(14*(pkmn.moves).index(move)),1))}/{move["maxpp"]}</div>'
+                                        movepower = calcPower(pkmn,move)
+                                        htmltext+=f'         <div class="move power {stab}">{movepower}</div>'
+                                        acc = '-' if not move['acc'] else int(move['acc'])
+                                        htmltext+=f'         <div class="move accuracy">{acc}</div>'
+                                        contact = ('Y' if move['contact'] else 'N')
+                                        htmltext+=f'         <div class="move contact">{contact}</div></div>\r\n\t'
+                                        if move['name'] not in trackdata[pkmn.species]['moves']:
+                                            trackdata[pkmn.species]['moves'][move['name']]=[]
+                                        if pkmn.level not in trackdata[pkmn.species]['moves'][move['name']]:
+                                            trackdata[pkmn.species]['moves'][move['name']].append(pkmn.level)
+                                pkmntypes=[]
+                                htmltext+='</div>\r\n' ## Close moves div
+                                htmltext+='</div>' ## Close bottom block
+                                htmltext+='</div>' ## Close pokemon divx
+                            elif enctype=='p':
+                                # print('unknown flags')
+                                # print_bits(pkmn.alt_form)
+                                # print_bits(pkmn.unknown_flags_ea())
+                                # print_bits(pkmn.unknown_flags_eb())
+                                # analyze_statuses(pkmn)
+                                #### Begin Pokemon div
+                                htmltext+='<div class="pokemon">\r\n\t'
+                                htmltext+='<div class="pokemon-top-block">\r\n\t'
+                                htmltext+='<div class="pokemon-top-left-block">\r\n\t'
+                                htmltext+=f'<div class="sprite">\r\n\t<img src="{pkmn.spriteurl}" data-src="{pkmn.spriteurl}" width="80" height="80" alt="{pkmn.name} sprite">\r\n</div>\r\n\t'
+                                htmltext+='     <div class="species">\r\n\t\t'
+                                htmltext+='         <div class="slot-number">Slot '+str(party.index(pkmn)+1)+'</div>\r\n\t\t'
+                                htmltext+='         <div class="species-number">#'+str(pkmn.species_num())+'</div>\r\n\t\t'
+                                htmltext+='         <div class="species-name">'+pkmn.name.replace("Farfetchd","Farfetch&#x27;d")+'</div>\r\n'
+                                htmltext+='     </div>\r\n' ## close species
+                                ##### TYPES, STATS, ABIILITIES, ETC.
+                                typestr = '<div class="type">'
+                                for type in pkmn.types:
+                                    typestr+=f'<img src="images/types/{type[0]}.png" height="16" width="18" alt="{type[0]}"><span class="type '+type[0]+' name">'+type[0]+' </span>'
+                                typestr+='</div>'
+                                htmltext+='<div class="major-stats">\r\n\t'
+                                htmltext+=typestr
+                                htmltext+='<div class="level-status">'
+                                if pkmn.evo:
+                                    # evotype = ('' if not pkmn.evotype else pkmn.evotype)
+                                    evoitem = ('' if not pkmn.evoitem else 'w/'+pkmn.evoitem)
+                                    evofriend = ('' if pkmn.evotype != 'Friendship' else 'w/ high friendship')
+                                    evolevel = ('' if not pkmn.evolevel else '@ level '+str(int(pkmn.evolevel)))
+                                    evostring = ('' if not pkmn.evostring else pkmn.evostring)
+                                    evoloc = ('' if not pkmn.evolocation else 'in '+pkmn.evolocation)
+                                    evohtml=f'<div class="evoarrow">></div><div class="evo">Evolves {evoitem} {evofriend} {evolevel} {evostring} {evoloc}</div>'
+                                else:
+                                    evohtml=''
+                                htmltext+=f'     <div class="level mstat"><span class="level name">Level: </span><span class="level value">'+str(pkmn.level)+f'</span>{evohtml}</div>\r\n\t'
+                                if pkmn.status != '':
+                                    htmltext+='     <div class="status mstat"><img src="images/statuses/'+pkmn.status+'.png" height="25" width="40"></div>'
+                                else:
+                                    htmltext+='     <div class="status mstat"></div>'
+                                htmltext+='</div>\r\n' ## Close level-status div
+                                htmltext+='</div>\r\n' ## Close major stats div
+                                htmltext+='<div class="ability">\r\n\t'
+                                htmltext+='     <div class="ability name"><div class="description">'+str(pkmn.ability['description'])+'</div>'+str(pkmn.ability['name'])+'</div>\r\n'
+                                htmltext+='</div>\r\n' ## close ability div
+                                htmltext+='<div class="nature">\r\n\t'
+                                htmltext+=f'     <div class="nature-name">{pkmn.nature}</div>\r\n'
+                                htmltext+='</div>\r\n'
+                                htmltext+='<div class="held-item">\r\n\t'
+                                htmltext+=f'     <div class="held-item-name">{pkmn.held_item_name}</div>\r\n'
+                                htmltext+='</div>\r\n'
+                                htmltext+='</div>\r\n'
+                                htmltext+='<div class="pokemon-top-right-block">'
+                                ### STATS ########
+                                htmltext+='<div class="stats">\r\n'
+                                attackchange,defchange,spatkchange,spdefchange,speedchange = pkmn.getStatChanges()
+                                htmltext+=f'     <div class="hp stat"><span class="name">HP: </span><span class="value"><span class="ev">EV: {pkmn.evhp}</span>{pkmn.cur_hp}/{pkmn.maxhp}</span></div>\r\n'
+                                htmltext+=f'     <div class="attack stat {attackchange}"><span class="name">Atk:</span><span class="value"><span class="ev">EV: {pkmn.evattack}</span>{pkmn.attack}</span></div>\r\n\t'
+                                htmltext+=f'     <div class="def stat {defchange}"><span class="name">Def:</span><span class="value"><span class="ev">EV: {pkmn.evdefense}</span>{pkmn.defense}</span></div>\r\n\t'
+                                htmltext+=f'     <div class="spatk stat {spatkchange}"><span class="name">SpAtk:</span><span class="value"><span class="ev">EV: {pkmn.evspatk}</span>{pkmn.spatk}</span></div>\r\n\t'
+                                htmltext+=f'     <div class="spdef stat {spdefchange}"><span class="name">SpDef:</span><span class="value"><span class="ev">EV: {pkmn.evspdef}</span>{pkmn.spdef}</span></div>\r\n\t'
+                                htmltext+=f'     <div class="speed stat {speedchange}"><span class="name">Speed:</span><span class="value"><span class="ev">EV: {pkmn.evspeed}</span>{pkmn.speed}</span></div>\r\n\t'
+                                htmltext+=f'     <div class="bst stat"><span class="name">BST:</span><span class="value">{pkmn.bst}</span></div>\r\n\t'
+                                htmltext+='</div>' ## Close stats div
+                                htmltext+='</div>' ## Close top right block
+                                htmltext+='</div>' ## Close top block
+                                htmltext+='<div class="pokemon-bottom-block">\r\n\t'
+                                ### MOVES ########
+                                totallearn,nextmove,learnedcount,learnstr = pkmn.getMoves(gamegroupid)
+                                htmltext+='<div class="moves">\r\n\t'
+                                # counts = pkmn.getCoverage(gen,gamegroupid)
+                                # countstr = ''
+                                # for dmg,count in counts:
+                                #     countstr+='<div class="damage-bracket">['+str(dmg)+'x]</div>'
+                                #     countstr+='<div class="bracket-count">'+str(count)+'</div>'
+                                nmove = (' - ' if not nextmove else nextmove)
+                                htmltext+=f'     <div class="move label"><div class="move category label"><div class="learnset">{learnstr}</div>Moves {learnedcount}/{totallearn} ({nmove})</div><div class="move name label"></div><div class="move maxpp label">PP</div><div class="move power label">BP</div><div class="move accuracy label">Acc</div><div class="move contact label">C</div></div>\r\n\t'
+                                for move in pkmn.moves:
+                                    stab = ''
+                                    movetyp=movetype(pkmn,move,pkmn.held_item_num)
+                                    for type in pkmn.types:
+                                        if move['type'] == type[0]:
+                                            stab = move['type']
+                                            continue
+                                    htmltext+=f'     <div class="move">'
+                                    htmltext+=f'         <div class="move category"><img src="images/categories/{move["category"]}.png" height="13" width="18"></div>'
+                                    htmltext+=f'         <div class="move name {movetyp}"><div class="description">{move["description"]}</div>{move["name"]}</div>'
+                                    htmltext+=f'         <div class="move maxpp">{move["pp"]}/{move["maxpp"]}</div>'
+                                    movepower = calcPower(pkmn,move)
+                                    htmltext+=f'         <div class="move power {stab}">{movepower}</div>'
+                                    acc = '-' if not move['acc'] else int(move['acc'])
+                                    htmltext+=f'         <div class="move accuracy">{acc}</div>'
+                                    contact = ('Y' if move['contact'] else 'N')
+                                    htmltext+=f'         <div class="move contact">{contact}</div></div>\r\n\t'
+                                htmltext+='</div>\r\n' ## Close moves div
+                                htmltext+='</div>' ## Close bottom block
+                                htmltext+='</div>' ## Close pokemon div
+                    htmltext+='</div></div><button id="previous-button">&#8249;</button><button id="next-button">&#8250;</button><script src="reload.js"></script></body></html>' ## Draw the next/previous arrows, close party div, body and HTML
+                    if htmltext != prevhtmltext:
+                        with open(htmlfile, "w",encoding='utf-8') as f:
+                            f.write(htmltext)
+                        prevhtmltext=htmltext
+                    time.sleep(8.5)
+                    #with open(trackadd,'w') as f:
+                        #json.dump(trackdata)
+            except Exception as e:
+                with open('errorlog.txt','a+') as f:
+                    errorLog = str(datetime.now())+": "+str(e)+'\n'
+                    f.write(errorLog)
+                # traceback.print_exc()
+                time.sleep(5)
+                print(errorLog)
+                if "WinError 10054" in str(e):
+                    print("To continue using the tracker, please open a ROM.")
+                    print("Waiting for a ROM...")
+                    time.sleep(15)
+                    game,party_address = getGame()
+    except Exception as e:
+        with open('errorlog.txt','a+') as f:
+            errorLog = str(datetime.now())+": "+str(e)+'\n'
+            f.write(errorLog)
     finally:
         print("")
-if "__main__" == __name__:
+
+BLOCK_SIZE = 56
+SLOT_OFFSET = 484
+SLOT_DATA_SIZE = (8 + (4 * BLOCK_SIZE))
+STAT_DATA_OFFSET = 112
+STAT_DATA_SIZE = 22
+
+conn = sqlite3.connect("data/gen67.sqlite")
+cursor = conn.cursor()
+
+
+with open('data/item-data.json','r') as f:
+    items = json.loads(f.read())
+
+if __name__ == "__main__" :
     run()
