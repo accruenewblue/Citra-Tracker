@@ -31,6 +31,10 @@ This is currently a separate window that updates automatically every 10 seconds 
 
 There are also buttons to open windows for more information, in particular the one with the mon's name, which displays saved info about it as well as the levels it learns moves at. The next move level is automatically displayed on the main screen. Some of these are new tabs, though on the base page the buttons are not explicitly marked.
 
+To change the game, edit the *config.ini* file in the root directory. Replace *game = [gamename]* with the game you will be playing. Be sure to restart the tracker when you do.
+
+To use, run the citra-updater.py file via Python. Then, either direct your favorite browser (tested only on Firefox and Chrome) to http://localhost:8000/tracker.html or add a browser source in OBS directly. Citra must have a ROM open for the tracker to check for data.
+
 Heal slots are added for right now, but are nonfunctional. This functionality will be added later.
 
 A general coverage page is available by hitting the "Types" button in the moves area. This tells the amount of mons you can hit by how hard- basically an adaptation of [this.](https://wesleystedman.github.io/ironmon-moveset-coverage-calc/)

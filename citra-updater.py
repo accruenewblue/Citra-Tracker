@@ -12,8 +12,7 @@ from http.server import HTTPServer, SimpleHTTPRequestHandler, BaseHTTPRequestHan
 import logging
 from citra import Citra
 
-trackadd=r"C:\Users\scien\Documents\GitHub\Orange-Peeler\trackerdata.json"
-trackdata=json.load(open(trackadd,"r+"))
+trackadd=r"trackerdata.json"
 
 def crypt(data, seed, i):
     value = data[i]
@@ -559,8 +558,8 @@ class server(SimpleHTTPRequestHandler):
         content_length = int(self.headers['Content-Length']) # <--- Gets the size of data
         post_data = self.rfile.read(content_length) # <--- Gets the data itself
         logging.info("POST request,\nPath: %s\nHeaders:\n%s\n\nBody:\n%s\n",str(self.path), str(self.headers), post_data.decode('utf-8'))
+        datajson=json.loads(post_data)
         with open(trackadd,'w') as f:
-            datajson=post_data.decode('utf-8').replace('\"',"")[1:-1]
             json.dump(datajson,f)
 def launchHTTP(server_class=HTTPServer, handler_class=server, port=8000):
     logging.basicConfig(level=logging.INFO)
@@ -752,6 +751,7 @@ def run():
         while True:
             try:
                 if c.is_connected():
+                    trackdata=json.load(open(trackadd,"r+"))
                     partyadd,enemyadd,ppadd,curoppnum,enctype=getaddresses(c)
                     #print('reading party')
                     htmltext='<!DOCTYPE html>\r\n<html>\r\n<head>\r\n\t<title>Gen 6 Tracker</title>\r\n'
@@ -765,12 +765,19 @@ def run():
                     #skips trainer mons that arent out yet
                     enemynum=int.from_bytes(c.read_memory(curoppnum,2),"little")
                     pkmni=0
+                    print(len(party1))
+                    for pkmn in party:
+                        if pkmn in party1:
+                            if pkmn.species_num()==0:
+                                party1.remove(pkmn)
+                    print(len(party1))
                     for pkmn in party2:
                         pkmni+=1
                         if pkmn.species_num()!=enemynum:
                             party.remove(pkmn)
                         else:
-                            pkmnindex=(pkmni+6)
+                            pkmnindex=(pkmni+len(party1))
+                    print(len(party1))
                     typelist=["Normal","Fighting","Flying","Poison","Ground","Rock","Bug","Ghost","Steel","Fire","Water","Grass","Electric","Psychic","Ice","Dragon","Dark","Fairy"]
                     enemytypes=[]
                     typereadere=c.read_memory(ppadd+(580*(pkmnindex-1))-24,2)
@@ -830,7 +837,7 @@ def run():
                                     evohtml=f'<div class="evoarrow">></div><div class="evo">Evolves {evoitem} {evofriend} {evolevel} {evostring} {evoloc}</div>'
                                 else:
                                     evohtml=''
-                                htmltext+=f'     <div class="level mstat"><span class="level name">Level: </span><span class="level value">'+str(int.from_bytes(c.read_memory(ppadd+(580*(pk-1))-256,1)))+f'</span>{evohtml}</div>\r\n\t'
+                                htmltext+=f'     <div class="level mstat"><span class="level name">Level: </span><span class="levelvalue"><span class="seenat">Seen at:{trackdata[pkmn.species]["levels"]}</span>{str(int.from_bytes(c.read_memory(ppadd+(580*(pk-1))-256,1)))}</span><span class="evohtml">{evohtml}</span></div>\r\n\t'
                                 if pkmn.status != '':
                                     if int.from_bytes(c.read_memory((ppadd+(580*(pk-1))-264),2),"little")!=0:
                                         htmltext+=f'     <div class="status mstat"><img src="images/statuses/{pkmn.status}.png" alt={pkmn.status} height="25" width="40"></div>'
@@ -978,6 +985,8 @@ def run():
                                     # for dmg,count in counts:
                                     #     countstr+='<div class="damage-bracket">['+str(dmg)+'x]</div>'
                                     #     countstr+='<div class="bracket-count">'+str(count)+'</div>'
+                                    if pkmn.level not in trackdata[pkmn.species]['levels']:
+                                        trackdata[pkmn.species]['levels'].append(pkmn.level)
                                     nmove = (' - ' if not nextmove else nextmove)
                                     htmltext+=f'     <div class="move label"><div class="move category label"><div class="learnset">{learnstr}</div>Moves {learnedcount}/{totallearn} ({nmove})</div><div class="move name label"></div><div class="move maxpp label">PP</div><div class="move power label">BP</div><div class="move accuracy label">Acc</div><div class="move contact label">C</div></div>\r\n\t'
                                     for move in pkmn.moves:
@@ -1040,7 +1049,7 @@ def run():
                                     evohtml=f'<div class="evoarrow">></div><div class="evo">Evolves {evoitem} {evofriend} {evolevel} {evostring} {evoloc}</div>'
                                 else:
                                     evohtml=''
-                                htmltext+=f'     <div class="level mstat"><span class="level name">Level: </span><span class="level value">'+str(pkmn.level)+f'</span>{evohtml}</div>\r\n\t'
+                                htmltext+=f'     <div class="level mstat"><span class="level name">Level: </span><span class="levelvalue"><span class="seenat">Seen at:{trackdata[pkmn.species]["levels"]}</span>{str(pkmn.level)}</span>{evohtml}</div>\r\n\t'
                                 if pkmn.status != '':
                                     htmltext+='     <div class="status mstat"><img src="images/statuses/'+pkmn.status+'.png" height="25" width="40"></div>'
                                 else:
@@ -1107,9 +1116,9 @@ def run():
                         with open(htmlfile, "w",encoding='utf-8') as f:
                             f.write(htmltext)
                         prevhtmltext=htmltext
+                    with open(trackadd,'w') as f:
+                        json.dump(trackdata,f)
                     time.sleep(8.5)
-                    #with open(trackadd,'w') as f:
-                        #json.dump(trackdata)
             except Exception as e:
                 with open('errorlog.txt','a+') as f:
                     errorLog = str(datetime.now())+": "+str(e)+'\n'
