@@ -520,15 +520,24 @@ def getaddresses(c):
         curoppadd=138545352
         wildppadd=136331232
         trainerppadd=136338160
-        if read_party(c,battlewildoppadd)[0].species_num() in range(1,808) and int.from_bytes(c.read_memory(wildppadd,1))<65:
-            #print("wild",read_party(c,battlewildpartyadd)[0].species_num())
-            return battlewildpartyadd,battlewildoppadd,wildppadd,curoppadd,'w'
-        elif read_party(c,battletraineroppadd)[0].species_num() in range(1,808) and int.from_bytes(c.read_memory(trainerppadd,1))<65:
-            #print("trainer",read_party(c,battletrainerpartyadd)[0].species_num())
-            return battletrainerpartyadd,battletraineroppadd,trainerppadd,curoppadd,'t'
-        else:
-            #print("party")
-            return partyaddress,0,0,0,'p'
+    elif getGame()=='ORAS':
+        partyaddress=0x8CE1CE8
+        battlewildpartyadd=142625392
+        battlewildoppadd=142622412
+        battletrainerpartyadd=142622504
+        battletraineroppadd=142625484
+        curoppadd=138545352
+        wildppadd=136331232
+        trainerppadd=136338160
+    if read_party(c,battlewildoppadd)[0].species_num() in range(1,808) and int.from_bytes(c.read_memory(wildppadd,1))<65:
+        #print("wild",read_party(c,battlewildpartyadd)[0].species_num())
+        return battlewildpartyadd,battlewildoppadd,wildppadd,curoppadd,'w'
+    elif read_party(c,battletraineroppadd)[0].species_num() in range(1,808) and int.from_bytes(c.read_memory(trainerppadd,1))<65:
+        #print("trainer",read_party(c,battletrainerpartyadd)[0].species_num())
+        return battletrainerpartyadd,battletraineroppadd,trainerppadd,curoppadd,'t'
+    else:
+        #print("party")
+        return partyaddress,0,0,0,'p'
         #'OmegaRuby/AlphaSapphire':0x8CF727C,
         #'Sun/Moon':0x34195E10,
         #'UltraSun/UltraMoon':0x33F7FA44
