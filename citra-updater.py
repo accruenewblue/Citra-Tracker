@@ -504,14 +504,26 @@ class Pokemon7(Pokemon):
     def __init__(self, data):
         Pokemon.__init__(self, data)
 
-def getGame():
-    config = ConfigParser()
-    config.read('config.ini')
-    game = config['config']['game']
-    return game
+def getGame(c):
+    partylist=[0x8CE1CE8,0x8CF727C,0x34195E10,0x33F7FA44]
+    try:
+        for item in range(0,4):
+            print(read_party(c,partylist[item])[0].species_num(),"wert")
+            if read_party(c,partylist[item])[0].species_num() in range(1,808):
+                print(partylist[item],partylist[item],"fdsfghg")
+                namelist=["X/Y","OmegaRuby/AlphaSapphire","Sun/Moon","UltraSun/UltraMoon"]
+                return namelist[item]
+    except Exception as e:
+        print(e)
+    #config = ConfigParser()
+    #config.read('config.ini')
+    #game = config['config']['game']
+    #return game
 
 def getaddresses(c):
-    if getGame()=='X/Y':
+    getGam=getGame(c)
+    print(getGam)
+    if getGam=='X/Y':
         partyaddress=0x8CE1CE8
         battlewildpartyadd=142625392
         battlewildoppadd=142622412
@@ -520,27 +532,48 @@ def getaddresses(c):
         curoppadd=138545352
         wildppadd=136331232
         trainerppadd=136338160
-    elif getGame()=='ORAS':
-        partyaddress=0x8CE1CE8
-        battlewildpartyadd=142625392
-        battlewildoppadd=142622412
-        battletrainerpartyadd=142622504
-        battletraineroppadd=142625484
-        curoppadd=138545352
-        wildppadd=136331232
-        trainerppadd=136338160
+        mongap=580
+    elif getGam=='OmegaRuby/AlphaSapphire':
+        partyaddress=0x8CF727C
+        battlewildpartyadd=0x8CF727C-6000000+812440
+        battlewildoppadd=0x8CF727C-6000000+815420
+        battletrainerpartyadd=0x8CF727C-6000000+809556
+        battletraineroppadd=0x8CF727C-6000000+812536
+        curoppadd=0x8CF727C-0xAF2F5C+0x22EA60 #little endian
+        wildppadd=0x8CF727C-0xAF2F5C-20 #0x8CF727C-0xAF2F5C
+        trainerppadd=0x8CF727C-0xAF2F5C-20+6928
+        mongap=580 #Gen 6 has a gap between each mon's data, and goes directly from your mons to the opponent's...
+    elif getGam=='Sun/Moon':
+        partyaddress=0x34195E10
+        battlewildpartyadd=0x34195E10-30000000+5705168
+        battlewildoppadd=0x34195E10-30000000+5702188
+        battletrainerpartyadd=0x33F7FA44-30000000+7995384
+        battletraineroppadd=0x33F7FA44-30000000+7998364
+        curoppadd=0x34195E10-68732064+68472752
+        wildppadd=0x34195E10-68732064-34
+        trainerppadd=0x34195E10-68732064-34
+        mongap=816 #while Gen 7 spaces them out, so its 6 slots for your mon, 6 slots for teammates, then 6 slots for enemies.
+    elif getGam=='UltraSun/UltraMoon':
+        partyaddress=0x33F7FA44
+        battlewildpartyadd=0x33F7FA44-30000000+7008668
+        battlewildoppadd=0x33F7FA44-30000000+7011648 
+        battletrainerpartyadd=0x33F7FA44-30000000+7110648
+        battletraineroppadd=0x33F7FA44-30000000+7113628
+        curoppadd=0x33F7FA44-0x3f760d4+66286592
+        wildppadd=0x33F7FA44-0x3f760d4-34
+        trainerppadd=0x33F7FA44-0x3f760d4-34
+        mongap=816
+    print(read_party(c,battlewildpartyadd)[0].species_num(),read_party(c,battlewildoppadd)[0].species_num(),
+            read_party(c,battletrainerpartyadd)[0].species_num(),read_party(c,battletraineroppadd)[0].species_num())
     if read_party(c,battlewildoppadd)[0].species_num() in range(1,808) and int.from_bytes(c.read_memory(wildppadd,1))<65:
-        #print("wild",read_party(c,battlewildpartyadd)[0].species_num())
-        return battlewildpartyadd,battlewildoppadd,wildppadd,curoppadd,'w'
+        print("wild",read_party(c,battlewildoppadd)[0].species_num())
+        return battlewildpartyadd,battlewildoppadd,wildppadd,curoppadd,'w',mongap
     elif read_party(c,battletraineroppadd)[0].species_num() in range(1,808) and int.from_bytes(c.read_memory(trainerppadd,1))<65:
-        #print("trainer",read_party(c,battletrainerpartyadd)[0].species_num())
-        return battletrainerpartyadd,battletraineroppadd,trainerppadd,curoppadd,'t'
+        print("trainer",read_party(c,battlewildoppadd)[0].species_num())
+        return battletrainerpartyadd,battletraineroppadd,trainerppadd,curoppadd,'t',mongap
     else:
-        #print("party")
-        return partyaddress,0,0,0,'p'
-        #'OmegaRuby/AlphaSapphire':0x8CF727C,
-        #'Sun/Moon':0x34195E10,
-        #'UltraSun/UltraMoon':0x33F7FA44
+        print("party")
+        return partyaddress,0,0,0,'p',mongap
 def cls():
     os.system('cls' if os.name=='nt' else 'clear')
 
@@ -740,35 +773,35 @@ def getURLAbbr(game):
         return 'home'
 
 def run():
-    game=getGame()
-    gamegroupid,gamegroupabbreviation,gen = cursor.execute(f"""
-            select
-                gg.gamegroupid
-                ,gg.gamegroupabbreviation
-                ,gg.generationid
-            from "pokemon.gamegroup" gg
-            where gamegroupname = '{game}'""").fetchone()
-    print('running..')
-    threading.Thread(target=launchHTTP).start()
-    htmlfile='tracker.html'
-    prevhtmltext=''
     try:
         #print('connecting to citra')
         c = Citra()
         #print('connected to citra')
+        game=getGame(c)
+        gamegroupid,gamegroupabbreviation,gen = cursor.execute(f"""
+                select
+                    gg.gamegroupid
+                    ,gg.gamegroupabbreviation
+                    ,gg.generationid
+                from "pokemon.gamegroup" gg
+                where gamegroupname = '{game}'""").fetchone()
+        print('running..')
+        threading.Thread(target=launchHTTP).start()
+        htmlfile='tracker.html'
+        prevhtmltext=''
         htmltext=''
         while True:
             try:
                 if c.is_connected():
                     trackdata=json.load(open(trackadd,"r+"))
-                    partyadd,enemyadd,ppadd,curoppnum,enctype=getaddresses(c)
+                    partyadd,enemyadd,ppadd,curoppnum,enctype,mongap=getaddresses(c)
                     #print('reading party')
                     htmltext='<!DOCTYPE html>\r\n<html>\r\n<head>\r\n\t<title>Gen 6 Tracker</title>\r\n'
                     htmltext+='\t<link rel="stylesheet" type="text/css" href="tracker.css">\r\n</head>\r\n<body>'
                     party1=read_party(c,partyadd)
                     party2=read_party(c,enemyadd)
                     party=party1+party2
-                    pk=0
+                    pk=1
                     #print('read party... performing loop')
                     htmltext+='<div id="party">\r\n'
                     #skips trainer mons that arent out yet
@@ -782,30 +815,46 @@ def run():
                     print(len(party1))
                     for pkmn in party2:
                         pkmni+=1
+                        print(pkmn.species_num())
+                        print(enemynum)
                         if pkmn.species_num()!=enemynum:
                             party.remove(pkmn)
                         else:
-                            pkmnindex=(pkmni+len(party1))
+                            pkmnindex=(pkmni)
+                            break
                     print(len(party1))
+                    print(gen)
                     typelist=["Normal","Fighting","Flying","Poison","Ground","Rock","Bug","Ghost","Steel","Fire","Water","Grass","Electric","Psychic","Ice","Dragon","Dark","Fairy"]
                     enemytypes=[]
-                    typereadere=c.read_memory(ppadd+(580*(pkmnindex-1))-24,2)
-                    for byte in typereadere:
-                        if typelist[byte] not in enemytypes:
-                            enemytypes.append(typelist[byte])
+                    try:
+                        if gen==6:
+                            pke=pkmnindex+len(party1)
+                        elif gen==7:
+                            pke=pkmnindex+12
+                        typereadere=c.read_memory(ppadd+(mongap*(pke-1))-(2*(gen+6)),2) #(2*(gen+6))
+                        print(typereadere.hex())
+                        for byte in typereadere:
+                            print(byte)
+                            if typelist[byte] not in enemytypes:
+                                enemytypes.append(typelist[byte])
+                    except Exception:
+                        print(Exception)
                     print(enemytypes)
                     for pkmn in party:
                         if pkmn.species_num() in range (1,808): ### Make sure the slot is valid & not an egg
                             pkmn.getAtts(gamegroupid,gen)
                             if int(pkmn.cur_hp) > 5000: ### Make sure the memory dump hasn't happened (or whatever causes the invalid values)
                                 continue
-                            pk=pk+1
+                            print(pk,"''''''''''")
                             if pkmn in party2:
-                                pk=pkmnindex
+                                if gen==6:
+                                    pk=pkmnindex+len(party1)
+                                elif gen==7:
+                                    pk=pkmnindex+12
                             if enctype!='p':
                                 #grabs in battle types
                                 pkmntypes=[]
-                                typereader=c.read_memory(ppadd+(580*(pk-1))-24,2)
+                                typereader=c.read_memory(ppadd+(mongap*(pk-1))-(2*(gen+6)),2)
                                 for byte in typereader:
                                     if typelist[byte] not in pkmntypes:
                                         pkmntypes.append(typelist[byte])
@@ -846,9 +895,19 @@ def run():
                                     evohtml=f'<div class="evoarrow">></div><div class="evo">Evolves {evoitem} {evofriend} {evolevel} {evostring} {evoloc}</div>'
                                 else:
                                     evohtml=''
-                                htmltext+=f'     <div class="level mstat"><span class="level name">Level: </span><span class="levelvalue"><span class="seenat">Seen at:{trackdata[pkmn.species]["levels"]}</span>{str(int.from_bytes(c.read_memory(ppadd+(580*(pk-1))-256,1)))}</span><span class="evohtml">{evohtml}</span></div>\r\n\t'
+                                if gen==6:
+                                    levelnum=int.from_bytes(c.read_memory(ppadd+(mongap*(pk-1))-256,1))
+                                    print(levelnum,";;;;;;;;;;;;;;;;;;;;;;;;",pk)
+                                    batabilnum=int.from_bytes(c.read_memory((ppadd+(mongap*(pk-1))+6-264),1))
+                                    hpnum=[int.from_bytes(c.read_memory((ppadd+(mongap*(pk-1))-264),2),"little"),int.from_bytes(c.read_memory((ppadd+(mongap*(pk-1))-266),2),"little")]
+                                elif gen==7:
+                                    levelnum=int.from_bytes(c.read_memory(ppadd+(mongap*(pk-1))-486,1))
+                                    batabilnum=int.from_bytes(c.read_memory((ppadd+(mongap*(pk-1))+0x36),1))
+                                    hpnum=[int.from_bytes(c.read_memory((ppadd+(mongap*(pk-1))-494),2),"little"),int.from_bytes(c.read_memory((ppadd+(mongap*(pk-1))-496),2),"little")]
+                                    print(str(levelnum)+"eeeeeeeer")
+                                htmltext+=f'     <div class="level mstat"><span class="level name">Level: </span><span class="levelvalue"><span class="seenat">Seen at:{trackdata[pkmn.species]["levels"]}</span>{str(levelnum)}</span><span class="evohtml">{evohtml}</span></div>\r\n\t'
                                 if pkmn.status != '':
-                                    if int.from_bytes(c.read_memory((ppadd+(580*(pk-1))-264),2),"little")!=0:
+                                    if int.from_bytes(c.read_memory((ppadd+(mongap*(pk-1))-264),2),"little")!=0:
                                         htmltext+=f'     <div class="status mstat"><img src="images/statuses/{pkmn.status}.png" alt={pkmn.status} height="25" width="40"></div>'
                                     else:
                                         htmltext+=f'     <div class="status mstat"><img src="images/statuses/Fainted.png" alt=Fainted height="25" width="40"></div>'
@@ -856,7 +915,8 @@ def run():
                                     htmltext+='     <div class="status mstat"></div>'
                                 htmltext+='</div>\r\n' ## Close level-status div
                                 htmltext+='</div>\r\n' ## Close major stats div
-                                if pkmn in party1:
+                                if pkmn in party1: 
+                                    print("qw"+str(int.from_bytes(c.read_memory((ppadd+(mongap*(pk-1))-486),1))))
                                     htmltext+='<div class="ability">\r\n\t'
                                     query=f"""select
                                             ab.abilityname
@@ -864,9 +924,9 @@ def run():
                                         from "pokemon.generationability" ga
                                             left join "pokemon.ability" ab on ga.abilityid = ab.abilityid
                                             left join "pokemon.abilitylookup" al on ab.abilityname = al.abilityname
-                                        where al.abilityindex = {int.from_bytes(c.read_memory((ppadd+(580*(pk-1))+6-264),1))} and ga.generationid <= {gen}
+                                        where al.abilityindex = {batabilnum} and ga.generationid <= {gen} 
                                         order by ga.generationid desc
-                                        """
+                                        """ 
                                     abilityname,abilitydescription = cursor.execute(query).fetchone()
                                     htmltext+='     <div class="ability name"><div class="description">'+str(abilitydescription)+'</div>'+str(abilityname)+'</div>\r\n'
                                     htmltext+='</div>\r\n' ## close ability div
@@ -880,14 +940,14 @@ def run():
                                     htmltext+='<div class="pokemon-top-right-block">'
                                     ### STATS ########
                                     htmltext+='<div class="stats">\r\n'
-                                    #print(int.from_bytes(c.read_memory((ppadd+(580*(pk-1))-264),1)))
+                                    #print(int.from_bytes(c.read_memory((ppadd+(mongap*(pk-1))-264),1)))
                                     attackchange,defchange,spatkchange,spdefchange,speedchange = pkmn.getStatChanges()
-                                    htmltext+=f'     <div class="hp stat"><span class="name">HP: </span><span class="value"><span class="ev">EV: {pkmn.evhp}</span>{int.from_bytes(c.read_memory((ppadd+(580*(pk-1))-264),2),"little")}/{int.from_bytes(c.read_memory((ppadd+(580*(pk-1))-266),2),"little")}</span></div>\r\n'
-                                    htmltext+=f'     <div class="attack stat {attackchange}"><span class="name">Atk:</span><span class="value"><span class="ev">EV: {pkmn.evattack}</span><img src="images/modifiers/modifier{int.from_bytes(c.read_memory((ppadd+(580*(pk-1))-20),1))}.png" alt={6-int.from_bytes(c.read_memory((ppadd+(580*(pk-1))-20),1))} height="18" width="9">{pkmn.attack}</span></div>\r\n\t'
-                                    htmltext+=f'     <div class="def stat {defchange}"><span class="name">Def:</span><span class="value"><span class="ev">EV: {pkmn.evdefense}</span><img src="images/modifiers/modifier{int.from_bytes(c.read_memory((ppadd+(580*(pk-1))-19),1))}.png" alt={6-int.from_bytes(c.read_memory((ppadd+(580*(pk-1))-19),1))} height="18" width="9">{pkmn.defense}</span></div>\r\n\t'
-                                    htmltext+=f'     <div class="spatk stat {spatkchange}"><span class="name">SpAtk:</span><span class="value"><span class="ev">EV: {pkmn.evspatk}</span><img src="images/modifiers/modifier{int.from_bytes(c.read_memory((ppadd+(580*(pk-1))-18),1))}.png" alt={6-int.from_bytes(c.read_memory((ppadd+(580*(pk-1))-18),1))} height="18" width="9">{pkmn.spatk}</span></div>\r\n\t'
-                                    htmltext+=f'     <div class="spdef stat {spdefchange}"><span class="name">SpDef:</span><span class="value"><span class="ev">EV: {pkmn.evspdef}</span><img src="images/modifiers/modifier{int.from_bytes(c.read_memory((ppadd+(580*(pk-1))-17),1))}.png" alt={6-int.from_bytes(c.read_memory((ppadd+(580*(pk-1))-17),1))} height="18" width="9">{pkmn.spdef}</span></div>\r\n\t'
-                                    htmltext+=f'     <div class="speed stat {speedchange}"><span class="name">Speed:</span><span class="value"><span class="ev">EV: {pkmn.evspeed}</span><img src="images/modifiers/modifier{int.from_bytes(c.read_memory((ppadd+(580*(pk-1))-16),1))}.png" alt={6-int.from_bytes(c.read_memory((ppadd+(580*(pk-1))-16),1))} height="18" width="9">{pkmn.speed}</span></div>\r\n\t'
+                                    htmltext+=f'     <div class="hp stat"><span class="name">HP: </span><span class="value"><span class="ev">EV: {pkmn.evhp}</span>{hpnum[0]}/{hpnum[1]}</span></div>\r\n'
+                                    htmltext+=f'     <div class="attack stat {attackchange}"><span class="name">Atk:</span><span class="value"><span class="ev">EV: {pkmn.evattack}</span><img src="images/modifiers/modifier{int.from_bytes(c.read_memory((ppadd+(mongap*(pk-1))-20),1))}.png" alt={6-int.from_bytes(c.read_memory((ppadd+(mongap*(pk-1))-20),1))} height="18" width="9">{pkmn.attack}</span></div>\r\n\t'
+                                    htmltext+=f'     <div class="def stat {defchange}"><span class="name">Def:</span><span class="value"><span class="ev">EV: {pkmn.evdefense}</span><img src="images/modifiers/modifier{int.from_bytes(c.read_memory((ppadd+(mongap*(pk-1))-19),1))}.png" alt={6-int.from_bytes(c.read_memory((ppadd+(mongap*(pk-1))-19),1))} height="18" width="9">{pkmn.defense}</span></div>\r\n\t'
+                                    htmltext+=f'     <div class="spatk stat {spatkchange}"><span class="name">SpAtk:</span><span class="value"><span class="ev">EV: {pkmn.evspatk}</span><img src="images/modifiers/modifier{int.from_bytes(c.read_memory((ppadd+(mongap*(pk-1))-18),1))}.png" alt={6-int.from_bytes(c.read_memory((ppadd+(mongap*(pk-1))-18),1))} height="18" width="9">{pkmn.spatk}</span></div>\r\n\t'
+                                    htmltext+=f'     <div class="spdef stat {spdefchange}"><span class="name">SpDef:</span><span class="value"><span class="ev">EV: {pkmn.evspdef}</span><img src="images/modifiers/modifier{int.from_bytes(c.read_memory((ppadd+(mongap*(pk-1))-17),1))}.png" alt={6-int.from_bytes(c.read_memory((ppadd+(mongap*(pk-1))-17),1))} height="18" width="9">{pkmn.spdef}</span></div>\r\n\t'
+                                    htmltext+=f'     <div class="speed stat {speedchange}"><span class="name">Speed:</span><span class="value"><span class="ev">EV: {pkmn.evspeed}</span><img src="images/modifiers/modifier{int.from_bytes(c.read_memory((ppadd+(mongap*(pk-1))-16),1))}.png" alt={6-int.from_bytes(c.read_memory((ppadd+(mongap*(pk-1))-16),1))} height="18" width="9">{pkmn.speed}</span></div>\r\n\t'
                                     htmltext+=f'     <div class="bst stat"><span class="name">BST:</span><span class="value">{pkmn.bst}</span></div>\r\n\t'
                                     htmltext+='</div>' ## Close stats div
                                     htmltext+='</div>' ## Close top right block
@@ -955,7 +1015,7 @@ def run():
                                         htmltext+=f'     <div class="move">'
                                         htmltext+=f'         <div class="move category"><img src="images/categories/{move["category"]}.png" alt={move["category"]} height="13" width="18"></div>'
                                         htmltext+=f'         <div class="move name {movetyp}"><div class="description">{move["description"]}</div>{move["name"]}</div>'
-                                        htmltext+=f'         <div class="move maxpp">{int.from_bytes(c.read_memory(ppadd+(580*(pk-1))+(14*(pkmn.moves).index(move)),1))}/{int.from_bytes(c.read_memory(ppadd+(580*(pk-1))+1+(14*(pkmn.moves).index(move)),1))}<img src="images/modifiers/modifier{image}.png" alt={image} height="18" width="9"></div>'
+                                        htmltext+=f'         <div class="move maxpp">{int.from_bytes(c.read_memory(ppadd+(mongap*(pk-1))+(14*(pkmn.moves).index(move)),1))}/{int.from_bytes(c.read_memory(ppadd+(mongap*(pk-1))+1+(14*(pkmn.moves).index(move)),1))}<img src="images/modifiers/modifier{image}.png" alt={image} height="18" width="9"></div>'
                                         movepower = calcPower(pkmn,move)
                                         htmltext+=f'         <div class="move power {stab}">{movepower}</div>'
                                         acc = '-' if not move['acc'] else int(move['acc'])
@@ -963,8 +1023,25 @@ def run():
                                         contact = ('Y' if move['contact'] else 'N')
                                         htmltext+=f'         <div class="move contact">{contact}</div></div>\r\n\t'
                                 elif pkmn in party2:
+                                    print(pk)
                                     htmltext+='<div class="ability">\r\n\t'
-                                    htmltext+='     <div class="ability name"><div class="description">'+str("-")+'</div>'+str("-")+'</div>\r\n'
+                                    query=f"""select
+                                            ab.abilityname
+                                            ,abilitydescription
+                                        from "pokemon.generationability" ga
+                                            left join "pokemon.ability" ab on ga.abilityid = ab.abilityid
+                                            left join "pokemon.abilitylookup" al on ab.abilityname = al.abilityname
+                                        where al.abilityindex = {batabilnum} and ga.generationid <= {gen}
+                                        order by ga.generationid desc
+                                        """
+                                    abilityname,abilitydescription = cursor.execute(query).fetchone()
+                                    startupabils=["Air Lock","Cloud Nine","Delta Stream","Desolate Land","Download","Drizzle","Drought","Forewarn","Frisk","Imposter","Intimidate","Mold Breaker","Pressure","Primordial Sea","Sand Stream","Snow Warning","Teravolt","Turboblaze","Trace","Unnerve"]
+                                    if abilityname in startupabils:
+                                        htmltext+='     <div class="ability name"><div class="description">'+str(abilitydescription)+'</div>'+str(abilityname)+'</div>\r\n'
+                                        if pkmn.abilityname not in trackdata[pkmn.species]['abilities']:
+                                            trackdata[pkmn.species]['abilities'].append(pkmn.abilityname)
+                                    else:
+                                        htmltext+='     <div class="ability name"><div class="description">'+str("-")+'</div>'+str(trackdata[pkmn.species]['abilities'])+'</div>\r\n'
                                     htmltext+='</div>\r\n' ## close ability div
                                     htmltext+='<div class="held-item">\r\n\t'
                                     htmltext+='     <button onclick=editnotes() id="enemynotes">-</button>\r\n'
@@ -976,11 +1053,11 @@ def run():
                                     htmltext+='<div class="stats">\r\n'
                                     htmltext+="<script>function changeText(idElement) {var element = document.getElementById('stat' + idElement);if (element.innerHTML === '_') element.innerHTML = '+';else if (element.innerHTML === '+') element.innerHTML = '-';else if (element.innerHTML === '-') element.innerHTML = '=';else {element.innerHTML = '_';} }</script>\n"
                                     htmltext+=f'<div class="hp stat"><span class="name">HP: </span><span class="value"><button id="stat0" onClick="javascript:changeText(0)">_</button></span></div>\n\t'
-                                    htmltext+=f'<div class="attack stat "><span class="name">Atk:<img src="images/modifiers/modifier{int.from_bytes(c.read_memory((ppadd+(580*(pk-1))-20),1))}.png" alt={6-int.from_bytes(c.read_memory((ppadd+(580*(pk-1))-20),1))} height="18" width="9"></span><span class="value"><button id="stat1" onClick="javascript:changeText(1)">_</button></span></div>\n\t'
-                                    htmltext+=f'<div class="def stat "><span class="name">Def:<img src="images/modifiers/modifier{int.from_bytes(c.read_memory((ppadd+(580*(pk-1))-19),1))}.png" alt={6-int.from_bytes(c.read_memory((ppadd+(580*(pk-1))-19),1))} height="18" width="9"></span><span class="value"><button id="stat2" onClick="javascript:changeText(2)">_</button></span></div>\n\t'
-                                    htmltext+=f'<div class="spatk stat "><span class="name">SpAtk:<img src="images/modifiers/modifier{int.from_bytes(c.read_memory((ppadd+(580*(pk-1))-18),1))}.png" alt={6-int.from_bytes(c.read_memory((ppadd+(580*(pk-1))-18),1))} height="18" width="9"></span><span class="value"><button id="stat3" onClick="javascript:changeText(3)">_</button></span></div>\n\t'
-                                    htmltext+=f'<div class="spdef stat "><span class="name">SpDef:<img src="images/modifiers/modifier{int.from_bytes(c.read_memory((ppadd+(580*(pk-1))-17),1))}.png" alt={6-int.from_bytes(c.read_memory((ppadd+(580*(pk-1))-17),1))} height="18" width="9"></span><span class="value"><button id="stat4" onClick="javascript:changeText(4)">_</button></span></div>\n\t'
-                                    htmltext+=f'<div class="speed stat "><span class="name">Speed:<img src="images/modifiers/modifier{int.from_bytes(c.read_memory((ppadd+(580*(pk-1))-16),1))}.png" alt={6-int.from_bytes(c.read_memory((ppadd+(580*(pk-1))-16),1))} height="18" width="9"></span><span class="value"><button id="stat5" onClick="javascript:changeText(5)">_</button></span></div>\n\t'
+                                    htmltext+=f'<div class="attack stat "><span class="name">Atk:<img src="images/modifiers/modifier{int.from_bytes(c.read_memory((ppadd+(mongap*(pk-1))-20),1))}.png" alt={6-int.from_bytes(c.read_memory((ppadd+(mongap*(pk-1))-20),1))} height="18" width="9"></span><span class="value"><button id="stat1" onClick="javascript:changeText(1)">_</button></span></div>\n\t'
+                                    htmltext+=f'<div class="def stat "><span class="name">Def:<img src="images/modifiers/modifier{int.from_bytes(c.read_memory((ppadd+(mongap*(pk-1))-19),1))}.png" alt={6-int.from_bytes(c.read_memory((ppadd+(mongap*(pk-1))-19),1))} height="18" width="9"></span><span class="value"><button id="stat2" onClick="javascript:changeText(2)">_</button></span></div>\n\t'
+                                    htmltext+=f'<div class="spatk stat "><span class="name">SpAtk:<img src="images/modifiers/modifier{int.from_bytes(c.read_memory((ppadd+(mongap*(pk-1))-18),1))}.png" alt={6-int.from_bytes(c.read_memory((ppadd+(mongap*(pk-1))-18),1))} height="18" width="9"></span><span class="value"><button id="stat3" onClick="javascript:changeText(3)">_</button></span></div>\n\t'
+                                    htmltext+=f'<div class="spdef stat "><span class="name">SpDef:<img src="images/modifiers/modifier{int.from_bytes(c.read_memory((ppadd+(mongap*(pk-1))-17),1))}.png" alt={6-int.from_bytes(c.read_memory((ppadd+(mongap*(pk-1))-17),1))} height="18" width="9"></span><span class="value"><button id="stat4" onClick="javascript:changeText(4)">_</button></span></div>\n\t'
+                                    htmltext+=f'<div class="speed stat "><span class="name">Speed:<img src="images/modifiers/modifier{int.from_bytes(c.read_memory((ppadd+(mongap*(pk-1))-16),1))}.png" alt={6-int.from_bytes(c.read_memory((ppadd+(mongap*(pk-1))-16),1))} height="18" width="9"></span><span class="value"><button id="stat5" onClick="javascript:changeText(5)">_</button></span></div>\n\t'
                                     htmltext+=f'<div class="bst stat"><span class="name">BST:</span><span class="value">{pkmn.bst}</span></div>\r\n\t'
                                     htmltext+='</div>' ## Close stats div
                                     htmltext+='</div>' ## Close top right block
@@ -999,7 +1076,7 @@ def run():
                                     nmove = (' - ' if not nextmove else nextmove)
                                     htmltext+=f'     <div class="move label"><div class="move category label"><div class="learnset">{learnstr}</div>Moves {learnedcount}/{totallearn} ({nmove})</div><div class="move name label"></div><div class="move maxpp label">PP</div><div class="move power label">BP</div><div class="move accuracy label">Acc</div><div class="move contact label">C</div></div>\r\n\t'
                                     for move in pkmn.moves:
-                                        if int.from_bytes(c.read_memory(ppadd+(580*(pk-1))+(14*(pkmn.moves).index(move)),1))==int.from_bytes(c.read_memory(ppadd+1+(580*(pk-1))+(14*(pkmn.moves).index(move)),1)): 
+                                        if int.from_bytes(c.read_memory(ppadd+(mongap*(pk-1))+(14*(pkmn.moves).index(move)),1))==int.from_bytes(c.read_memory(ppadd+1+(mongap*(pk-1))+(14*(pkmn.moves).index(move)),1)): 
                                             continue
                                         stab = ''
                                         for type in pkmn.types:
@@ -1009,7 +1086,7 @@ def run():
                                         htmltext+=f'     <div class="move">'
                                         htmltext+=f'         <div class="move category"><img src="images/categories/{move["category"]}.png" height="13" width="18"></div>'
                                         htmltext+=f'         <div class="move name {move["type"]}"><div class="description">{move["description"]}</div>{move["name"]}</div>'
-                                        htmltext+=f'         <div class="move maxpp">{int.from_bytes(c.read_memory(ppadd+(580*(pk-1))+(14*(pkmn.moves).index(move)),1))}/{move["maxpp"]}</div>'
+                                        htmltext+=f'         <div class="move maxpp">{int.from_bytes(c.read_memory(ppadd+(mongap*(pk-1))+(14*(pkmn.moves).index(move)),1))}/{move["maxpp"]}</div>'
                                         movepower = calcPower(pkmn,move)
                                         htmltext+=f'         <div class="move power {stab}">{movepower}</div>'
                                         acc = '-' if not move['acc'] else int(move['acc'])
@@ -1120,6 +1197,7 @@ def run():
                                 htmltext+='</div>\r\n' ## Close moves div
                                 htmltext+='</div>' ## Close bottom block
                                 htmltext+='</div>' ## Close pokemon div
+                            pk=pk+1
                     htmltext+='</div></div><button id="previous-button">&#8249;</button><button id="next-button">&#8250;</button><script src="reload.js"></script></body></html>' ## Draw the next/previous arrows, close party div, body and HTML
                     if htmltext != prevhtmltext:
                         with open(htmlfile, "w",encoding='utf-8') as f:
@@ -1133,13 +1211,16 @@ def run():
                     errorLog = str(datetime.now())+": "+str(e)+'\n'
                     f.write(errorLog)
                 # traceback.print_exc()
+                import sys, os, traceback
+                exc_type, exc_obj, exc_tb = sys.exc_info()
+                tb = traceback.extract_tb(exc_tb)[-1]
+                print(exc_type, tb[2], tb[1])
                 time.sleep(5)
                 print(errorLog)
                 if "WinError 10054" in str(e):
                     print("To continue using the tracker, please open a ROM.")
                     print("Waiting for a ROM...")
                     time.sleep(15)
-                    game,party_address = getGame()
     except Exception as e:
         with open('errorlog.txt','a+') as f:
             errorLog = str(datetime.now())+": "+str(e)+'\n'
