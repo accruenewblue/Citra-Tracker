@@ -96,7 +96,7 @@ class Pokemon:
                 query+= " and pokemonsuffix is null"
             case 641 | 642 | 645:
                 if form > 0: ### Therian forms of Tornadus, Thundurus, Landorus
-                    query+= " and pokemonsuffix = 'therian"
+                    query+= " and pokemonsuffix = 'therian'"
             case 6: #Charizard
                 match form:
                     case 8 | 10:
@@ -508,9 +508,7 @@ def getGame(c):
     partylist=[0x8CE1CE8,0x8CF727C,0x34195E10,0x33F7FA44]
     try:
         for item in range(0,4):
-            print(read_party(c,partylist[item])[0].species_num(),"wert")
             if read_party(c,partylist[item])[0].species_num() in range(1,808):
-                print(partylist[item],partylist[item],"fdsfghg")
                 namelist=["X/Y","OmegaRuby/AlphaSapphire","Sun/Moon","UltraSun/UltraMoon"]
                 return namelist[item]
     except Exception as e:
@@ -563,16 +561,11 @@ def getaddresses(c):
         wildppadd=0x33F7FA44-0x3f760d4-34
         trainerppadd=0x33F7FA44-0x3f760d4-34
         mongap=816
-    print(read_party(c,battlewildpartyadd)[0].species_num(),read_party(c,battlewildoppadd)[0].species_num(),
-            read_party(c,battletrainerpartyadd)[0].species_num(),read_party(c,battletraineroppadd)[0].species_num())
     if read_party(c,battlewildoppadd)[0].species_num() in range(1,808) and int.from_bytes(c.read_memory(wildppadd,1))<65:
-        print("wild",read_party(c,battlewildoppadd)[0].species_num())
         return battlewildpartyadd,battlewildoppadd,wildppadd,curoppadd,'w',mongap
     elif read_party(c,battletraineroppadd)[0].species_num() in range(1,808) and int.from_bytes(c.read_memory(trainerppadd,1))<65:
-        print("trainer",read_party(c,battlewildoppadd)[0].species_num())
         return battletrainerpartyadd,battletraineroppadd,trainerppadd,curoppadd,'t',mongap
     else:
-        print("party")
         return partyaddress,0,0,0,'p',mongap
 def cls():
     os.system('cls' if os.name=='nt' else 'clear')
@@ -807,23 +800,17 @@ def run():
                     #skips trainer mons that arent out yet
                     enemynum=int.from_bytes(c.read_memory(curoppnum,2),"little")
                     pkmni=0
-                    print(len(party1))
                     for pkmn in party:
                         if pkmn in party1:
                             if pkmn.species_num()==0:
                                 party1.remove(pkmn)
-                    print(len(party1))
                     for pkmn in party2:
                         pkmni+=1
-                        print(pkmn.species_num())
-                        print(enemynum)
                         if pkmn.species_num()!=enemynum:
                             party.remove(pkmn)
                         else:
                             pkmnindex=(pkmni)
                             break
-                    print(len(party1))
-                    print(gen)
                     typelist=["Normal","Fighting","Flying","Poison","Ground","Rock","Bug","Ghost","Steel","Fire","Water","Grass","Electric","Psychic","Ice","Dragon","Dark","Fairy"]
                     enemytypes=[]
                     try:
@@ -832,20 +819,16 @@ def run():
                         elif gen==7:
                             pke=pkmnindex+12
                         typereadere=c.read_memory(ppadd+(mongap*(pke-1))-(2*(gen+6)),2) #(2*(gen+6))
-                        print(typereadere.hex())
                         for byte in typereadere:
-                            print(byte)
                             if typelist[byte] not in enemytypes:
                                 enemytypes.append(typelist[byte])
                     except Exception:
                         print(Exception)
-                    print(enemytypes)
                     for pkmn in party:
                         if pkmn.species_num() in range (1,808): ### Make sure the slot is valid & not an egg
                             pkmn.getAtts(gamegroupid,gen)
                             if int(pkmn.cur_hp) > 5000: ### Make sure the memory dump hasn't happened (or whatever causes the invalid values)
                                 continue
-                            print(pk,"''''''''''")
                             if pkmn in party2:
                                 if gen==6:
                                     pk=pkmnindex+len(party1)
@@ -897,14 +880,12 @@ def run():
                                     evohtml=''
                                 if gen==6:
                                     levelnum=int.from_bytes(c.read_memory(ppadd+(mongap*(pk-1))-256,1))
-                                    print(levelnum,";;;;;;;;;;;;;;;;;;;;;;;;",pk)
                                     batabilnum=int.from_bytes(c.read_memory((ppadd+(mongap*(pk-1))+6-264),1))
                                     hpnum=[int.from_bytes(c.read_memory((ppadd+(mongap*(pk-1))-264),2),"little"),int.from_bytes(c.read_memory((ppadd+(mongap*(pk-1))-266),2),"little")]
                                 elif gen==7:
                                     levelnum=int.from_bytes(c.read_memory(ppadd+(mongap*(pk-1))-486,1))
                                     batabilnum=int.from_bytes(c.read_memory((ppadd+(mongap*(pk-1))+0x36),1))
                                     hpnum=[int.from_bytes(c.read_memory((ppadd+(mongap*(pk-1))-494),2),"little"),int.from_bytes(c.read_memory((ppadd+(mongap*(pk-1))-496),2),"little")]
-                                    print(str(levelnum)+"eeeeeeeer")
                                 htmltext+=f'     <div class="level mstat"><span class="level name">Level: </span><span class="levelvalue"><span class="seenat">Seen at:{trackdata[pkmn.species]["levels"]}</span>{str(levelnum)}</span><span class="evohtml">{evohtml}</span></div>\r\n\t'
                                 if pkmn.status != '':
                                     if int.from_bytes(c.read_memory((ppadd+(mongap*(pk-1))-264),2),"little")!=0:
@@ -916,7 +897,6 @@ def run():
                                 htmltext+='</div>\r\n' ## Close level-status div
                                 htmltext+='</div>\r\n' ## Close major stats div
                                 if pkmn in party1: 
-                                    print("qw"+str(int.from_bytes(c.read_memory((ppadd+(mongap*(pk-1))-486),1))))
                                     htmltext+='<div class="ability">\r\n\t'
                                     query=f"""select
                                             ab.abilityname
@@ -1023,7 +1003,6 @@ def run():
                                         contact = ('Y' if move['contact'] else 'N')
                                         htmltext+=f'         <div class="move contact">{contact}</div></div>\r\n\t'
                                 elif pkmn in party2:
-                                    print(pk)
                                     htmltext+='<div class="ability">\r\n\t'
                                     query=f"""select
                                             ab.abilityname
