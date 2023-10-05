@@ -14,6 +14,7 @@ from citra import Citra
 
 trackadd=r"trackerdata.json"
 
+
 def crypt(data, seed, i):
     value = data[i]
     shifted_seed = seed >> 16
@@ -91,9 +92,12 @@ class Pokemon:
         dex = self.species_num()
         form = struct.unpack("B",self.raw_data[0x1D:0x1E])[0]
         query = f"""select pokemonid from "pokemon.pokemon" where pokemonpokedexnumber = {dex}"""
+        print("form",form,"dex",dex)
         match dex:
-            case 81 | 82 | 100 | 101 | 120 | 121 | 137 | 233 | 292 | 337 | 338 | 343 | 344 | 374 | 375 | 376 | 436 | 437 | 462 | 474 | 489 | 490 | 599 | 600 | 601 | 615 | 622 | 623 | 703 | 774 | 781 | 854 | 855 | 770 | 132 | 144 | 145 | 146 | 201 | 243 | 244 | 245 | 249 | 250 | 251 | 377 | 378 | 379 | 382 | 383 | 384 | 385 | 386 | 480 | 481 | 482 | 483 | 484 | 486 | 491 | 493 | 494 | 638 | 639 | 640 | 643 | 644 | 646 | 647 | 649 | 716 | 717 | 718 | 719 | 721: ### Genderless exceptions
-                query+= " and pokemonsuffix is null"
+            #bit 0: fateful encounter flag
+            #bit 1: female-adds 2 to resulting form variable, so 2 or 10 instead of 0 or 8
+            #bit 2: genderless-adds 4, so 4 or 12
+            #bits 3-7: form change flags-8 typical starting point then increases by 8, so 8, 16, 24, etc
             case 641 | 642 | 645:
                 if form > 0: ### Therian forms of Tornadus, Thundurus, Landorus
                     query+= " and pokemonsuffix = 'therian'"
@@ -109,6 +113,8 @@ class Pokemon:
                         query+= " and pokemonsuffix = 'mega-x'"
                     case 20: ### Mewtwo Y
                         query+= " and pokemonsuffix = 'mega-y'"
+            case 201: ### Unown
+                query+= " and pokemonsuffix is null"
             case 351: ### Castform
                 match form:
                     case 8 | 10:
@@ -117,6 +123,14 @@ class Pokemon:
                         query+= " and pokemonsuffix = 'rainy'"
                     case 24 | 26:
                         query+= " and pokemonsuffix = 'snowy'"
+            case 382: ### Kyogre
+                match form:
+                    case 12:
+                        query+= " and pokemonsuffix = 'primal'"
+            case 383: ### Groudon
+                match form:
+                    case 12:
+                        query+= " and pokemonsuffix = 'primal'"
             case 386: ### Deoxys
                 match form:
                     case 12:
@@ -133,6 +147,12 @@ class Pokemon:
                         query+= " and pokemonsuffix = 'trash'"
                     case 2:
                         query+= " and pokemonsuffix = 'plant'"
+            case 421: ### Cherrim
+                query+= " and pokemonsuffix is null"
+            case 422: ### Shellos
+                query+= " and pokemonsuffix is null"
+            case 423: ### Gastrodon
+                query+= " and pokemonsuffix is null"
             case 479: ### Rotom
                 match form:
                     case 12:
@@ -153,16 +173,18 @@ class Pokemon:
                 match form:
                     case 12:
                         query+= " and pokemonsuffix = 'sky'"
+            case 550: ### Basculin
+                match form:
+                    case 8 | 10:
+                        query+= " and pokemonsuffix = 'null'"
             case 555: ### Darmanitan
                 match form:
                     case 8 | 10:
                         query+= " and pokemonsuffix = 'zen'"
-            case 648: ### Meloetta
-                match form:
-                    case 12:
-                        query+= " and pokemonsuffix = 'pirouette'"
-                    case 4:
-                        query+= " and pokemonsuffix = 'aria'"
+            case 585: ### Deerling
+                query+= " and pokemonsuffix is null"
+            case 586: ### Sawsbuck
+                query+= " and pokemonsuffix is null"
             case 646: ### Kyurem
                 match form:
                     case 12:
@@ -170,10 +192,34 @@ class Pokemon:
                 match form:
                     case 20:
                         query+= " and pokemonsuffix = 'black'"
+            case 647: ### Keldeo
+                query+= " and pokemonsuffix is null"
+            case 648: ### Meloetta
+                match form:
+                    case 12:
+                        query+= " and pokemonsuffix = 'pirouette'"
+                    case 4: #base form lmao
+                        query+= " and pokemonsuffix = 'aria'"
+            case 649: ### Genesect
+                query+= " and pokemonsuffix is null"
+            case 658: ### Greninja
+                match form:
+                    case 8 | 16:
+                        query+= " and pokemonsuffix = 'ash'"
+            case 666: ### Vivillon
+                query+= " and pokemonsuffix is null"
+            case 669: ### Flabébé
+                query+= " and pokemonsuffix is null"
             case 670: ### Floette
                 match form:
-                    case 18:
+                    case 42: #0 8 16 24 32 40
                         query+= " and pokemonsuffix = 'eternal'"
+                    case _:
+                        query+= " and pokemonsuffix is null"
+            case 671: ### Florges
+                query+= " and pokemonsuffix is null"
+            case 676: ### Furfrou
+                query+= " and pokemonsuffix is null"
             case 678: ### Meowstic
                 match form:
                     case 10:
@@ -184,20 +230,59 @@ class Pokemon:
                         query+= " and pokemonsuffix = 'shield'"
                     case 8 | 10:
                         query+= " and pokemonsuffix = 'blade'"
-            # case 718: ### Zygarde only needed for gen 7
-            #     print(form)
-            # case 720: ### Hoopa
-            #     print(form)
-            # case 741: ### Oricorio
-            #     print(form)
-            # case 745: ### Lycanroc
-            #     print(form)
-            # case 746: ### Wishiwashi
-            #     print(form)
-            # case 774: ### Minior
-            #     print(form)
-            # case 800: ### Necrozma
-            #     print(form)
+            case 711: ### Gourgeist
+                match form:
+                    case 16:
+                        query+= " and pokemonsuffix = 'average'"
+            case 716: ### Xerneas
+                query+= " and pokemonsuffix is null"
+            case 718: ### Zygarde only needed for gen 7
+                match form:
+                    case 12:
+                        query+= " and pokemonsuffix = '10'"
+                    case 20 | 36:
+                        query+= " and pokemonsuffix = 'complete'"
+            case 720: ### Hoopa
+                match form:
+                    case 12:
+                        query+= " and pokemonsuffix = 'unbound'"
+            case 741: ### Oricorio
+                match form:
+                    case 8 | 10:
+                        query+= " and pokemonsuffix = 'pom-pom'"
+                    case 16 | 18:
+                        query+= " and pokemonsuffix = 'pau'"
+                    case 24 | 26:
+                        query+= " and pokemonsuffix = 'sensu'"
+            case 745: ### Lycanroc
+                match form:
+                    case 16 | 18:
+                        query+= " and pokemonsuffix = 'dusk'"
+                    case 8 | 10:
+                        query+= " and pokemonsuffix = 'midnight'"
+            case 746: ### Wishiwashi
+                match form:
+                    case 8 | 10:
+                        query+= " and pokemonsuffix = 'school'"
+            case 774: ### Minior 4 12 20 28 36 44 52 60
+                match form:
+                    case 12 | 20 | 28 | 36 | 44 | 52 | 60: #60 is red
+                        query+= " and pokemonsuffix = 'core'"
+            case 778: ### Mimikyu
+                query+= " and pokemonsuffix is null"
+            case 800: ### Necrozma
+                match form:
+                    case 12:
+                        query+= " and pokemonsuffix = 'dusk'"
+                    case 20:
+                        query+= " and pokemonsuffix = 'dawn'"
+                    case 28:
+                        query+= " and pokemonsuffix = 'ultra'"
+            case 801: ### Magearna
+                query+= " and pokemonsuffix is null"
+            # case alolan forms-none have separate forms so just case them for if their form > 0
+            case 81 | 82 | 100 | 101 | 120 | 121 | 137 | 233 | 292 | 337 | 338 | 343 | 344 | 374 | 375 | 376 | 436 | 437 | 462 | 474 | 489 | 490 | 599 | 600 | 601 | 615 | 622 | 623 | 703 | 774 | 781 | 854 | 855 | 770 | 132 | 144 | 145 | 146 | 201 | 243 | 244 | 245 | 249 | 250 | 251 | 377 | 378 | 379 | 382 | 383 | 384 | 385 | 386 | 480 | 481 | 482 | 483 | 484 | 486 | 491 | 493 | 494 | 638 | 639 | 640 | 643 | 644 | 646 | 647 | 649 | 716 | 717 | 718 | 719 | 721: ### Genderless exceptions
+                query+= " and pokemonsuffix is null"
             case _:
                 if form == 2:
                     query+= " and pokemonsuffix is null"
@@ -205,8 +290,7 @@ class Pokemon:
                     query+= " and pokemonsuffix ='mega'"
                 else:
                     query+= " and pokemonsuffix is null"
-        # print(form)
-        # print(query)
+        print(query)
         self.id = cursor.execute(query).fetchone()[0]
         self.species,self.suffix,self.name = cursor.execute(f"""select pokemonspeciesname,pokemonsuffix,pokemonname from "pokemon.pokemon" where pokemonid = {self.id}""").fetchone()
         self.suffix = self.suffix or ''
@@ -508,19 +592,15 @@ def getGame(c):
     partylist=[0x8CE1CE8,0x8CF727C,0x34195E10,0x33F7FA44]
     try:
         for item in range(0,4):
-            if read_party(c,partylist[item])[0].species_num() in range(1,808):
-                namelist=["X/Y","OmegaRuby/AlphaSapphire","Sun/Moon","UltraSun/UltraMoon"]
-                return namelist[item]
+            for slot in range(0, 6):
+                if read_party(c,partylist[item])[slot].species_num() in range(1,808):
+                    namelist=["X/Y","OmegaRuby/AlphaSapphire","Sun/Moon","UltraSun/UltraMoon"]
+                    return namelist[item]
     except Exception as e:
         print(e)
-    #config = ConfigParser()
-    #config.read('config.ini')
-    #game = config['config']['game']
-    #return game
 
 def getaddresses(c):
     getGam=getGame(c)
-    print(getGam)
     if getGam=='X/Y':
         partyaddress=0x8CE1CE8
         battlewildpartyadd=142625392
@@ -1090,7 +1170,7 @@ def run():
                                 htmltext+='<div class="pokemon">\r\n\t'
                                 htmltext+='<div class="pokemon-top-block">\r\n\t'
                                 htmltext+='<div class="pokemon-top-left-block">\r\n\t'
-                                htmltext+=f'<div class="sprite">\r\n\t<img src="{pkmn.spriteurl}" data-src="{pkmn.spriteurl}" width="80" height="80" alt="{pkmn.name} sprite">\r\n</div>\r\n\t'
+                                htmltext+=f'<div class="sprite">\r\n\t<img src="images/homemodels/{pkmn.name}.png" data-src="images/homemodels/{pkmn.name}" width="80" height="80" alt="{pkmn.name} sprite">\r\n</div>\r\n\t'
                                 htmltext+='     <div class="species">\r\n\t\t'
                                 htmltext+='         <div class="slot-number">Slot '+str(party.index(pkmn)+1)+'</div>\r\n\t\t'
                                 htmltext+='         <div class="species-number">#'+str(pkmn.species_num())+'</div>\r\n\t\t'
@@ -1114,7 +1194,7 @@ def run():
                                     evohtml=f'<div class="evoarrow">></div><div class="evo">Evolves {evoitem} {evofriend} {evolevel} {evostring} {evoloc}</div>'
                                 else:
                                     evohtml=''
-                                htmltext+=f'     <div class="level mstat"><span class="level name">Level: </span><span class="levelvalue"><span class="seenat">Seen at:{trackdata[pkmn.species]["levels"]}</span>{str(pkmn.level)}</span>{evohtml}</div>\r\n\t'
+                                htmltext+=f'     <div class="level mstat"><span class="level name">Level: </span><span class="levelvalue"><span class="seenat">Seen at:{trackdata[pkmn.name]["levels"]}</span>{str(pkmn.level)}</span>{evohtml}</div>\r\n\t'
                                 if pkmn.status != '':
                                     htmltext+='     <div class="status mstat"><img src="images/statuses/'+pkmn.status+'.png" height="25" width="40"></div>'
                                 else:
@@ -1186,6 +1266,7 @@ def run():
                         json.dump(trackdata,f)
                     time.sleep(8.5)
             except Exception as e:
+                print(e)
                 with open('errorlog.txt','a+') as f:
                     errorLog = str(datetime.now())+": "+str(e)+'\n'
                     f.write(errorLog)
@@ -1201,9 +1282,17 @@ def run():
                     print("Waiting for a ROM...")
                     time.sleep(15)
     except Exception as e:
+        print(e)
         with open('errorlog.txt','a+') as f:
             errorLog = str(datetime.now())+": "+str(e)+'\n'
             f.write(errorLog)
+        import sys, os, traceback
+        exc_type, exc_obj, exc_tb = sys.exc_info()
+        tb = traceback.extract_tb(exc_tb)[-1]
+        print(exc_type, tb[2], tb[1])
+        if "cannot unpack non-iterable NoneType object" in str(e):
+            print("Waiting for a starter...")
+            time.sleep(15)
     finally:
         print("")
 
@@ -1215,7 +1304,6 @@ STAT_DATA_SIZE = 22
 
 conn = sqlite3.connect("data/gen67.sqlite")
 cursor = conn.cursor()
-
 
 with open('data/item-data.json','r') as f:
     items = json.loads(f.read())
