@@ -10,6 +10,7 @@ from configparser import ConfigParser
 from datetime import datetime
 from http.server import HTTPServer, SimpleHTTPRequestHandler, BaseHTTPRequestHandler
 import logging
+import re
 from citra import Citra
 
 trackadd=r"trackerdata.json"
@@ -863,10 +864,15 @@ def run():
         htmlfile='tracker.html'
         prevhtmltext=''
         htmltext=''
+        loops = 0
         while True:
             try:
                 if c.is_connected():
-                    trackdata=json.load(open(trackadd,"r+"))
+                    # trackdata=json.load(open(trackadd,"r+"))
+                    if loops == 0:
+                        trackdata=json.load(open(trackadd,"r+"))
+                    # print("loops" + str(loops))
+                    loops+=1
                     partyadd,enemyadd,ppadd,curoppnum,enctype,mongap=getaddresses(c)
                     #print('reading party')
                     htmltext='<!DOCTYPE html>\r\n<html>\r\n<head>\r\n\t<title>Gen 6 Tracker</title>\r\n'
@@ -1054,6 +1060,7 @@ def run():
                                         #defines the columns for the arrays corresponding to the type hit
                                         typedic={"Normal":0,"Fighting":1,"Flying":2,"Poison":3,"Ground":4,"Rock":5,"Bug":6,"Ghost":7,"Steel":8,"Fire":9,"Water":10,"Grass":11,"Electric":12,"Psychic":13,"Ice":14,"Dragon":15,"Dark":16,"Fairy":17,"Null":18}
                                         typemult=1
+                                        antici=0
                                         if movetyp!=None:
                                             for type in enemytypes:
                                                 typemult=typemult*(typetable[movetyp][typedic[type]])
@@ -1082,7 +1089,7 @@ def run():
                                         htmltext+=f'         <div class="move accuracy">{acc}</div>'
                                         contact = ('Y' if move['contact'] else 'N')
                                         htmltext+=f'         <div class="move contact">{contact}</div></div>\r\n\t'
-                                elif pkmn in party2:
+                                elif (pkmn in party2) & (party.index(pkmn)+1):
                                     htmltext+='<div class="ability">\r\n\t'
                                     query=f"""select
                                             ab.abilityname
@@ -1094,7 +1101,9 @@ def run():
                                         order by ga.generationid desc
                                         """
                                     abilityname,abilitydescription = cursor.execute(query).fetchone()
-                                    startupabils=["Air Lock","Cloud Nine","Delta Stream","Desolate Land","Download","Drizzle","Drought","Forewarn","Frisk","Imposter","Intimidate","Mold Breaker","Pressure","Primordial Sea","Sand Stream","Snow Warning","Teravolt","Turboblaze","Trace","Unnerve"]
+                                    startupabils=["Air Lock","Cloud Nine","Delta Stream","Desolate Land","Download","Drizzle","Drought","Forewarn","Frisk","Imposter","Intimidate","Mold Breaker","Pressure","Primordial Sea","Sand Stream","Slow Start","Snow Warning","Teravolt","Turboblaze","Trace","Unnerve","Aura Break","Fairy Aura","Dark Aura",]
+                                    if antici == 1:
+                                        startupabils.append('Anticipation')
                                     if abilityname in startupabils:
                                         htmltext+='     <div class="ability name"><div class="description">'+str(abilitydescription)+'</div>'+str(abilityname)+'</div>\r\n'
                                         if pkmn.abilityname not in trackdata[pkmn.species]['abilities']:
@@ -1156,6 +1165,13 @@ def run():
                                             trackdata[pkmn.species]['moves'][move['name']]=[]
                                         if pkmn.level not in trackdata[pkmn.species]['moves'][move['name']]:
                                             trackdata[pkmn.species]['moves'][move['name']].append(pkmn.level)
+                                    htmltext+=f'<div class="tracker-data">\r\n\t'
+                                    htmltext+=f'    <div class="tracker-abilities">Known Abilities: {re.sub('[^A-Za-z0-9 ]+', '', str(trackdata[pkmn.species]['abilities']))}</div>'
+                                    htmltext+=f'    <div class="tracker-moves">Previous Moves: {re.sub('[^A-Za-z0-9 ]+', '', str(trackdata[pkmn.species]['moves']))}</div>'
+                                    # htmltext+=f'    <div class="tracker-abilities">Stats: {re.sub('[^A-Za-z0-9 ]+', '', str(trackdata[pkmn.species]['stats']))}</div>'
+                                    # htmltext+=f'    <div class="tracker-moves">Notes: {re.sub('[^A-Za-z0-9 ]+', '', str(trackdata[pkmn.species]['notes']))}</div>'
+                                    htmltext+=f'</div>\r\n\t'
+                                    htmltext+='</div>\r\n' ## close tracker data div
                                 pkmntypes=[]
                                 htmltext+='</div>\r\n' ## Close moves div
                                 htmltext+='</div>' ## Close bottom block
