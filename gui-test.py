@@ -28,7 +28,7 @@ sg.set_options(font=('Franklin Gothic Medium', 16), text_color='white', backgrou
 # Building the file
 topcol1 = [
     [sg.Text('Slot 1', size=(20,1)),],
-    [sg.Image(resize(urlopen(Request(url='https://img.pokemondb.net/sprites/x-y/normal/porygon-z.png', headers={'User-Agent': 'Mozilla/5.0'})), (120,120)))], # need to authenticate otherwise it will give you a 403 error
+    [sg.Image(resize(r'D:\Games\Pokemon\Citra\nightly\scripting\images\gen6models\Porygon-Z.png', (120,120)))], 
     [sg.Text('Porygon-Z', justification='c'), sg.Text('#474', font=('Arial', 11, 'bold'))],
     [sg.Image(resize(r'D:\Games\Pokemon\Citra\nightly\scripting\images\types\Normal.png', (18, 16))), sg.Text('Normal', text_color='#999999')],
     [sg.Text('Level: '), sg.Text('25', tooltip='Seen at [8,9]')],
