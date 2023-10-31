@@ -3,6 +3,7 @@
 # these are native packages
 from urllib.request import urlopen, Request
 from io import BytesIO
+import os
 
 # pip installs required for these
 import PySimpleGUI as sg
@@ -23,12 +24,15 @@ def resize(image_file, new_size, encode_format='PNG'):
 track_title = 'Ironmon Tracker'
 track_size = (600, 600)
 sg.set_options(font=('Franklin Gothic Medium', 16), text_color='white', background_color='black', element_background_color='black', text_element_background_color='black')
+# os.getcwd()
 
 #%% 
 # Building the file
+slot = 1
+
 topcol1 = [
-    [sg.Text('Slot 1', size=(20,1)),],
-    [sg.Image(resize(r'D:\Games\Pokemon\Citra\nightly\scripting\images\gen6models\Porygon-Z.png', (120,120)))], 
+    [sg.Text('Slot {}'.format(slot), size=(20,1)),],
+    [sg.Image(resize('images/gen6models/Porygon-Z.png', (120,120)))], 
     [sg.Text('Porygon-Z', justification='c'), sg.Text('#474', font=('Arial', 11, 'bold'))],
     [sg.Image(resize(r'D:\Games\Pokemon\Citra\nightly\scripting\images\types\Normal.png', (18, 16))), sg.Text('Normal', text_color='#999999')],
     [sg.Text('Level: '), sg.Text('25', tooltip='Seen at [8,9]')],
@@ -97,7 +101,7 @@ botcol5 = [
 ]
 
 topcol1a = [
-    [sg.Text('Slot 1', size=(20,1)),],
+    [sg.Text('Enemy slot 1', size=(20,1)),],
     [sg.Image(resize(r'D:\Games\Pokemon\Citra\nightly\scripting\images\gen6models\Porygon-Z.png', (120,120)))], 
     [sg.Text('Porygon-Z', justification='c'), sg.Text('#474', font=('Arial', 11, 'bold'))],
     [sg.Image(resize(r'D:\Games\Pokemon\Citra\nightly\scripting\images\types\Normal.png', (18, 16))), sg.Text('Normal', text_color='#999999')],
@@ -171,48 +175,63 @@ botcol6a = [
     [sg.Text('previous moves')],
 ]
 
-layout = [
-    [
-        sg.Column(
-            [
-                [
-                    sg.Column(topcol1, element_justification='bottom'), 
-                    sg.Column(topcol2), 
-                    sg.Column(topcol3, element_justification='right')
-                ], 
-                [
-                    sg.Column(botcol1), 
-                    sg.Column(botcol2, element_justification='right'), 
-                    sg.Column(botcol3, element_justification='right'), 
-                    sg.Column(botcol4, element_justification='right'), 
-                    sg.Column(botcol5, element_justification='right')
-                ]
-            ]
-        ), 
-        sg.VerticalSeparator(),
-        sg.Column(
-            [
-                [
-                    sg.Column(topcol1a, element_justification='bottom'), 
-                    sg.Column(topcol2a), 
-                    sg.Column(topcol3a, element_justification='right')
-                ], 
-                [
-                    sg.Column(botcol1a), 
-                    sg.Column(botcol2a, element_justification='right'), 
-                    sg.Column(botcol3a, element_justification='right'), 
-                    sg.Column(botcol4a, element_justification='right'), 
-                    sg.Column(botcol5a, element_justification='right')
-                ], 
-                [
-                    sg.Column(botcol6a), 
-                ]
-            ]
-        )
-    ]
+# layout = [
+#     [
+#         sg.Column(
+#             [
+#                 [
+#                     sg.Column(topcol1, element_justification='bottom'), 
+#                     sg.Column(topcol2), 
+#                     sg.Column(topcol3, element_justification='right')
+#                 ], 
+#                 [
+#                     sg.Column(botcol1), 
+#                     sg.Column(botcol2, element_justification='right'), 
+#                     sg.Column(botcol3, element_justification='right'), 
+#                     sg.Column(botcol4, element_justification='right'), 
+#                     sg.Column(botcol5, element_justification='right')
+#                 ]
+#             ]
+#         ), 
+#         sg.VerticalSeparator(),
+#         sg.Column(
+#             [
+#                 [
+#                     sg.Column(topcol1a, element_justification='bottom'), 
+#                     sg.Column(topcol2a), 
+#                     sg.Column(topcol3a, element_justification='right')
+#                 ], 
+#                 [
+#                     sg.Column(botcol1a), 
+#                     sg.Column(botcol2a, element_justification='right'), 
+#                     sg.Column(botcol3a, element_justification='right'), 
+#                     sg.Column(botcol4a, element_justification='right'), 
+#                     sg.Column(botcol5a, element_justification='right')
+#                 ], 
+#                 [
+#                     sg.Column(botcol6a), 
+#                 ]
+#             ]
+#         )
+#     ]
+# ]
+
+x = []
+x.append(sg.Image(resize('images/types/Normal.png', (18, 16))))
+x.append(sg.Text('Normal', text_color='#999999'))
+# x = [sg.Image(resize('images/types/Normal.png', (18, 16))), sg.Text('Normal', text_color='#999999')]
+
+topcol1test = [
+    [sg.Text('Slot {}'.format(slot), size=(20,1)),],
+    [sg.Image(resize('images/gen6models/Porygon-Z.png', (120,120)))], 
+    [sg.Text('Porygon-Z', justification='c'), sg.Text('#474', font=('Arial', 11, 'bold'))],
+    x,
+    [sg.Text('Level: '), sg.Text('25', tooltip='Seen at [8,9]')],
+    [sg.Text('Speed Boost')],
+    [sg.Text('@None')],
 ]
 
-# layout = [[sg.Text('Testing Python UIs')], [sg.Button('OK')]]
+layout = [[sg.Column(topcol1test, element_justification='bottom')]]
 
 window = sg.Window(track_title, layout, track_size, background_color='black')
 
