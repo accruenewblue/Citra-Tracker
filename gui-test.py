@@ -175,63 +175,63 @@ botcol6a = [
     [sg.Text('previous moves')],
 ]
 
-# layout = [
-#     [
-#         sg.Column(
-#             [
-#                 [
-#                     sg.Column(topcol1, element_justification='bottom'), 
-#                     sg.Column(topcol2), 
-#                     sg.Column(topcol3, element_justification='right')
-#                 ], 
-#                 [
-#                     sg.Column(botcol1), 
-#                     sg.Column(botcol2, element_justification='right'), 
-#                     sg.Column(botcol3, element_justification='right'), 
-#                     sg.Column(botcol4, element_justification='right'), 
-#                     sg.Column(botcol5, element_justification='right')
-#                 ]
-#             ]
-#         ), 
-#         sg.VerticalSeparator(),
-#         sg.Column(
-#             [
-#                 [
-#                     sg.Column(topcol1a, element_justification='bottom'), 
-#                     sg.Column(topcol2a), 
-#                     sg.Column(topcol3a, element_justification='right')
-#                 ], 
-#                 [
-#                     sg.Column(botcol1a), 
-#                     sg.Column(botcol2a, element_justification='right'), 
-#                     sg.Column(botcol3a, element_justification='right'), 
-#                     sg.Column(botcol4a, element_justification='right'), 
-#                     sg.Column(botcol5a, element_justification='right')
-#                 ], 
-#                 [
-#                     sg.Column(botcol6a), 
-#                 ]
-#             ]
-#         )
-#     ]
-# ]
-
-x = []
-x.append(sg.Image(resize('images/types/Normal.png', (18, 16))))
-x.append(sg.Text('Normal', text_color='#999999'))
-# x = [sg.Image(resize('images/types/Normal.png', (18, 16))), sg.Text('Normal', text_color='#999999')]
-
-topcol1test = [
-    [sg.Text('Slot {}'.format(slot), size=(20,1)),],
-    [sg.Image(resize('images/gen6models/Porygon-Z.png', (120,120)))], 
-    [sg.Text('Porygon-Z', justification='c'), sg.Text('#474', font=('Arial', 11, 'bold'))],
-    x,
-    [sg.Text('Level: '), sg.Text('25', tooltip='Seen at [8,9]')],
-    [sg.Text('Speed Boost')],
-    [sg.Text('@None')],
+layout = [
+    [
+        sg.Column(
+            [
+                [
+                    sg.Column(topcol1, element_justification='bottom'), 
+                    sg.Column(topcol2), 
+                    sg.Column(topcol3, element_justification='right')
+                ], 
+                [
+                    sg.Column(botcol1), 
+                    sg.Column(botcol2, element_justification='right'), 
+                    sg.Column(botcol3, element_justification='right'), 
+                    sg.Column(botcol4, element_justification='right'), 
+                    sg.Column(botcol5, element_justification='right')
+                ]
+            ]
+        ), 
+        sg.VerticalSeparator(),
+        sg.Column(
+            [
+                [
+                    sg.Column(topcol1a, element_justification='bottom'), 
+                    sg.Column(topcol2a), 
+                    sg.Column(topcol3a, element_justification='right')
+                ], 
+                [
+                    sg.Column(botcol1a), 
+                    sg.Column(botcol2a, element_justification='right'), 
+                    sg.Column(botcol3a, element_justification='right'), 
+                    sg.Column(botcol4a, element_justification='right'), 
+                    sg.Column(botcol5a, element_justification='right')
+                ], 
+                [
+                    sg.Column(botcol6a), 
+                ]
+            ]
+        )
+    ]
 ]
 
-layout = [[sg.Column(topcol1test, element_justification='bottom')]]
+# x = []
+# x.append(sg.Image(resize('images/types/Normal.png', (18, 16))))
+# x.append(sg.Text('Normal', text_color='#999999'))
+# # x = [sg.Image(resize('images/types/Normal.png', (18, 16))), sg.Text('Normal', text_color='#999999')]
+
+# topcol1test = [
+#     [sg.Text('Slot {}'.format(slot), size=(20,1)),],
+#     [sg.Image(resize('images/gen6models/Porygon-Z.png', (120,120)))], 
+#     [sg.Text('Porygon-Z', justification='c'), sg.Text('#474', font=('Arial', 11, 'bold'))],
+#     x,
+#     [sg.Text('Level: '), sg.Text('25', tooltip='Seen at [8,9]')],
+#     [sg.Text('Speed Boost')],
+#     [sg.Text('@None')],
+# ]
+
+# layout = [[sg.Column(topcol1test, element_justification='bottom')]]
 
 window = sg.Window(track_title, layout, track_size, background_color='black')
 
