@@ -875,6 +875,8 @@ def run():
                 from "pokemon.gamegroup" gg
                 where gamegroupname = '{game}'""").fetchone()
         print('running..')
+        
+        ### SET UP TRACKER GUI ###
         topcol1 = [
             [sg.Text('Loading...', size=(20,1), key='-slot-'),],
             [sg.Image(key='-monimg-')], 
@@ -1047,10 +1049,12 @@ def run():
                                 else:
                                     pkd=1
                                 ##### TYPES, STATS, ABIILITIES, ETC.
-                                typestr = '<div class="type">'
-                                for type in pkmntypes:
-                                    typestr+=f'<img src="images/types/{type}.png" height="16" width="18" alt="{type}"><span class="type '+type+' name">'+type+' </span>'
-                                typestr+='</div>'
+                                for type in pkmn.types:
+                                    window['-typeimg{}-'.format(pkmn.types.index(type) + 1)].Update(resize('images/types/{}.png'.format(type[0]), (27, 24)), visible = True)
+                                    window['-typename{}-'.format(pkmn.types.index(type) + 1)].Update('{}'.format(type[0]), text_color='#999999', visible = True)
+                                    if len(pkmn.types) == 1:
+                                        window['-typeimg2-'].Update(visible = False)
+                                        window['-typename2-'].Update(visible = False)
                                 if pkmn.evo:
                                     # evotype = ('' if not pkmn.evotype else pkmn.evotype)
                                     evoitem = ('' if not pkmn.evoitem else 'w/'+pkmn.evoitem)
@@ -1058,9 +1062,10 @@ def run():
                                     evolevel = ('' if not pkmn.evolevel else '@ level '+str(int(pkmn.evolevel)))
                                     evostring = ('' if not pkmn.evostring else pkmn.evostring)
                                     evoloc = ('' if not pkmn.evolocation else 'in '+pkmn.evolocation)
-                                    evohtml=f'<div class="evoarrow">></div><div class="evo">Evolves {evoitem} {evofriend} {evolevel} {evostring} {evoloc}</div>'
+                                    window['-evo-'].update(' > ')
+                                    window['-evo-'].set_tooltip('Evolves {}{}{}{}{}'.format(evoitem, evofriend, evolevel, evostring, evoloc), visible = True)
                                 else:
-                                    evohtml=''
+                                    window['-evo-'].update(visible = False)
                                 if gen==6:
                                     levelnum=int.from_bytes(c.read_memory(ppadd+(mongap*(pk-1))-256,1))
                                     batabilnum=int.from_bytes(c.read_memory((ppadd+(mongap*(pk-1))+6-264),1))
@@ -1076,6 +1081,12 @@ def run():
                                         x=0
                                 else:
                                     x=0
+                                window['-slot-'].Update('Slot {} - {}'.format(str(party.index(pkmn)+1), 'Battle'))
+                                window['-monimg-'].Update(resize('images/homemodels/{}.png'.format(pkmn.name), (120,120)))
+                                window['-monname-'].Update(pkmn.name.replace("Farfetchd","Farfetch'd"))
+                                window['-monnum-'].Update('#{}'.format(str(pkmn.species_num())))
+                                window['-level-'].Update('Level: {}'.format(levelnum))
+                                window['-level-'].set_tooltip('Seen at {}'.format(trackdata[pkmn.name]["levels"]))
                                 if pkmn in party1: 
                                     query=f"""select
                                             ab.abilityname
@@ -1098,6 +1109,35 @@ def run():
                                     #     countstr+='<div class="damage-bracket">['+str(dmg)+'x]</div>'
                                     #     countstr+='<div class="bracket-count">'+str(count)+'</div>'
                                     nmove = (' - ' if not nextmove else nextmove)
+                                    window['-ability-'].Update(str(pkmn.ability['name']))
+                                    window['-ability-'].set_tooltip(str(pkmn.ability['description']))
+                                    window['-item-'].Update(pkmn.held_item_name)
+                                    window['-hplabel-'].Update(visible = True)
+                                    window['-attlabel-'].Update(visible = True)
+                                    window['-deflabel-'].Update(visible = True)
+                                    window['-spattlabel-'].Update(visible = True)
+                                    window['-spdeflabel-'].Update(visible = True)
+                                    window['-speedlabel-'].Update(visible = True)
+                                    window['-bstlabel-'].Update(visible = True)
+                                    window['-hp-'].Update('{}/{}'.format(hpnum[0], hpnum[1]))
+                                    window['-hp-'].set_tooltip('EV: ' + str(pkmn.evhp))
+                                    window['-att-'].Update(pkmn.attack)
+                                    window['-att-'].set_tooltip('EV: ' + str(pkmn.evattack))
+                                    window['-def-'].Update(pkmn.defense)
+                                    window['-def-'].set_tooltip('EV: ' + str(pkmn.evdefense))
+                                    window['-spatt-'].Update(pkmn.spatk)
+                                    window['-spatt-'].set_tooltip('EV: ' + str(pkmn.evspatk))
+                                    window['-spdef-'].Update(pkmn.spdef)
+                                    window['-spdef-'].set_tooltip('EV: ' + str(pkmn.evspdef))
+                                    window['-speed-'].Update(pkmn.speed)
+                                    window['-speed-'].set_tooltip('EV: ' + str(pkmn.evspeed))
+                                    window['-bst-'].Update(pkmn.bst)
+                                    window['-movehdr-'].update('Moves {}/{} ({})'.format(learnedcount, totallearn, nmove))
+                                    window['-movehdr-'].set_tooltip(learnstr)
+                                    window['-movepphdr-'].update('PP')
+                                    window['-movebphdr-'].update('BP')
+                                    window['-moveacchdr-'].update('Acc')
+                                    window['-movecontacthdr-'].update('C')
                                     for move in pkmn.moves:
                                         stab = ''
                                         movetyp=movetype(pkmn,move,pkmn.held_item_num)
@@ -1106,26 +1146,27 @@ def run():
                                                 stab = move['type']
                                                 continue
                                         typetable={
-                                        "Normal":[1,1,1,1,1,.5,1,0,.5,1,1,1,1,1,1,1,1,1,1],
-                                        "Fighting":[2,1,.5,.5,1,2,.5,0,2,1,1,1,1,.5,2,1,2,.5,1],
-                                        "Flying":[1,2,1,1,1,.5,2,1,.5,1,1,2,.5,1,1,1,1,1,1],
-                                        "Poison":[1,1,1,.5,.5,.5,1,.5,0,1,1,2,1,1,1,1,1,2,1],
-                                        "Ground":[1,1,0,2,1,2,.5,1,2,2,1,.5,2,1,1,1,1,1,1],
-                                        "Rock":[1,.5,2,1,.5,1,2,1,.5,2,1,1,1,1,2,1,1,1,1],
-                                        "Bug":[1,.5,.5,.5,1,1,1,.5,.5,.5,1,2,1,2,1,1,2,.5,1],
-                                        "Ghost":[0,1,1,1,1,1,1,2,1,1,1,1,1,2,1,1,.5,1,1],
-                                        "Steel":[1,1,1,1,1,2,1,1,.5,.5,.5,1,.5,1,2,1,1,2,1],
-                                        "Fire":[1,1,1,1,1,.5,2,1,2,.5,.5,2,1,1,2,.5,1,1,1],
-                                        "Water":[1,1,1,1,2,2,1,1,1,2,.5,.5,1,1,1,.5,1,1,1],
-                                        "Grass":[1,1,.5,.5,2,2,.5,1,.5,.5,2,.5,1,1,1,.5,1,1,1],
-                                        "Electric":[1,1,2,1,0,1,1,1,1,1,2,.5,.5,1,1,.5,1,1,1],
-                                        "Psychic":[1,2,1,2,1,1,1,1,.5,1,1,1,1,.5,1,1,0,1,1],
-                                        "Ice":[1,1,2,1,2,1,1,1,.5,.5,.5,2,1,1,.5,2,1,1,1],
-                                        "Dragon":[1,1,1,1,1,1,1,1,.5,1,1,1,1,1,1,2,1,0,1],
-                                        "Dark":[1,.5,1,1,1,1,1,2,1,1,1,1,1,2,1,1,.5,.5,1],
-                                        "Fairy":[1,2,1,.5,1,1,1,1,.5,.5,1,1,1,1,1,2,2,1,1],
-                                        "Null":[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
-                                        "-":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],}
+                                            "Normal":[1,1,1,1,1,.5,1,0,.5,1,1,1,1,1,1,1,1,1,1],
+                                            "Fighting":[2,1,.5,.5,1,2,.5,0,2,1,1,1,1,.5,2,1,2,.5,1],
+                                            "Flying":[1,2,1,1,1,.5,2,1,.5,1,1,2,.5,1,1,1,1,1,1],
+                                            "Poison":[1,1,1,.5,.5,.5,1,.5,0,1,1,2,1,1,1,1,1,2,1],
+                                            "Ground":[1,1,0,2,1,2,.5,1,2,2,1,.5,2,1,1,1,1,1,1],
+                                            "Rock":[1,.5,2,1,.5,1,2,1,.5,2,1,1,1,1,2,1,1,1,1],
+                                            "Bug":[1,.5,.5,.5,1,1,1,.5,.5,.5,1,2,1,2,1,1,2,.5,1],
+                                            "Ghost":[0,1,1,1,1,1,1,2,1,1,1,1,1,2,1,1,.5,1,1],
+                                            "Steel":[1,1,1,1,1,2,1,1,.5,.5,.5,1,.5,1,2,1,1,2,1],
+                                            "Fire":[1,1,1,1,1,.5,2,1,2,.5,.5,2,1,1,2,.5,1,1,1],
+                                            "Water":[1,1,1,1,2,2,1,1,1,2,.5,.5,1,1,1,.5,1,1,1],
+                                            "Grass":[1,1,.5,.5,2,2,.5,1,.5,.5,2,.5,1,1,1,.5,1,1,1],
+                                            "Electric":[1,1,2,1,0,1,1,1,1,1,2,.5,.5,1,1,.5,1,1,1],
+                                            "Psychic":[1,2,1,2,1,1,1,1,.5,1,1,1,1,.5,1,1,0,1,1],
+                                            "Ice":[1,1,2,1,2,1,1,1,.5,.5,.5,2,1,1,.5,2,1,1,1],
+                                            "Dragon":[1,1,1,1,1,1,1,1,.5,1,1,1,1,1,1,2,1,0,1],
+                                            "Dark":[1,.5,1,1,1,1,1,2,1,1,1,1,1,2,1,1,.5,.5,1],
+                                            "Fairy":[1,2,1,.5,1,1,1,1,.5,.5,1,1,1,1,1,2,2,1,1],
+                                            "Null":[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+                                            "-":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+                                        }
                                         #defines the columns for the arrays corresponding to the type hit
                                         typedic={"Normal":0,"Fighting":1,"Flying":2,"Poison":3,"Ground":4,"Rock":5,"Bug":6,"Ghost":7,"Steel":8,"Fire":9,"Water":10,"Grass":11,"Electric":12,"Psychic":13,"Ice":14,"Dragon":15,"Dark":16,"Fairy":17,"Null":18}
                                         typemult=1
@@ -1153,6 +1194,13 @@ def run():
                                         movepower = calcPower(pkmn,move)
                                         acc = '-' if not move['acc'] else int(move['acc'])
                                         contact = ('Y' if move['contact'] else 'N')
+                                        window['-mv{}type-'.format(pkmn.moves.index(move) + 1)].update(resize('images/categories/{}.png'.format(move["category"]), (27,20)))
+                                        window['-mv{}text-'.format(pkmn.moves.index(move) + 1)].update(move["name"])
+                                        window['-mv{}text-'.format(pkmn.moves.index(move) + 1)].set_tooltip(move["description"])
+                                        window['-mv{}pp-'.format(pkmn.moves.index(move) + 1)].update('{}/{}'.format(move["pp"], move["maxpp"]))
+                                        window['-mv{}bp-'.format(pkmn.moves.index(move) + 1)].update(movepower)
+                                        window['-mv{}acc-'.format(pkmn.moves.index(move) + 1)].update(acc)
+                                        window['-mv{}ctc-'.format(pkmn.moves.index(move) + 1)].update(contact)
                                 elif (pkmn in party2) & (party.index(pkmn)+1):
                                     query=f"""select
                                             ab.abilityname
@@ -1242,7 +1290,7 @@ def run():
                                     acc = '-' if not move['acc'] else int(move['acc'])
                                     contact = ('Y' if move['contact'] else 'N')
                                 ### UPDATING TRACKER INFO ###
-                                window['-slot-'].Update('Slot {}'.format(str(party.index(pkmn)+1)))
+                                window['-slot-'].Update('Slot {} - {}'.format(str(party.index(pkmn)+1), 'Overworld'))
                                 window['-monimg-'].Update(resize('images/homemodels/{}.png'.format(pkmn.name), (120,120)))
                                 window['-monname-'].Update(pkmn.name.replace("Farfetchd","Farfetch'd"))
                                 window['-monnum-'].Update('#{}'.format(str(pkmn.species_num())))
