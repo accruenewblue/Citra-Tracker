@@ -673,34 +673,7 @@ def read_party(c,party_address):
                 traceback.print_exc()
                 pass
     return party
-class server(SimpleHTTPRequestHandler):
-    def do_GET(self):
-        logging.info("GET request,\nPath: %s\nHeaders:\n%s\n", str(self.path), str(self.headers))
-        SimpleHTTPRequestHandler.do_GET(self)
-    def do_POST(self):
-        content_length = int(self.headers['Content-Length']) # <--- Gets the size of data
-        post_data = self.rfile.read(content_length) # <--- Gets the data itself
-        logging.info("POST request,\nPath: %s\nHeaders:\n%s\n\nBody:\n%s\n",str(self.path), str(self.headers), post_data.decode('utf-8'))
-        datajson=json.loads(post_data)
-        with open(trackadd,'w') as f:
-            json.dump(datajson,f)
-def launchHTTP(server_class=HTTPServer, handler_class=server, port=8000):
-    logging.basicConfig(level=logging.INFO)
-    server_address = ('', port)
-    httpd = server_class(server_address, handler_class)
-    logging.info('Starting httpd...\n')
-    print(httpd)
-    try:
-        httpd.serve_forever()
-    except KeyboardInterrupt:
-        pass
-    else:
-        print("Please direct an OBS Browser Source to http://localhost:8000/tracker.html or ./tracker.html")
-    httpd.server_close()
-    logging.info('Stopping httpd...\n')
-#def launch2():
-    #httpd = HTTPServer(('localhost', 8000), SimpleHTTPRequestHandler)
-    #httpd.serve_forever()
+
 def print_bits(value):
     binary = bin(value)[2:].zfill(8)
     bits = [bool(int(bit)) for bit in binary]
@@ -878,7 +851,7 @@ def run():
         
         ### SET UP TRACKER GUI ###
         topcol1 = [
-            [sg.Text('Loading...', size=(20,1), key='-slot-'),],
+            [sg.Combo([], visible=False, font=('Franklin Gothic Medium', 14), enable_events=True, key='-slotdrop-', readonly=False),sg.Text('Loading...', size=(20,1), key='-slot-'),],
             [sg.Image(key='-monimg-')], 
             [sg.Text(justification='c', key='-monname-'), sg.Text(font=('Arial', 11, 'bold'), key='-monnum-')],
             [sg.Image(key='-typeimg1-'), sg.Text(key='-typename1-'), sg.Image(key='-typeimg2-', visible=False), sg.Text(key='-typename2-', visible=False),],
@@ -1022,6 +995,7 @@ def run():
                     except Exception:
                         print(Exception)
                     for pkmn in party:
+                        slots = []
                         if pkmn.species_num() in range (1,808): ### Make sure the slot is valid & not an egg
                             pkmn.getAtts(gamegroupid,gen)
                             if int(pkmn.cur_hp) > 5000: ### Make sure the memory dump hasn't happened (or whatever causes the invalid values)
@@ -1268,7 +1242,7 @@ def run():
                                     evostring = ('' if not pkmn.evostring else pkmn.evostring)
                                     evoloc = ('' if not pkmn.evolocation else 'in '+pkmn.evolocation)
                                 if pkmn.status != '':
-                                    window['-status-'].Update(resize('images/statuses/{}.png', (40, 25)).format(pkmn.status), visible = True)
+                                    window['-status-'].Update(resize('images/statuses/{}.png'.format(pkmn.status), (75, 20)), visible = True)
                                 else:
                                     window['-status-'].Update(visible = False)
                                 ### MOVES ########
@@ -1290,6 +1264,9 @@ def run():
                                     acc = '-' if not move['acc'] else int(move['acc'])
                                     contact = ('Y' if move['contact'] else 'N')
                                 ### UPDATING TRACKER INFO ###
+                                # slots = slots.append(pkmn.name)
+                                # print(slots)
+                                # window['-slotdrop-'].Update(values=slots, visible=True)
                                 window['-slot-'].Update('Slot {} - {}'.format(str(party.index(pkmn)+1), 'Overworld'))
                                 window['-monimg-'].Update(resize('images/homemodels/{}.png'.format(pkmn.name), (120,120)))
                                 window['-monname-'].Update(pkmn.name.replace("Farfetchd","Farfetch'd"))
