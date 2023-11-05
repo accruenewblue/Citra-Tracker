@@ -851,7 +851,8 @@ def run():
         
         ### SET UP TRACKER GUI ###
         topcol1 = [
-            [sg.Combo([], visible=False, font=('Franklin Gothic Medium', 14), enable_events=True, key='-slotdrop-', readonly=False),sg.Text('Loading...', size=(20,1), key='-slot-'),],
+            [sg.Combo([], visible=False, font=('Franklin Gothic Medium', 14), enable_events=True, key='-slotdrop-', readonly=True, expand_x=True, background_color='black', text_color='white')],
+            [sg.Text('Loading...', key='-slot-'),],
             [sg.Image(key='-monimg-')], 
             [sg.Text(justification='c', key='-monname-'), sg.Text(font=('Arial', 11, 'bold'), key='-monnum-')],
             [sg.Image(key='-typeimg1-'), sg.Text(key='-typename1-'), sg.Image(key='-typeimg2-', visible=False), sg.Text(key='-typename2-', visible=False),],
@@ -949,6 +950,7 @@ def run():
         window = sg.Window(track_title, layout, track_size, background_color='black')
         trackdataedit = 0  # creating flag for edits
         loops = 0
+        slotchoice = ''
         while (True):
             try:
                 if c.is_connected():
@@ -956,6 +958,9 @@ def run():
                     event, values = window.Read(timeout=8000)
                     if event == sg.WIN_CLOSED:
                         break
+                    if event == '-slotdrop-':
+                        slotchoice = values['-slotdrop-']
+                        print(slotchoice)
                     if loops == 0:
                         trackdata=json.load(open(trackadd,"r+"))
                     partyadd,enemyadd,ppadd,curoppnum,enctype,mongap=getaddresses(c)
@@ -994,8 +999,8 @@ def run():
                                 enemytypes.append(typelist[byte])
                     except Exception:
                         print(Exception)
+                    slot = []
                     for pkmn in party:
-                        slots = []
                         if pkmn.species_num() in range (1,808): ### Make sure the slot is valid & not an egg
                             pkmn.getAtts(gamegroupid,gen)
                             if int(pkmn.cur_hp) > 5000: ### Make sure the memory dump hasn't happened (or whatever causes the invalid values)
@@ -1005,6 +1010,12 @@ def run():
                                     pk=pkmnindex+len(party1)
                                 elif gen==7:
                                     pk=pkmnindex+12
+                            else:
+                                slot.append(pkmn.name)
+                            if slotchoice == '':
+                                slotchoice = pkmn.name # only kicks the first time through the code
+                            # print(slot)
+                            window['-slotdrop-'].Update(values=slot, value=slotchoice, visible=True)
                             if enctype!='p':
                                 #grabs in battle types
                                 pkmntypes=[]
@@ -1055,13 +1066,7 @@ def run():
                                         x=0
                                 else:
                                     x=0
-                                window['-slot-'].Update('Slot {} - {}'.format(str(party.index(pkmn)+1), 'Battle'))
-                                window['-monimg-'].Update(resize('images/homemodels/{}.png'.format(pkmn.name), (120,120)))
-                                window['-monname-'].Update(pkmn.name.replace("Farfetchd","Farfetch'd"))
-                                window['-monnum-'].Update('#{}'.format(str(pkmn.species_num())))
-                                window['-level-'].Update('Level: {}'.format(levelnum))
-                                window['-level-'].set_tooltip('Seen at {}'.format(trackdata[pkmn.name]["levels"]))
-                                if pkmn in party1: 
+                                if (pkmn in party1) and (pkmn.name == slotchoice): 
                                     query=f"""select
                                             ab.abilityname
                                             ,abilitydescription
@@ -1083,6 +1088,12 @@ def run():
                                     #     countstr+='<div class="damage-bracket">['+str(dmg)+'x]</div>'
                                     #     countstr+='<div class="bracket-count">'+str(count)+'</div>'
                                     nmove = (' - ' if not nextmove else nextmove)
+                                    window['-slot-'].Update('Slot {} - {}'.format(str(party.index(pkmn)+1), 'Battle'))
+                                    window['-monimg-'].Update(resize('images/homemodels/{}.png'.format(pkmn.name), (120,120)))
+                                    window['-monname-'].Update(pkmn.name.replace("Farfetchd","Farfetch'd"))
+                                    window['-monnum-'].Update('#{}'.format(str(pkmn.species_num())))
+                                    window['-level-'].Update('Level: {}'.format(levelnum))
+                                    window['-level-'].set_tooltip('Seen at {}'.format(trackdata[pkmn.name]["levels"]))
                                     window['-ability-'].Update(str(pkmn.ability['name']))
                                     window['-ability-'].set_tooltip(str(pkmn.ability['description']))
                                     window['-item-'].Update(pkmn.held_item_name)
@@ -1227,7 +1238,9 @@ def run():
                                             trackdata[pkmn.species]['moves'][move['name']].append(pkmn.level)
                                             trackdataedit = 1
                                 pkmntypes=[]
-                            elif enctype=='p':
+                            # elif (enctype=='p'):
+                            # elif (enctype=='p') and (party.index(pkmn)+1 == 1): # locking to first mon for now
+                            elif (enctype=='p') and (pkmn.name == slotchoice):
                                 ##### TYPES, STATS, ABIILITIES, ETC.
                                 for type in pkmn.types:
                                     window['-typeimg{}-'.format(pkmn.types.index(type) + 1)].Update(resize('images/types/{}.png'.format(type[0]), (27, 24)), visible = True)
@@ -1264,9 +1277,8 @@ def run():
                                     acc = '-' if not move['acc'] else int(move['acc'])
                                     contact = ('Y' if move['contact'] else 'N')
                                 ### UPDATING TRACKER INFO ###
-                                # slots = slots.append(pkmn.name)
-                                # print(slots)
-                                # window['-slotdrop-'].Update(values=slots, visible=True)
+                                print(slot)
+                                # print(party1)
                                 window['-slot-'].Update('Slot {} - {}'.format(str(party.index(pkmn)+1), 'Overworld'))
                                 window['-monimg-'].Update(resize('images/homemodels/{}.png'.format(pkmn.name), (120,120)))
                                 window['-monname-'].Update(pkmn.name.replace("Farfetchd","Farfetch'd"))
@@ -1332,33 +1344,6 @@ def run():
                     #     with open(trackadd,'w') as f:
                     #         json.dump(trackdata,f)
                     #     trackdataedit = 0
-                    # layout = [[sg.Column(topcol1, element_justification='bottom', key='TL-COL')]]
-                    # window = sg.Window(track_title, layout, track_size, background_color='black')
-                    # event, values = window.read(timeout=5000)
-                    # topcol1 = [
-                    #     [sg.Text('Slot {}'.format(str(party.index(pkmn)+1)), size=(20,1), key='SLOT'),],
-                    #     [sg.Image(resize('images/homemodels/{}.png'.format(pkmn.name), (120,120)))], 
-                    #     [sg.Text(pkmn.name.replace("Farfetchd","Farfetch'd"), justification='c'), sg.Text('#{}'.format(str(pkmn.species_num())), font=('Arial', 11, 'bold'))],
-                    #     typegui,
-                    #     [sg.Text('Level: '), sg.Text(str(pkmn.level), tooltip='Seen at {}'.format(trackdata[pkmn.name]["levels"])), evogui, statusgui],
-                    #     [sg.Text(str(pkmn.ability['name']), tooltip=str(pkmn.ability['description']))],
-                    #     [sg.Text(pkmn.held_item_name)],
-                    # ]
-
-                    # if event == sg.WIN_CLOSED:
-                    #     break
-                    # elif event == sg.TIMEOUT_KEY:
-                    #     layout = [[sg.Column(topcol1, element_justification='bottom')]]
-                    #     window['-slot-'].Update('Slot {}'.format(str(party.index(pkmn)+1)))
-                    #     window['-monimg-'].Update(resize('images/homemodels/{}.png'.format(pkmn.name), (120,120)))
-                    #     window['-monname-'].Update(pkmn.name.replace("Farfetchd","Farfetch'd"))
-                    #     window['-monnum-'].Update('#{}'.format(str(pkmn.species_num())))
-                    #     window['-typeimg-'].Update(resize('images/types/{}.png'.format(type[0]), (18, 16)))
-                    #     window['-typename-'].Update('{}'.format(type[0]), text_color='#999999')
-                    #     window['-level-'].Update('Level: {}'.format(str(pkmn.level)), tooltip='Seen at {}'.format(trackdata[pkmn.name]["levels"]))
-                    #     window['-ability-'].Update(str(pkmn.ability['name']), tooltip=str(pkmn.ability['description']))
-                    #     window['-item-'].Update(pkmn.held_item_name)
-
                     # time.sleep(8.5)
             except Exception as e:
                 print(e)
