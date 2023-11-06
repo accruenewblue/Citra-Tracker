@@ -834,6 +834,14 @@ def resize(image_file, new_size, encode_format='PNG'):
         data = buffer.getvalue()
     return data
 
+def typeformatting(typing):
+    typecolordict = {'Normal':'#999999', 'Fire':'#ff612c', 'Water':'#2892ff', 'Electric':'#ffdb00', 'Grass':'#42bf24', 
+                  'Ice':'#42bfff', 'Fighting':'#ffa202', 'Poison':'#994dcf', 'Ground':'#ab7939', 'Flying':'#95c9ff',
+                  'Psychic':'#ff637f', 'Bug':'#9fa523', 'Rock':'#bcb889', 'Ghost':'#6e4570', 'Dragon':'#7e44ed', 
+                  'Dark':'#2f4f4f', 'Steel':'#708090', 'Fairy':'#ffb1ff'}
+    typecolor = typecolordict[typing]
+    return typecolor
+
 def run():
     try:
         #print('connecting to citra')
@@ -880,87 +888,191 @@ def run():
         ]
 
         botcol1 = [
-            [sg.Text(key='-movehdr-')],
+            [sg.Text(key='-movehdr-', justification='l')],
             [sg.Image(key='-mv1type-'), sg.Text(key='-mv1text-')],
             [sg.Image(key='-mv2type-'), sg.Text(key='-mv2text-')],
             [sg.Image(key='-mv3type-'), sg.Text(key='-mv3text-')],
             [sg.Image(key='-mv4type-'), sg.Text(key='-mv4text-')],
         ]
         botcol2 = [
-            [sg.Text(key='-movepphdr-')],
-            [sg.Text(key='-mv1pp-')],
-            [sg.Text(key='-mv2pp-')],
-            [sg.Text(key='-mv3pp-')],
-            [sg.Text(key='-mv4pp-')],
+            [sg.Text(key='-movepphdr-', size=5, justification='c')],
+            [sg.Text(key='-mv1pp-', size=5, justification='r'), sg.Image(key='-mv1mod-'),],
+            [sg.Text(key='-mv2pp-', size=5, justification='r'), sg.Image(key='-mv2mod-'),],
+            [sg.Text(key='-mv3pp-', size=5, justification='r'), sg.Image(key='-mv3mod-'),],
+            [sg.Text(key='-mv4pp-', size=5, justification='r'), sg.Image(key='-mv4mod-'),],
         ]
-        botcol3 = [
-            [sg.Text(key='-movebphdr-')],
-            [sg.Text(key='-mv1bp-')],
-            [sg.Text(key='-mv2bp-')],
-            [sg.Text(key='-mv3bp-')],
-            [sg.Text(key='-mv4bp-')],
-        ]
+        # botcol3 = [
+        #     [sg.Image(key='-mvmodhdr-'), sg.Text(size=(0,1))],
+        #     [sg.Image(key='-mv1mod-'), sg.Text(size=(0,1))],
+        #     [sg.Image(key='-mv2mod-'), sg.Text(size=(0,1))],
+        #     [sg.Image(key='-mv3mod-'), sg.Text(size=(0,1))],
+        #     [sg.Image(key='-mv4mod-'), sg.Text(size=(0,1))],
+        # ]
         botcol4 = [
-            [sg.Text(key='-moveacchdr-')],
-            [sg.Text(key='-mv1acc-')],
-            [sg.Text(key='-mv2acc-')],
-            [sg.Text(key='-mv3acc-')],
-            [sg.Text(key='-mv4acc-')],
+            [sg.Text(key='-movebphdr-', size=3, justification='r')],
+            [sg.Text(key='-mv1bp-', size=3, justification='r')],
+            [sg.Text(key='-mv2bp-', size=3, justification='r')],
+            [sg.Text(key='-mv3bp-', size=3, justification='r')],
+            [sg.Text(key='-mv4bp-', size=3, justification='r')],
         ]
         botcol5 = [
-            [sg.Text(key='-movecontacthdr-')],
-            [sg.Text(key='-mv1ctc-')],
-            [sg.Text(key='-mv2ctc-')],
-            [sg.Text(key='-mv3ctc-')],
-            [sg.Text(key='-mv4ctc-')],
+            [sg.Text(key='-moveacchdr-', size=3, justification='c')],
+            [sg.Text(key='-mv1acc-', size=3, justification='c')],
+            [sg.Text(key='-mv2acc-', size=3, justification='c')],
+            [sg.Text(key='-mv3acc-', size=3, justification='c')],
+            [sg.Text(key='-mv4acc-', size=3, justification='c')],
+        ]
+        botcol6 = [
+            [sg.Text(key='-movecontacthdr-', size=1, justification='c')],
+            [sg.Text(key='-mv1ctc-', size=1, justification='c')],
+            [sg.Text(key='-mv2ctc-', size=1, justification='c')],
+            [sg.Text(key='-mv3ctc-', size=1, justification='c')],
+            [sg.Text(key='-mv4ctc-', size=1, justification='c')],
         ]
 
-        topcol1a = topcol2a = topcol3a = []
-        botcol1a = botcol2a = botcol3a = botcol4a = botcol5a = botcol6a = []
+        topcol1a = [
+            [sg.Text(key='-slot-e-'),],
+            [sg.Image(key='-monimg-e-')], 
+            [sg.Text(justification='c', key='-monname-e-'), sg.Text(font=('Arial', 11, 'bold'), key='-monnum-e-')],
+            [sg.Image(key='-typeimg1-e-'), sg.Text(key='-typename1-e-'), sg.Image(key='-typeimg2-e-', visible=False), sg.Text(key='-typename2-e-', visible=False),],
+            [sg.Text(key='-level-e-'), sg.Text(key='-evo-e-', visible = False), sg.Image(key='-status-e-', visible = False)],
+            [sg.Text(key='-ability-e-')],
+            [sg.Text(key='-item-e-')],
+        ]
+        topcol2a = [
+            [sg.Text('HP:', key='-hplabel-e-', visible=False)],
+            [sg.Text('Atk:', key='-attlabel-e-', visible=False)],
+            [sg.Text('Def:', key='-deflabel-e-', visible=False)],
+            [sg.Text('SpAtk:', key='-spattlabel-e-', visible=False)],
+            [sg.Text('SpDef:', key='-spdeflabel-e-', visible=False)],
+            [sg.Text('Speed:', key='-speedlabel-e-', visible=False)],
+            [sg.Text('BST:', key='-bstlabel-e-', visible=False)],
+        ]
+        topcol3a = [
+            [sg.Text('[ ]', key='-hp-e-', enable_events=True, visible=False)],
+            [sg.Text('[ ]', key='-att-e-', enable_events=True, visible=False)],
+            [sg.Text('[ ]', key='-def-e-', enable_events=True, visible=False)],
+            [sg.Text('[ ]', key='-spatt-e-', enable_events=True, visible=False)],
+            [sg.Text('[ ]', key='-spdef-e-', enable_events=True, visible=False)],
+            [sg.Text('[ ]', key='-speed-e-', enable_events=True, visible=False)],
+            [sg.Text(key='-bst-e-', visible=False)],
+        ]
+
+        botcol1a = [
+            [sg.Text(key='-movehdr-e-', justification='l')],
+            [sg.Image(key='-mv1type-e-'), sg.Text(key='-mv1text-e-')],
+            [sg.Image(key='-mv2type-e-'), sg.Text(key='-mv2text-e-')],
+            [sg.Image(key='-mv3type-e-'), sg.Text(key='-mv3text-e-')],
+            [sg.Image(key='-mv4type-e-'), sg.Text(key='-mv4text-e-')],
+        ]
+        botcol2a = [
+            [sg.Text(key='-movepphdr-e-', size=5, justification='c')],
+            [sg.Text(key='-mv1pp-e-', size=5, justification='r'), sg.Image(key='-mv1mod-e-'),],
+            [sg.Text(key='-mv2pp-e-', size=5, justification='r'), sg.Image(key='-mv2mod-e-'),],
+            [sg.Text(key='-mv3pp-e-', size=5, justification='r'), sg.Image(key='-mv3mod-e-'),],
+            [sg.Text(key='-mv4pp-e-', size=5, justification='r'), sg.Image(key='-mv4mod-e-'),],
+        ]
+        # botcol3a = [
+        #     [sg.Image(key='-mvmodhdr-e-'), sg.Text(size=(0,1))],
+        #     [sg.Image(key='-mv1mod-e-'), sg.Text(size=(0,1))],
+        #     [sg.Image(key='-mv2mod-e-'), sg.Text(size=(0,1))],
+        #     [sg.Image(key='-mv3mod-e-'), sg.Text(size=(0,1))],
+        #     [sg.Image(key='-mv4mod-e-'), sg.Text(size=(0,1))],
+        # ]
+        botcol4a = [
+            [sg.Text(key='-movebphdr-e-', size=3, justification='r')],
+            [sg.Text(key='-mv1bp-e-', size=3, justification='r')],
+            [sg.Text(key='-mv2bp-e-', size=3, justification='r')],
+            [sg.Text(key='-mv3bp-e-', size=3, justification='r')],
+            [sg.Text(key='-mv4bp-e-', size=3, justification='r')],
+        ]
+        botcol5a = [
+            [sg.Text(key='-moveacchdr-e-', size=3, justification='c')],
+            [sg.Text(key='-mv1acc-e-', size=3, justification='c')],
+            [sg.Text(key='-mv2acc-e-', size=3, justification='c')],
+            [sg.Text(key='-mv3acc-e-', size=3, justification='c')],
+            [sg.Text(key='-mv4acc-e-', size=3, justification='c')],
+        ]
+        botcol6a = [
+            [sg.Text(key='-movecontacthdr-e-', size=1, justification='c')],
+            [sg.Text(key='-mv1ctc-e-', size=1, justification='c')],
+            [sg.Text(key='-mv2ctc-e-', size=1, justification='c')],
+            [sg.Text(key='-mv3ctc-e-', size=1, justification='c')],
+            [sg.Text(key='-mv4ctc-e-', size=1, justification='c')],
+        ]
+        botcol7a = [
+            [sg.Text(key='-movecontacthdr-e-', size=1, justification='c')],
+            [sg.Text(key='-mv1ctc-e-', size=1, justification='c')],
+            [sg.Text(key='-mv2ctc-e-', size=1, justification='c')],
+            [sg.Text(key='-mv3ctc-e-', size=1, justification='c')],
+            [sg.Text(key='-mv4ctc-e-', size=1, justification='c')],
+        ]
+
         layout = [[
             sg.Column([[
-                sg.Column(topcol1, element_justification='bottom', key='-TLCOL1-'), 
+                sg.Column(topcol1, key='-TLCOL1-', size=(250, 380)), 
                 sg.Column(topcol2, key='-TLCOL2-'), 
                 sg.Column(topcol3, element_justification='right', key='-TLCOL3-')
             ], 
             [
                 sg.Column(botcol1), 
-                sg.Column(botcol2, element_justification='right'), 
-                sg.Column(botcol3, element_justification='right'), 
-                sg.Column(botcol4, element_justification='right'), 
-                sg.Column(botcol5, element_justification='right')
-            ]]), 
+                sg.Column(botcol2), 
+                # sg.Column(botcol3), 
+                sg.Column(botcol4), 
+                sg.Column(botcol5),
+                sg.Column(botcol6),
+            ]], size=(450, 590)), 
             sg.VerticalSeparator(),
             sg.Column([[
-                sg.Column(topcol1a, element_justification='bottom'), 
+                sg.Column(topcol1a, size=(250, 380)), 
                 sg.Column(topcol2a), 
                 sg.Column(topcol3a, element_justification='right')
             ], 
             [
                 sg.Column(botcol1a), 
                 sg.Column(botcol2a, element_justification='right'), 
-                sg.Column(botcol3a, element_justification='right'), 
+                # sg.Column(botcol3a, element_justification='right'), 
                 sg.Column(botcol4a, element_justification='right'), 
-                sg.Column(botcol5a, element_justification='right')
+                sg.Column(botcol5a, element_justification='right'), 
+                sg.Column(botcol6a, element_justification='right')
             ], 
             [
-                sg.Column(botcol6a), 
-            ]])
+                sg.Column(botcol7a), 
+            ]], size=(450, 590))
         ]]
         window = sg.Window(track_title, layout, track_size, background_color='black')
         trackdataedit = 0  # creating flag for edits
         loops = 0
         slotchoice = ''
+        enemydict = ['', '', '', '', '', '', ]
         while (True):
             try:
                 if c.is_connected():
                     # trackdata=json.load(open(trackadd,"r+"))
                     event, values = window.Read(timeout=8000)
+                    print(event)
                     if event == sg.WIN_CLOSED:
                         break
-                    if event == '-slotdrop-':
+                    elif event == '-slotdrop-':
                         slotchoice = values['-slotdrop-']
-                        print(slotchoice)
+                        window['-slotdrop-'].widget.select_clear()
+                        # print(slotchoice)
+                    elif event == '-hp-e-':
+                        note = enemydict[0]
+                        if note == '':
+                            window['-hp-e-'].Update('[+]')
+                            enemydict[0] = '+'
+                        elif note == '+':
+                            window['-hp-e-'].Update('[-]')
+                            enemydict[0] = '-'
+                        elif note == '-':
+                            window['-hp-e-'].Update('[=]')
+                            enemydict[0] = '='
+                        elif note == '=':
+                            window['-hp-e-'].Update('[ ]')
+                            enemydict[0] = ''
+                        else: 
+                            window['-hp-e-'].Update('[test]')
                     if loops == 0:
                         trackdata=json.load(open(trackadd,"r+"))
                     partyadd,enemyadd,ppadd,curoppnum,enctype,mongap=getaddresses(c)
@@ -1033,40 +1145,39 @@ def run():
                                     pkd=2
                                 else:
                                     pkd=1
-                                ##### TYPES, STATS, ABIILITIES, ETC.
-                                for type in pkmn.types:
-                                    window['-typeimg{}-'.format(pkmn.types.index(type) + 1)].Update(resize('images/types/{}.png'.format(type[0]), (27, 24)), visible = True)
-                                    window['-typename{}-'.format(pkmn.types.index(type) + 1)].Update('{}'.format(type[0]), text_color='#999999', visible = True)
-                                    if len(pkmn.types) == 1:
-                                        window['-typeimg2-'].Update(visible = False)
-                                        window['-typename2-'].Update(visible = False)
-                                if pkmn.evo:
-                                    # evotype = ('' if not pkmn.evotype else pkmn.evotype)
-                                    evoitem = ('' if not pkmn.evoitem else 'w/'+pkmn.evoitem)
-                                    evofriend = ('' if pkmn.evotype != 'Friendship' else 'w/ high friendship')
-                                    evolevel = ('' if not pkmn.evolevel else '@ level '+str(int(pkmn.evolevel)))
-                                    evostring = ('' if not pkmn.evostring else pkmn.evostring)
-                                    evoloc = ('' if not pkmn.evolocation else 'in '+pkmn.evolocation)
-                                    window['-evo-'].update(' > ')
-                                    window['-evo-'].set_tooltip('Evolves {}{}{}{}{}'.format(evoitem, evofriend, evolevel, evostring, evoloc), visible = True)
-                                else:
-                                    window['-evo-'].update(visible = False)
-                                if gen==6:
-                                    levelnum=int.from_bytes(c.read_memory(ppadd+(mongap*(pk-1))-256,1))
-                                    batabilnum=int.from_bytes(c.read_memory((ppadd+(mongap*(pk-1))+6-264),1))
-                                    hpnum=[int.from_bytes(c.read_memory((ppadd+(mongap*(pk-1))-264),2),"little"),int.from_bytes(c.read_memory((ppadd+(mongap*(pk-1))-266),2),"little")]
-                                elif gen==7:
-                                    levelnum=int.from_bytes(c.read_memory(ppadd+(mongap*(pk-1))-486,1))
-                                    batabilnum=int.from_bytes(c.read_memory((ppadd+(mongap*(pk-1))+0x36),1))
-                                    hpnum=[int.from_bytes(c.read_memory((ppadd+(mongap*(pk-1))-494),2),"little"),int.from_bytes(c.read_memory((ppadd+(mongap*(pk-1))-496),2),"little")]
-                                if pkmn.status != '':
-                                    if int.from_bytes(c.read_memory((ppadd+(mongap*(pk-1))-264),2),"little")!=0:
-                                        x=0
+                                if (pkmn in party1) and (pkmn.name == slotchoice): 
+                                    for type in pkmn.types:
+                                        window['-typeimg{}-'.format(pkmn.types.index(type) + 1)].Update(resize('images/types/{}.png'.format(type[0]), (27, 24)), visible = True)
+                                        window['-typename{}-'.format(pkmn.types.index(type) + 1)].Update('{}'.format(type[0]), text_color=typeformatting(type[0]), visible = True)
+                                        if len(pkmn.types) == 1:
+                                            window['-typeimg2-'].Update(visible = False)
+                                            window['-typename2-'].Update(visible = False)
+                                    if pkmn.evo:
+                                        # evotype = ('' if not pkmn.evotype else pkmn.evotype)
+                                        evoitem = ('' if not pkmn.evoitem else 'w/'+pkmn.evoitem)
+                                        evofriend = ('' if pkmn.evotype != 'Friendship' else 'w/ high friendship')
+                                        evolevel = ('' if not pkmn.evolevel else '@ level '+str(int(pkmn.evolevel)))
+                                        evostring = ('' if not pkmn.evostring else pkmn.evostring)
+                                        evoloc = ('' if not pkmn.evolocation else 'in '+pkmn.evolocation)
+                                        window['-evo-'].update('>', visible = True)
+                                        window['-evo-'].set_tooltip('Evolves {}{}{}{}{}'.format(evoitem, evofriend, evolevel, evostring, evoloc))
+                                    else:
+                                        window['-evo-'].update(visible = False)
+                                    if gen==6:
+                                        levelnum=int.from_bytes(c.read_memory(ppadd+(mongap*(pk-1))-256,1))
+                                        batabilnum=int.from_bytes(c.read_memory((ppadd+(mongap*(pk-1))+6-264),1))
+                                        hpnum=[int.from_bytes(c.read_memory((ppadd+(mongap*(pk-1))-264),2),"little"),int.from_bytes(c.read_memory((ppadd+(mongap*(pk-1))-266),2),"little")]
+                                    elif gen==7:
+                                        levelnum=int.from_bytes(c.read_memory(ppadd+(mongap*(pk-1))-486,1))
+                                        batabilnum=int.from_bytes(c.read_memory((ppadd+(mongap*(pk-1))+0x36),1))
+                                        hpnum=[int.from_bytes(c.read_memory((ppadd+(mongap*(pk-1))-494),2),"little"),int.from_bytes(c.read_memory((ppadd+(mongap*(pk-1))-496),2),"little")]
+                                    if pkmn.status != '':
+                                        if int.from_bytes(c.read_memory((ppadd+(mongap*(pk-1))-264),2),"little")!=0:
+                                            x=0
+                                        else:
+                                            x=0
                                     else:
                                         x=0
-                                else:
-                                    x=0
-                                if (pkmn in party1) and (pkmn.name == slotchoice): 
                                     query=f"""select
                                             ab.abilityname
                                             ,abilitydescription
@@ -1082,11 +1193,6 @@ def run():
                                     attackchange,defchange,spatkchange,spdefchange,speedchange = pkmn.getStatChanges()
                                     ### MOVES ########
                                     totallearn,nextmove,learnedcount,learnstr = pkmn.getMoves(gamegroupid)
-                                    # counts = pkmn.getCoverage(gen,gamegroupid)
-                                    # countstr = ''
-                                    # for dmg,count in counts:
-                                    #     countstr+='<div class="damage-bracket">['+str(dmg)+'x]</div>'
-                                    #     countstr+='<div class="bracket-count">'+str(count)+'</div>'
                                     nmove = (' - ' if not nextmove else nextmove)
                                     window['-slot-'].Update('Slot {} - {}'.format(str(party.index(pkmn)+1), 'Battle'))
                                     window['-monimg-'].Update(resize('images/homemodels/{}.png'.format(pkmn.name), (120,120)))
@@ -1161,32 +1267,68 @@ def run():
                                                 typemult=typemult*(typetable[movetyp][typedic[type]])
                                         if move["category"]!="Non-Damaging":
                                             if typemult==.25:
-                                                image="4"
+                                                modimage="4"
                                             elif typemult==.5:
-                                                image="5"
+                                                modimage="5"
                                             elif typemult==1:
-                                                image="6"
+                                                modimage="6"
                                             elif typemult==2:
-                                                image="7"
+                                                modimage="7"
                                                 antici = 1
                                             elif typemult==4:
-                                                image="8"
+                                                modimage="8"
                                                 antici = 1
                                             elif typemult==0:
-                                                image="X"
+                                                modimage="X"
                                         else:
-                                            image="6"
+                                            modimage="6"
                                         movepower = calcPower(pkmn,move)
                                         acc = '-' if not move['acc'] else int(move['acc'])
                                         contact = ('Y' if move['contact'] else 'N')
                                         window['-mv{}type-'.format(pkmn.moves.index(move) + 1)].update(resize('images/categories/{}.png'.format(move["category"]), (27,20)))
-                                        window['-mv{}text-'.format(pkmn.moves.index(move) + 1)].update(move["name"])
+                                        window['-mv{}text-'.format(pkmn.moves.index(move) + 1)].update(move["name"], text_color=typeformatting(move['type']))
                                         window['-mv{}text-'.format(pkmn.moves.index(move) + 1)].set_tooltip(move["description"])
-                                        window['-mv{}pp-'.format(pkmn.moves.index(move) + 1)].update('{}/{}'.format(move["pp"], move["maxpp"]))
-                                        window['-mv{}bp-'.format(pkmn.moves.index(move) + 1)].update(movepower)
+                                        window['-mv{}pp-'.format(pkmn.moves.index(move) + 1)].update('{}/{}'.format(move["pp"], int.from_bytes(c.read_memory(ppadd+(mongap*(pk-1))+1+(14*(pkmn.moves).index(move)),1))))
+                                        window['-mv{}mod-'.format(pkmn.moves.index(move) + 1)].update('images/modifiers/modifier{}.png'.format(modimage))
+                                        if stab == move['type']:
+                                            window['-mv{}bp-'.format(pkmn.moves.index(move) + 1)].update(movepower, text_color=typeformatting(move['type']))
+                                        else:
+                                            window['-mv{}bp-'.format(pkmn.moves.index(move) + 1)].update(movepower, text_color='white')
                                         window['-mv{}acc-'.format(pkmn.moves.index(move) + 1)].update(acc)
                                         window['-mv{}ctc-'.format(pkmn.moves.index(move) + 1)].update(contact)
                                 elif (pkmn in party2) & (party.index(pkmn)+1):
+                                    for type in pkmn.types:
+                                        window['-typeimg{}-e-'.format(pkmn.types.index(type) + 1)].Update(resize('images/types/{}.png'.format(type[0]), (27, 24)), visible = True)
+                                        window['-typename{}-e-'.format(pkmn.types.index(type) + 1)].Update('{}'.format(type[0]), text_color=typeformatting(type[0]), visible = True)
+                                        if len(pkmn.types) == 1:
+                                            window['-typeimg2-e-'].Update(visible = False)
+                                            window['-typename2-e-'].Update(visible = False)
+                                    if pkmn.evo:
+                                        # evotype = ('' if not pkmn.evotype else pkmn.evotype)
+                                        evoitem = ('' if not pkmn.evoitem else 'w/'+pkmn.evoitem)
+                                        evofriend = ('' if pkmn.evotype != 'Friendship' else 'w/ high friendship')
+                                        evolevel = ('' if not pkmn.evolevel else '@ level '+str(int(pkmn.evolevel)))
+                                        evostring = ('' if not pkmn.evostring else pkmn.evostring)
+                                        evoloc = ('' if not pkmn.evolocation else 'in '+pkmn.evolocation)
+                                        window['-evo-e-'].update('>', visible = True)
+                                        window['-evo-e-'].set_tooltip('Evolves {}{}{}{}{}'.format(evoitem, evofriend, evolevel, evostring, evoloc))
+                                    else:
+                                        window['-evo-e-'].update(visible = False)
+                                    if gen==6:
+                                        levelnum=int.from_bytes(c.read_memory(ppadd+(mongap*(pk-1))-256,1))
+                                        batabilnum=int.from_bytes(c.read_memory((ppadd+(mongap*(pk-1))+6-264),1))
+                                        hpnum=[int.from_bytes(c.read_memory((ppadd+(mongap*(pk-1))-264),2),"little"),int.from_bytes(c.read_memory((ppadd+(mongap*(pk-1))-266),2),"little")]
+                                    elif gen==7:
+                                        levelnum=int.from_bytes(c.read_memory(ppadd+(mongap*(pk-1))-486,1))
+                                        batabilnum=int.from_bytes(c.read_memory((ppadd+(mongap*(pk-1))+0x36),1))
+                                        hpnum=[int.from_bytes(c.read_memory((ppadd+(mongap*(pk-1))-494),2),"little"),int.from_bytes(c.read_memory((ppadd+(mongap*(pk-1))-496),2),"little")]
+                                    if pkmn.status != '':
+                                        if int.from_bytes(c.read_memory((ppadd+(mongap*(pk-1))-264),2),"little")!=0:
+                                            x=0
+                                        else:
+                                            x=0
+                                    else:
+                                        x=0
                                     query=f"""select
                                             ab.abilityname
                                             ,abilitydescription
@@ -1206,6 +1348,29 @@ def run():
                                             trackdataedit = 1
                                     else:
                                         x=0
+                                    window['-slot-e-'].Update('Slot {} - {}'.format(str(party.index(pkmn)+1), 'Battle'))
+                                    window['-monimg-e-'].Update(resize('images/homemodels/{}.png'.format(pkmn.name), (120,120)))
+                                    window['-monname-e-'].Update(pkmn.name.replace("Farfetchd","Farfetch'd"))
+                                    window['-monnum-e-'].Update('#{}'.format(str(pkmn.species_num())))
+                                    window['-level-e-'].Update('Level: {}'.format(levelnum))
+                                    window['-level-e-'].set_tooltip('Seen at {}'.format(trackdata[pkmn.name]["levels"]))
+                                    window['-ability-e-'].Update(str(pkmn.ability['name']))
+                                    window['-ability-e-'].set_tooltip(str(pkmn.ability['description']))
+                                    window['-item-e-'].Update(pkmn.held_item_name)
+                                    window['-hplabel-e-'].Update(visible = True)
+                                    window['-attlabel-e-'].Update(visible = True)
+                                    window['-deflabel-e-'].Update(visible = True)
+                                    window['-spattlabel-e-'].Update(visible = True)
+                                    window['-spdeflabel-e-'].Update(visible = True)
+                                    window['-speedlabel-e-'].Update(visible = True)
+                                    window['-bstlabel-e-'].Update(visible = True)
+                                    window['-hp-e-'].Update(visible = True)
+                                    window['-att-e-'].Update(visible = True)
+                                    window['-def-e-'].Update(visible = True)
+                                    window['-spatt-e-'].Update(visible = True)
+                                    window['-spdef-e-'].Update(visible = True)
+                                    window['-speed-e-'].Update(visible = True)
+                                    window['-bst-e-'].Update(pkmn.bst, visible = True)
                                     # pkmn_note = str(trackdata[pkmn.species]['notes'])
                                     # print(pkmn_note)
                                     ### STATS ########
@@ -1244,7 +1409,7 @@ def run():
                                 ##### TYPES, STATS, ABIILITIES, ETC.
                                 for type in pkmn.types:
                                     window['-typeimg{}-'.format(pkmn.types.index(type) + 1)].Update(resize('images/types/{}.png'.format(type[0]), (27, 24)), visible = True)
-                                    window['-typename{}-'.format(pkmn.types.index(type) + 1)].Update('{}'.format(type[0]), text_color='#999999', visible = True)
+                                    window['-typename{}-'.format(pkmn.types.index(type) + 1)].Update('{}'.format(type[0]), text_color=typeformatting(type[0]), visible = True)
                                     if len(pkmn.types) == 1:
                                         window['-typeimg2-'].Update(visible = False)
                                         window['-typename2-'].Update(visible = False)
@@ -1260,11 +1425,6 @@ def run():
                                     window['-status-'].Update(visible = False)
                                 ### MOVES ########
                                 totallearn,nextmove,learnedcount,learnstr = pkmn.getMoves(gamegroupid)
-                                # counts = pkmn.getCoverage(gen,gamegroupid)
-                                # countstr = ''
-                                # for dmg,count in counts:
-                                #     countstr+='<div class="damage-bracket">['+str(dmg)+'x]</div>'
-                                #     countstr+='<div class="bracket-count">'+str(count)+'</div>'
                                 nmove = (' - ' if not nextmove else nextmove)
                                 for move in pkmn.moves:
                                     stab = ''
@@ -1277,8 +1437,7 @@ def run():
                                     acc = '-' if not move['acc'] else int(move['acc'])
                                     contact = ('Y' if move['contact'] else 'N')
                                 ### UPDATING TRACKER INFO ###
-                                print(slot)
-                                # print(party1)
+                                # print(slot)
                                 window['-slot-'].Update('Slot {} - {}'.format(str(party.index(pkmn)+1), 'Overworld'))
                                 window['-monimg-'].Update(resize('images/homemodels/{}.png'.format(pkmn.name), (120,120)))
                                 window['-monname-'].Update(pkmn.name.replace("Farfetchd","Farfetch'd"))
@@ -1286,8 +1445,8 @@ def run():
                                 window['-level-'].Update('Level: {}'.format(str(pkmn.level)))
                                 window['-level-'].set_tooltip('Seen at {}'.format(trackdata[pkmn.name]["levels"]))
                                 if pkmn.evo:
-                                    window['-evo-'].update(' > ')
-                                    window['-evo-'].set_tooltip('Evolves {}{}{}{}{}'.format(evoitem, evofriend, evolevel, evostring, evoloc), visible = True)
+                                    window['-evo-'].update('>', visible = True)
+                                    window['-evo-'].set_tooltip('Evolves {}{}{}{}{}'.format(evoitem, evofriend, evolevel, evostring, evoloc))
                                 else:
                                     window['-evo-'].update(visible = False)
                                 window['-ability-'].Update(str(pkmn.ability['name']))
@@ -1325,15 +1484,20 @@ def run():
                                     for type in pkmn.types:
                                         if move['type'] == type[0]:
                                             stab = move['type']
+                                            print(stab)
                                             continue
                                     movepower = calcPower(pkmn,move)
                                     acc = '-' if not move['acc'] else int(move['acc'])
                                     contact = ('Y' if move['contact'] else 'N')
                                     window['-mv{}type-'.format(pkmn.moves.index(move) + 1)].update(resize('images/categories/{}.png'.format(move["category"]), (27,20)))
-                                    window['-mv{}text-'.format(pkmn.moves.index(move) + 1)].update(move["name"])
+                                    window['-mv{}text-'.format(pkmn.moves.index(move) + 1)].update(move["name"], text_color=typeformatting(move['type']))
                                     window['-mv{}text-'.format(pkmn.moves.index(move) + 1)].set_tooltip(move["description"])
                                     window['-mv{}pp-'.format(pkmn.moves.index(move) + 1)].update('{}/{}'.format(move["pp"], move["maxpp"]))
-                                    window['-mv{}bp-'.format(pkmn.moves.index(move) + 1)].update(movepower)
+                                    window['-mv{}mod-'.format(pkmn.moves.index(move) + 1)].update('images/modifiers/modifier6.png')
+                                    if stab == move['type']:
+                                        window['-mv{}bp-'.format(pkmn.moves.index(move) + 1)].update(movepower, text_color=typeformatting(move['type']))
+                                    else:
+                                        window['-mv{}bp-'.format(pkmn.moves.index(move) + 1)].update(movepower, text_color='white')
                                     window['-mv{}acc-'.format(pkmn.moves.index(move) + 1)].update(acc)
                                     window['-mv{}ctc-'.format(pkmn.moves.index(move) + 1)].update(contact)
                                     continue
