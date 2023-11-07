@@ -937,25 +937,29 @@ def run():
             [sg.Image(key='-typeimg1-e-'), sg.Text(key='-typename1-e-'), sg.Image(key='-typeimg2-e-', visible=False), sg.Text(key='-typename2-e-', visible=False),],
             [sg.Text(key='-level-e-'), sg.Text(key='-evo-e-', visible = False), sg.Image(key='-status-e-', visible = False)],
             [sg.Text(key='-ability-e-')],
-            [sg.Text(key='-item-e-')],
+            [sg.Text(key='-note-e-')],
         ]
         topcol2a = [
-            [sg.Text('HP:', key='-hplabel-e-', visible=False)],
-            [sg.Text('Atk:', key='-attlabel-e-', visible=False)],
-            [sg.Text('Def:', key='-deflabel-e-', visible=False)],
-            [sg.Text('SpAtk:', key='-spattlabel-e-', visible=False)],
-            [sg.Text('SpDef:', key='-spdeflabel-e-', visible=False)],
-            [sg.Text('Speed:', key='-speedlabel-e-', visible=False)],
-            [sg.Text('BST:', key='-bstlabel-e-', visible=False)],
+            [sg.Text('HP:', key='-hplabel-e-')],
+            [sg.Text('Atk:', key='-attlabel-e-')],
+            [sg.Text('Def:', key='-deflabel-e-')],
+            [sg.Text('SpAtk:', key='-spattlabel-e-')],
+            [sg.Text('SpDef:', key='-spdeflabel-e-')],
+            [sg.Text('Speed:', key='-speedlabel-e-')],
+            [sg.Text('BST:', key='-bstlabel-e-')],
+            [sg.Text('Add abil', key='-addabil-e-', justification='l')], 
+            [sg.Text('Rem abil', key='-remabil-e-', justification='l')],
+            [sg.Text('Add note', key='-addnote-e-', justification='l')],
         ]
         topcol3a = [
-            [sg.Text('[ ]', key='-hp-e-', enable_events=True, visible=False)],
-            [sg.Text('[ ]', key='-att-e-', enable_events=True, visible=False)],
-            [sg.Text('[ ]', key='-def-e-', enable_events=True, visible=False)],
-            [sg.Text('[ ]', key='-spatt-e-', enable_events=True, visible=False)],
-            [sg.Text('[ ]', key='-spdef-e-', enable_events=True, visible=False)],
-            [sg.Text('[ ]', key='-speed-e-', enable_events=True, visible=False)],
-            [sg.Text(key='-bst-e-', visible=False)],
+            [sg.Text('[ ]', key='-hp-e-', enable_events=True)],
+            [sg.Text('[ ]', key='-att-e-', enable_events=True)],
+            [sg.Text('[ ]', key='-def-e-', enable_events=True)],
+            [sg.Text('[ ]', key='-spatt-e-', enable_events=True)],
+            [sg.Text('[ ]', key='-spdef-e-', enable_events=True)],
+            [sg.Text('[ ]', key='-speed-e-', enable_events=True)],
+            [sg.Text(key='-bst-e-')],
+            [sg.Text('')], [sg.Text('')], [sg.Text('')],
         ]
 
         botcol1a = [
@@ -966,7 +970,7 @@ def run():
             [sg.Image(key='-mv4type-e-'), sg.Text(key='-mv4text-e-')],
         ]
         botcol2a = [
-            [sg.Text(key='-movepphdr-e-', size=5, justification='c')],
+            [sg.Text('PP', key='-movepphdr-e-', size=5, justification='c')],
             [sg.Text(key='-mv1pp-e-', size=5, justification='r'), sg.Image(key='-mv1mod-e-'),],
             [sg.Text(key='-mv2pp-e-', size=5, justification='r'), sg.Image(key='-mv2mod-e-'),],
             [sg.Text(key='-mv3pp-e-', size=5, justification='r'), sg.Image(key='-mv3mod-e-'),],
@@ -980,32 +984,30 @@ def run():
         #     [sg.Image(key='-mv4mod-e-'), sg.Text(size=(0,1))],
         # ]
         botcol4a = [
-            [sg.Text(key='-movebphdr-e-', size=3, justification='r')],
+            [sg.Text('BP', key='-movebphdr-e-', size=3, justification='r')],
             [sg.Text(key='-mv1bp-e-', size=3, justification='r')],
             [sg.Text(key='-mv2bp-e-', size=3, justification='r')],
             [sg.Text(key='-mv3bp-e-', size=3, justification='r')],
             [sg.Text(key='-mv4bp-e-', size=3, justification='r')],
         ]
         botcol5a = [
-            [sg.Text(key='-moveacchdr-e-', size=3, justification='c')],
+            [sg.Text('Acc', key='-moveacchdr-e-', size=3, justification='c')],
             [sg.Text(key='-mv1acc-e-', size=3, justification='c')],
             [sg.Text(key='-mv2acc-e-', size=3, justification='c')],
             [sg.Text(key='-mv3acc-e-', size=3, justification='c')],
             [sg.Text(key='-mv4acc-e-', size=3, justification='c')],
         ]
         botcol6a = [
-            [sg.Text(key='-movecontacthdr-e-', size=1, justification='c')],
+            [sg.Text('C', key='-movecontacthdr-e-', size=1, justification='c')],
             [sg.Text(key='-mv1ctc-e-', size=1, justification='c')],
             [sg.Text(key='-mv2ctc-e-', size=1, justification='c')],
             [sg.Text(key='-mv3ctc-e-', size=1, justification='c')],
             [sg.Text(key='-mv4ctc-e-', size=1, justification='c')],
         ]
         botcol7a = [
-            [sg.Text(key='-movecontacthdr-e-', size=1, justification='c')],
-            [sg.Text(key='-mv1ctc-e-', size=1, justification='c')],
-            [sg.Text(key='-mv2ctc-e-', size=1, justification='c')],
-            [sg.Text(key='-mv3ctc-e-', size=1, justification='c')],
-            [sg.Text(key='-mv4ctc-e-', size=1, justification='c')],
+            [sg.Text(key='-abillist-e-', justification='l', font=('Franklin Gothic Medium', 12))],
+            [sg.Text(key='-prevmoves-e-', justification='l', font=('Franklin Gothic Medium', 12))],
+            # [sg.Text(key='-mv4ctc-e-', size=1, justification='c')],
         ]
 
         layout = [[
@@ -1021,26 +1023,26 @@ def run():
                 sg.Column(botcol4), 
                 sg.Column(botcol5),
                 sg.Column(botcol6),
-            ]], size=(450, 590)), 
-            sg.VerticalSeparator(),
+            ]], size=(450, 650)), 
+            sg.VerticalSeparator(key='-vs-'),
             sg.Column([[
-                sg.Column(topcol1a, size=(250, 380)), 
-                sg.Column(topcol2a), 
-                sg.Column(topcol3a, element_justification='right')
+                sg.Column(topcol1a, size=(250, 380), key='-tc1a-e-', visible = False), 
+                sg.Column(topcol2a, key='-tc2a-e-', visible = False), 
+                sg.Column(topcol3a, element_justification='right', key='-tc3a-e-', visible = False)
             ], 
             [
-                sg.Column(botcol1a), 
-                sg.Column(botcol2a, element_justification='right'), 
-                # sg.Column(botcol3a, element_justification='right'), 
-                sg.Column(botcol4a, element_justification='right'), 
-                sg.Column(botcol5a, element_justification='right'), 
-                sg.Column(botcol6a, element_justification='right')
+                sg.Column(botcol1a, key='-bc1a-e-', visible = False), 
+                sg.Column(botcol2a, element_justification='right', key='-bc2a-e-', visible = False), 
+                # sg.Column(botcol3a, element_justification='right', key='-bc3a-e-', visible = False), 
+                sg.Column(botcol4a, element_justification='right', key='-bc4a-e-', visible = False), 
+                sg.Column(botcol5a, element_justification='right', key='-bc5a-e-', visible = False), 
+                sg.Column(botcol6a, element_justification='right', key='-bc6a-e-', visible = False)
             ], 
             [
-                sg.Column(botcol7a), 
-            ]], size=(450, 590))
+                sg.Column(botcol7a, key='-bc7a-e-', visible = False), 
+            ]], size=(450, 650))
         ]]
-        window = sg.Window(track_title, layout, track_size, background_color='black')
+        window = sg.Window(track_title, layout, track_size, background_color='black', resizable=True)
         trackdataedit = 0  # creating flag for edits
         loops = 0
         slotchoice = ''
@@ -1050,7 +1052,7 @@ def run():
                 if c.is_connected():
                     # trackdata=json.load(open(trackadd,"r+"))
                     event, values = window.Read(timeout=8000)
-                    print(event)
+                    # print(event)
                     if event == sg.WIN_CLOSED:
                         break
                     elif event == '-slotdrop-':
@@ -1172,12 +1174,9 @@ def run():
                                         batabilnum=int.from_bytes(c.read_memory((ppadd+(mongap*(pk-1))+0x36),1))
                                         hpnum=[int.from_bytes(c.read_memory((ppadd+(mongap*(pk-1))-494),2),"little"),int.from_bytes(c.read_memory((ppadd+(mongap*(pk-1))-496),2),"little")]
                                     if pkmn.status != '':
-                                        if int.from_bytes(c.read_memory((ppadd+(mongap*(pk-1))-264),2),"little")!=0:
-                                            x=0
-                                        else:
-                                            x=0
+                                        window['-status-'].Update(resize('images/statuses/{}.png'.format(pkmn.status), (75, 20)), visible = True)
                                     else:
-                                        x=0
+                                        window['-status-'].Update(visible = False)
                                     query=f"""select
                                             ab.abilityname
                                             ,abilitydescription
@@ -1194,6 +1193,10 @@ def run():
                                     ### MOVES ########
                                     totallearn,nextmove,learnedcount,learnstr = pkmn.getMoves(gamegroupid)
                                     nmove = (' - ' if not nextmove else nextmove)
+                                    if pkmn.held_item_name == pkmn.held_item_name:
+                                        frisk = 1
+                                    else:  
+                                        frisk = 0
                                     window['-slot-'].Update('Slot {} - {}'.format(str(party.index(pkmn)+1), 'Battle'))
                                     window['-monimg-'].Update(resize('images/homemodels/{}.png'.format(pkmn.name), (120,120)))
                                     window['-monname-'].Update(pkmn.name.replace("Farfetchd","Farfetch'd"))
@@ -1323,12 +1326,9 @@ def run():
                                         batabilnum=int.from_bytes(c.read_memory((ppadd+(mongap*(pk-1))+0x36),1))
                                         hpnum=[int.from_bytes(c.read_memory((ppadd+(mongap*(pk-1))-494),2),"little"),int.from_bytes(c.read_memory((ppadd+(mongap*(pk-1))-496),2),"little")]
                                     if pkmn.status != '':
-                                        if int.from_bytes(c.read_memory((ppadd+(mongap*(pk-1))-264),2),"little")!=0:
-                                            x=0
-                                        else:
-                                            x=0
+                                        window['-status-e-'].Update(resize('images/statuses/{}.png'.format(pkmn.status), (75, 20)), visible = True)
                                     else:
-                                        x=0
+                                        window['-status-e-'].Update(visible = False)
                                     query=f"""select
                                             ab.abilityname
                                             ,abilitydescription
@@ -1338,39 +1338,55 @@ def run():
                                         where al.abilityindex = {batabilnum} and ga.generationid <= {gen}
                                         order by ga.generationid desc
                                         """
+                                    totallearn,nextmove,learnedcount,learnstr = pkmn.getMoves(gamegroupid)
                                     abilityname,abilitydescription = cursor.execute(query).fetchone()
-                                    startupabils=["Air Lock","Cloud Nine","Delta Stream","Desolate Land","Download","Drizzle","Drought","Forewarn","Frisk","Imposter","Intimidate","Mold Breaker","Pressure","Primordial Sea","Sand Stream","Slow Start","Snow Warning","Teravolt","Turboblaze","Trace","Unnerve","Aura Break","Fairy Aura","Dark Aura",]
+                                    startupabils=["Air Lock","Cloud Nine","Delta Stream","Desolate Land","Download","Drizzle","Drought","Forewarn","Imposter","Intimidate","Mold Breaker","Pressure","Primordial Sea","Sand Stream","Slow Start","Snow Warning","Teravolt","Turboblaze","Trace","Unnerve","Aura Break","Fairy Aura","Dark Aura",]
+                                    if frisk == 1:
+                                        startupabils.append('Frisk')
                                     if antici == 1:
                                         startupabils.append('Anticipation')
                                     if abilityname in startupabils:
+                                        window['-ability-e-'].Update(str(pkmn.ability['name']))
+                                        window['-ability-e-'].set_tooltip(str(pkmn.ability['description']))
                                         if pkmn.abilityname not in trackdata[pkmn.species]['abilities']:
                                             trackdata[pkmn.species]['abilities'].append(pkmn.abilityname)
                                             trackdataedit = 1
                                     else:
-                                        x=0
+                                        window['-ability-e-'].Update('Unknown Ability')
+                                    if pkmn.level not in trackdata[pkmn.species]['levels']:
+                                        trackdata[pkmn.species]['levels'].append(pkmn.level)
+                                        trackdataedit = 1
+                                    nmove = (' - ' if not nextmove else nextmove)
+                                    # show enemy stuff in battle
+                                    window['-tc1a-e-'].Update(visible = True)
+                                    window['-tc2a-e-'].Update(visible = True)
+                                    window['-tc3a-e-'].Update(visible = True)
+                                    window['-bc1a-e-'].Update(visible = True)
+                                    window['-bc2a-e-'].Update(visible = True)
+                                    # window['-bc3a-e-'].Update(visible = False)
+                                    window['-bc4a-e-'].Update(visible = True)
+                                    window['-bc5a-e-'].Update(visible = True)
+                                    window['-bc6a-e-'].Update(visible = True)
+                                    window['-bc7a-e-'].Update(visible = True)
+                                    # update enemy slot info
                                     window['-slot-e-'].Update('Slot {} - {}'.format(str(party.index(pkmn)+1), 'Battle'))
                                     window['-monimg-e-'].Update(resize('images/homemodels/{}.png'.format(pkmn.name), (120,120)))
                                     window['-monname-e-'].Update(pkmn.name.replace("Farfetchd","Farfetch'd"))
                                     window['-monnum-e-'].Update('#{}'.format(str(pkmn.species_num())))
                                     window['-level-e-'].Update('Level: {}'.format(levelnum))
                                     window['-level-e-'].set_tooltip('Seen at {}'.format(trackdata[pkmn.name]["levels"]))
-                                    window['-ability-e-'].Update(str(pkmn.ability['name']))
-                                    window['-ability-e-'].set_tooltip(str(pkmn.ability['description']))
-                                    window['-item-e-'].Update(pkmn.held_item_name)
-                                    window['-hplabel-e-'].Update(visible = True)
-                                    window['-attlabel-e-'].Update(visible = True)
-                                    window['-deflabel-e-'].Update(visible = True)
-                                    window['-spattlabel-e-'].Update(visible = True)
-                                    window['-spdeflabel-e-'].Update(visible = True)
-                                    window['-speedlabel-e-'].Update(visible = True)
-                                    window['-bstlabel-e-'].Update(visible = True)
-                                    window['-hp-e-'].Update(visible = True)
-                                    window['-att-e-'].Update(visible = True)
-                                    window['-def-e-'].Update(visible = True)
-                                    window['-spatt-e-'].Update(visible = True)
-                                    window['-spdef-e-'].Update(visible = True)
-                                    window['-speed-e-'].Update(visible = True)
-                                    window['-bst-e-'].Update(pkmn.bst, visible = True)
+                                    # window['-note-e-'].update(trackdata[pkmn.name]["notes"])
+                                    window['-note-e-'].update('notes here')
+                                    window['-note-e-'].set_tooltip(trackdata[pkmn.name]["notes"])
+                                    window['-bst-e-'].Update(pkmn.bst)
+                                    window['-movehdr-e-'].update('Moves {}/{} ({})'.format(learnedcount, totallearn, nmove))
+                                    window['-movehdr-e-'].set_tooltip(learnstr)
+                                    window['-movepphdr-e-'].update('PP')
+                                    window['-movebphdr-e-'].update('BP')
+                                    window['-moveacchdr-e-'].update('Acc')
+                                    window['-movecontacthdr-e-'].update('C')
+                                    window['-prevmoves-e-'].update('Previous Moves: ' + re.sub('[^A-Za-z0-9 ]+', '', str(trackdata[pkmn.species]['moves'])))
+                                    window['-abillist-e-'].update('Known Abilities: ' + re.sub('[^A-Za-z0-9 ]+', '', str(trackdata[pkmn.species]['abilities'])))
                                     # pkmn_note = str(trackdata[pkmn.species]['notes'])
                                     # print(pkmn_note)
                                     ### STATS ########
@@ -1385,6 +1401,7 @@ def run():
                                         trackdata[pkmn.species]['levels'].append(pkmn.level)
                                         trackdataedit = 1
                                     nmove = (' - ' if not nextmove else nextmove)
+                                    movect = 0
                                     for move in pkmn.moves:
                                         if int.from_bytes(c.read_memory(ppadd+(mongap*(pk-1))+(14*(pkmn.moves).index(move)),1))==int.from_bytes(c.read_memory(ppadd+1+(mongap*(pk-1))+(14*(pkmn.moves).index(move)),1)): 
                                             continue
@@ -1398,13 +1415,31 @@ def run():
                                         contact = ('Y' if move['contact'] else 'N')
                                         if move['name'] not in trackdata[pkmn.species]['moves']:
                                             trackdata[pkmn.species]['moves'][move['name']]=[]
-                                            trackdataedit = 1
                                         if pkmn.level not in trackdata[pkmn.species]['moves'][move['name']]:
                                             trackdata[pkmn.species]['moves'][move['name']].append(pkmn.level)
                                             trackdataedit = 1
+                                        # forces the moves to be shown in order of appearance rather than data order
+                                        currlvllist = []
+                                        for mv in trackdata[pkmn.species]['moves']:
+                                            print(trackdata[pkmn.species]['moves'][mv])
+                                            print(mv)
+                                            print(currlvllist)
+                                            if pkmn.level in trackdata[pkmn.species]['moves'][mv]:
+                                                currlvllist = currlvllist.append(mv)
+                                        movect = currlvllist.index(move['name']) + 1
+                                        print(movect)
+                                        window['-mv{}type-e-'.format(movect)].update(resize('images/categories/{}.png'.format(move["category"]), (27,20)), visible = True)
+                                        window['-mv{}text-e-'.format(movect)].update(move["name"], text_color=typeformatting(move['type']), visible = True)
+                                        window['-mv{}text-e-'.format(movect)].set_tooltip(move["description"])
+                                        window['-mv{}pp-e-'.format(movect)].update('{}/{}'.format(int.from_bytes(c.read_memory(ppadd+(mongap*(pk-1))+(14*(pkmn.moves).index(move)),1)), move["maxpp"]), visible = True)
+                                        window['-mv{}mod-e-'.format(movect)].update('images/modifiers/modifier{}.png'.format(modimage), visible = True)
+                                        if stab == move['type']:
+                                            window['-mv{}bp-e-'.format(movect)].update(movepower, text_color=typeformatting(move['type']), visible = True)
+                                        else:
+                                            window['-mv{}bp-e-'.format(movect)].update(movepower, text_color='white', visible = True)
+                                        window['-mv{}acc-e-'.format(movect)].update(acc, visible = True)
+                                        window['-mv{}ctc-e-'.format(movect)].update(contact, visible = True)
                                 pkmntypes=[]
-                            # elif (enctype=='p'):
-                            # elif (enctype=='p') and (party.index(pkmn)+1 == 1): # locking to first mon for now
                             elif (enctype=='p') and (pkmn.name == slotchoice):
                                 ##### TYPES, STATS, ABIILITIES, ETC.
                                 for type in pkmn.types:
@@ -1489,18 +1524,39 @@ def run():
                                     movepower = calcPower(pkmn,move)
                                     acc = '-' if not move['acc'] else int(move['acc'])
                                     contact = ('Y' if move['contact'] else 'N')
-                                    window['-mv{}type-'.format(pkmn.moves.index(move) + 1)].update(resize('images/categories/{}.png'.format(move["category"]), (27,20)))
-                                    window['-mv{}text-'.format(pkmn.moves.index(move) + 1)].update(move["name"], text_color=typeformatting(move['type']))
+                                    window['-mv{}type-'.format(pkmn.moves.index(move) + 1)].update(resize('images/categories/{}.png'.format(move["category"]), (27,20)), visible = True)
+                                    window['-mv{}text-'.format(pkmn.moves.index(move) + 1)].update(move["name"], text_color=typeformatting(move['type']), visible = True)
                                     window['-mv{}text-'.format(pkmn.moves.index(move) + 1)].set_tooltip(move["description"])
-                                    window['-mv{}pp-'.format(pkmn.moves.index(move) + 1)].update('{}/{}'.format(move["pp"], move["maxpp"]))
-                                    window['-mv{}mod-'.format(pkmn.moves.index(move) + 1)].update('images/modifiers/modifier6.png')
+                                    window['-mv{}pp-'.format(pkmn.moves.index(move) + 1)].update('{}/{}'.format(move["pp"], move["maxpp"]), visible = True)
+                                    window['-mv{}mod-'.format(pkmn.moves.index(move) + 1)].update('images/modifiers/modifier6.png', visible = True)
                                     if stab == move['type']:
-                                        window['-mv{}bp-'.format(pkmn.moves.index(move) + 1)].update(movepower, text_color=typeformatting(move['type']))
+                                        window['-mv{}bp-'.format(pkmn.moves.index(move) + 1)].update(movepower, text_color=typeformatting(move['type']), visible = True)
                                     else:
-                                        window['-mv{}bp-'.format(pkmn.moves.index(move) + 1)].update(movepower, text_color='white')
-                                    window['-mv{}acc-'.format(pkmn.moves.index(move) + 1)].update(acc)
-                                    window['-mv{}ctc-'.format(pkmn.moves.index(move) + 1)].update(contact)
+                                        window['-mv{}bp-'.format(pkmn.moves.index(move) + 1)].update(movepower, text_color='white', visible = True)
+                                    window['-mv{}acc-'.format(pkmn.moves.index(move) + 1)].update(acc, visible = True)
+                                    window['-mv{}ctc-'.format(pkmn.moves.index(move) + 1)].update(contact, visible = True)
                                     continue
+                                # making enemy mon stuff invisible when not in a battle
+                                window['-tc1a-e-'].Update(visible = False)
+                                window['-tc2a-e-'].Update(visible = False)
+                                window['-tc3a-e-'].Update(visible = False)
+                                window['-bc1a-e-'].Update(visible = False)
+                                window['-bc2a-e-'].Update(visible = False)
+                                # window['-bc3a-e-'].Update(visible = False)
+                                window['-bc4a-e-'].Update(visible = False)
+                                window['-bc5a-e-'].Update(visible = False)
+                                window['-bc6a-e-'].Update(visible = False)
+                                window['-bc7a-e-'].Update(visible = False)
+                                ct = 0
+                                while ct < 4:
+                                    ct += 1
+                                    window['-mv{}type-e-'.format(ct)].update(visible = False)
+                                    window['-mv{}text-e-'.format(ct)].update(visible = False)
+                                    window['-mv{}pp-e-'.format(ct)].update(visible = False)
+                                    window['-mv{}mod-e-'.format(ct)].update(visible = False)
+                                    window['-mv{}bp-e-'.format(ct)].update(visible = False)
+                                    window['-mv{}acc-e-'.format(ct)].update(visible = False)
+                                    window['-mv{}ctc-e-'.format(ct)].update(visible = False)
                             pk=pk+1
                     with open(trackadd,'w') as f:
                         json.dump(trackdata,f)
