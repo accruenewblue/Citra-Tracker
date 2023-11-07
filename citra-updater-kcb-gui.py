@@ -1091,6 +1091,7 @@ def run():
                     #skips trainer mons that arent out yet
                     enemynum=int.from_bytes(c.read_memory(curoppnum,2),"little")
                     pkmni=0
+                    emon = ''
                     for pkmn in party:
                         if pkmn in party1:
                             if pkmn.species_num()==0:
@@ -1301,7 +1302,20 @@ def run():
                                             window['-mv{}bp-'.format(pkmn.moves.index(move) + 1)].update(movepower, text_color='white')
                                         window['-mv{}acc-'.format(pkmn.moves.index(move) + 1)].update(acc)
                                         window['-mv{}ctc-'.format(pkmn.moves.index(move) + 1)].update(contact)
-                                elif (pkmn in party2) & (party.index(pkmn)+1):
+                                # elif (pkmn in party2) & (party.index(pkmn)+1):
+                                elif (pkmn in party2) & (party.index(pkmn)+1 == pk): # testing this
+                                    print(party.index(pkmn)+1, ';;;', pk, ';;;', pkmn.name)
+                                    if (emon != pkmn) & (emon == emon):
+                                        ct = 0
+                                        while ct < 4:
+                                            ct += 1
+                                            window['-mv{}type-e-'.format(ct)].update(visible = False)
+                                            window['-mv{}text-e-'.format(ct)].update(visible = False)
+                                            window['-mv{}pp-e-'.format(ct)].update(visible = False)
+                                            window['-mv{}mod-e-'.format(ct)].update(visible = False)
+                                            window['-mv{}bp-e-'.format(ct)].update(visible = False)
+                                            window['-mv{}acc-e-'.format(ct)].update(visible = False)
+                                            window['-mv{}ctc-e-'.format(ct)].update(visible = False)
                                     for type in pkmn.types:
                                         window['-typeimg{}-e-'.format(pkmn.types.index(type) + 1)].Update(resize('images/types/{}.png'.format(type[0]), (27, 24)), visible = True)
                                         window['-typename{}-e-'.format(pkmn.types.index(type) + 1)].Update('{}'.format(type[0]), text_color=typeformatting(type[0]), visible = True)
@@ -1436,6 +1450,7 @@ def run():
                                             window['-mv{}bp-e-'.format(movect)].update(movepower, text_color='white', visible = True)
                                         window['-mv{}acc-e-'.format(movect)].update(acc, visible = True)
                                         window['-mv{}ctc-e-'.format(movect)].update(contact, visible = True)
+                                    emon = pkmn
                                 pkmntypes=[]
                             elif (enctype=='p') and (pkmn.name == slotchoice):
                                 ##### TYPES, STATS, ABIILITIES, ETC.
