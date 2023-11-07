@@ -947,9 +947,11 @@ def run():
             [sg.Text('SpDef:', key='-spdeflabel-e-')],
             [sg.Text('Speed:', key='-speedlabel-e-')],
             [sg.Text('BST:', key='-bstlabel-e-')],
-            [sg.Text('Add abil', key='-addabil-e-', justification='l')], 
-            [sg.Text('Rem abil', key='-remabil-e-', justification='l')],
-            [sg.Text('Add note', key='-addnote-e-', justification='l')],
+            # [sg.Text('Add abil', key='-addabil-e-', justification='l')], 
+            # [sg.Text('Rem abil', key='-remabil-e-', justification='l')],
+            # [sg.Text('Add note', key='-addnote-e-', justification='l')],
+            [sg.Button('+ Ability', key='-addabil-e-', font=('Franklin Gothic Medium', 12), auto_size_button=True)], 
+            [sg.Button('Add Note', key='-addnote-e-', font=('Franklin Gothic Medium', 12), auto_size_button=True)],
         ]
         topcol3a = [
             [sg.Text('[ ]', key='-hp-e-', enable_events=True)],
@@ -959,7 +961,8 @@ def run():
             [sg.Text('[ ]', key='-spdef-e-', enable_events=True)],
             [sg.Text('[ ]', key='-speed-e-', enable_events=True)],
             [sg.Text(key='-bst-e-')],
-            [sg.Text('')], [sg.Text('')], [sg.Text('')],
+            [sg.Button('- Ability', key='-remabil-e-', font=('Franklin Gothic Medium', 12), auto_size_button=True)],
+            [sg.Text('')], 
         ]
 
         botcol1a = [
@@ -1006,7 +1009,7 @@ def run():
         ]
         botcol7a = [
             [sg.Text(key='-abillist-e-', justification='l', font=('Franklin Gothic Medium', 12))],
-            [sg.Text(key='-prevmoves-e-', justification='l', font=('Franklin Gothic Medium', 12))],
+            [sg.Text(key='-prevmoves-e-', justification='l', font=('Franklin Gothic Medium', 12), size=(50, 3))],
             # [sg.Text(key='-mv4ctc-e-', size=1, justification='c')],
         ]
 
@@ -1023,12 +1026,12 @@ def run():
                 sg.Column(botcol4), 
                 sg.Column(botcol5),
                 sg.Column(botcol6),
-            ]], size=(450, 650)), 
+            ]], size=(450, 700)), 
             sg.VerticalSeparator(key='-vs-'),
             sg.Column([[
                 sg.Column(topcol1a, size=(250, 380), key='-tc1a-e-', visible = False), 
-                sg.Column(topcol2a, key='-tc2a-e-', visible = False), 
-                sg.Column(topcol3a, element_justification='right', key='-tc3a-e-', visible = False)
+                sg.Column(topcol2a, size=(80, 350), key='-tc2a-e-', visible = False), 
+                sg.Column(topcol3a, size=(80, 350), element_justification='right', key='-tc3a-e-', visible = False)
             ], 
             [
                 sg.Column(botcol1a, key='-bc1a-e-', visible = False), 
@@ -1040,10 +1043,9 @@ def run():
             ], 
             [
                 sg.Column(botcol7a, key='-bc7a-e-', visible = False), 
-            ]], size=(450, 650))
+            ]], size=(450, 700))
         ]]
         window = sg.Window(track_title, layout, track_size, background_color='black', resizable=True)
-        trackdataedit = 0  # creating flag for edits
         loops = 0
         slotchoice = ''
         enemydict = ['', '', '', '', '', '', ]
@@ -1350,12 +1352,10 @@ def run():
                                         window['-ability-e-'].set_tooltip(str(pkmn.ability['description']))
                                         if pkmn.abilityname not in trackdata[pkmn.species]['abilities']:
                                             trackdata[pkmn.species]['abilities'].append(pkmn.abilityname)
-                                            trackdataedit = 1
                                     else:
                                         window['-ability-e-'].Update('Unknown Ability')
                                     if pkmn.level not in trackdata[pkmn.species]['levels']:
                                         trackdata[pkmn.species]['levels'].append(pkmn.level)
-                                        trackdataedit = 1
                                     nmove = (' - ' if not nextmove else nextmove)
                                     # show enemy stuff in battle
                                     window['-tc1a-e-'].Update(visible = True)
@@ -1399,7 +1399,6 @@ def run():
                                     #     countstr+='<div class="bracket-count">'+str(count)+'</div>'
                                     if pkmn.level not in trackdata[pkmn.species]['levels']:
                                         trackdata[pkmn.species]['levels'].append(pkmn.level)
-                                        trackdataedit = 1
                                     nmove = (' - ' if not nextmove else nextmove)
                                     movect = 0
                                     for move in pkmn.moves:
@@ -1417,17 +1416,15 @@ def run():
                                             trackdata[pkmn.species]['moves'][move['name']]=[]
                                         if pkmn.level not in trackdata[pkmn.species]['moves'][move['name']]:
                                             trackdata[pkmn.species]['moves'][move['name']].append(pkmn.level)
-                                            trackdataedit = 1
                                         # forces the moves to be shown in order of appearance rather than data order
-                                        currlvllist = []
-                                        for mv in trackdata[pkmn.species]['moves']:
-                                            print(trackdata[pkmn.species]['moves'][mv])
-                                            print(mv)
-                                            print(currlvllist)
-                                            if pkmn.level in trackdata[pkmn.species]['moves'][mv]:
-                                                currlvllist = currlvllist.append(mv)
+                                        lvllist = {}
+                                        for mv, lvl in trackdata[pkmn.species]['moves'].items():
+                                            for k in lvl:
+                                                lvllist.setdefault(k, set()).add(mv)
+                                        currlvllist = list(lvllist[pkmn.level])
+                                        # print(currlvllist)
                                         movect = currlvllist.index(move['name']) + 1
-                                        print(movect)
+                                        # print(movect)
                                         window['-mv{}type-e-'.format(movect)].update(resize('images/categories/{}.png'.format(move["category"]), (27,20)), visible = True)
                                         window['-mv{}text-e-'.format(movect)].update(move["name"], text_color=typeformatting(move['type']), visible = True)
                                         window['-mv{}text-e-'.format(movect)].set_tooltip(move["description"])
@@ -1595,7 +1592,6 @@ def run():
             time.sleep(15)
     finally:
         print("")
-        window.close()
 
 BLOCK_SIZE = 56
 SLOT_OFFSET = 484
