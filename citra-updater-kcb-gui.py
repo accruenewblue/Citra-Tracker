@@ -22,8 +22,9 @@ from PIL import Image, UnidentifiedImageError
 
 # pysimplegui settings et al
 track_title = 'Ironmon Tracker'
+scale = 1.3
 track_size = (600, 600)
-sg.set_options(font=('Franklin Gothic Medium', 16), text_color='white', background_color='black', element_background_color='black', text_element_background_color='black', tooltip_font=('Franklin Gothic Medium', 14), tooltip_time=200)
+sg.set_options(font=('Franklin Gothic Medium', 16), text_color='white', background_color='black', element_background_color='black', text_element_background_color='black', tooltip_font=('Franklin Gothic Medium', 14), tooltip_time=200, scaling=scale)
 
 trackadd=r"trackerdata-kcb.json"
 
@@ -1146,10 +1147,6 @@ def run():
                                 # print_bits(pkmn.unknown_flags_eb())
                                 # analyze_statuses(pkmn)
                                 #### Begin Pokemon div
-                                if pkmn in party2:
-                                    pkd=2
-                                else:
-                                    pkd=1
                                 if (pkmn in party1) and (pkmn.name == slotchoice): 
                                     for type in pkmn.types:
                                         window['-typeimg{}-'.format(pkmn.types.index(type) + 1)].Update(resize('images/types/{}.png'.format(type[0]), (27, 24)), visible = True)
@@ -1303,9 +1300,9 @@ def run():
                                         window['-mv{}acc-'.format(pkmn.moves.index(move) + 1)].update(acc)
                                         window['-mv{}ctc-'.format(pkmn.moves.index(move) + 1)].update(contact)
                                 # elif (pkmn in party2) & (party.index(pkmn)+1):
-                                elif (pkmn in party2) & (party.index(pkmn)+1 == pk): # testing this
-                                    print(party.index(pkmn)+1, ';;;', pk, ';;;', pkmn.name)
-                                    if (emon != pkmn) & (emon == emon):
+                                elif (pkmn in party2) & (party.index(pkmn)+1 == 7): # this works for XY, needs testing for all other games; only access first mon stuff, may want to figure out a way to include double battle
+                                    print(party.index(pkmn)+1, ';;;', ';;;', pkmn.name)
+                                    if (emon != pkmn) & (emon == emon): # washing the moveset on mon change
                                         ct = 0
                                         while ct < 4:
                                             ct += 1
