@@ -1198,7 +1198,11 @@ def run():
                                     else:  
                                         frisk = 0
                                     window['-slot-'].Update('Slot {} - {}'.format(str(party.index(pkmn)+1), 'Battle'))
-                                    window['-monimg-'].Update(resize('images/homemodels/{}.png'.format(pkmn.name), (120,120)))
+                                    try:
+                                        window['-monimg-'].Update(resize('images/homemodels/{}.png'.format(pkmn.name), (120,120)))
+                                    except:
+                                        window['-monimg-'].Update(visible = False)
+                                        print(Exception)
                                     window['-monname-'].Update(pkmn.name.replace("Farfetchd","Farfetch'd"))
                                     window['-monnum-'].Update('#{}'.format(str(pkmn.species_num())))
                                     window['-level-'].Update('Level: {}'.format(levelnum))
@@ -1300,7 +1304,7 @@ def run():
                                         window['-mv{}acc-'.format(pkmn.moves.index(move) + 1)].update(acc)
                                         window['-mv{}ctc-'.format(pkmn.moves.index(move) + 1)].update(contact)
                                 # elif (pkmn in party2) & (party.index(pkmn)+1):
-                                elif (pkmn in party2) & (party.index(pkmn)+1 == 7): # this works for XY, needs testing for all other games; only access first mon stuff, may want to figure out a way to include double battle
+                                elif (pkmn in party2) & (party.index(pkmn)+1 == 7): # this works for singles in XY, needs testing for all other games; only access first mon stuff, may want to figure out a way to include double battle (may not work for multis)
                                     print(party.index(pkmn)+1, ';;;', ';;;', pkmn.name)
                                     if (emon != pkmn) & (emon == emon): # washing the moveset on mon change
                                         ct = 0
@@ -1381,7 +1385,11 @@ def run():
                                     window['-bc7a-e-'].Update(visible = True)
                                     # update enemy slot info
                                     window['-slot-e-'].Update('Slot {} - {}'.format(str(party.index(pkmn)+1), 'Battle'))
-                                    window['-monimg-e-'].Update(resize('images/homemodels/{}.png'.format(pkmn.name), (120,120)))
+                                    try:
+                                        window['-monimg-'].Update(resize('images/homemodels/{}.png'.format(pkmn.name), (120,120)))
+                                    except:
+                                        window['-monimg-'].Update(visible = False)
+                                        print(Exception)
                                     window['-monname-e-'].Update(pkmn.name.replace("Farfetchd","Farfetch'd"))
                                     window['-monnum-e-'].Update('#{}'.format(str(pkmn.species_num())))
                                     window['-level-e-'].Update('Level: {}'.format(levelnum))
@@ -1483,7 +1491,11 @@ def run():
                                 ### UPDATING TRACKER INFO ###
                                 # print(slot)
                                 window['-slot-'].Update('Slot {} - {}'.format(str(party.index(pkmn)+1), 'Overworld'))
-                                window['-monimg-'].Update(resize('images/homemodels/{}.png'.format(pkmn.name), (120,120)))
+                                try:
+                                    window['-monimg-'].Update(resize('images/homemodels/{}.png'.format(pkmn.name), (120,120)))
+                                except:
+                                    window['-monimg-'].Update(visible = False)
+                                    print(Exception)
                                 window['-monname-'].Update(pkmn.name.replace("Farfetchd","Farfetch'd"))
                                 window['-monnum-'].Update('#{}'.format(str(pkmn.species_num())))
                                 window['-level-'].Update('Level: {}'.format(str(pkmn.level)))
