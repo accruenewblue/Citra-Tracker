@@ -1134,6 +1134,7 @@ def run():
                                 slotchoice = pkmn.name # only kicks the first time through the code
                             # print(slot)
                             window['-slotdrop-'].Update(values=slot, value=slotchoice, visible=True)
+                            print(enctype, ';;;', pkmn.name, ';;;', party.index(pkmn)+1)
                             if enctype!='p':
                                 #grabs in battle types
                                 pkmntypes=[]
@@ -1309,8 +1310,8 @@ def run():
                                         window['-mv{}acc-'.format(pkmn.moves.index(move) + 1)].update(acc)
                                         window['-mv{}ctc-'.format(pkmn.moves.index(move) + 1)].update(contact)
                                 # elif (pkmn in party2) & (party.index(pkmn)+1):
-                                elif (pkmn in party2) & ((party.index(pkmn)+1 == 7) or (party.index(pkmn)+1 == 13)): # this works for singles in XY, needs testing for all other games; only access first mon stuff, may want to figure out a way to include double battle (may not work for multis)
-                                    print(pkmn.name, ';;;', pkmn.species, ';;;', party.index(pkmn)+1)
+                                elif (pkmn in party2) & ((party.index(pkmn)+1 == 7) or (party.index(pkmn)+1 == 1)): # this works for singles in XY, needs testing for all other games; only access first mon stuff, may want to figure out a way to include double battle (may not work for multis)
+                                    # print(pkmn.name, ';;;', pkmn.species, ';;;', party.index(pkmn)+1)
                                     if (emon != pkmn) & (emon == emon): # washing the moveset on mon change
                                         ct = 0
                                         while ct < 4:
