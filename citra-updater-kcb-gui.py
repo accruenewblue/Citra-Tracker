@@ -1312,8 +1312,14 @@ def run():
                                 # elif (pkmn in party2) & (party.index(pkmn)+1):
                                 elif (pkmn in party2) & ((party.index(pkmn)+1 == 7) or (party.index(pkmn)+1 == 1)): # this works for singles in XY, needs testing for all other games; only access first mon stuff, may want to figure out a way to include double battle (may not work for multis)
                                     # print(pkmn.name, ';;;', pkmn.species, ';;;', party.index(pkmn)+1)
-                                    if (emon != pkmn) & (emon == emon): # washing the moveset on mon change
+                                    if (emon != pkmn) & (emon == emon): # washing the data on mon change (the stat mods may not be needed, but keeping here for now)
                                         ct = 0
+                                        window['-hp-e-'].update('[ ]')
+                                        window['-att-e-'].update('[ ]')
+                                        window['-def-e-'].update('[ ]')
+                                        window['-spatt-e-'].update('[ ]')
+                                        window['-spdef-e-'].update('[ ]')
+                                        window['-speed-e-'].update('[ ]')
                                         while ct < 4:
                                             ct += 1
                                             window['-mv{}type-e-'.format(ct)].update(visible = False)
