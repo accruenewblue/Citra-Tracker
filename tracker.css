@@ -354,3 +354,8 @@ body {
 .previous-arrow:hover, .next-arrow:hover {
   color: lightgray;
 }
+.tracker-data {
+  display: block;
+  width: 300px;
+  text-wrap: wrap;
+}
