@@ -1373,43 +1373,47 @@ def run():
                                 slotchoice = pkmn.name # only kicks the first time through the code
                                 antici = 0
                             window['-slotdrop-'].Update(values=slot, value=slotchoice, visible=True)
-                            #stored as items, key items, tms, medicine, berries
-                            hphl={"total":0,"percent":0}
-                            statushl={"total":0}
-                            pphl={"total":0}
-                            #147236508 xy, 147250640 oras
-                            #itmdlXY=[147236508,,,,11016,12616]
-                            if getGame(c)=="X/Y":
-                                itmdl=[147236508,9952,10208,10640,11016,12616,0x67E852C]   #70F62C #67E892C xy trainers
-                            if getGame(c)=="OmegaRuby/AlphaSapphire":
-                                itmdl=[147250640,9952,10208,10640,11024,12624] #reverse-berries,meds,tms,keys,items
-                            #print(int.from_bytes(c.read_memory(itmdl[0],2),"little"))#money
-                            #print(int.from_bytes(c.read_memory(itmdl[0]-itmdl[5],2),"little"))#items
-                            #print(int.from_bytes(c.read_memory(itmdl[0]-itmdl[4],2),"little"))#key items
-                            #print(str(c.read_memory(147236508-0x67E892C,100),"utf-8")) #0x71A500 oras
-                            for item in range(0,100):   #heals, up to 100 also covers first 36 berries
-                                if int.from_bytes(c.read_memory(itmdl[0]-itmdl[2]+(item*4),2),"little")!=0:
-                                    if "heal" not in items[str(int.from_bytes(c.read_memory(itmdl[0]-itmdl[2]+(item*4),2),"little"))].keys():
-                                        continue
-                                    #print(items[str(int.from_bytes(c.read_memory(itmdl[0]-itmdl[2]+(item*4),2),"little"))]["name"],str(int.from_bytes(c.read_memory(itmdl[0]-itmdl[2]+2+(item*4),2),"little")))
-                                    if items[str(int.from_bytes(c.read_memory(itmdl[0]-itmdl[2]+(item*4),2),"little"))]["heal"]["type"]=="status":
-                                        statushl['total']=statushl["total"]+int.from_bytes(c.read_memory(itmdl[0]-itmdl[2]+2+(item*4),2),"little")
-                                        statushl[items[str(int.from_bytes(c.read_memory(itmdl[0]-itmdl[2]+(item*4),2),"little"))]["name"]]=int.from_bytes(c.read_memory(itmdl[0]-itmdl[2]+2+(item*4),2),"little")
-                                    if items[str(int.from_bytes(c.read_memory(itmdl[0]-itmdl[2]+(item*4),2),"little"))]["heal"]["type"]=="pp":
-                                        pphl['total']=pphl["total"]+int.from_bytes(c.read_memory(itmdl[0]-itmdl[2]+2+(item*4),2),"little")
-                                        pphl[items[str(int.from_bytes(c.read_memory(itmdl[0]-itmdl[2]+(item*4),2),"little"))]["name"]]=int.from_bytes(c.read_memory(itmdl[0]-itmdl[2]+2+(item*4),2),"little")
-                                    if items[str(int.from_bytes(c.read_memory(itmdl[0]-itmdl[2]+(item*4),2),"little"))]["heal"]["type"]=="per":
-                                        hphl['total']=hphl["total"]+int.from_bytes(c.read_memory(itmdl[0]-itmdl[2]+2+(item*4),2),"little")
-                                        hphl[items[str(int.from_bytes(c.read_memory(itmdl[0]-itmdl[2]+(item*4),2),"little"))]["name"]]=int.from_bytes(c.read_memory(itmdl[0]-itmdl[2]+2+(item*4),2),"little")
-                                        hphl['percent']=str(round(int(hphl['percent'])+(int(items[str(int.from_bytes(c.read_memory(itmdl[0]-itmdl[2]+(item*4),2),"little"))]["heal"]["value"])*int.from_bytes(c.read_memory(itmdl[0]-itmdl[2]+2+(item*4),2),"little"))))
-                                    if items[str(int.from_bytes(c.read_memory(itmdl[0]-itmdl[2]+(item*4),2),"little"))]["heal"]["type"]=="set":
-                                        hphl['total']=hphl["total"]+int.from_bytes(c.read_memory(itmdl[0]-itmdl[2]+2+(item*4),2),"little")
-                                        hphl[items[str(int.from_bytes(c.read_memory(itmdl[0]-itmdl[2]+(item*4),2),"little"))]["name"]]=int.from_bytes(c.read_memory(itmdl[0]-itmdl[2]+2+(item*4),2),"little")
-                                        if int(items[str(int.from_bytes(c.read_memory(itmdl[0]-itmdl[2]+(item*4),2),"little"))]["heal"]["value"])<pkmn.maxhp:
-                                            hphl['percent']=str(round(int(hphl['percent'])+(int(items[str(int.from_bytes(c.read_memory(itmdl[0]-itmdl[2]+(item*4),2),"little"))]["heal"]["value"])*int.from_bytes(c.read_memory(itmdl[0]-itmdl[2]+2+(item*4),2),"little")*100/pkmn.maxhp)))
-                                        else:
-                                            hphl['percent']=str(int(hphl['percent'])+100)
-                            print(hphl,statushl,pphl)
+                            try:
+                                #stored as items, key items, tms, medicine, berries
+                                hphl={"total":0,"percent":0}
+                                statushl={"total":0}
+                                pphl={"total":0}
+                                #147236508 xy, 147250640 oras
+                                #itmdlXY=[147236508,,,,11016,12616]
+                                if getGame(c)=="X/Y":
+                                    itmdl=[147236508,9952,10208,10640,11016,12616,0x67E852C]   #70F62C #67E892C xy trainers
+                                if getGame(c)=="OmegaRuby/AlphaSapphire":
+                                    itmdl=[147250640,9952,10208,10640,11024,12624] #reverse-berries,meds,tms,keys,items
+                                #print(int.from_bytes(c.read_memory(itmdl[0],2),"little"))#money
+                                #print(int.from_bytes(c.read_memory(itmdl[0]-itmdl[5],2),"little"))#items
+                                #print(int.from_bytes(c.read_memory(itmdl[0]-itmdl[4],2),"little"))#key items
+                                #print(str(c.read_memory(147236508-0x67E892C,100),"utf-8")) #0x71A500 oras
+                                for item in range(0,100):   #heals, up to 100 also covers first 36 berries
+                                    if int.from_bytes(c.read_memory(itmdl[0]-itmdl[2]+(item*4),2),"little")!=0:
+                                        if "heal" not in items[str(int.from_bytes(c.read_memory(itmdl[0]-itmdl[2]+(item*4),2),"little"))].keys():
+                                            continue
+                                        #print(items[str(int.from_bytes(c.read_memory(itmdl[0]-itmdl[2]+(item*4),2),"little"))]["name"],str(int.from_bytes(c.read_memory(itmdl[0]-itmdl[2]+2+(item*4),2),"little")))
+                                        if items[str(int.from_bytes(c.read_memory(itmdl[0]-itmdl[2]+(item*4),2),"little"))]["heal"]["type"]=="status":
+                                            statushl['total']=statushl["total"]+int.from_bytes(c.read_memory(itmdl[0]-itmdl[2]+2+(item*4),2),"little")
+                                            statushl[items[str(int.from_bytes(c.read_memory(itmdl[0]-itmdl[2]+(item*4),2),"little"))]["name"]]=int.from_bytes(c.read_memory(itmdl[0]-itmdl[2]+2+(item*4),2),"little")
+                                        if items[str(int.from_bytes(c.read_memory(itmdl[0]-itmdl[2]+(item*4),2),"little"))]["heal"]["type"]=="pp":
+                                            pphl['total']=pphl["total"]+int.from_bytes(c.read_memory(itmdl[0]-itmdl[2]+2+(item*4),2),"little")
+                                            pphl[items[str(int.from_bytes(c.read_memory(itmdl[0]-itmdl[2]+(item*4),2),"little"))]["name"]]=int.from_bytes(c.read_memory(itmdl[0]-itmdl[2]+2+(item*4),2),"little")
+                                        if items[str(int.from_bytes(c.read_memory(itmdl[0]-itmdl[2]+(item*4),2),"little"))]["heal"]["type"]=="per":
+                                            hphl['total']=hphl["total"]+int.from_bytes(c.read_memory(itmdl[0]-itmdl[2]+2+(item*4),2),"little")
+                                            hphl[items[str(int.from_bytes(c.read_memory(itmdl[0]-itmdl[2]+(item*4),2),"little"))]["name"]]=int.from_bytes(c.read_memory(itmdl[0]-itmdl[2]+2+(item*4),2),"little")
+                                            hphl['percent']=str(round(int(hphl['percent'])+(int(items[str(int.from_bytes(c.read_memory(itmdl[0]-itmdl[2]+(item*4),2),"little"))]["heal"]["value"])*int.from_bytes(c.read_memory(itmdl[0]-itmdl[2]+2+(item*4),2),"little"))))
+                                        if items[str(int.from_bytes(c.read_memory(itmdl[0]-itmdl[2]+(item*4),2),"little"))]["heal"]["type"]=="set":
+                                            hphl['total']=hphl["total"]+int.from_bytes(c.read_memory(itmdl[0]-itmdl[2]+2+(item*4),2),"little")
+                                            hphl[items[str(int.from_bytes(c.read_memory(itmdl[0]-itmdl[2]+(item*4),2),"little"))]["name"]]=int.from_bytes(c.read_memory(itmdl[0]-itmdl[2]+2+(item*4),2),"little")
+                                            if int(items[str(int.from_bytes(c.read_memory(itmdl[0]-itmdl[2]+(item*4),2),"little"))]["heal"]["value"])<pkmn.maxhp:
+                                                hphl['percent']=str(round(int(hphl['percent'])+(int(items[str(int.from_bytes(c.read_memory(itmdl[0]-itmdl[2]+(item*4),2),"little"))]["heal"]["value"])*int.from_bytes(c.read_memory(itmdl[0]-itmdl[2]+2+(item*4),2),"little")*100/pkmn.maxhp)))
+                                            else:
+                                                hphl['percent']=str(int(hphl['percent'])+100)
+                                #print(hphl,statushl,pphl)
+                            except:
+                                if gen==6:
+                                    print("Bag not read")
                             # print(enctype, ';;;', pkmn.name, ';;;', party.index(pkmn)+1, ';;;', pkmnindex+12)
                             if enctype!='p':
                                 #grabs in battle types
