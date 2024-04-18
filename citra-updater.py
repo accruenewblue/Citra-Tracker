@@ -728,7 +728,7 @@ def getaddresses(c):
         curoppadd=0x33F7FA44-0x3f760d4+66286592
         wildppadd=0x33F7FA44-0x3f760d4-34
         trainerppadd=0x33F7FA44-0x3f760d4-34
-        multippadd=wildppadd
+        multippadd=wildppadd+20784
         mongap=816
     else:
         return -1,-1,-1,-1,-1,-1
@@ -1320,7 +1320,6 @@ def run():
                             continue
                     
                     partyadd,enemyadd,ppadd,curoppnum,enctype,mongap=getaddresses(c)
-                    print(enctype)
                     # print("loops" + str(loops))
                     loops+=1
 
@@ -1338,10 +1337,14 @@ def run():
                     enemynum=int.from_bytes(c.read_memory(curoppnum,2),"little")
                     pkmni=0
                     emon = ''
+                    abihfduyruebfe=[]
                     for pkmn in party:
                         if pkmn in party1:
                             if pkmn.species_num()==0:
                                 party1.remove(pkmn)
+                            if pkmn.species_num()!=0:
+                                pkmn.getAtts(gamegroupid,gen)
+                                abihfduyruebfe.append(pkmn.ability['name'])
                     for pkmn in party2:
                         pkmni+=1
                         if pkmn.species_num()!=enemynum:
@@ -1390,6 +1393,8 @@ def run():
                                     itmdl=[147236508,9952,10208,10640,11016,12616,0x67E852C]   #70F62C #67E892C xy trainers
                                 if getGame(c)=="OmegaRuby/AlphaSapphire":
                                     itmdl=[147250640,9952,10208,10640,11024,12624] #reverse-berries,meds,tms,keys,items
+                                    #rttn = 8
+                                    #tex=[str(c.read_memory(itmdl[0]-itmdl[5],100).hex())[i:i+rttn] for i in range(0, len(str(c.read_memory(itmdl[0]-itmdl[5],100).hex())), rttn)]
                                 #print(int.from_bytes(c.read_memory(itmdl[0],2),"little"))#money
                                 #print(int.from_bytes(c.read_memory(itmdl[0]-itmdl[5],2),"little"))#items
                                 #print(c.read_memory(itmdl[0]-itmdl[2],60).hex())#key items
@@ -1427,7 +1432,6 @@ def run():
                             except:
                                 if gen==6:
                                     print("Bag not read")
-                            # print(enctype, ';;;', pkmn.name, ';;;', party.index(pkmn)+1, ';;;', pkmnindex+12)
                             if enctype!='p':
                                 #grabs in battle types
                                 pkmntypes=[]
@@ -1515,10 +1519,6 @@ def run():
                                     ### MOVES ########
                                     totallearn,nextmove,learnedcount,learnstr = pkmn.getMoves(gamegroupid)
                                     nmove = (' - ' if not nextmove else nextmove)
-                                    if pkmn.held_item_name == pkmn.held_item_name:
-                                        frisk = 1
-                                    else:  
-                                        frisk = 0
                                     query=f"""select
                                             itemname
                                             ,itemdesc
@@ -1660,6 +1660,7 @@ def run():
                                         window['-mv{}text-'.format(pkmn.moves.index(move) + 1)].set_tooltip(move["description"])
                                         #print(int.from_bytes(c.read_memory(ppadd+(mongap*(pk-1))-2+(14*(pkmn.moves).index(move)),2),"little"))
                                         window['-mv{}pp-'.format(pkmn.moves.index(move) + 1)].update('{}/{}'.format(int.from_bytes(c.read_memory(ppadd+(mongap*(pk-1))+(14*(pkmn.moves).index(move)),1)), int.from_bytes(c.read_memory(ppadd+(mongap*(pk-1))+1+(14*(pkmn.moves).index(move)),1))))
+                                        #print("pp: "+str(int.from_bytes(c.read_memory(ppadd+(mongap*(pk-1))+(14*(pkmn.moves).index(move)),1)))+", "+str(ppadd+(mongap*(pk-1))+(14*(pkmn.moves).index(move)))+", "+str(ppadd+(mongap*(pk-1))+(14*(pkmn.moves).index(move))-662550)+", "+str((c.read_memory(ppadd+(mongap*(pk-1))+(14*(pkmn.moves).index(move))-662550,1)).hex()))
                                         window['-mv{}mod-'.format(pkmn.moves.index(move) + 1)].update('images/modifiers/modifier{}.png'.format(modimage))
                                         if stab == move['type']:
                                             window['-mv{}bp-'.format(pkmn.moves.index(move) + 1)].update(calcPower(pkmn,move,hpnum[0],hpnum[1]), text_color=typeformatting(move['type']))
@@ -1731,31 +1732,28 @@ def run():
                                         window['-status-e-'].Update(resize('images/statuses/{}.png'.format(pkmn.status), (75, 20)), visible = True)
                                     else:
                                         window['-status-e-'].Update(visible = False)
-                                    query=f"""select
-                                            ab.abilityname
-                                            ,abilitydescription
-                                        from "pokemon.generationability" ga
-                                            left join "pokemon.ability" ab on ga.abilityid = ab.abilityid
-                                            left join "pokemon.abilitylookup" al on ab.abilityname = al.abilityname
-                                        where al.abilityindex = {batabilnum} and ga.generationid <= {gen}
-                                        order by ga.generationid desc
-                                        """
-                                    totallearn,nextmove,learnedcount,learnstr = pkmn.getMoves(gamegroupid)
-                                    abilityname,abilitydescription = cursor.execute(query).fetchone()
-                                    startupabils=["Air Lock","Cloud Nine","Delta Stream","Desolate Land","Download","Drizzle","Drought","Forewarn","Imposter","Intimidate","Mold Breaker","Pressure","Primordial Sea","Sand Stream","Slow Start","Snow Warning","Teravolt","Turboblaze","Trace","Unnerve","Aura Break","Fairy Aura","Dark Aura",]
-                                    if frisk == 1:
-                                        startupabils.append('Frisk')
-                                    if antici == 1:
-                                        startupabils.append('Anticipation')
-                                    if abilityname in startupabils:
-                                        window['-ability-e-'].Update(str(pkmn.ability['name']), text_color="#f0f080")
-                                        window['-ability-e-'].set_tooltip(str(pkmn.ability['description']))
-                                        if pkmn.abilityname not in trackdata[pkmn.name]['abilities']:
-                                            trackdata[pkmn.name]['abilities'].append(pkmn.abilityname)
-                                    elif change == 'abil':
-                                        window['-ability-e-'].set_tooltip('')
-                                    else:
+                                    try:
+                                        query2=f"""select
+                                                ab.abilityname
+                                                ,abilitydescription
+                                            from "pokemon.generationability" ga
+                                                left join "pokemon.ability" ab on ga.abilityid = ab.abilityid
+                                                left join "pokemon.abilitylookup" al on ab.abilityname = al.abilityname
+                                            where al.abilityindex = {int.from_bytes(c.read_memory(136334160-714472,1))} and ga.generationid <= {gen}
+                                            order by ga.generationid desc
+                                            """
+                                        abilityname2,abilitydescription2 = cursor.execute(query2).fetchone()
+                                        if abilityname2==pkmn.ability['name']:
+                                            if abilityname2 not in abihfduyruebfe:
+                                                #print(int.from_bytes(c.read_memory(136334160-714472,1))) xy oras:135669536
+                                                print(int.from_bytes(c.read_memory(136334160-714472,1))) #oras
+                                                window['-ability-e-'].Update(str(pkmn.ability['name']), text_color="#f0f080")
+                                                window['-ability-e-'].set_tooltip(str(pkmn.ability['description']))
+                                                if pkmn.abilityname not in trackdata[pkmn.name]['abilities']:
+                                                    trackdata[pkmn.name]['abilities'].append(pkmn.abilityname)
+                                    except:
                                         window['-ability-e-'].Update('Unknown Ability', text_color="#f0f080")
+                                        window['-ability-e-'].set_tooltip('')
                                     if pkmn.level not in trackdata[pkmn.name]['levels']:
                                         trackdata[pkmn.name]['levels'].append(pkmn.level)
                                     nmove = (' - ' if not nextmove else nextmove)
@@ -1881,13 +1879,14 @@ def run():
                                 pkmntypes=[]
                             elif (enctype=='p') and (pkmn.name == slotchoice):
                                 ##### TYPES, STATS, ABIILITIES, ETC.
-                                print(pkmn.friendship,pkmn.name)
+                                #print(pkmn.friendship,pkmn.name)
                                 for type in pkmn.types:
                                     window['-typeimg{}-'.format(pkmn.types.index(type) + 1)].Update(resize('images/types/{}.png'.format(type[0]), (27, 24)), visible = True)
                                     window['-typename{}-'.format(pkmn.types.index(type) + 1)].Update('{}'.format(type[0]), text_color=typeformatting(type[0]), visible = True)
                                     if len(pkmn.types) == 1:
                                         window['-typeimg2-'].Update(visible = False)
                                         window['-typename2-'].Update(visible = False)
+                                print(pkmn.name,pkmn.level,pkmn.held_item_name,pkmn.ability['name'],"|",pkmn.ivhp,pkmn.ivattack,pkmn.ivdefense,pkmn.ivspatk,pkmn.ivspdef,pkmn.ivspeed)
                                 if pkmn.evo:
                                     evofriend = ''
                                     evolevel = ''
@@ -1956,9 +1955,21 @@ def run():
                                 window['-ability-'].set_tooltip(str(pkmn.ability['description']))
                                 window['-item-'].update(pkmn.held_item_name)
                                 window['-item-'].set_tooltip(itemdesc)
+                                healtooltip=str(hphl)
+                                #print(len(healtooltip),"ffgf")
+                                rttrtrtrt=[]
+                                sdbfilds=''
+                                lenbeforenewline=125
+                                while len(healtooltip)>lenbeforenewline:
+                                    rttrtrtrt.append(str(healtooltip[0:lenbeforenewline])+"\n")
+                                    healtooltip=healtooltip[lenbeforenewline:]
+                                rttrtrtrt.append(healtooltip)
+                                for value in rttrtrtrt:
+                                    sdbfilds+=(str(value))
+                                #print(sdbfilds)
                                 window['-heals-'].update("Heals: "+str(hphl["percent"])+"% ("+str(hphl["total"])+")")
                                 test=hphl.pop("percent")
-                                window['-heals-'].set_tooltip("Heals: "+str(hphl)+"\nStatus:"+str(statushl)+"\nPP:"+str(pphl))
+                                window['-heals-'].set_tooltip("Heals: "+sdbfilds+"\nStatus:"+str(statushl)+"\nPP:"+str(pphl))
                                 window['-hplabel-'].update(visible = True)
                                 window['-attlabel-'].update(visible = True, text_color=natureformatting(naturelist, 0))
                                 window['-deflabel-'].update(visible = True, text_color=natureformatting(naturelist, 1))
